@@ -24,22 +24,22 @@ import project4 from '../images/project-4.jpg';
 export const picArray = [avatar, diplom1, diplom1a, diplom1b, diplom1c, diplom1d, diplom1e, diplom1f, diplom1g, diplom1h, diplom2a, diplom2b, diplom2c, diplom2d, diplom2e, diplom2f, diplom2g, diplom2, diplom3, project1, project2, project3, project4];
 
 export const GAME = [
-  {number: '', area: 'top1', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'top2', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'top3', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'top4', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'second1', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'second2', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'second3', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'second4', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'third1', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'third2', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'third3', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'third4', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'bottom1', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'bottom2', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'bottom3', back: 'white', size: 'xxx-large', color: 'black'},
-  {number: '', area: 'bottom4', back: 'white', size: 'xxx-large', color: 'black'},
+  {number: '', area: 'top1', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'top2', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'top3', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'top4', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'second1', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'second2', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'second3', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'second4', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'third1', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'third2', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'third3', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'third4', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'bottom1', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'bottom2', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'bottom3', back: 'white', size: '4.5vw', color: 'black'},
+  {number: '', area: 'bottom4', back: 'white', size: '4.5vw', color: 'black'},
 ];
 
 const date = new Date();
@@ -69,11 +69,11 @@ export function styler(array) {
       item.back = 'white';
     }
     if (item.number > 9999) {
-      item.size = 'x-large';
+      item.size = '3vw';
     } else if (item.number > 999) {
-      item.size = 'xx-large';
+      item.size = '3.5vw';
     } else {
-      item.size = 'xxx-large';
+      item.size = '4.5vw';
     }
     if (item.number > 2000) {
       item.color = 'white';

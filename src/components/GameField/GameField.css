@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Iceberg';
+  src: url('../../vendor/Iceberg-Regular.woff') format('woff');
+}
+
 .GameField{
   z-index: 1;
   width: 43vw;
@@ -14,4 +19,6 @@
       "second1 second2 second3 second4"
       "third1 third2 third3 third4"
       "bottom1 bottom2 bottom3 bottom4";
+  font-family: 'Iceberg', sans-serif;
+  font-weight: bold;
 }

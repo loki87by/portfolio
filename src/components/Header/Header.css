@@ -1,0 +1,6 @@
+.Header{
+  padding: 1vw 5vw;
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+}

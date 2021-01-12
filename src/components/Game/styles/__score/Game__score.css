@@ -1,0 +1,10 @@
+.Game__score{
+  width: 26.5vw;
+  margin: 0;
+  margin-left: 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  letter-spacing: 0.05em;
+}

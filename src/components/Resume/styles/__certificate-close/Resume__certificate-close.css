@@ -1,0 +1,10 @@
+.Resume__certificate-close{
+  position: fixed;
+  right: 1vw;
+  top: 2.5vw;
+  z-index: 4;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}

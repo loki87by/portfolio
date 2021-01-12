@@ -1,0 +1,5 @@
+.Header__button-image{
+  width: 6vw;
+  object-fit: cover;
+  cursor: pointer;
+}

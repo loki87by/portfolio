@@ -1,0 +1,9 @@
+.Resume__work-description{
+  width: 45%;
+  height: 60vh;
+  margin: 0;
+  overflow: auto;
+  font-size: 3vw;
+  line-height: 3.4vw;
+  color: white;
+}

@@ -1,0 +1,7 @@
+.Game__rules-text_gameStarted{
+  visibility: hidden;
+  padding: 55px 0 0 5px;
+  padding-bottom: calc(100% - 200px);
+  margin: -55px 0 0;
+  background-color: black;
+}

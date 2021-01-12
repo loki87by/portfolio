@@ -1,0 +1,8 @@
+.Game__rules-title_gameStarted{
+  z-index: 3;
+  align-self: flex-end;
+}
+
+.Game__rules-title_gameStarted:hover + .Game__rules-text{
+  visibility: visible;
+}

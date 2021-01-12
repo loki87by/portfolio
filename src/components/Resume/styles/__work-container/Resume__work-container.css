@@ -1,0 +1,6 @@
+.Resume__work-container{
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

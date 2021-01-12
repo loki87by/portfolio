@@ -1,0 +1,169 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+// ***импорты
+import React from 'react';
+import { afterMidnight } from '../../utils/consts';
+import Resume from '../Resume/Resume';
+import Game from '../Game/Game';
+import Popup from '../Popup/Popup';
+import './Main.css';
+
+// ***функционал
+function Main(props) {
+
+  // **стейты
+  const [endTime, setEndTime] = React.useState(1015);
+  const [newTime, setNewTime] = React.useState(0);
+  const [isTimerEdited, setTimerEdited] = React.useState(false);
+  const [isTimedPopup, setTimedPopup] = React.useState(false);
+  const [isNewTimer, setNewTimer] = React.useState(false);
+  const [newInterval, setNewInterval] = React.useState(true);
+  const [intervalTime, setIntervalTime] = React.useState(3300000);
+  const [popupOpened, setPopupOpened] = React.useState(false);
+  const [popupType, setPopupType] = React.useState('');
+  const [gameStarted, setGameStarted] = React.useState(false);
+  const [endGame, setEndGame] = React.useState(false);
+  const countRef = React.useRef(endTime);
+  countRef.current = endTime;
+  const intervalRef = React.useRef(intervalTime);
+  intervalRef.current = intervalTime;
+
+  // **функции открытия попапа
+  // *открытие в установленное время
+  function openPopup() {
+    setPopupOpened(true);
+    setTimedPopup(true);
+  }
+  // *открытие попапа
+  function openOclockPopup() {
+    openPopup();
+    setPopupType('oclock');
+  }
+  // *эффект первичного таймера
+  React.useEffect(() => {
+    let time;
+    countRef.current = endTime;
+    if (afterMidnight < countRef.current) {
+      time = countRef.current - afterMidnight;
+    } else {
+      time = countRef.current - afterMidnight + 1440;
+    }
+    let timer = setTimeout(openOclockPopup, time * 60000);
+    return () => {clearTimeout(timer)}
+  }, []);
+  // *открытие попапа кофе-брейка через час
+  function openCoffeePopup() {
+    openPopup();
+    setPopupType('coffee');
+  }
+  // *эффект первичного таймера попапа кофе-брейка
+  React.useEffect(() => {
+    intervalRef.current = intervalTime;
+    if (newInterval) {
+      let timer = setInterval(openCoffeePopup, intervalRef.current);
+      return () => {
+        clearInterval(timer);
+      }
+    }
+  }, [intervalRef.current]);
+
+  // **функции перенастройки попапа
+  // *эффект измененного таймера
+  React.useEffect(() => {
+    if(isNewTimer) {
+      let time = newTime - countRef.current;
+      let timer = setTimeout(openOclockPopup, time * 60000);
+      return () => {
+        setNewTimer(false);
+        clearTimeout(timer);
+      }
+    }
+  })
+  // *считыватель выставленного времени
+  let mins;
+  let hrs;
+  function handleEditTimer(e) {
+    mins = +e.target.value.slice(3, 5);
+    hrs = +e.target.value.slice(0, 2);
+    let time = hrs * 60 + mins;
+    setNewTime(time);
+    setTimerEdited(true);
+  }
+  // *установка нового таймера
+  function newTimer() {
+    handlePopupClose();
+    setTimerEdited(false);
+    setEndTime(countRef.current);
+    setNewTimer(true);
+  }
+  // *получение выбранных данных времени
+  function getNewTimerValue() {
+    let value = document.getElementById('timerChanger').value;
+    let timerValue = value * 60000;
+    setTimerEdited(true);
+    setIntervalTime(timerValue);
+  }
+  // *установка нового интервала
+  function newTimeInterval() {
+    handlePopupClose();
+    setNewInterval(true);
+  }
+
+  // **функции закрытия попапа
+  // *закрытие попапа
+  function handlePopupClose() {
+    setPopupOpened(false);
+    setPopupType('');
+    setTimedPopup(false);
+    setNewInterval(false);
+  }
+  // *закрытие по esc
+  function handleEscClose(e) {
+    if (e.key === "Escape") {
+      handlePopupClose();
+    }
+  }
+  // *закрытие по оверлею
+  function handleClickClose(e) {
+    if (e.target.classList.contains('Popup_opened')) {
+      handlePopupClose();
+    }
+  }
+  // *слушатели закрытий
+  React.useEffect(() => {
+    window.addEventListener('keydown', handleEscClose);
+    window.addEventListener('click', handleClickClose);
+  })
+
+  // **DOM
+  return(
+    <section className="Main">
+      <Resume setLuft={props.setLuft}
+       lang={props.lang}/>
+      <Game
+      isGame={props.isGame}
+      setPopupOpened={setPopupOpened}
+      setPopupType={setPopupType}
+      setGameStarted={setGameStarted}
+      setEndGame={setEndGame}
+      gameStarted={gameStarted}
+      endGame={endGame}/>
+      <Popup
+      isOpen={popupOpened}
+      isTimedPopup={isTimedPopup}
+      onClose={handlePopupClose}
+      handleEditTimer={handleEditTimer}
+      isTimerEdited={isTimerEdited}
+      newTimer={newTimer}
+      popupType={popupType}
+      setGameStarted={setGameStarted}
+      setEndGame={setEndGame}
+      setTimedPopup={setTimedPopup}
+      setNewInterval={setNewInterval}
+      getNewTimerValue={getNewTimerValue}
+      newTimeInterval={newTimeInterval} />
+    </section>
+  )
+}
+
+// ***экспорт
+export default Main;

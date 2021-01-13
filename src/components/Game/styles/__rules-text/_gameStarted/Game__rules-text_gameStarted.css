@@ -5,3 +5,10 @@
   margin: -55px 0 0;
   background-color: black;
 }
+
+@media (max-width: 768px) {
+  .Game__rules-text_gameStarted{
+    visibility: visible;
+    padding-bottom: 0;
+  }
+}

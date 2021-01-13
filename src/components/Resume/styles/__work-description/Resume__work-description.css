@@ -7,3 +7,9 @@
   line-height: 3.4vw;
   color: white;
 }
+
+@media (max-width: 768px) {
+  .Resume__work-description{
+    height: 60%;
+  }
+}

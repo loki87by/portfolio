@@ -5,6 +5,7 @@ import logoEng from '../../images/logoEng.png';
 import eng from '../../images/UK.png';
 import rus from '../../images/RU.png';
 import './Header.css';
+import './styles/__logo/Header__logo.css';
 import './styles/__button/Header__button.css';
 import './styles/__button-image/Header__button-image.css';
 
@@ -23,7 +24,7 @@ function Header(props) {
   // *DOM
   return (
     <header className="Header">
-      <img alt="логотип" src={props.lang === "ru" ? logo : logoEng} />
+      <img className="Header__logo" alt="логотип" src={props.lang === "ru" ? logo : logoEng} />
       {props.lang === "ru" ?
         <button className="Header__button" type="button" onClick={langChanger}><img className="Header__button-image" src={eng} alt="флаг СК" /></button>
         :<button className="Header__button" type="button" onClick={langChanger}><img className="Header__button-image" src={rus} alt="флаг СК" /></button>}

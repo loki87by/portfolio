@@ -4,3 +4,51 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
+@media (max-width: 768px) {
+  .Resume__work-container{
+    margin-bottom: -20vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .Resume__work-container{
+    margin-bottom: -25vw;
+  }
+}
+
+@media (max-width: 555px) {
+  .Resume__work-container{
+    margin-bottom: -30vw;
+  }
+}
+
+@media (max-width: 499px) {
+  .Resume__work-container{
+    margin-bottom: -35vw;
+  }
+}
+
+@media (max-width: 444px) {
+  .Resume__work-container{
+    margin-bottom: -40vw;
+  }
+}
+
+@media (max-width: 404px) {
+  .Resume__work-container{
+    margin-bottom: -45vw;
+  }
+}
+
+@media (max-width: 366px) {
+  .Resume__work-container{
+    margin-bottom: -50vw;
+  }
+}
+
+@media (max-width: 320px) {
+  .Resume__work-container{
+    margin-bottom: -55vw;
+  }
+}

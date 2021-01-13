@@ -1,14 +1,15 @@
 .Resume__work_projects_diplom{
   background-image: url('../../../../../images/diplom-1.jpg');
-  background-size: cover;
+  background-size: contain;
   background-position-y: top;
+  background-repeat: no-repeat;
 }
 
 .Resume__work_projects_diplom:hover{
-  animation: scroll 15s linear 1s 1;
+  animation: any 15s linear 1s 1;
 }
 
-@keyframes scroll{
+@keyframes any{
   from {
     background-image: url('../../../../../images/diplom-1.jpg');
     background-position-y: top;

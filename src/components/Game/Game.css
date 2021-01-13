@@ -3,5 +3,14 @@
   height: calc(100vh * 1280 / 1024);
   padding-top: 1vw;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .Game{
+    height: 100%;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
 }

@@ -8,6 +8,12 @@
   animation: scroll 10s linear .5s 1;
 }
 
+@media (max-width: 768px) {
+  .Resume__work{
+    height: 60%;
+  }
+}
+
 @keyframes scroll{
   from {
     background-position-y: top;

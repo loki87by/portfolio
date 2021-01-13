@@ -32,6 +32,7 @@ import './styles/__certificate-close/Resume__certificate-close.css';
 function Resume(props) {
   const translation = React.useContext(TranslationContext);
   const [luft, setLuft] = React.useState(0);
+  const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
   const [isCertificateOpen, setCertificateOpen] = React.useState(false);
   const [openWorks, setOpenWorks] = React.useState({
     1: false,
@@ -78,6 +79,15 @@ function Resume(props) {
     window.addEventListener('keydown', handleEscClose);
     return () => {window.removeEventListener('keydown', handleEscClose);}
   })
+
+  React.useEffect(function() {
+    function resizer() {
+      setScreenWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", resizer);
+    resizer();
+    return () => window.removeEventListener("resize", resizer);
+  });
 
   // **DOM
   return (
@@ -161,7 +171,7 @@ function Resume(props) {
         : ''}
         </section>
         <section className={`Popup ${isCertificateOpen && "Popup_opened"}`}>
-        <iframe className="Resume__certificate" title='sertify' allowtransparency="true" height='100%' width='100%' src={props.lang === 'ru' ? `${certificateRu}#zoom=75` : `${certificateEn}#zoom=75`} ></iframe>
+        <iframe className="Resume__certificate" title='sertify' allowtransparency="true" height='100%' width='100%' src={props.lang === 'ru' ? `${certificateRu}#zoom=${screenWidth / 20}` : `${certificateEn}#zoom=${screenWidth / 20}`} ></iframe>
         {isCertificateOpen ?
           <button type="button" className="Resume__certificate-close" onClick={closeCertificate}><img alt='close' src={close} /></button>
           : ''}

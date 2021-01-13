@@ -7,3 +7,9 @@
   font-size: 1em;
   word-wrap: break-word;
 }
+
+@media (max-width: 768px) {
+  .Game__rules-text{
+    min-height: 150px;
+  }
+}

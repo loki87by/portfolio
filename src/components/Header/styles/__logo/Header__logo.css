@@ -1,0 +1,10 @@
+.Header__logo{
+  max-width: min-content;
+  height: 5.7vw;
+}
+
+@media (max-width: 768px) {
+  .Header__logo{
+    height: 4vw;
+  }
+}

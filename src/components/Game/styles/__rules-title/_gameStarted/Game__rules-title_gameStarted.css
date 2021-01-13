@@ -6,3 +6,9 @@
 .Game__rules-title_gameStarted:hover + .Game__rules-text{
   visibility: visible;
 }
+
+@media (max-width: 768px) {
+  .Game__rules-title_gameStarted{
+    align-self: flex-start;
+  }
+}

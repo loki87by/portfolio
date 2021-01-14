@@ -10,7 +10,6 @@ function GameField(props) {
   // **стейты
   const [numbers, setNumbers] = React.useState(GAME);
   const [maxNumber, setMaxNumber] = React.useState(16);
-  const gameElement = document.querySelector('.GameField')
 
   // **функции
   // *начало игры
@@ -24,8 +23,8 @@ function GameField(props) {
   }
   React.useEffect(() => {
     if (props.isMobile) {
-      gameElement.addEventListener('touchstart', startGame)
-      return () => {gameElement.removeEventListener('touchstart', startGame)}
+      window.addEventListener('touchstart', startGame)
+      return () => {window.removeEventListener('touchstart', startGame)}
     } else {
     window.addEventListener('keydown', startGame);
     return () => {window.removeEventListener('keydown', startGame)};
@@ -343,12 +342,12 @@ function GameField(props) {
   // **DOM
   return (
     maxNumber < 2049 ?
-    (<div className="GameField" id="game" style={{ 'backgroundColor': `rgb(${127 + maxNumber / 16}, ${127 + maxNumber / 16}, ${128 - maxNumber / 16})`}}>
+    (<div className="GameField" style={{ 'backgroundColor': `rgb(${127 + maxNumber / 16}, ${127 + maxNumber / 16}, ${128 - maxNumber / 16})`}}>
       {numbers.map((cell, i) => (
         <Cell key={i} cell={cell}/>
       ))}
     </div>) :
-    (<div className="GameField" id="game" style={{ 'backgroundColor': `rgb(${255 - maxNumber / 64}, 255, 0)`}}>
+    (<div className="GameField" style={{ 'backgroundColor': `rgb(${255 - maxNumber / 64}, 255, 0)`}}>
       {numbers.map((cell, i) => (
         <Cell key={i} cell={cell}/>
       ))}

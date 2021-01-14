@@ -42,7 +42,7 @@ function Game(props) {
           props.gameStarted ? ''
             : <span className="Game__rules-span">{translation.gameOver}</span>
           : props.gameStarted ? ''
-            : <span className="Game__rules-span">{translation.prestart}</span>}
+            : <span className="Game__rules-span">{props.isMobile ? translation.prestartMobile : translation.prestart}</span>}
       </div>
       <Popup />
     </section>

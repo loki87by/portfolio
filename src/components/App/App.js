@@ -16,7 +16,7 @@ function App() {
   const gameRef = React.useRef(isGame);
 
 const isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
-
+console.log(isMobile)
   // **отсеживание высоты страницы
 React.useEffect(() => {
   function fromTop() {

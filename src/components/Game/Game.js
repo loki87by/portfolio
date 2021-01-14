@@ -25,6 +25,7 @@ function Game(props) {
         <h3 className="Game__score">{translation.score}{score}</h3>
         : ''}
       <GameField
+      isMobile={props.isMobile}
       isGame={props.isGame}
       gameStarted={props.gameStarted}
       setGameStarted={props.setGameStarted}

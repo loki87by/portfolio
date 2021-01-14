@@ -140,6 +140,7 @@ function Main(props) {
       <Resume setLuft={props.setLuft}
        lang={props.lang}/>
       <Game
+      isMobile={props.isMobile}
       isGame={props.isGame}
       setPopupOpened={setPopupOpened}
       setPopupType={setPopupType}

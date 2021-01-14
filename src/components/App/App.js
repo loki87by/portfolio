@@ -15,6 +15,8 @@ function App() {
   const [luft, setLuft] = React.useState(0);
   const gameRef = React.useRef(isGame);
 
+const isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
+
   // **отсеживание высоты страницы
 React.useEffect(() => {
   function fromTop() {
@@ -59,7 +61,7 @@ preloadImages(picArray);
       <>
         <TranslationContext.Provider value={translations[lang]}>
           <Header setLang={setLang} lang={lang}/>
-          <Main isGame={gameRef} lang={lang} setLuft={setLuft}/>
+          <Main isMobile={isMobile} isGame={gameRef} lang={lang} setLuft={setLuft}/>
           <Footer />
         </ TranslationContext.Provider>
       </>

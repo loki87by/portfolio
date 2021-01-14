@@ -1,6 +1,6 @@
 .Game{
   position: relative;
-  height: calc(100vh * 1280 / 1024);
+  height: 60vw;
   padding-top: 1vw;
   display: flex;
   flex-direction: row;

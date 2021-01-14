@@ -15,46 +15,46 @@ function App() {
   const [luft, setLuft] = React.useState(0);
   const gameRef = React.useRef(isGame);
 
-const isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
-console.log(isMobile)
+  const isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
+
   // **отсеживание высоты страницы
-React.useEffect(() => {
-  function fromTop() {
-    const scrollHeight = Math.max(
-      document.body.scrollHeight, document.documentElement.scrollHeight,
-      document.body.offsetHeight, document.documentElement.offsetHeight,
-      document.body.clientHeight, document.documentElement.clientHeight
-    );
-    if (window.pageYOffset > scrollHeight * (0.73 + luft)) {
-      gameRef.current = true;
-    } else {
-      gameRef.current = false;
+  React.useEffect(() => {
+    function fromTop() {
+      const scrollHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+      );
+      if (window.pageYOffset > scrollHeight * (0.73 + luft)) {
+        gameRef.current = true;
+      } else {
+        gameRef.current = false;
+      }
+      setIsGame(gameRef.current);
     }
-    setIsGame(gameRef.current);
-  }
-  window.addEventListener("scroll", fromTop);
-})
+    window.addEventListener("scroll", fromTop);
+  })
 
-// **кэширование изображения для ускорения анимаций
-function preloadImages(array) {
-  if (!preloadImages.list) {
-    preloadImages.list = [];
-  }
-  let list = preloadImages.list;
-  for (let i = 0; i < array.length; i++) {
-    let img = new Image();
-    img.onload = function() {
-      let index = list.indexOf(this);
-      if (index !== -1) {
-        list.splice(index, 1);
-        }
+  // **кэширование изображения для ускорения анимаций
+  function preloadImages(array) {
+    if (!preloadImages.list) {
+      preloadImages.list = [];
     }
-    list.push(img);
-    img.src = array[i];
+    let list = preloadImages.list;
+    for (let i = 0; i < array.length; i++) {
+      let img = new Image();
+      img.onload = function() {
+        let index = list.indexOf(this);
+        if (index !== -1) {
+          list.splice(index, 1);
+          }
+      }
+      list.push(img);
+      img.src = array[i];
+    }
   }
-}
 
-preloadImages(picArray);
+  preloadImages(picArray);
 
   // **DOM
   return (

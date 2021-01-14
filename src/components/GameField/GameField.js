@@ -10,6 +10,8 @@ function GameField(props) {
   // **стейты
   const [numbers, setNumbers] = React.useState(GAME);
   const [maxNumber, setMaxNumber] = React.useState(16);
+  const [touchStart, setTouchStart] = React.useState({})
+  const [touchPosition, setTouchPosition] = React.useState({})
 
   // **функции
   // *начало игры
@@ -19,6 +21,7 @@ function GameField(props) {
       props.setGameStarted(true);
       setNewNumber();
       window.removeEventListener('keydown', startGame);
+      window.removeEventListener('touchstart', startGame);
     }
   }
   React.useEffect(() => {
@@ -314,6 +317,50 @@ function GameField(props) {
     })
     setNumbers(cheatField);
   }
+
+  // **управление с мобильного устройства
+  const sensitivity = 20;
+  // *получаем точку касания
+  function TouchStart(e) {
+    setTouchStart({ x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY });
+    setTouchPosition({ x: touchStart.x, y: touchStart.y });
+  }
+  // *Получаем новую позицию
+  function TouchMove(e) {
+    setTouchPosition({ x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY });
+  }
+  // *Действия при свайпе
+  function CheckAction() {
+    let d = {
+   	  x: touchStart.x - touchPosition.x,
+   	  y: touchStart.y - touchPosition.y
+    };
+    if(Math.abs(d.x) > Math.abs(d.y)) {
+   	  if(Math.abs(d.x) > sensitivity) {
+   		  if(d.x > 0) {
+          toLeft();
+        } else {
+          toRight();
+        }
+   	  }
+    } else {
+      if(Math.abs(d.y) > sensitivity) {
+        if(d.y > 0) {
+          toTop();
+        } else {
+        toBottom();
+        }
+   	  }
+    }
+  }
+  // *Окончание или отмена касания
+  function TouchEnd(e) {
+    CheckAction();
+    setTouchStart({});
+    setTouchPosition({});
+  }
+
+  // *расставляем слушатели
   React.useEffect(() => {
     if (props.gameStarted) {
       window.addEventListener('keydown', handleKeydown);
@@ -324,6 +371,20 @@ function GameField(props) {
     if (props.gameStarted) {
       window.addEventListener('keyup', handleKeyup);
       return () => {window.removeEventListener('keyup', handleKeyup)};
+    }
+  })
+  React.useEffect(() => {
+    if (props.gameStarted && props.isMobile) {
+      window.addEventListener("touchstart", TouchStart);
+      window.addEventListener("touchmove", TouchMove);
+      window.addEventListener("touchend", TouchEnd);
+      window.addEventListener("touchcancel", TouchEnd);
+      return () => {
+        window.removeEventListener("touchstart", TouchStart)
+        window.removeEventListener("touchmove", TouchMove)
+        window.removeEventListener("touchend", TouchEnd)
+        window.removeEventListener("touchcancel", TouchEnd)
+      };
     }
   })
 

@@ -137,8 +137,10 @@ function Main(props) {
   // **DOM
   return(
     <section className="Main">
-      <Resume setLuft={props.setLuft}
-       lang={props.lang}/>
+      <Resume
+      isMobile={props.isMobile}
+      setLuft={props.setLuft}
+      lang={props.lang}/>
       <Game
       isMobile={props.isMobile}
       isGame={props.isGame}

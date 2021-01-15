@@ -102,9 +102,10 @@ function Resume(props) {
       <h2 className="Resume__subsubtitle">{translation.target}: <span className="Resume__text">{translation.purpose}</span></h2>
       <h2 className="Resume__subsubtitle">Summary: <span className="Resume__text">{translation.summary}</span></h2>
       <h2 className="Resume__subsubtitle">{translation.experience}: <span className="Resume__text">{translation.workExperience}</span>
+      {props.isMobile ? '' :
         <button type="button" className="Resume__certificate-open" onClick={openCertificate}>
           <h3 className="Resume__subsubtitle">{translation.showCertify}</h3>
-        </button></h2>
+        </button>}</h2>
       <h2 className="Resume__subsubtitle">{translation.education}: <span className="Resume__text">{translation.educationLevel}</span></h2>
       <h2 className="Resume__subsubtitle">{translation.info}: <span className="Resume__text">{translation.inform}</span></h2>
       <h2 className="Resume__subsubtitle">{translation.hobby}: <span className="Resume__text">{translation.outInterest}</span></h2>
@@ -171,7 +172,7 @@ function Resume(props) {
         : ''}
         </section>
         <section className={`Popup ${isCertificateOpen && "Popup_opened"}`}>
-        <embed className="Resume__certificate" title='sertify' allowtransparency="true" height='100%' width='100%' src={props.lang === 'ru' ? `${certificateRu}#zoom=${screenWidth / 20}` : `${certificateEn}#zoom=${screenWidth / 20}`} ></embed>
+        <iframe className="Resume__certificate" title='sertify' allowtransparency="true" height='100%' width='100%' src={props.lang === 'ru' ? `${certificateRu}#zoom=${screenWidth / 20}` : `${certificateEn}#zoom=${screenWidth / 20}`} ></iframe>
         {isCertificateOpen ?
           <button type="button" className="Resume__certificate-close" onClick={closeCertificate}><img alt='close' src={close} /></button>
           : ''}

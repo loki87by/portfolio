@@ -10,23 +10,18 @@ import './App.css';
 
 function App() {
   // **стейты
-  const [isMobile, setMobile] = React.useState(false);
+  const [isMobile, setMobile] = React.useState(/Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent));
   const [lang, setLang] = React.useState('ru');
   const [isGame, setIsGame] = React.useState(false);
   const [luft, setLuft] = React.useState(0);
   const gameRef = React.useRef(isGame);
 
-  // **проверяем тип пользовательского устройства
+  // **проверка типа устройства пользователя
   React.useEffect(() => {
-    platformChecker()
-    function platformChecker() {
-      let isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
-      if (isMobile) {
-        setMobile(true)
-      } else {
-        setMobile(false)
-      }
-    }
+    setInterval(() => {
+      const Mobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
+      setMobile(Mobile)
+    }, 15000);
   })
 
   // **отсеживание высоты страницы

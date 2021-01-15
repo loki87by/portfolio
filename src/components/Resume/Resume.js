@@ -171,7 +171,7 @@ function Resume(props) {
         : ''}
         </section>
         <section className={`Popup ${isCertificateOpen && "Popup_opened"}`}>
-        <iframe className="Resume__certificate" title='sertify' allowtransparency="true" height='100%' width='100%' src={props.lang === 'ru' ? `${certificateRu}#zoom=${screenWidth / 20}` : `${certificateEn}#zoom=${screenWidth / 20}`} ></iframe>
+        <embed className="Resume__certificate" title='sertify' allowtransparency="true" height='100%' width='100%' src={props.lang === 'ru' ? `${certificateRu}#zoom=${screenWidth / 20}` : `${certificateEn}#zoom=${screenWidth / 20}`} ></embed>
         {isCertificateOpen ?
           <button type="button" className="Resume__certificate-close" onClick={closeCertificate}><img alt='close' src={close} /></button>
           : ''}

@@ -7,22 +7,16 @@
 
 @media (max-width: 768px) {
   .Resume__work-container{
-    margin-bottom: -20vw;
-  }
-}
-
-@media (max-width: 600px) {
-  .Resume__work-container{
-    margin-bottom: -25vw;
+    height: 40vh;
   }
 }
 
 @media (max-width: 555px) {
   .Resume__work-container{
-    margin-bottom: -30vw;
+    height: 50vw;
   }
 }
-
+/*
 @media (max-width: 499px) {
   .Resume__work-container{
     margin-bottom: -35vw;
@@ -51,4 +45,4 @@
   .Resume__work-container{
     margin-bottom: -55vw;
   }
-}
+}*/

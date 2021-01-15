@@ -10,12 +10,24 @@ import './App.css';
 
 function App() {
   // **стейты
+  const [isMobile, setMobile] = React.useState(false);
   const [lang, setLang] = React.useState('ru');
   const [isGame, setIsGame] = React.useState(false);
   const [luft, setLuft] = React.useState(0);
   const gameRef = React.useRef(isGame);
 
-  const isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
+  // **проверяем тип пользовательского устройства
+  React.useEffect(() => {
+    platformChecker()
+    function platformChecker() {
+      let isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
+      if (isMobile) {
+        setMobile(true)
+      } else {
+        setMobile(false)
+      }
+    }
+  })
 
   // **отсеживание высоты страницы
   React.useEffect(() => {

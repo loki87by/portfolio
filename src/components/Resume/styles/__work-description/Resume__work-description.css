@@ -10,6 +10,6 @@
 
 @media (max-width: 768px) {
   .Resume__work-description{
-    height: 60%;
+    height: 100%;
   }
 }

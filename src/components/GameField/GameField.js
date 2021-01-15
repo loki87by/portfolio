@@ -12,6 +12,7 @@ function GameField(props) {
   const [maxNumber, setMaxNumber] = React.useState(16);
   const [touchStart, setTouchStart] = React.useState({})
   const [touchPosition, setTouchPosition] = React.useState({})
+  const [isStopScrolling, setStopScrolling] = React.useState(false)
 
   // **функции
   // *начало игры
@@ -19,6 +20,7 @@ function GameField(props) {
     if (props.isGame.current) {
       props.setEndGame(false);
       props.setGameStarted(true);
+      props.setScrollLocker(true);
       setNewNumber();
       window.removeEventListener('keydown', startGame);
       window.removeEventListener('touchstart', startGame);
@@ -317,18 +319,23 @@ function GameField(props) {
     })
     setNumbers(cheatField);
   }
-
   // **управление с мобильного устройства
   const sensitivity = 20;
   // *получаем точку касания
   function TouchStart(e) {
-    setTouchStart({ x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY });
-    setTouchPosition({ x: touchStart.x, y: touchStart.y });
+    if (props.scrollLocker) {
+      setStopScrolling(true)
+      setTouchStart({ x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY });
+      setTouchPosition({ x: touchStart.x, y: touchStart.y });
+    }
   }
   // *Получаем новую позицию
   function TouchMove(e) {
-    setTouchPosition({ x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY });
-  }
+    if(isStopScrolling) {
+      e.preventDefault()
+    }
+      setTouchPosition({ x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY });
+    }
   // *Действия при свайпе
   function CheckAction() {
     let d = {
@@ -358,6 +365,8 @@ function GameField(props) {
     CheckAction();
     setTouchStart({});
     setTouchPosition({});
+    setStopScrolling(false)
+    //return true
   }
 
   // *расставляем слушатели
@@ -376,7 +385,7 @@ function GameField(props) {
   React.useEffect(() => {
     if (props.gameStarted && props.isMobile) {
       window.addEventListener("touchstart", TouchStart);
-      window.addEventListener("touchmove", TouchMove);
+      window.addEventListener("touchmove", TouchMove, { passive: false });
       window.addEventListener("touchend", TouchEnd);
       window.addEventListener("touchcancel", TouchEnd);
       return () => {

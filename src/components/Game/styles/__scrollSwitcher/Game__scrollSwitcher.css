@@ -1,0 +1,15 @@
+.Game__scrollSwitcher{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: fit-content;
+  margin: 0;
+  margin-right: 10px;
+  border: none;
+  background-color: black;
+  color: #699;
+  font-size: 1.5em;
+  font-weight: 900;
+  cursor: pointer;
+  outline: none;
+}

@@ -5,6 +5,7 @@ import GameField from '../GameField/GameField';
 import Popup from '../Popup/Popup';
 import './Game.css';
 import './styles/__score/Game__score.css';
+import './styles/__scrollSwitcher/Game__scrollSwitcher.css';
 import './styles/__text-container/Game__text-container.css';
 import './styles/__rules-title/Game__rules-title.css';
 import './styles/__rules-text/Game__rules-text.css';
@@ -17,6 +18,15 @@ function Game(props) {
   // *константы
   const translation = React.useContext(TranslationContext);
   const [score, setScore] = React.useState(0);
+  const [scrollLocker, setScrollLocker] = React.useState(false);
+
+  function scrollSwitcher() {
+    if(scrollLocker) {
+      setScrollLocker(false);
+    } else {
+      setScrollLocker(true);
+    }
+  }
 
   // *DOM
   return (
@@ -24,8 +34,13 @@ function Game(props) {
       {props.gameStarted ?
         <h3 className="Game__score">{translation.score}{score}</h3>
         : ''}
+      {props.isMobile && props.gameStarted ?
+        <button type="button" onClick={scrollSwitcher} className="Game__scrollSwitcher">{translation.scrollSwither}</button>
+        : ''}
       <GameField
       isMobile={props.isMobile}
+      scrollLocker={scrollLocker}
+      setScrollLocker={setScrollLocker}
       isGame={props.isGame}
       gameStarted={props.gameStarted}
       setGameStarted={props.setGameStarted}

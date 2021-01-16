@@ -52,7 +52,7 @@ function Game(props) {
       setPopupType={props.setPopupType}/>
       <div className="Game__text-container">
         <h3 className={`Game__rules-title ${props.gameStarted && "Game__rules-title_gameStarted"}`}>{translation.rulesTitle}</h3>
-        <p className={`Game__rules-text ${props.gameStarted && "Game__rules-text_gameStarted"}`}>{translation.rules}</p>
+        <p className={`Game__rules-text ${props.gameStarted && "Game__rules-text_gameStarted"}`}>{props.isMobile ? translation.mobileRules : translation.rules}</p>
         {props.endGame ?
           props.gameStarted ? ''
             : <span className="Game__rules-span">{translation.gameOver}</span>

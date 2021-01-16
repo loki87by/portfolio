@@ -33,3 +33,9 @@
     grid-gap: 2vw;
   }
 }
+
+@media (max-width: 444px) {
+  .GameField{
+    margin-bottom: 2em;
+  }
+}

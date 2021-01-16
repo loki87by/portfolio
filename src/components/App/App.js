@@ -10,17 +10,18 @@ import './App.css';
 
 function App() {
   // **стейты
-  const [isMobile, setMobile] = React.useState(/Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent));
   const [lang, setLang] = React.useState('ru');
   const [isGame, setIsGame] = React.useState(false);
   const [luft, setLuft] = React.useState(0);
   const gameRef = React.useRef(isGame);
+  const Mobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
+  const mobileRef = React.useRef(Mobile);
 
   // **проверка типа устройства пользователя
   React.useEffect(() => {
     setInterval(() => {
       const Mobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
-      setMobile(Mobile)
+      mobileRef.current = Mobile
     }, 15000);
   })
 
@@ -68,7 +69,7 @@ function App() {
       <>
         <TranslationContext.Provider value={translations[lang]}>
           <Header setLang={setLang} lang={lang}/>
-          <Main isMobile={isMobile} isGame={gameRef} lang={lang} setLuft={setLuft}/>
+          <Main isMobile={mobileRef.current} isGame={gameRef} lang={lang} setLuft={setLuft}/>
           <Footer />
         </ TranslationContext.Provider>
       </>

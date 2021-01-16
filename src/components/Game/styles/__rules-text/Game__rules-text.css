@@ -8,6 +8,24 @@
   word-wrap: break-word;
 }
 
+@media (max-width: 898px) {
+  .Game__rules-text{
+    min-height: 310px;
+  }
+}
+
+@media (max-width: 828px) {
+  .Game__rules-text{
+    min-height: 330px;
+  }
+}
+
+@media (max-width: 788px) {
+  .Game__rules-text{
+    min-height: 350px;
+  }
+}
+
 @media (max-width: 768px) {
   .Game__rules-text{
     min-height: 150px;

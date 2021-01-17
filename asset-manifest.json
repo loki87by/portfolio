@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.cc2ce912.chunk.css",
-    "main.js": "/portfolio/static/js/main.ca40d63d.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.ca40d63d.chunk.js.map",
+    "main.js": "/portfolio/static/js/main.af6242f4.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.af6242f4.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.2e2a2114.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.2e2a2114.js.map",
     "static/js/2.95cd43da.chunk.js": "/portfolio/static/js/2.95cd43da.chunk.js",
@@ -16,7 +16,7 @@
     "static/media/GameField.css": "/portfolio/static/media/Iceberg-Regular.1ffbc606.woff",
     "static/media/RU.9a6254bc.png": "/portfolio/static/media/RU.9a6254bc.png",
     "static/media/UK.24a08dc3.png": "/portfolio/static/media/UK.24a08dc3.png",
-    "static/media/avatar.8c514e5c.jpg": "/portfolio/static/media/avatar.8c514e5c.jpg",
+    "static/media/avatar.8916807a.jpg": "/portfolio/static/media/avatar.8916807a.jpg",
     "static/media/Resume__work_projects_diplom.css": "/portfolio/static/media/diplom-3.3fffe768.jpg",
     "static/media/logo.6f9b38e9.png": "/portfolio/static/media/logo.6f9b38e9.png",
     "static/media/logoEng.121af4b0.png": "/portfolio/static/media/logoEng.121af4b0.png",
@@ -30,6 +30,6 @@
     "static/js/runtime-main.2e2a2114.js",
     "static/js/2.95cd43da.chunk.js",
     "static/css/main.cc2ce912.chunk.css",
-    "static/js/main.ca40d63d.chunk.js"
+    "static/js/main.af6242f4.chunk.js"
   ]
 }

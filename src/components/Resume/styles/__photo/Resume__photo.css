@@ -1,5 +1,6 @@
 .Resume__photo{
-  max-width: 68%;
+  max-width: 68vw;
+  max-height: 68vh;
   padding: 2vw 16%;
   margin: auto;
   border-radius: 50%;

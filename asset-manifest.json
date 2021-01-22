@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.fd8d210e.chunk.css",
-    "main.js": "/portfolio/static/js/main.21bd2da3.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.21bd2da3.chunk.js.map",
+    "main.js": "/portfolio/static/js/main.23dc387a.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.23dc387a.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.2e2a2114.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.2e2a2114.js.map",
     "static/js/2.95cd43da.chunk.js": "/portfolio/static/js/2.95cd43da.chunk.js",
@@ -20,6 +20,7 @@
     "static/media/Resume__work_projects_diplom.css": "/portfolio/static/media/diplom-3.3fffe768.jpg",
     "static/media/logo.6f9b38e9.png": "/portfolio/static/media/logo.6f9b38e9.png",
     "static/media/logoEng.121af4b0.png": "/portfolio/static/media/logoEng.121af4b0.png",
+    "static/media/matrix-code-animation-gif-free-animated-background.bcc52dbe.gif": "/portfolio/static/media/matrix-code-animation-gif-free-animated-background.bcc52dbe.gif",
     "static/media/Resume__work_projects_first.css": "/portfolio/static/media/project-1.2f36b539.jpg",
     "static/media/Resume__work_projects_second.css": "/portfolio/static/media/project-2.be822210.jpg",
     "static/media/Resume__work_projects_third.css": "/portfolio/static/media/project-3.aadd1d94.jpg",
@@ -30,6 +31,6 @@
     "static/js/runtime-main.2e2a2114.js",
     "static/js/2.95cd43da.chunk.js",
     "static/css/main.fd8d210e.chunk.css",
-    "static/js/main.21bd2da3.chunk.js"
+    "static/js/main.23dc387a.chunk.js"
   ]
 }

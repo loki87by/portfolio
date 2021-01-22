@@ -20,6 +20,7 @@ function Game(props) {
   const [score, setScore] = React.useState(0);
   const [scrollLocker, setScrollLocker] = React.useState(false);
 
+  // *кнопка переключения скролла свайпом
   function scrollSwitcher() {
     if(scrollLocker) {
       setScrollLocker(false);

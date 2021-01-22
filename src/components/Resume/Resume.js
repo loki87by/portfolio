@@ -2,6 +2,7 @@
 import React from 'react';
 import { TranslationContext } from '../../contexts/translationContext';
 import avatar from '../../images/avatar.jpg';
+import matrix from '../../images/matrix-code-animation-gif-free-animated-background.gif';
 import close from '../../images/close.png';
 import certificateRu from '../../media/Акулич.pdf';
 import certificateEn from '../../media/20202WD00196.pdf';
@@ -34,6 +35,7 @@ function Resume(props) {
   const [luft, setLuft] = React.useState(0);
   const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
   const [isCertificateOpen, setCertificateOpen] = React.useState(false);
+  const [mouseOver, setMouseOver] = React.useState(false);
   const [openWorks, setOpenWorks] = React.useState({
     1: false,
     2: false,
@@ -89,6 +91,24 @@ function Resume(props) {
     return () => window.removeEventListener("resize", resizer);
   });
 
+  React.useEffect(() => {
+    let ava = document.querySelector(".Resume__photo");
+    function hoverOn() {
+      setMouseOver(true);
+    };
+    function hoverOff() {
+      setMouseOver(false);
+    };
+    //console.log(ava)
+    ava.addEventListener('mouseover', hoverOn);
+    ava.addEventListener('mouseout', hoverOff);
+    return () => {
+      //hoverOff();
+      ava.removeEventListener('mouseover', hoverOn);
+      ava.removeEventListener('mouseout', hoverOff);
+    };
+  })
+
   // **DOM
   return (
     <section className="Resume">
@@ -98,7 +118,7 @@ function Resume(props) {
       <h3 className="Resume__subsubtitle">{translation.phone}: <span className="Resume__text">+7(995)593-57-56</span></h3>
       <h3 className="Resume__subsubtitle">e-mail: <span className="Resume__text">loki87.666@gmail.com</span></h3>
       <h3 className="Resume__subsubtitle">Github: <a className="Resume__text Resume__link" target="blank" href="https://github.com/loki87by">https://github.com/loki87by</a></h3>
-      <img alt="фото" src={avatar} className="Resume__photo" />
+      <img alt="фото" src={mouseOver ? matrix : avatar} className="Resume__photo" />
       <h2 className="Resume__subsubtitle">{translation.target}: <span className="Resume__text">{translation.purpose}</span></h2>
       <h2 className="Resume__subsubtitle">Summary: <span className="Resume__text">{translation.summary}</span></h2>
       <h2 className="Resume__subsubtitle">{translation.experience}: <span className="Resume__text">{translation.workExperience}</span>

@@ -21,7 +21,8 @@ import project1 from '../images/project-1.jpg';
 import project2 from '../images/project-2.jpg';
 import project3 from '../images/project-3.jpg';
 import project4 from '../images/project-4.jpg';
-export const picArray = [avatar, diplom1, diplom1a, diplom1b, diplom1c, diplom1d, diplom1e, diplom1f, diplom1g, diplom1h, diplom2a, diplom2b, diplom2c, diplom2d, diplom2e, diplom2f, diplom2g, diplom2, diplom3, project1, project2, project3, project4];
+import matrix from '../images/matrix-code-animation-gif-free-animated-background.gif';
+export const picArray = [avatar, diplom1, diplom1a, diplom1b, diplom1c, diplom1d, diplom1e, diplom1f, diplom1g, diplom1h, diplom2a, diplom2b, diplom2c, diplom2d, diplom2e, diplom2f, diplom2g, diplom2, diplom3, project1, project2, project3, project4, matrix];
 
 export const GAME = [
   {number: '', area: 'top1', back: 'white', size: '4.5vw', color: 'black'},

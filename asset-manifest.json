@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.fd8d210e.chunk.css",
-    "main.js": "/portfolio/static/js/main.23dc387a.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.23dc387a.chunk.js.map",
+    "main.css": "/portfolio/static/css/main.e89b1077.chunk.css",
+    "main.js": "/portfolio/static/js/main.abb79fc3.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.abb79fc3.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.2e2a2114.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.2e2a2114.js.map",
     "static/js/2.95cd43da.chunk.js": "/portfolio/static/js/2.95cd43da.chunk.js",
@@ -10,14 +10,17 @@
     "static/js/3.adc68b75.chunk.js": "/portfolio/static/js/3.adc68b75.chunk.js",
     "static/js/3.adc68b75.chunk.js.map": "/portfolio/static/js/3.adc68b75.chunk.js.map",
     "index.html": "/portfolio/index.html",
-    "static/css/main.fd8d210e.chunk.css.map": "/portfolio/static/css/main.fd8d210e.chunk.css.map",
+    "static/css/main.e89b1077.chunk.css.map": "/portfolio/static/css/main.e89b1077.chunk.css.map",
     "static/js/2.95cd43da.chunk.js.LICENSE.txt": "/portfolio/static/js/2.95cd43da.chunk.js.LICENSE.txt",
     "static/media/20202WD00196.1b1e2658.pdf": "/portfolio/static/media/20202WD00196.1b1e2658.pdf",
     "static/media/GameField.css": "/portfolio/static/media/Iceberg-Regular.1ffbc606.woff",
     "static/media/RU.9a6254bc.png": "/portfolio/static/media/RU.9a6254bc.png",
     "static/media/UK.24a08dc3.png": "/portfolio/static/media/UK.24a08dc3.png",
     "static/media/avatar.8916807a.jpg": "/portfolio/static/media/avatar.8916807a.jpg",
+    "static/media/cinema.b6c5977f.gif": "/portfolio/static/media/cinema.b6c5977f.gif",
+    "static/media/computer-screen-code-glitch.ae8262fd.gif": "/portfolio/static/media/computer-screen-code-glitch.ae8262fd.gif",
     "static/media/Resume__work_projects_diplom.css": "/portfolio/static/media/diplom-3.3fffe768.jpg",
+    "static/media/glitch.cd6782ec.gif": "/portfolio/static/media/glitch.cd6782ec.gif",
     "static/media/logo.6f9b38e9.png": "/portfolio/static/media/logo.6f9b38e9.png",
     "static/media/logoEng.121af4b0.png": "/portfolio/static/media/logoEng.121af4b0.png",
     "static/media/matrix-code-animation-gif-free-animated-background.bcc52dbe.gif": "/portfolio/static/media/matrix-code-animation-gif-free-animated-background.bcc52dbe.gif",
@@ -30,7 +33,7 @@
   "entrypoints": [
     "static/js/runtime-main.2e2a2114.js",
     "static/js/2.95cd43da.chunk.js",
-    "static/css/main.fd8d210e.chunk.css",
-    "static/js/main.23dc387a.chunk.js"
+    "static/css/main.e89b1077.chunk.css",
+    "static/js/main.abb79fc3.chunk.js"
   ]
 }

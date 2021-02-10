@@ -166,7 +166,8 @@ function Main(props) {
       gameStarted={gameStarted}
       endGame={endGame}
       numbers={numbers}
-      setNumbers={setNumbers} />
+      setNumbers={setNumbers}
+      restarter={restarter} />
       <Popup
       isOpen={popupOpened}
       isTimedPopup={isTimedPopup}

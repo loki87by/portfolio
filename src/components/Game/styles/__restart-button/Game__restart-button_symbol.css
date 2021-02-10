@@ -1,0 +1,15 @@
+.Game__restart-button_symbol{
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  font-size: 2.5vw;
+  line-height: 1.2;
+  -webkit-animation: flicker .3s ease-out 0.4s 1 normal running;
+    animation: flicker .3s ease-out 0.4s 1 normal running;
+}
+@keyframes flicker {
+  from {font-size: 2.5vw;
+    color: #000000;}
+  to {font-size: 3.5vw;
+    color: #FFFFFF;}
+}

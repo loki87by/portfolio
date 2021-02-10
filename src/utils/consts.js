@@ -45,6 +45,17 @@ export const GAME = [
   {number: '', area: 'bottom3', back: 'white', size: '4.5vw', color: 'black'},
   {number: '', area: 'bottom4', back: 'white', size: '4.5vw', color: 'black'},
 ];
+export const newgame = (arr) => {
+  let random = Math.random();
+  let rand = Math.floor(random * 16)
+  for(let i = 0; i < arr.length; i++){
+    arr[i].number = '';
+    arr[i].back = 'white';
+    arr[i].size = '4.5vw';
+    arr[i].color = 'black';
+  }
+  arr[rand].number = 2;
+}
 
 const date = new Date();
 const time = date.toTimeString();

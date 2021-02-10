@@ -17,7 +17,6 @@ import './styles/__rules-title/_gameStarted/Game__rules-title_gameStarted.css';
 function Game(props) {
   // *константы
   const translation = React.useContext(TranslationContext);
-  const [score, setScore] = React.useState(0);
   const [scrollLocker, setScrollLocker] = React.useState(false);
 
   // *кнопка переключения скролла свайпом
@@ -33,12 +32,14 @@ function Game(props) {
   return (
     <section className="Game">
       {props.gameStarted ?
-        <h3 className="Game__score">{translation.score}{score}</h3>
+        <h3 className="Game__score">{translation.score}{props.score}</h3>
         : ''}
       {props.isMobile && props.gameStarted ?
         <button type="button" onClick={scrollSwitcher} className="Game__scrollSwitcher">{translation.scrollSwither}</button>
         : ''}
       <GameField
+      numbers={props.numbers}
+      setNumbers={props.setNumbers}
       isMobile={props.isMobile}
       scrollLocker={scrollLocker}
       setScrollLocker={setScrollLocker}
@@ -47,8 +48,8 @@ function Game(props) {
       setGameStarted={props.setGameStarted}
       endGame={props.endGame}
       setEndGame={props.setEndGame}
-      score={score}
-      setScore={setScore}
+      score={props.score}
+      setScore={props.setScore}
       setPopupOpened={props.setPopupOpened}
       setPopupType={props.setPopupType}/>
       <div className="Game__text-container">

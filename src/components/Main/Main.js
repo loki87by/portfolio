@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // ***импорты
 import React from 'react';
-import { afterMidnight } from '../../utils/consts';
+import { afterMidnight, GAME, newgame } from '../../utils/consts';
 import Resume from '../Resume/Resume';
 import Game from '../Game/Game';
 import Popup from '../Popup/Popup';
@@ -22,10 +22,23 @@ function Main(props) {
   const [popupType, setPopupType] = React.useState('');
   const [gameStarted, setGameStarted] = React.useState(false);
   const [endGame, setEndGame] = React.useState(false);
+  const [score, setScore] = React.useState(0);
+  const [numbers, setNumbers] = React.useState(GAME);
   const countRef = React.useRef(endTime);
   countRef.current = endTime;
   const intervalRef = React.useRef(intervalTime);
   intervalRef.current = intervalTime;
+
+
+  // *перезапуск геймплея
+  function restarter() {
+    handlePopupClose();
+    setEndGame(false);
+    newgame(GAME);
+    setGameStarted(true);
+    setScore(0);
+    //newgame(GAME);
+  }
 
   // **функции открытия попапа
   // *открытие в установленное время
@@ -144,12 +157,16 @@ function Main(props) {
       <Game
       isMobile={props.isMobile}
       isGame={props.isGame}
+      score={score}
+      setScore={setScore}
       setPopupOpened={setPopupOpened}
       setPopupType={setPopupType}
       setGameStarted={setGameStarted}
       setEndGame={setEndGame}
       gameStarted={gameStarted}
-      endGame={endGame}/>
+      endGame={endGame}
+      numbers={numbers}
+      setNumbers={setNumbers} />
       <Popup
       isOpen={popupOpened}
       isTimedPopup={isTimedPopup}
@@ -163,7 +180,8 @@ function Main(props) {
       setTimedPopup={setTimedPopup}
       setNewInterval={setNewInterval}
       getNewTimerValue={getNewTimerValue}
-      newTimeInterval={newTimeInterval} />
+      newTimeInterval={newTimeInterval}
+      restarter={restarter} />
     </section>
   )
 }

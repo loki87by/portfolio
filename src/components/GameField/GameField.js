@@ -1,18 +1,18 @@
 // ***импорты
 import React from 'react';
 import Cell from '../Cell/Cell';
-import { GAME, oldArrayString, getNewNumber, styler, allNumbers, toVertical, toHorizontal, fromVertical, fromHorizontal } from '../../utils/consts';
+import { oldArrayString, getNewNumber, styler, allNumbers, toVertical, toHorizontal, fromVertical, fromHorizontal } from '../../utils/consts';
 import './GameField.css';
 
 // ***функционал
 function GameField(props) {
 
   // **стейты
-  const [numbers, setNumbers] = React.useState(GAME);
   const [maxNumber, setMaxNumber] = React.useState(16);
   const [touchStart, setTouchStart] = React.useState({})
   const [touchPosition, setTouchPosition] = React.useState({})
   const [isStopScrolling, setStopScrolling] = React.useState(false)
+  let numbers = props.numbers
 
   // **функции
   // *начало игры
@@ -60,7 +60,7 @@ function GameField(props) {
   function setNewNumber() {
     let getNumbers = setNumber(numbers);
     newNumbers = getNumbers;
-    setNumbers(newNumbers);
+    props.setNumbers(newNumbers);
   }
   let firstLine = [];
   let secondLine = [];
@@ -307,6 +307,10 @@ function GameField(props) {
         e.preventDefault();
         cheat();
         pressedKey.pop();
+      } else if (pressedKey[0] === "Backspace") {
+        e.preventDefault();
+        looserCheat();
+        pressedKey.pop();
       } else {
         pressedKey.pop();
       }
@@ -317,7 +321,15 @@ function GameField(props) {
       i.number = 1024;
       return i;
     })
-    setNumbers(cheatField);
+    props.setNumbers(cheatField);
+  }
+  // *тест-чит для проигрыша
+  function looserCheat(){
+    let cheatField = numbers.map((i, index) => {
+      i.number = index + 1;
+      return i;
+    })
+    props.setNumbers(cheatField);
   }
   // **управление с мобильного устройства
   const sensitivity = 20;

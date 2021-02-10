@@ -102,6 +102,7 @@ function Popup(props) {
                 <button className="Popup__button Popup__button_vertical" style={{ backgroundColor: `${props.isTimedPopup ? "orangered" : ''}` }} type="button" onClick={props.onClose}>{ignor}</button>
               </> : ''}
           <button className={`Popup__button ${props.isTimedPopup && "Popup__button_vertical"}`} style={{ backgroundColor: `${props.isTimedPopup ? "forestgreen" : ''}` }} type="button" onClick={handleClick}>{close}</button>
+          {props.popupType === 'loose' ? <button className="Popup__button" type="button" onClick={props.restarter}>{translation.restart}</button> : ''}
         </div>
       </div>
     </section>

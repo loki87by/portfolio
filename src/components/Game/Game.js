@@ -1,7 +1,6 @@
 // **импорты
 import React from 'react';
 import { TranslationContext } from '../../contexts/translationContext';
-import { waveAnimator } from '../../utils/consts';
 import GameField from '../GameField/GameField';
 import Popup from '../Popup/Popup';
 import './Game.css';
@@ -24,20 +23,31 @@ function Game(props) {
 
   React.useEffect(() => {
     const button = document.querySelector('.Game__restart-button')
+
     if(button){
       function startAnimation() {
-        button.innerHTML = waveAnimator(translation.restart)
+        let arr = translation.restart.split('')
+        let newArr = arr.map((i, n) => {
+          if(i === ' '){return `<p class="Game__restart-button_symbol" style="animation: none">&nbsp</p>`}
+          else{return `<p class="Game__restart-button_symbol" style="animation-delay: ${n / 2}s">${i}</p>`}
+        })
+        button.innerHTML = newArr.join('')
       }
+      startAnimation()
       function overAnimation() {
         button.innerHTML = translation.restart
       }
-      button.addEventListener('mouseover', startAnimation);
-      button.addEventListener('mouseout', overAnimation);
+      button.addEventListener('mouseover', overAnimation);
+      //button.addEventListener('mousemove', startAnimation)
+      button.addEventListener('mouseout', startAnimation);
+      button.addEventListener('onclick', props.restarter);
       return () => {
-        button.removeEventListener('mouseover', startAnimation);
-        button.removeEventListener('mouseout', overAnimation);
+        button.removeEventListener('mouseover', overAnimation);
+        button.removeEventListener('mouseout', startAnimation);
+        button.removeEventListener('onclick', props.restarter);
       };
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   })
   // *кнопка переключения скролла свайпом
   function scrollSwitcher() {

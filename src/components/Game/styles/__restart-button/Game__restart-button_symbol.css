@@ -9,7 +9,9 @@
 }
 @keyframes flicker {
   from {font-size: 2.5vw;
-    color: #000000;}
+    /*color: #000000;*/
+  }
   to {font-size: 3.5vw;
-    color: #FFFFFF;}
+   /* color: #FFFFFF;*/
+  }
 }

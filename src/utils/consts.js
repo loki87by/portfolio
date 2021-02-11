@@ -189,12 +189,3 @@ export function oldArrayString(array) {
   })
   return startNumbers.join();
 }
-
-export function waveAnimator(string) {
-  let arr = string.split('')
-  let newArr = arr.map((i, n) => {
-    if(i === ' '){return `<p class="Game__restart-button_symbol" style="animation: none">&nbsp</p>`}
-    else{return `<p class="Game__restart-button_symbol" style="animation-delay: ${n / 2}s">${i}</p>`}
-  })
-  return newArr.join('')
-}

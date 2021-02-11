@@ -38,12 +38,10 @@ function Game(props) {
         button.innerHTML = translation.restart
       }
       button.addEventListener('mouseover', overAnimation);
-      //button.addEventListener('mousemove', startAnimation)
       button.addEventListener('mouseout', startAnimation);
       button.addEventListener('onclick', props.restarter);
       return () => {
         button.removeEventListener('mouseover', overAnimation);
-        button.removeEventListener('mouseout', startAnimation);
         button.removeEventListener('onclick', props.restarter);
       };
     }

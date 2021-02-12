@@ -8,6 +8,12 @@
   -webkit-animation: flicker .3s ease-out 0.4s 1 normal running;
     animation: flicker .3s ease-out 0.4s 1 normal running;
 }
+
+@media (max-width: 768px) {
+  .Game__restart-button_symbol{
+    height: 4vw;
+  }
+}
 @keyframes flicker {
   from {font-size: 2.5vw;
   }

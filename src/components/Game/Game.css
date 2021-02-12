@@ -7,10 +7,16 @@
   justify-content: space-between;
 }
 
+@media (max-width: 790px) {
+  .Game{
+    height: 65vw;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+}
+
 @media (max-width: 768px) {
   .Game{
     height: 100%;
-    flex-direction: column-reverse;
-    justify-content: flex-end;
   }
 }

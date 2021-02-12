@@ -3,7 +3,7 @@
   flex-direction: row;
   min-width: 45%;
   padding: 0;
-  margin-bottom: -3vw;
+  margin-bottom: -5vw;
   -webkit-box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
           box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
   border: none;
@@ -15,8 +15,14 @@
   cursor: pointer;
   background: black;
 }
-/*
-.Game__restart-button:hover{
-  color: rgb(243, 243, 59);
+
+@media (max-width: 768px) {
+  .Game__restart-button{
+    position: absolute;
+    bottom: -88vw;
+    right: 0;
+    height: 4.3vw;
+    min-width: max-content;
+    padding: 0 1vw;
   }
-*/
+}

@@ -1,5 +1,6 @@
 // **импорты
 import React from 'react';
+import Works from '../Works/Works'
 import { TranslationContext } from '../../contexts/translationContext';
 import avatar from '../../images/avatar.jpg';
 import matrix from '../../images/matrix-code-animation-gif-free-animated-background.gif';
@@ -16,16 +17,6 @@ import './styles/__subsubtitle/Resume__subsubtitle.css';
 import './styles/__text/Resume__text.css';
 import './styles/__link/Resume__link.css';
 import './styles/__photo/Resume__photo.css';
-import './styles/__works/Resume__works.css';
-import './styles/__button/Resume__button.css';
-import './styles/__work-container/Resume__work-container.css';
-import './styles/__work/Resume__work.css';
-import './styles/__work-description/Resume__work-description.css';
-import './styles/__work/_projects/Resume__work_projects_first.css';
-import './styles/__work/_projects/Resume__work_projects_second.css';
-import './styles/__work/_projects/Resume__work_projects_third.css';
-import './styles/__work/_projects/Resume__work_projects_fourth.css';
-import './styles/__work/_projects/Resume__work_projects_diplom.css';
 import '../Popup/Popup.css';
 import '../Popup/styles/_opened/Popup_opened.css';
 import './styles/__certificate/Resume__certificate.css';
@@ -49,21 +40,6 @@ function Resume(props) {
     6: false,
     7: false,
   });
-
-  // *функция разворотов работ и переноса слушателей игры по кликам
-  function clicker(e) {
-    let key = e.target.id;
-    let newObject = Object.assign({}, openWorks);
-    if (openWorks[key]) {
-      newObject[key] = false;
-      setLuft(luft - 0.2);
-    } else {
-      newObject[key] = true;
-      setLuft(luft + 0.2);
-    }
-    setOpenWorks(newObject);
-    props.setLuft(luft);
-  }
 
   // *разворот сертификата
   function openCertificate() {
@@ -149,66 +125,7 @@ function Resume(props) {
       <h2 className="Resume__subsubtitle">{translation.hobby}: <span className="Resume__text">{translation.outInterest}</span></h2>
       <h2 className="Resume__subsubtitle">{translation.qualities}: <span className="Resume__text">{translation.quals}</span></h2>
       <h2 className="Resume__subtitle">{translation.works}:</h2>
-      <section className="Resume__works">
-      <h3 className="Resume__subsubtitle">{translation.project} 1: <a className="Resume__text Resume__link" target="blank" href="https://github.com/loki87by/how-to-learn">https://github.com/loki87by/how-to-learn</a></h3>
-        <button type="button" id='1' className="Resume__button" onClick={clicker}>{translation.more}</button>
-        {openWorks[1] ?
-        <div className="Resume__work-container">
-          <div className="Resume__work Resume__work_projects_first"></div>
-          <p className="Resume__work-description">{translation.firstProjectInfo}</p>
-        </div>
-        : ''}
-        <h3 className="Resume__subsubtitle">{translation.project} 2: <a className="Resume__text Resume__link" target="blank" href="https://github.com/loki87by/russian-travel">https://github.com/loki87by/russian-travel</a></h3>
-        <button type="button" id='2' className="Resume__button" onClick={clicker}>{translation.more}</button>
-        {openWorks[2] === true ?
-        <div className="Resume__work-container">
-          <div className="Resume__work Resume__work_projects_second"></div>
-          <p className="Resume__work-description">{translation.secondProjectInfo}</p>
-        </div>
-        : ''}
-        <h3 className="Resume__subsubtitle">{translation.project} 3: <a className="Resume__text Resume__link" target="blank" href="https://github.com/loki87by/mesto">https://github.com/loki87by/mesto</a></h3>
-        <button type="button" id='3' className="Resume__button" onClick={clicker}>{translation.more}</button>
-        {openWorks[3] === true ?
-        <div className="Resume__work-container">
-          <div className="Resume__work Resume__work_projects_third"></div>
-          <p className="Resume__work-description">{translation.thirdProjectInfo}</p>
-        </div>
-        : ''}
-        <h3 className="Resume__subsubtitle">{translation.project} 4: <a className="Resume__text Resume__link" target="blank" href="https://github.com/loki87by/mesto-react">https://github.com/loki87by/mesto-react</a></h3>
-        <button type="button" id='4' className="Resume__button" onClick={clicker}>{translation.more}</button>
-        {openWorks[4] === true ?
-        <div className="Resume__work-container">
-          <div className="Resume__work Resume__work_projects_fourth"></div>
-          <p className="Resume__work-description">{translation.fourthProjectInfo}</p>
-        </div>
-        : ''}
-        <h3 className="Resume__subsubtitle">{translation.project} 5: <a className="Resume__text Resume__link" target="blank" href="https://github.com/loki87by/react-mesto-auth">https://github.com/loki87by/react-mesto-auth</a></h3>
-        <button type="button" id='5' className="Resume__button" onClick={clicker}>{translation.more}</button>
-        {openWorks[5] === true ?
-        <div className="Resume__work-container">
-          <div className="Resume__work Resume__work_projects_third"></div>
-          <p className="Resume__work-description">{translation.fifthProjectInfo}</p>
-        </div>
-        : ''}
-        <h3 className="Resume__subsubtitle">{translation.project} 6: <a className="Resume__text Resume__link" target="blank" href="https://github.com/loki87by/express-mesto">https://github.com/loki87by/express-mesto</a></h3>
-        <button type="button" id='6' className="Resume__button" onClick={clicker}>{translation.more}</button>
-        {openWorks[6] === true ?
-        <p className="Resume__subsubtitle">{translation.sixthProjectInfo}</p>
-        : ''}
-        <h3 className="Resume__subsubtitle">{translation.project} 7:
-          <br/>
-          <a className="Resume__text Resume__link" target="blank" href="https://github.com/loki87by/news-explorer-api">{translation.back} - https://github.com/loki87by/news-explorer-api</a>
-          <br/>
-          <a className="Resume__text Resume__link" target="blank" href="https://github.com/loki87by/news-explorer-frontend">{translation.front} - https://github.com/loki87by/news-explorer-frontend</a>
-        </h3>
-        <button type="button" id='7' className="Resume__button" onClick={clicker}>{translation.more}</button>
-        {openWorks[7] === true ?
-        <div className="Resume__work-container">
-          <div className="Resume__work Resume__work_projects_diplom"></div>
-          <p className="Resume__work-description">{translation.diplomInfo}</p>
-        </div>
-        : ''}
-        </section>
+      <Works luft={luft} setLuft={setLuft} openWorks={openWorks} setOpenWorks={setOpenWorks}/>
         <section className={`Popup ${isCertificateOpen && "Popup_opened"}`}>
         <iframe className="Resume__certificate" title='sertify' allowtransparency="true" height='100%' width='100%' src={props.lang === 'ru' ? `${certificateRu}#zoom=${screenWidth / 20}` : `${certificateEn}#zoom=${screenWidth / 20}`} ></iframe>
         {isCertificateOpen ?

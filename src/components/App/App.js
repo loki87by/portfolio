@@ -38,6 +38,7 @@ function App() {
       } else {
         gameRef.current = false;
       }
+      // console.log(window.pageYOffset, 'window.pageYOffset', scrollHeight, 'scrollHeight', gameRef.current, 'gameRef.current')
       setIsGame(gameRef.current);
     }
     window.addEventListener("scroll", fromTop);

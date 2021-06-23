@@ -1,0 +1,143 @@
+.Resume__work_projects_diplom{
+  background-image: url('../../../../../images/diplom-1.jpg');
+  background-size: contain;
+  background-position-y: top;
+  background-repeat: no-repeat;
+}
+
+.Resume__work_projects_diplom:hover{
+  animation: any 15s linear 1s 1;
+}
+
+@keyframes any{
+  from {
+    background-image: url('../../../../../images/diplom-1.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  10% {
+    background-image: url('../../../../../images/diplom-1.jpg');
+    background-position-y: bottom;
+    background-size: contain;
+  }
+  20% {
+    background-image: url('../../../../../images/diplom-1.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  22% {
+    background-image: url('../../../../../images/d1/diplom-1a.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  24% {
+    background-image: url('../../../../../images/d1/diplom-1b.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  26% {
+    background-image: url('../../../../../images/d1/diplom-1c.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  28% {
+    background-image: url('../../../../../images/d1/diplom-1d.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  30% {
+    background-image: url('../../../../../images/d1/diplom-1e.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  32% {
+    background-image: url('../../../../../images/d1/diplom-1f.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  34% {
+    background-image: url('../../../../../images/d1/diplom-1g.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  36% {
+    background-image: url('../../../../../images/d1/diplom-1h.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  38% {
+    background-image: url('../../../../../images/diplom-2.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  40% {
+    background-image: url('../../../../../images/diplom-2.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  49% {
+    background-image: url('../../../../../images/diplom-2.jpg');
+    background-position-y: bottom;
+    background-size: contain;
+  }
+  58% {
+    background-image: url('../../../../../images/diplom-2.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  60% {
+    background-image: url('../../../../../images/d2/diplom-2a.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  62% {
+    background-image: url('../../../../../images/d2/diplom-2b.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  64% {
+    background-image: url('../../../../../images/d2/diplom-2c.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  66% {
+    background-image: url('../../../../../images/d2/diplom-2d.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  68% {
+    background-image: url('../../../../../images/d2/diplom-2e.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  70% {
+    background-image: url('../../../../../images/d2/diplom-2f.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  72% {
+    background-image: url('../../../../../images/d2/diplom-2g.jpg');
+    background-position-y: top;
+    background-size: contain;
+  }
+  74% {
+    background-image: url('../../../../../images/diplom-3.jpg');
+    background-position-y: top;
+    background-size: cover;
+  }
+  76% {
+    background-image: url('../../../../../images/diplom-3.jpg');
+    background-position-y: top;
+    background-size: cover;
+  }
+  88% {
+    background-image: url('../../../../../images/diplom-3.jpg');
+    background-position-y: bottom;
+    background-size: cover;
+  }
+  to {
+    background-image: url('../../../../../images/diplom-3.jpg');
+    background-position-y: top;
+    background-size: cover;
+  }
+}

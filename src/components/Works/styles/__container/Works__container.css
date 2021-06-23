@@ -1,0 +1,18 @@
+.Works__container{
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .Works__container{
+    height: 40vh;
+  }
+}
+
+@media (max-width: 555px) {
+  .Works__container{
+    height: 50vw;
+  }
+}

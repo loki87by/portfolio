@@ -1,6 +1,6 @@
 // **импорты
 import React from 'react';
-import Works from '../Works/Works'
+//import Works from '../Works/Works'
 import { TranslationContext } from '../../contexts/translationContext';
 import avatar from '../../images/avatar.jpg';
 import matrix from '../../images/matrix-code-animation-gif-free-animated-background.gif';
@@ -10,6 +10,8 @@ import blueNoise from '../../images/computer-screen-code-glitch.gif';
 import close from '../../images/close.png';
 import certificateRu from '../../media/Акулич.pdf';
 import certificateEn from '../../media/20202WD00196.pdf';
+import { WORKS } from "../../utils/consts";
+import Work from "../Work/Work";
 import './Resume.css';
 import './styles/__title/Resume__title.css';
 import './styles/__subtitle/Resume__subtitle.css';
@@ -17,6 +19,7 @@ import './styles/__subsubtitle/Resume__subsubtitle.css';
 import './styles/__text/Resume__text.css';
 import './styles/__link/Resume__link.css';
 import './styles/__photo/Resume__photo.css';
+import './styles/__works/Resume__works.css';
 import '../Popup/Popup.css';
 import '../Popup/styles/_opened/Popup_opened.css';
 import './styles/__certificate/Resume__certificate.css';
@@ -125,7 +128,28 @@ function Resume(props) {
       <h2 className="Resume__subsubtitle">{translation.hobby}: <span className="Resume__text">{translation.outInterest}</span></h2>
       <h2 className="Resume__subsubtitle">{translation.qualities}: <span className="Resume__text">{translation.quals}</span></h2>
       <h2 className="Resume__subtitle">{translation.works}:</h2>
-      <Works luft={luft} setLuft={setLuft} openWorks={openWorks} setOpenWorks={setOpenWorks}/>
+      <section className="Resume__works">
+      {WORKS.map((item, index) => {
+        return (
+          <Work
+            key={index}
+            index={index + 1}
+            link={item.src}
+            style={item.class}
+            text={item.text}
+            double={item.double}
+            firstLinkText={item.firstLinkText}
+            secondLinkText={item.secondLinkText}
+            secondLink={item.secondLink}
+            luft={luft}
+            setLuft={setLuft}
+            openWorks={openWorks}
+            setOpenWorks={setOpenWorks}
+          />
+        );
+      })}
+    </section>
+      {/* <Works luft={luft} setLuft={setLuft} openWorks={openWorks} setOpenWorks={setOpenWorks}/> */}
         <section className={`Popup ${isCertificateOpen && "Popup_opened"}`}>
         <iframe className="Resume__certificate" title='sertify' allowtransparency="true" height='100%' width='100%' src={props.lang === 'ru' ? `${certificateRu}#zoom=${screenWidth / 20}` : `${certificateEn}#zoom=${screenWidth / 20}`} ></iframe>
         {isCertificateOpen ?

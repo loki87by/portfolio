@@ -1,0 +1,7 @@
+.Work__button_opened::before {
+  content: "▲  ";
+}
+
+.Work__button_opened::after {
+  content: "▲  ";
+}

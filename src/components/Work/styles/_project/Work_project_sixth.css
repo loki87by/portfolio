@@ -1,0 +1,12 @@
+.Work_project_sixth{
+  background-image: url('../../../../images/zoo/project-6.jpg');
+  background-size: cover;
+  background-position-y: top;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 600px) {
+  .Work_project_sixth{
+    background-size: contain;
+  }
+}

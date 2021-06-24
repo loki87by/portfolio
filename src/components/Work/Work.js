@@ -13,6 +13,11 @@ import "./styles/_project/Work_project_second.css";
 import "./styles/_project/Work_project_third.css";
 import "./styles/_project/Work_project_fourth.css";
 import "./styles/_project/Work_project_diplom.css";
+import "./styles/_project/Work_project_fifth.css";
+import "./styles/_project/Work_project_sixth.css";
+import "./styles/_project/Work_project_seventh.css";
+import "./styles/_project/Work_project_eighth.css";
+import "./styles/_project/Work_project_ninth.css";
 
 // **функционал
 function Work(props) {

@@ -1,15 +1,15 @@
-.Resume__work{
+.Work{
   width: 50%;
   height: 60vh;
   cursor: pointer;
 }
 
-.Resume__work:hover{
+.Work:hover{
   animation: scroll 10s linear .5s 1;
 }
 
 @media (max-width: 768px) {
-  .Resume__work{
+  .Work{
     height: 100%;
   }
 }

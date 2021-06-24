@@ -1,6 +1,6 @@
-.Resume__button{
+.Work__button {
   width: fit-content;
-  margin: .5vw auto;
+  margin: 0.5vw auto;
   border: none;
   background-color: black;
   color: #699;
@@ -9,14 +9,15 @@
   cursor: pointer;
 }
 
-.Resume__button::before{
+.Work__button::before {
   content: "▼  ";
 }
 
-.Resume__button::after{
+.Work__button::after {
   content: "  ▼";
 }
 
-.Resume__button:active, .Resume__button:focus{
+.Work__button:active,
+.Work__button:focus {
   outline: none;
 }

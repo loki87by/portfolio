@@ -25,8 +25,18 @@ import matrix from '../images/matrix-code-animation-gif-free-animated-background
 import glitch from '../images/glitch.gif';
 import cinema from '../images/cinema.gif';
 import blueNoise from '../images/computer-screen-code-glitch.gif';
+
 export const picArray = [avatar, diplom1, diplom1a, diplom1b, diplom1c, diplom1d, diplom1e, diplom1f, diplom1g, diplom1h, diplom2a, diplom2b, diplom2c, diplom2d, diplom2e, diplom2f, diplom2g, diplom2, diplom3, project1, project2, project3, project4, matrix, blueNoise, cinema, glitch];
 
+export const WORKS = [
+  {src: 'https://github.com/loki87by/how-to-learn', class: 'Work_project_first', text: 'firstProjectInfo'},
+  {src: 'https://github.com/loki87by/russian-travel', class: 'Work_project_second', text: 'secondProjectInfo'},
+  {src: 'https://github.com/loki87by/mesto', class: 'Work_project_third', text: 'thirdProjectInfo'},
+  {src: 'https://github.com/loki87by/mesto-react', class: 'Work_project_fourth', text: 'fourthProjectInfo'},
+  {src: 'https://github.com/loki87by/react-mesto-auth', class: 'Work_project_third', text: 'fifthProjectInfo'},
+  {src: 'https://github.com/loki87by/express-mesto', text: 'sixthProjectInfo'},
+  {double: true, src: 'https://github.com/loki87by/react-mesto-auth', class: 'Work_project_diplom', text: 'diplomInfo', firstLinkText: 'back', secondLinkText: 'front', secondLink: 'https://github.com/loki87by/news-explorer-frontend'},
+]
 export const GAME = [
   {number: '', area: 'top1', back: 'white', size: '4.5vw', color: 'black'},
   {number: '', area: 'top2', back: 'white', size: '4.5vw', color: 'black'},

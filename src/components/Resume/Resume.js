@@ -1,12 +1,8 @@
 // **импорты
 import React from 'react';
-//import Works from '../Works/Works'
 import { TranslationContext } from '../../contexts/translationContext';
 import avatar from '../../images/avatar.jpg';
 import matrix from '../../images/matrix-code-animation-gif-free-animated-background.gif';
-import glitch from '../../images/glitch.gif';
-import cinema from '../../images/cinema.gif';
-import blueNoise from '../../images/computer-screen-code-glitch.gif';
 import close from '../../images/close.png';
 import certificateRu from '../../media/Акулич.pdf';
 import certificateEn from '../../media/20202WD00196.pdf';
@@ -44,6 +40,10 @@ function Resume(props) {
     7: false,
   });
 
+  const animations = props.images.slice(-4);
+
+  let imagesObject = {};
+
   // *разворот сертификата
   function openCertificate() {
     setCertificateOpen(true);
@@ -80,16 +80,9 @@ function Resume(props) {
     let ava = document.querySelector(".Resume__photo");
     function changeEffect() {
       const rand = Math.random();
-      const chanse = Math.ceil(4 * rand);
-      if (chanse === 1) {
-        setEffectAva(glitch)
-      } else if (chanse === 2) {
-        setEffectAva(blueNoise)
-      } else if (chanse === 3) {
-        setEffectAva(cinema)
-      } else {
-        setEffectAva(matrix)
-      }
+      const chanse = Math.floor(4 * rand);
+      const avatarEffect = animations[chanse].src;
+      setEffectAva(avatarEffect)
     }
     function hoverOn() {
       setMouseOver(true);
@@ -105,6 +98,19 @@ function Resume(props) {
       ava.removeEventListener('mouseout', hoverOff);
     };
   })
+  for(let i=1; i<props.images.length - 4; i++ ){
+    const source = props.images[i].src;
+    const imageHash = source.match(/\w*-?\w*\.\w*\.jpg/g);
+    const imageFullName = imageHash[0].split('.')[0];
+    const imageNameTitle = imageFullName.replace(/-\w*/, '')
+    const imageNameIndex = imageFullName.match(/-\d/)[0];
+    const imageName = imageNameTitle + imageNameIndex;
+    if(!imagesObject[imageName]){
+      imagesObject[imageName] = [];
+    }
+    imagesObject[imageName].push(source);
+  }
+  console.log(imagesObject);
 
   // **DOM
   return (

@@ -153,7 +153,8 @@ function Main(props) {
       <Resume
       isMobile={props.isMobile}
       setLuft={props.setLuft}
-      lang={props.lang}/>
+      lang={props.lang}
+      images={props.images} />
       <Game
       isMobile={props.isMobile}
       isGame={props.isGame}

@@ -1,142 +1,142 @@
 .Work_project_diplom{
-  background-image: url('../../../../images/diplom-1.jpg');
+  background-image: url('../../../../images/diplom/project-4.jpg');
   background-size: contain;
   background-position-y: top;
   background-repeat: no-repeat;
 }
 
 .Work_project_diplom:hover{
-  animation: any 15s linear 1s 1;
+  animation: any 10s linear .5s infinite;
 }
 
 @keyframes any{
   from {
-    background-image: url('../../../../images/diplom-1.jpg');
+    background-image: url('../../../../images/diplom/project-4.jpg');
     background-position-y: top;
     background-size: contain;
   }
   10% {
-    background-image: url('../../../../images/diplom-1.jpg');
+    background-image: url('../../../../images/diplom/project-4.jpg');
     background-position-y: bottom;
     background-size: contain;
   }
   20% {
-    background-image: url('../../../../images/diplom-1.jpg');
+    background-image: url('../../../../images/diplom/project-4.jpg');
     background-position-y: top;
     background-size: contain;
   }
   22% {
-    background-image: url('../../../../images/d1/diplom-1a.jpg');
+    background-image: url('../../../../images/diplom/project-4b.jpg');
     background-position-y: top;
     background-size: contain;
   }
   24% {
-    background-image: url('../../../../images/d1/diplom-1b.jpg');
+    background-image: url('../../../../images/diplom/project-4c.jpg');
     background-position-y: top;
     background-size: contain;
   }
   26% {
-    background-image: url('../../../../images/d1/diplom-1c.jpg');
+    background-image: url('../../../../images/diplom/project-4d.jpg');
     background-position-y: top;
     background-size: contain;
   }
   28% {
-    background-image: url('../../../../images/d1/diplom-1d.jpg');
+    background-image: url('../../../../images/diplom/project-4e.jpg');
     background-position-y: top;
     background-size: contain;
   }
   30% {
-    background-image: url('../../../../images/d1/diplom-1e.jpg');
+    background-image: url('../../../../images/diplom/project-4f.jpg');
     background-position-y: top;
     background-size: contain;
   }
   32% {
-    background-image: url('../../../../images/d1/diplom-1f.jpg');
+    background-image: url('../../../../images/diplom/project-4g.jpg');
     background-position-y: top;
     background-size: contain;
   }
   34% {
-    background-image: url('../../../../images/d1/diplom-1g.jpg');
+    background-image: url('../../../../images/diplom/project-4h.jpg');
     background-position-y: top;
     background-size: contain;
   }
   36% {
-    background-image: url('../../../../images/d1/diplom-1h.jpg');
+    background-image: url('../../../../images/diplom/project-4i.jpg');
     background-position-y: top;
     background-size: contain;
   }
   38% {
-    background-image: url('../../../../images/diplom-2.jpg');
+    background-image: url('../../../../images/diplom/project-4j.jpg');
     background-position-y: top;
     background-size: contain;
   }
   40% {
-    background-image: url('../../../../images/diplom-2.jpg');
+    background-image: url('../../../../images/diplom/project-4j.jpg');
     background-position-y: top;
     background-size: contain;
   }
   49% {
-    background-image: url('../../../../images/diplom-2.jpg');
+    background-image: url('../../../../images/diplom/project-4j.jpg');
     background-position-y: bottom;
     background-size: contain;
   }
   58% {
-    background-image: url('../../../../images/diplom-2.jpg');
+    background-image: url('../../../../images/diplom/project-4j.jpg');
     background-position-y: top;
     background-size: contain;
   }
   60% {
-    background-image: url('../../../../images/d2/diplom-2a.jpg');
+    background-image: url('../../../../images/diplom/project-4k.jpg');
     background-position-y: top;
     background-size: contain;
   }
   62% {
-    background-image: url('../../../../images/d2/diplom-2b.jpg');
+    background-image: url('../../../../images/diplom/project-4l.jpg');
     background-position-y: top;
     background-size: contain;
   }
   64% {
-    background-image: url('../../../../images/d2/diplom-2c.jpg');
+    background-image: url('../../../../images/diplom/project-4m.jpg');
     background-position-y: top;
     background-size: contain;
   }
   66% {
-    background-image: url('../../../../images/d2/diplom-2d.jpg');
+    background-image: url('../../../../images/diplom/project-4n.jpg');
     background-position-y: top;
     background-size: contain;
   }
   68% {
-    background-image: url('../../../../images/d2/diplom-2e.jpg');
+    background-image: url('../../../../images/diplom/project-4o.jpg');
     background-position-y: top;
     background-size: contain;
   }
   70% {
-    background-image: url('../../../../images/d2/diplom-2f.jpg');
+    background-image: url('../../../../images/diplom/project-4p.jpg');
     background-position-y: top;
     background-size: contain;
   }
   72% {
-    background-image: url('../../../../images/d2/diplom-2g.jpg');
+    background-image: url('../../../../images/diplom/project-4q.jpg');
     background-position-y: top;
     background-size: contain;
   }
   74% {
-    background-image: url('../../../../images/diplom-3.jpg');
+    background-image: url('../../../../images/diplom/project-4r.jpg');
     background-position-y: top;
     background-size: cover;
   }
   76% {
-    background-image: url('../../../../images/diplom-3.jpg');
+    background-image: url('../../../../images/diplom/project-4r.jpg');
     background-position-y: top;
     background-size: cover;
   }
   88% {
-    background-image: url('../../../../images/diplom-3.jpg');
+    background-image: url('../../../../images/diplom/project-4r.jpg');
     background-position-y: bottom;
     background-size: cover;
   }
   to {
-    background-image: url('../../../../images/diplom-3.jpg');
+    background-image: url('../../../../images/diplom/project-4r.jpg');
     background-position-y: top;
     background-size: cover;
   }

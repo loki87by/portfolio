@@ -1,26 +1,26 @@
 import avatar from "../images/avatar.jpg";
-import diplom1 from "../images/diplom-1.jpg";
-import diplom1a from "../images/d1/diplom-1a.jpg";
-import diplom1b from "../images/d1/diplom-1b.jpg";
-import diplom1c from "../images/d1/diplom-1c.jpg";
-import diplom1d from "../images/d1/diplom-1d.jpg";
-import diplom1e from "../images/d1/diplom-1e.jpg";
-import diplom1f from "../images/d1/diplom-1f.jpg";
-import diplom1g from "../images/d1/diplom-1g.jpg";
-import diplom1h from "../images/d1/diplom-1h.jpg";
-import diplom2e from "../images/d2/diplom-2e.jpg";
-import diplom2f from "../images/d2/diplom-2f.jpg";
-import diplom2g from "../images/d2/diplom-2g.jpg";
-import diplom2c from "../images/d2/diplom-2c.jpg";
-import diplom2d from "../images/d2/diplom-2d.jpg";
-import diplom2b from "../images/d2/diplom-2b.jpg";
-import diplom2a from "../images/d2/diplom-2a.jpg";
-import diplom2 from "../images/diplom-2.jpg";
-import diplom3 from "../images/diplom-3.jpg";
+import project0 from "../images/project-0.jpg";
 import project1 from "../images/project-1.jpg";
 import project2 from "../images/project-2.jpg";
 import project3 from "../images/project-3.jpg";
-import project4 from "../images/project-4.jpg";
+import project4a from "../images/diplom/project-4.jpg";
+import project4b from "../images/diplom/project-4b.jpg";
+import project4c from "../images/diplom/project-4c.jpg";
+import project4d from "../images/diplom/project-4d.jpg";
+import project4e from "../images/diplom/project-4e.jpg";
+import project4f from "../images/diplom/project-4f.jpg";
+import project4g from "../images/diplom/project-4g.jpg";
+import project4h from "../images/diplom/project-4h.jpg";
+import project4i from "../images/diplom/project-4i.jpg";
+import project4j from "../images/diplom/project-4j.jpg";
+import project4k from "../images/diplom/project-4k.jpg";
+import project4l from "../images/diplom/project-4l.jpg";
+import project4m from "../images/diplom/project-4m.jpg";
+import project4n from "../images/diplom/project-4n.jpg";
+import project4o from "../images/diplom/project-4o.jpg";
+import project4p from "../images/diplom/project-4p.jpg";
+import project4q from "../images/diplom/project-4q.jpg";
+import project4r from "../images/diplom/project-4r.jpg";
 import project5 from "../images/project-5.jpg";
 import project6 from "../images/zoo/project-6.jpg";
 import project6a from "../images/zoo/project-6_2.jpg";
@@ -42,28 +42,28 @@ import blueNoise from "../images/computer-screen-code-glitch.gif";
 
 export const picArray = [
   avatar,
-  diplom1,
-  diplom1a,
-  diplom1b,
-  diplom1c,
-  diplom1d,
-  diplom1e,
-  diplom1f,
-  diplom1g,
-  diplom1h,
-  diplom2a,
-  diplom2b,
-  diplom2c,
-  diplom2d,
-  diplom2e,
-  diplom2f,
-  diplom2g,
-  diplom2,
-  diplom3,
+  project0,
   project1,
   project2,
   project3,
-  project4,
+  project4a,
+  project4b,
+  project4c,
+  project4d,
+  project4e,
+  project4f,
+  project4g,
+  project4h,
+  project4i,
+  project4j,
+  project4k,
+  project4l,
+  project4m,
+  project4n,
+  project4o,
+  project4p,
+  project4q,
+  project4r,
   project5,
   project6,
   project6a,

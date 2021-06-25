@@ -23,6 +23,10 @@ import "./styles/_project/Work_project_ninth.css";
 function Work(props) {
   const translation = React.useContext(TranslationContext);
 
+  // console.log(props.imageSet);
+  /* const back = props.imageSet[0];
+  console.log(back); */
+
   // *функция разворотов работ и переноса слушателей игры по кликам
   function workToggle(e) {
     let key = e.target.id;
@@ -68,7 +72,7 @@ function Work(props) {
       {props.openWorks[props.index] ? (
         <div className="Work__container">
           {props.style ? (
-            <div className={`Work ${props.style}`}></div>
+            <div style={{ backgroundImage: `url(${props.imageSet[0]})`}} className={`Work ${props.style}`}></div>
           ) : (
             ""
           )}

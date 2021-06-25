@@ -110,7 +110,8 @@ function Resume(props) {
     }
     imagesObject[imageName].push(source);
   }
-  console.log(imagesObject);
+  const imageSets = Object.values(imagesObject);
+  // console.log(values);
 
   // **DOM
   return (
@@ -147,6 +148,7 @@ function Resume(props) {
             firstLinkText={item.firstLinkText}
             secondLinkText={item.secondLinkText}
             secondLink={item.secondLink}
+            imageSet={imageSets[index]}
             luft={luft}
             setLuft={setLuft}
             openWorks={openWorks}

@@ -14,6 +14,7 @@ function App() {
   const [isGame, setIsGame] = React.useState(false);
   const [luft, setLuft] = React.useState(0);
   const [images, setImages] = React.useState([]);
+  const [imagesIsLoad, setImagesIsLoad] = React.useState(false);
   const gameRef = React.useRef(isGame);
   const Mobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
   const mobileRef = React.useRef(Mobile);
@@ -56,12 +57,19 @@ function App() {
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
 
+React.useEffect(() => {
+    images[picArray.length - 1].onload = function() {
+      setImagesIsLoad(true)}
+})
+
   // **DOM
   return (
       <>
         <TranslationContext.Provider value={translations[lang]}>
           <Header setLang={setLang} lang={lang}/>
+          {imagesIsLoad ?
           <Main isMobile={mobileRef.current} isGame={gameRef} lang={lang} images={images} setLuft={setLuft}/>
+          : <h2>Жди</h2>}
           <Footer />
         </ TranslationContext.Provider>
       </>

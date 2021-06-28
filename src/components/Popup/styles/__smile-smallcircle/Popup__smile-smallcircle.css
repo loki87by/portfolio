@@ -1,7 +1,7 @@
-.Popup__smile-smallcircle{
+.Popup__smile-smallcircle {
   position: absolute;
-  width: .7vw;
-  height: .7vw;
-  border: .3vw solid;
+  width: 0.7vw;
+  height: 0.7vw;
+  border: 0.3vw solid;
   border-radius: 50%;
 }

@@ -1,4 +1,4 @@
-.Work__description{
+.Work__description {
   width: 45%;
   height: 60vh;
   margin: 0;
@@ -9,7 +9,7 @@
 }
 
 @media (max-width: 768px) {
-  .Work__description{
+  .Work__description {
     height: 100%;
   }
 }

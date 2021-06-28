@@ -1,33 +1,33 @@
-.Game__rules-text{
+.Game__rules-text {
   visibility: visible;
   min-height: 200px;
   margin-top: 1em;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
   font-size: 1em;
   word-wrap: break-word;
 }
 
 @media (max-width: 898px) {
-  .Game__rules-text{
+  .Game__rules-text {
     min-height: 310px;
   }
 }
 
 @media (max-width: 828px) {
-  .Game__rules-text{
+  .Game__rules-text {
     min-height: 330px;
   }
 }
 
 @media (max-width: 790px) {
-  .Game__rules-text{
+  .Game__rules-text {
     min-height: 350px;
   }
 }
 
 @media (max-width: 768px) {
-  .Game__rules-text{
+  .Game__rules-text {
     min-height: 150px;
   }
 }

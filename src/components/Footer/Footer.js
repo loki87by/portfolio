@@ -1,7 +1,7 @@
 // **импорты
-import React from 'react';
-import { TranslationContext } from '../../contexts/translationContext';
-import './Footer.css';
+import React from "react";
+import { TranslationContext } from "../../contexts/translationContext";
+import "./Footer.css";
 
 // **функционал
 function Footer() {

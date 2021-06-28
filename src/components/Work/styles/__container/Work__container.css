@@ -1,4 +1,4 @@
-.Work__container{
+.Work__container {
   height: 70vh;
   display: flex;
   flex-direction: row;
@@ -6,13 +6,13 @@
 }
 
 @media (max-width: 768px) {
-  .Work__container{
+  .Work__container {
     height: 40vh;
   }
 }
 
 @media (max-width: 555px) {
-  .Work__container{
+  .Work__container {
     height: 50vw;
   }
 }

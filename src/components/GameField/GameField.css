@@ -1,9 +1,9 @@
 @font-face {
-  font-family: 'Iceberg';
-  src: url('../../vendor/Iceberg-Regular.woff') format('woff');
+  font-family: "Iceberg";
+  src: url("../../vendor/Iceberg-Regular.woff") format("woff");
 }
 
-.GameField{
+.GameField {
   z-index: 1;
   width: 43vw;
   height: 43vw;
@@ -15,16 +15,16 @@
   grid-template-columns: repeat(4, 10vw);
   grid-gap: 1vw;
   grid-template-areas:
-      "top1 top2 top3 top4"
-      "second1 second2 second3 second4"
-      "third1 third2 third3 third4"
-      "bottom1 bottom2 bottom3 bottom4";
-  font-family: 'Iceberg', sans-serif;
+    "top1 top2 top3 top4"
+    "second1 second2 second3 second4"
+    "third1 third2 third3 third4"
+    "bottom1 bottom2 bottom3 bottom4";
+  font-family: "Iceberg", sans-serif;
   font-weight: bold;
 }
 
 @media (max-width: 768px) {
-  .GameField{
+  .GameField {
     width: 82vw;
     height: 82vw;
     margin: auto;
@@ -35,7 +35,7 @@
 }
 
 @media (max-width: 444px) {
-  .GameField{
+  .GameField {
     margin-bottom: 2em;
   }
 }

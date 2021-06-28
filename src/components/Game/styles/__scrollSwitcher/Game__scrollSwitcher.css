@@ -1,4 +1,4 @@
-.Game__scrollSwitcher{
+.Game__scrollSwitcher {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -15,7 +15,7 @@
 }
 
 @media (max-width: 444px) {
-  .Game__scrollSwitcher{
+  .Game__scrollSwitcher {
     bottom: 30px;
   }
 }

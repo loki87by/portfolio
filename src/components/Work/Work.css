@@ -1,4 +1,4 @@
-.Work{
+.Work {
   width: 50%;
   height: 60vh;
   cursor: pointer;
@@ -8,7 +8,7 @@
 }
 
 @media (max-width: 768px) {
-  .Work{
+  .Work {
     height: 100%;
   }
 }

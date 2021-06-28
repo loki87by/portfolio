@@ -1,4 +1,4 @@
-.Game{
+.Game {
   position: relative;
   height: 60vw;
   padding-top: 1vw;
@@ -8,7 +8,7 @@
 }
 
 @media (max-width: 790px) {
-  .Game{
+  .Game {
     height: 65vw;
     flex-direction: column-reverse;
     justify-content: flex-end;
@@ -16,7 +16,7 @@
 }
 
 @media (max-width: 768px) {
-  .Game{
+  .Game {
     height: 100%;
   }
 }

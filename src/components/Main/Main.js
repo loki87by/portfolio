@@ -1,15 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // ***импорты
-import React from 'react';
-import { afterMidnight, GAME, newgame } from '../../utils/consts';
-import Resume from '../Resume/Resume';
-import Game from '../Game/Game';
-import Popup from '../Popup/Popup';
-import './Main.css';
+import React from "react";
+import { afterMidnight, GAME, newgame } from "../../utils/consts";
+import Resume from "../Resume/Resume";
+import Game from "../Game/Game";
+import Popup from "../Popup/Popup";
+import "./Main.css";
 
 // ***функционал
 function Main(props) {
-
   // **стейты
   const [endTime, setEndTime] = React.useState(1015);
   const [newTime, setNewTime] = React.useState(0);
@@ -19,7 +18,7 @@ function Main(props) {
   const [newInterval, setNewInterval] = React.useState(true);
   const [intervalTime, setIntervalTime] = React.useState(3300000);
   const [popupOpened, setPopupOpened] = React.useState(false);
-  const [popupType, setPopupType] = React.useState('');
+  const [popupType, setPopupType] = React.useState("");
   const [gameStarted, setGameStarted] = React.useState(false);
   const [endGame, setEndGame] = React.useState(false);
   const [score, setScore] = React.useState(0);
@@ -28,7 +27,6 @@ function Main(props) {
   countRef.current = endTime;
   const intervalRef = React.useRef(intervalTime);
   intervalRef.current = intervalTime;
-
 
   // *перезапуск геймплея
   function restarter() {
@@ -49,7 +47,7 @@ function Main(props) {
   // *открытие попапа
   function openOclockPopup() {
     openPopup();
-    setPopupType('oclock');
+    setPopupType("oclock");
   }
   // *эффект первичного таймера
   React.useEffect(() => {
@@ -61,12 +59,14 @@ function Main(props) {
       time = countRef.current - afterMidnight + 1440;
     }
     let timer = setTimeout(openOclockPopup, time * 60000);
-    return () => {clearTimeout(timer)}
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
   // *открытие попапа кофе-брейка через час
   function openCoffeePopup() {
     openPopup();
-    setPopupType('coffee');
+    setPopupType("coffee");
   }
   // *эффект первичного таймера попапа кофе-брейка
   React.useEffect(() => {
@@ -75,22 +75,22 @@ function Main(props) {
       let timer = setInterval(openCoffeePopup, intervalRef.current);
       return () => {
         clearInterval(timer);
-      }
+      };
     }
   }, [intervalRef.current]);
 
   // **функции перенастройки попапа
   // *эффект измененного таймера
   React.useEffect(() => {
-    if(isNewTimer) {
+    if (isNewTimer) {
       let time = newTime - countRef.current;
       let timer = setTimeout(openOclockPopup, time * 60000);
       return () => {
         setNewTimer(false);
         clearTimeout(timer);
-      }
+      };
     }
-  })
+  });
   // *считыватель выставленного времени
   let mins;
   let hrs;
@@ -110,7 +110,7 @@ function Main(props) {
   }
   // *получение выбранных данных времени
   function getNewTimerValue() {
-    let value = document.getElementById('timerChanger').value;
+    let value = document.getElementById("timerChanger").value;
     let timerValue = value * 60000;
     setTimerEdited(true);
     setIntervalTime(timerValue);
@@ -125,7 +125,7 @@ function Main(props) {
   // *закрытие попапа
   function handlePopupClose() {
     setPopupOpened(false);
-    setPopupType('');
+    setPopupType("");
     setTimedPopup(false);
     setNewInterval(false);
   }
@@ -137,55 +137,58 @@ function Main(props) {
   }
   // *закрытие по оверлею
   function handleClickClose(e) {
-    if (e.target.classList.contains('Popup_opened')) {
+    if (e.target.classList.contains("Popup_opened")) {
       handlePopupClose();
     }
   }
   // *слушатели закрытий
   React.useEffect(() => {
-    window.addEventListener('keydown', handleEscClose);
-    window.addEventListener('click', handleClickClose);
-  })
+    window.addEventListener("keydown", handleEscClose);
+    window.addEventListener("click", handleClickClose);
+  });
 
   // **DOM
-  return(
+  return (
     <section className="Main">
       <Resume
-      isMobile={props.isMobile}
-      setLuft={props.setLuft}
-      lang={props.lang}
-      images={props.images} />
+        isMobile={props.isMobile}
+        setLuft={props.setLuft}
+        lang={props.lang}
+        images={props.images}
+      />
       <Game
-      isMobile={props.isMobile}
-      isGame={props.isGame}
-      score={score}
-      setScore={setScore}
-      setPopupOpened={setPopupOpened}
-      setPopupType={setPopupType}
-      setGameStarted={setGameStarted}
-      setEndGame={setEndGame}
-      gameStarted={gameStarted}
-      endGame={endGame}
-      numbers={numbers}
-      setNumbers={setNumbers}
-      restarter={restarter} />
+        isMobile={props.isMobile}
+        isGame={props.isGame}
+        score={score}
+        setScore={setScore}
+        setPopupOpened={setPopupOpened}
+        setPopupType={setPopupType}
+        setGameStarted={setGameStarted}
+        setEndGame={setEndGame}
+        gameStarted={gameStarted}
+        endGame={endGame}
+        numbers={numbers}
+        setNumbers={setNumbers}
+        restarter={restarter}
+      />
       <Popup
-      isOpen={popupOpened}
-      isTimedPopup={isTimedPopup}
-      onClose={handlePopupClose}
-      handleEditTimer={handleEditTimer}
-      isTimerEdited={isTimerEdited}
-      newTimer={newTimer}
-      popupType={popupType}
-      setGameStarted={setGameStarted}
-      setEndGame={setEndGame}
-      setTimedPopup={setTimedPopup}
-      setNewInterval={setNewInterval}
-      getNewTimerValue={getNewTimerValue}
-      newTimeInterval={newTimeInterval}
-      restarter={restarter} />
+        isOpen={popupOpened}
+        isTimedPopup={isTimedPopup}
+        onClose={handlePopupClose}
+        handleEditTimer={handleEditTimer}
+        isTimerEdited={isTimerEdited}
+        newTimer={newTimer}
+        popupType={popupType}
+        setGameStarted={setGameStarted}
+        setEndGame={setEndGame}
+        setTimedPopup={setTimedPopup}
+        setNewInterval={setNewInterval}
+        getNewTimerValue={getNewTimerValue}
+        newTimeInterval={newTimeInterval}
+        restarter={restarter}
+      />
     </section>
-  )
+  );
 }
 
 // ***экспорт

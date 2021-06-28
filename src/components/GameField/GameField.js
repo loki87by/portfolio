@@ -1,18 +1,26 @@
 // ***импорты
-import React from 'react';
-import Cell from '../Cell/Cell';
-import { oldArrayString, getNewNumber, styler, allNumbers, toVertical, toHorizontal, fromVertical, fromHorizontal } from '../../utils/consts';
-import './GameField.css';
+import React from "react";
+import Cell from "../Cell/Cell";
+import {
+  oldArrayString,
+  getNewNumber,
+  styler,
+  allNumbers,
+  toVertical,
+  toHorizontal,
+  fromVertical,
+  fromHorizontal,
+} from "../../utils/consts";
+import "./GameField.css";
 
 // ***функционал
 function GameField(props) {
-
   // **стейты
   const [maxNumber, setMaxNumber] = React.useState(16);
-  const [touchStart, setTouchStart] = React.useState({})
-  const [touchPosition, setTouchPosition] = React.useState({})
-  const [isStopScrolling, setStopScrolling] = React.useState(false)
-  let numbers = props.numbers
+  const [touchStart, setTouchStart] = React.useState({});
+  const [touchPosition, setTouchPosition] = React.useState({});
+  const [isStopScrolling, setStopScrolling] = React.useState(false);
+  let numbers = props.numbers;
 
   // **функции
   // *начало игры
@@ -22,19 +30,23 @@ function GameField(props) {
       props.setGameStarted(true);
       props.setScrollLocker(true);
       setNewNumber();
-      window.removeEventListener('keydown', startGame);
-      window.removeEventListener('touchstart', startGame);
+      window.removeEventListener("keydown", startGame);
+      window.removeEventListener("touchstart", startGame);
     }
-  }
+  };
   React.useEffect(() => {
     if (props.isMobile) {
-      window.addEventListener('touchstart', startGame)
-      return () => {window.removeEventListener('touchstart', startGame)}
+      window.addEventListener("touchstart", startGame);
+      return () => {
+        window.removeEventListener("touchstart", startGame);
+      };
     } else {
-    window.addEventListener('keydown', startGame);
-    return () => {window.removeEventListener('keydown', startGame)};
+      window.addEventListener("keydown", startGame);
+      return () => {
+        window.removeEventListener("keydown", startGame);
+      };
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // *новая цифра в пустой ячейке
@@ -42,12 +54,12 @@ function GameField(props) {
     let newNumbers;
     let quantity = 0;
     let indexes = [];
-    array.forEach(function (item, index){
-      if (item.number === '') {
-        quantity = quantity + 1
+    array.forEach(function (item, index) {
+      if (item.number === "") {
+        quantity = quantity + 1;
         indexes.push(index);
       }
-    })
+    });
     let random = Math.random();
     let randomCell = Math.ceil(indexes.length * random);
     let index = indexes[randomCell - 1];
@@ -71,22 +83,22 @@ function GameField(props) {
 
   // *сложение соседних дублей
   function summ(a, b) {
-    if(a === b) {
+    if (a === b) {
       sum = a + b;
-      if(!isNaN(sum)) {
+      if (!isNaN(sum)) {
         let newScore = props.score + sum;
         props.setScore(newScore);
       }
       return sum;
     } else {
-      return
+      return;
     }
   }
 
   // *нахождение максимального числа(для стилей)
   function maxSeacher() {
     let allNums = allNumbers(numbers);
-    if(Math.max(...allNums) > 16) {
+    if (Math.max(...allNums) > 16) {
       return setMaxNumber(Math.max(...allNums));
     }
   }
@@ -98,54 +110,54 @@ function GameField(props) {
     let newArr = line.filter((item) => {
       if (typeof item === "number") {
         return item;
-      };
+      }
       return item;
     });
-    if (newArr.length > 1){
+    if (newArr.length > 1) {
       sum = undefined;
       summ(newArr[0], newArr[1]);
       if (sum) {
         newArr[0] = sum;
-        newArr[1] = '';
-      };
+        newArr[1] = "";
+      }
     }
-    if (newArr.length > 2){
+    if (newArr.length > 2) {
       sum = undefined;
       summ(newArr[1], newArr[2]);
       if (sum) {
         newArr[1] = sum;
-        newArr[2] = '';
-      };
+        newArr[2] = "";
+      }
     }
-    if(newArr.length === 4) {
-        sum = undefined;
-        summ(newArr[2], newArr[3]);
-        if (sum) {
-          newArr[2] = sum;
-          newArr[3] = '';
-        };
-      };
+    if (newArr.length === 4) {
+      sum = undefined;
+      summ(newArr[2], newArr[3]);
+      if (sum) {
+        newArr[2] = sum;
+        newArr[3] = "";
+      }
+    }
     finishArr = newArr.filter((item) => {
       if (typeof item === "number") {
         return item;
-      };
+      }
       return item;
-    })
+    });
     if (finishArr.length === 0) {
-      finishArr = ['', '', '', ''];
-    };
+      finishArr = ["", "", "", ""];
+    }
     if (finishArr.length === 1) {
-      finishArr.push('');
-      finishArr.push('');
-      finishArr.push('');
-    };
+      finishArr.push("");
+      finishArr.push("");
+      finishArr.push("");
+    }
     if (finishArr.length === 2) {
-      finishArr.push('');
-      finishArr.push('');
-    };
+      finishArr.push("");
+      finishArr.push("");
+    }
     if (finishArr.length === 3) {
-      finishArr.push('');
-    };
+      finishArr.push("");
+    }
     return finishArr;
   }
   // *смещение в конец строки
@@ -169,17 +181,17 @@ function GameField(props) {
     fromVertical(numbers, firstLine, secondLine, thirdLine, fourthLine);
     let endNumbers = numbers.slice().map((i) => {
       return i.number;
-    })
+    });
     let endString = endNumbers.join();
     if (startString !== endString) {
       setNewNumber();
     } else {
       let emptyCells = endNumbers.filter((item) => {
-        return item === '';
-      })
-      if(emptyCells.length === 0) {
+        return item === "";
+      });
+      if (emptyCells.length === 0) {
         props.setPopupOpened(true);
-        props.setPopupType('loose');
+        props.setPopupType("loose");
       }
     }
     maxSeacher();
@@ -199,17 +211,17 @@ function GameField(props) {
     fromHorizontal(numbers, firstLine, secondLine, thirdLine, fourthLine);
     let endNumbers = numbers.slice().map((i) => {
       return i.number;
-    })
+    });
     let endString = endNumbers.join();
     if (startString !== endString) {
       setNewNumber();
     } else {
       let emptyCells = endNumbers.filter((item) => {
-        return item === '';
-      })
-      if(emptyCells.length === 0) {
+        return item === "";
+      });
+      if (emptyCells.length === 0) {
         props.setPopupOpened(true);
-        props.setPopupType('loose');
+        props.setPopupType("loose");
       }
     }
     maxSeacher();
@@ -229,17 +241,17 @@ function GameField(props) {
     fromVertical(numbers, firstLine, secondLine, thirdLine, fourthLine);
     let endNumbers = numbers.slice().map((i) => {
       return i.number;
-    })
+    });
     let endString = endNumbers.join();
     if (startString !== endString) {
       setNewNumber();
     } else {
       let emptyCells = endNumbers.filter((item) => {
-        return item === '';
-      })
-      if(emptyCells.length === 0) {
+        return item === "";
+      });
+      if (emptyCells.length === 0) {
         props.setPopupOpened(true);
-        props.setPopupType('loose');
+        props.setPopupType("loose");
       }
     }
     maxSeacher();
@@ -259,17 +271,17 @@ function GameField(props) {
     fromHorizontal(numbers, firstLine, secondLine, thirdLine, fourthLine);
     let endNumbers = numbers.slice().map((i) => {
       return i.number;
-    })
+    });
     let endString = endNumbers.join();
     if (startString !== endString) {
       setNewNumber();
     } else {
       let emptyCells = endNumbers.filter((item) => {
-        return item === '';
-      })
-      if(emptyCells.length === 0) {
+        return item === "";
+      });
+      if (emptyCells.length === 0) {
         props.setPopupOpened(true);
-        props.setPopupType('loose');
+        props.setPopupType("loose");
       }
     }
     maxSeacher();
@@ -287,48 +299,48 @@ function GameField(props) {
   // **игровое управление
   // *отклик на нажатие клавишь
   function handleKeyup(e) {
-      if (pressedKey[0] === "ArrowUp") {
-        e.preventDefault();
-        toTop();
-        pressedKey.pop();
-      } else if (pressedKey[0] === "ArrowDown") {
-        e.preventDefault();
-        toBottom();
-        pressedKey.pop();
-      } else if (pressedKey[0] === "ArrowLeft") {
-        e.preventDefault();
-        toLeft();
-        pressedKey.pop();
-      } else if (pressedKey[0] === "ArrowRight") {
-        e.preventDefault();
-        toRight();
-        pressedKey.pop();
-      } else if (pressedKey[0] === "Tab") {
-        e.preventDefault();
-        cheat();
-        pressedKey.pop();
-      } else if (pressedKey[0] === "Backspace") {
-        e.preventDefault();
-        looserCheat();
-        pressedKey.pop();
-      } else {
-        pressedKey.pop();
-      }
+    if (pressedKey[0] === "ArrowUp") {
+      e.preventDefault();
+      toTop();
+      pressedKey.pop();
+    } else if (pressedKey[0] === "ArrowDown") {
+      e.preventDefault();
+      toBottom();
+      pressedKey.pop();
+    } else if (pressedKey[0] === "ArrowLeft") {
+      e.preventDefault();
+      toLeft();
+      pressedKey.pop();
+    } else if (pressedKey[0] === "ArrowRight") {
+      e.preventDefault();
+      toRight();
+      pressedKey.pop();
+    } else if (pressedKey[0] === "Tab") {
+      e.preventDefault();
+      cheat();
+      pressedKey.pop();
+    } else if (pressedKey[0] === "Backspace") {
+      e.preventDefault();
+      looserCheat();
+      pressedKey.pop();
+    } else {
+      pressedKey.pop();
+    }
   }
   // *тест-чит для победы
-  function cheat(){
+  function cheat() {
     let cheatField = numbers.map((i) => {
       i.number = 1024;
       return i;
-    })
+    });
     props.setNumbers(cheatField);
   }
   // *тест-чит для проигрыша
-  function looserCheat(){
+  function looserCheat() {
     let cheatField = numbers.map((i, index) => {
       i.number = index + 1;
       return i;
-    })
+    });
     props.setNumbers(cheatField);
   }
   // **управление с мобильного устройства
@@ -336,40 +348,46 @@ function GameField(props) {
   // *получаем точку касания
   function TouchStart(e) {
     if (props.scrollLocker) {
-      setStopScrolling(true)
-      setTouchStart({ x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY });
+      setStopScrolling(true);
+      setTouchStart({
+        x: e.changedTouches[0].clientX,
+        y: e.changedTouches[0].clientY,
+      });
       setTouchPosition({ x: touchStart.x, y: touchStart.y });
     }
   }
   // *Получаем новую позицию
   function TouchMove(e) {
-    if(isStopScrolling) {
-      e.preventDefault()
+    if (isStopScrolling) {
+      e.preventDefault();
     }
-      setTouchPosition({ x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY });
-    }
+    setTouchPosition({
+      x: e.changedTouches[0].clientX,
+      y: e.changedTouches[0].clientY,
+    });
+  }
   // *Действия при свайпе
   function CheckAction() {
     let d = {
-   	  x: touchStart.x - touchPosition.x,
-   	  y: touchStart.y - touchPosition.y
+      x: touchStart.x - touchPosition.x,
+      y: touchStart.y - touchPosition.y,
     };
-    if(Math.abs(d.x) > Math.abs(d.y)) {
-   	  if(Math.abs(d.x) > sensitivity) {
-   		  if(d.x > 0) {
+    if (Math.abs(d.x) > Math.abs(d.y)) {
+      if (Math.abs(d.x) > sensitivity) {
+        if (d.x > 0) {
           toLeft();
         } else {
           toRight();
         }
-   	  }
+      }
     } else {
-      if(Math.abs(d.y) > sensitivity) {
-        if(d.y > 0) {
+      if (Math.abs(d.y) > sensitivity) {
+        if (d.y > 0) {
           toTop();
         } else {
-        toBottom();
+          toBottom();
         }
-   	  }
+      }
     }
   }
   // *Окончание или отмена касания
@@ -377,23 +395,27 @@ function GameField(props) {
     CheckAction();
     setTouchStart({});
     setTouchPosition({});
-    setStopScrolling(false)
+    setStopScrolling(false);
     //return true
   }
 
   // *расставляем слушатели
   React.useEffect(() => {
     if (props.gameStarted) {
-      window.addEventListener('keydown', handleKeydown);
-      return () => {window.removeEventListener('keydown', handleKeydown)};
+      window.addEventListener("keydown", handleKeydown);
+      return () => {
+        window.removeEventListener("keydown", handleKeydown);
+      };
     }
-  })
+  });
   React.useEffect(() => {
     if (props.gameStarted) {
-      window.addEventListener('keyup', handleKeyup);
-      return () => {window.removeEventListener('keyup', handleKeyup)};
+      window.addEventListener("keyup", handleKeyup);
+      return () => {
+        window.removeEventListener("keyup", handleKeyup);
+      };
     }
-  })
+  });
   React.useEffect(() => {
     if (props.gameStarted && props.isMobile) {
       window.addEventListener("touchstart", TouchStart);
@@ -401,39 +423,49 @@ function GameField(props) {
       window.addEventListener("touchend", TouchEnd);
       window.addEventListener("touchcancel", TouchEnd);
       return () => {
-        window.removeEventListener("touchstart", TouchStart)
-        window.removeEventListener("touchmove", TouchMove)
-        window.removeEventListener("touchend", TouchEnd)
-        window.removeEventListener("touchcancel", TouchEnd)
+        window.removeEventListener("touchstart", TouchStart);
+        window.removeEventListener("touchmove", TouchMove);
+        window.removeEventListener("touchend", TouchEnd);
+        window.removeEventListener("touchcancel", TouchEnd);
       };
     }
-  })
+  });
 
   // *вызов попапа победы
   React.useEffect(() => {
-    if(maxNumber === 2048) {
-      let popup = document.querySelector('.GamePopup_opened');
-      if(!popup) {
+    if (maxNumber === 2048) {
+      let popup = document.querySelector(".GamePopup_opened");
+      if (!popup) {
         props.setPopupOpened(true);
-        props.setPopupType('win');
+        props.setPopupType("win");
         setMaxNumber(2049);
       }
     }
   }, [maxNumber, props]);
 
   // **DOM
-  return (
-    maxNumber < 2049 ?
-    (<div className="GameField" style={{ 'backgroundColor': `rgb(${127 + maxNumber / 16}, ${127 + maxNumber / 16}, ${128 - maxNumber / 16})`}}>
+  return maxNumber < 2049 ? (
+    <div
+      className="GameField"
+      style={{
+        backgroundColor: `rgb(${127 + maxNumber / 16}, ${
+          127 + maxNumber / 16
+        }, ${128 - maxNumber / 16})`,
+      }}
+    >
       {numbers.map((cell, i) => (
-        <Cell key={i} cell={cell}/>
+        <Cell key={i} cell={cell} />
       ))}
-    </div>) :
-    (<div className="GameField" style={{ 'backgroundColor': `rgb(${255 - maxNumber / 64}, 255, 0)`}}>
+    </div>
+  ) : (
+    <div
+      className="GameField"
+      style={{ backgroundColor: `rgb(${255 - maxNumber / 64}, 255, 0)` }}
+    >
       {numbers.map((cell, i) => (
-        <Cell key={i} cell={cell}/>
+        <Cell key={i} cell={cell} />
       ))}
-    </div>)
+    </div>
   );
 }
 

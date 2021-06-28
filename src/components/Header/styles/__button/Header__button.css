@@ -1,11 +1,11 @@
-.Header__button{
+.Header__button {
   height: 2vw;
   padding: 0;
   border: none;
 }
 
 @media (max-width: 499px) {
-  .Header__button{
+  .Header__button {
     height: 1vw;
   }
 }

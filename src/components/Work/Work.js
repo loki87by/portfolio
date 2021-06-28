@@ -1,6 +1,7 @@
 // **импорты
 import React from "react";
 import { TranslationContext } from "../../contexts/translationContext";
+import { animationCreator, animationCancel } from '../../utils/helpers';
 import "./styles/__title/Work__title.css";
 import "./styles/__link/Work__link.css";
 import "./styles/__button/Work__button.css";
@@ -8,24 +9,11 @@ import "./styles/__button/_opened/Work__button_opened.css";
 import "./styles/__container/Work__container.css";
 import "./Work.css";
 import "./styles/__description/Work__description.css";
-import "./styles/_project/Work_project_first.css";
-import "./styles/_project/Work_project_second.css";
-import "./styles/_project/Work_project_third.css";
-import "./styles/_project/Work_project_fourth.css";
-import "./styles/_project/Work_project_diplom.css";
-import "./styles/_project/Work_project_fifth.css";
-import "./styles/_project/Work_project_sixth.css";
-import "./styles/_project/Work_project_seventh.css";
-import "./styles/_project/Work_project_eighth.css";
-import "./styles/_project/Work_project_ninth.css";
+import "./styles/_animation/Work_animation_standart.css";
 
 // **функционал
 function Work(props) {
   const translation = React.useContext(TranslationContext);
-
-  // console.log(props.imageSet);
-  /* const back = props.imageSet[0];
-  console.log(back); */
 
   // *функция разворотов работ и переноса слушателей игры по кликам
   function workToggle(e) {
@@ -41,6 +29,19 @@ function Work(props) {
     props.setOpenWorks(newObject);
     props.setLuft(props.luft);
     e.target.classList.toggle('Work__button_opened');
+  }
+
+  function addAnimation(event) {
+    if (props.animation === 'standart') {
+      return
+    }
+    else {
+      animationCreator(props.animation, props.imageSet, event.target)
+    }
+  }
+
+  function removeAnimation(event) {
+    animationCancel(props.imageSet[0], event.target)
   }
 
   // **DOM
@@ -72,7 +73,7 @@ function Work(props) {
       {props.openWorks[props.index] ? (
         <div className="Work__container">
           {props.style ? (
-            <div style={{ backgroundImage: `url(${props.imageSet[0]})`}} className={`Work ${props.style}`}></div>
+            <div /* id={`work-${props.index}`} */ style={{ backgroundImage: `url(${props.imageSet[0]})`}} onMouseOver={addAnimation} onMouseLeave={removeAnimation} className={`Work ${props.animation === 'standart' && 'Work_animation_standart'} ${props.style}`}></div>
           ) : (
             ""
           )}

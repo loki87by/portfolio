@@ -2,26 +2,13 @@
   width: 50%;
   height: 60vh;
   cursor: pointer;
-}
-
-.Work:hover{
-  animation: scroll 10s linear .5s 1;
+  background-position-y: top;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 768px) {
   .Work{
     height: 100%;
-  }
-}
-
-@keyframes scroll{
-  from {
-    background-position-y: top;
-  }
-  50% {
-    background-position-y: bottom;
-  }
-  to {
-    background-position-y: top;
   }
 }

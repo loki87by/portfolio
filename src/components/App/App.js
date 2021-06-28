@@ -7,6 +7,7 @@ import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import '../../vendor/normalize.css';
 import './App.css';
+import './styles/App_preload.css';
 
 function App() {
   // **стейты
@@ -14,6 +15,7 @@ function App() {
   const [isGame, setIsGame] = React.useState(false);
   const [luft, setLuft] = React.useState(0);
   const [images, setImages] = React.useState([]);
+  const [loadProgress, setLoadProgress] = React.useState(0);
   const [imagesIsLoad, setImagesIsLoad] = React.useState(false);
   const gameRef = React.useRef(isGame);
   const Mobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
@@ -40,7 +42,6 @@ function App() {
       } else {
         gameRef.current = false;
       }
-      // console.log(window.pageYOffset, 'window.pageYOffset', scrollHeight, 'scrollHeight', gameRef.current, 'gameRef.current')
       setIsGame(gameRef.current);
     }
     window.addEventListener("scroll", fromTop);
@@ -50,17 +51,20 @@ function App() {
   for(let i=0; i<picArray.length; i++){
     let img = new Image();
     img.src = picArray[i];
+    img.onload = function() {
+      const loadStep = Math.round(100 / picArray.length * 100) / 100
+      const progress = (i + 1) * loadStep
+      setLoadProgress(progress)}
     const imagesArray = images || []
     imagesArray.push(img)
     setImages(imagesArray);
   }
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, [])
+}, [images])
 
 React.useEffect(() => {
-    images[picArray.length - 1].onload = function() {
-      setImagesIsLoad(true)}
-})
+  if (Math.round(loadProgress) === 100){
+    setImagesIsLoad(true)}
+}, [loadProgress])
 
   // **DOM
   return (
@@ -69,7 +73,7 @@ React.useEffect(() => {
           <Header setLang={setLang} lang={lang}/>
           {imagesIsLoad ?
           <Main isMobile={mobileRef.current} isGame={gameRef} lang={lang} images={images} setLuft={setLuft}/>
-          : <h2>Жди</h2>}
+          : <h2 className="App_preload" style={{background: `linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) ${loadProgress - 1}%, rgba(255,255,255,1) ${loadProgress}%)`}}>Идёт кэширование изображений. Пожалуйста ждите {Math.round(loadProgress)}%</h2>}
           <Footer />
         </ TranslationContext.Provider>
       </>

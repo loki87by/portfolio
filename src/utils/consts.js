@@ -3,38 +3,40 @@ import project0 from "../images/project-0.jpg";
 import project1 from "../images/project-1.jpg";
 import project2 from "../images/project-2.jpg";
 import project3 from "../images/project-3.jpg";
-import project4a from "../images/diplom/project-4.jpg";
-import project4b from "../images/diplom/project-4b.jpg";
-import project4c from "../images/diplom/project-4c.jpg";
-import project4d from "../images/diplom/project-4d.jpg";
-import project4e from "../images/diplom/project-4e.jpg";
-import project4f from "../images/diplom/project-4f.jpg";
-import project4g from "../images/diplom/project-4g.jpg";
-import project4h from "../images/diplom/project-4h.jpg";
-import project4i from "../images/diplom/project-4i.jpg";
-import project4j from "../images/diplom/project-4j.jpg";
-import project4k from "../images/diplom/project-4k.jpg";
-import project4l from "../images/diplom/project-4l.jpg";
-import project4m from "../images/diplom/project-4m.jpg";
-import project4n from "../images/diplom/project-4n.jpg";
-import project4o from "../images/diplom/project-4o.jpg";
-import project4p from "../images/diplom/project-4p.jpg";
-import project4q from "../images/diplom/project-4q.jpg";
-import project4r from "../images/diplom/project-4r.jpg";
+import project4 from "../images/project-4.jpg";
 import project5 from "../images/project-5.jpg";
-import project6 from "../images/zoo/project-6.jpg";
-import project6a from "../images/zoo/project-6_2.jpg";
-import project6b from "../images/zoo/project-6_3.jpg";
-import project6c from "../images/zoo/project-6_4.jpg";
+import project6a from "../images/diplom/project-6.jpg";
+import project6b from "../images/diplom/project-6b.jpg";
+import project6c from "../images/diplom/project-6c.jpg";
+import project6d from "../images/diplom/project-6d.jpg";
+import project6e from "../images/diplom/project-6e.jpg";
+import project6f from "../images/diplom/project-6f.jpg";
+import project6g from "../images/diplom/project-6g.jpg";
+import project6h from "../images/diplom/project-6h.jpg";
+import project6i from "../images/diplom/project-6i.jpg";
+import project6j from "../images/diplom/project-6j.jpg";
+import project6k from "../images/diplom/project-6k.jpg";
+import project6l from "../images/diplom/project-6l.jpg";
+import project6m from "../images/diplom/project-6m.jpg";
+import project6n from "../images/diplom/project-6n.jpg";
+import project6o from "../images/diplom/project-6o.jpg";
+import project6p from "../images/diplom/project-6p.jpg";
+import project6q from "../images/diplom/project-6q.jpg";
+import project6r from "../images/diplom/project-6r.jpg";
 import project7 from "../images/project-7.jpg";
-import project8 from "../images/project-8.jpg";
-import project9 from "../images/mmg/project-9.jpg";
-import project9a from "../images/mmg/project-9_2.jpg";
-import project9b from "../images/mmg/project-9_3.jpg";
-import project9c from "../images/mmg/project-9_3b.jpg";
-import project9d from "../images/mmg/project-9_3c.jpg";
-import project9e from "../images/mmg/project-9_4.jpg";
-import project9f from "../images/mmg/project-9_5.jpg";
+import project8 from "../images/zoo/project-8.jpg";
+import project8a from "../images/zoo/project-8_2.jpg";
+import project8b from "../images/zoo/project-8_3.jpg";
+import project8c from "../images/zoo/project-8_4.jpg";
+import project9 from "../images/project-9.jpg";
+import project10 from "../images/project-10.jpg";
+import project11 from "../images/mmg/project-11.jpg";
+import project11a from "../images/mmg/project-11_2.jpg";
+import project11b from "../images/mmg/project-11_3.jpg";
+import project11c from "../images/mmg/project-11_3b.jpg";
+import project11d from "../images/mmg/project-11_3c.jpg";
+import project11e from "../images/mmg/project-11_4.jpg";
+import project11f from "../images/mmg/project-11_5.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -46,38 +48,40 @@ export const picArray = [
   project1,
   project2,
   project3,
-  project4a,
-  project4b,
-  project4c,
-  project4d,
-  project4e,
-  project4f,
-  project4g,
-  project4h,
-  project4i,
-  project4j,
-  project4k,
-  project4l,
-  project4m,
-  project4n,
-  project4o,
-  project4p,
-  project4q,
-  project4r,
+  project4,
   project5,
-  project6,
   project6a,
   project6b,
   project6c,
+  project6d,
+  project6e,
+  project6f,
+  project6g,
+  project6h,
+  project6i,
+  project6j,
+  project6k,
+  project6l,
+  project6m,
+  project6n,
+  project6o,
+  project6p,
+  project6q,
+  project6r,
   project7,
   project8,
+  project8a,
+  project8b,
+  project8c,
   project9,
-  project9a,
-  project9b,
-  project9c,
-  project9d,
-  project9e,
-  project9f,
+  project10,
+  project11,
+  project11a,
+  project11b,
+  project11c,
+  project11d,
+  project11e,
+  project11f,
   matrix,
   blueNoise,
   cinema,
@@ -89,36 +93,44 @@ export const WORKS = [
     src: "https://github.com/loki87by/how-to-learn",
     class: "Work_project_first",
     text: "firstProjectInfo",
+    animation: 'standart',
   },
   {
     src: "https://github.com/loki87by/russian-travel",
-    class: "Work_project_second",
+    class: "Work_project_first",
     text: "secondProjectInfo",
+    animation: 'standart',
   },
   {
     src: "https://github.com/loki87by/mesto",
     class: "Work_project_third",
     text: "thirdProjectInfo",
+    animation: 'standart',
   },
   {
     src: "https://github.com/loki87by/mesto-react",
-    class: "Work_project_fourth",
+    class: "Work_project_first",
     text: "fourthProjectInfo",
+    animation: 'standart',
   },
   {
     src: "https://github.com/loki87by/react-mesto-auth",
     class: "Work_project_third",
     text: "fifthProjectInfo",
+    animation: 'standart',
   },
   {
     src: "https://github.com/loki87by/express-mesto",
+    class: "Work_project_beckend",
     text: "sixthProjectInfo",
+    animation: 'standart',
   },
   {
     double: true,
     src: "https://github.com/loki87by/react-mesto-auth",
     class: "Work_project_diplom",
     text: "diplomInfo",
+    animation: 'diplom',
     firstLinkText: "back",
     secondLinkText: "front",
     secondLink: "https://github.com/loki87by/news-explorer-frontend",
@@ -127,26 +139,31 @@ export const WORKS = [
     src: "https://github.com/loki87by/wildlife",
     class: "Work_project_fifth",
     text: "sevenProjectInfo",
+    animation: 'standart',
   },
   {
     src: "https://github.com/loki87by/online-zoo",
     class: "Work_project_sixth",
     text: "eightProjectInfo",
+    animation: 'standart',
   },
   {
     src: "https://github.com/loki87by/virtual-piano",
     class: "Work_project_seventh",
     text: "nineProjectInfo",
+    animation: 'standart',
   },
   {
     src: "https://github.com/loki87by/photo-filter",
     class: "Work_project_eighth",
     text: "tenProjectInfo",
+    animation: 'standart',
   },
   {
     src: "https://github.com/loki87by/match-match-game",
     class: "Work_project_ninth",
     text: "elevenProjectInfo",
+    animation: 'standart',
   },
 ];
 export const GAME = [

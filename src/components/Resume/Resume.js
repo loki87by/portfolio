@@ -103,7 +103,7 @@ function Resume(props) {
     const imageHash = source.match(/\w*-?\w*\.\w*\.jpg/g);
     const imageFullName = imageHash[0].split('.')[0];
     const imageNameTitle = imageFullName.replace(/-\w*/, '')
-    const imageNameIndex = imageFullName.match(/-\d/)[0];
+    const imageNameIndex = imageFullName.match(/-\d*/)[0];
     const imageName = imageNameTitle + imageNameIndex;
     if(!imagesObject[imageName]){
       imagesObject[imageName] = [];
@@ -111,7 +111,6 @@ function Resume(props) {
     imagesObject[imageName].push(source);
   }
   const imageSets = Object.values(imagesObject);
-  // console.log(values);
 
   // **DOM
   return (
@@ -153,6 +152,7 @@ function Resume(props) {
             setLuft={setLuft}
             openWorks={openWorks}
             setOpenWorks={setOpenWorks}
+            animation={item.animation}
           />
         );
       })}

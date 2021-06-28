@@ -1,7 +1,8 @@
 // **импорты
 import React from "react";
 import { TranslationContext } from "../../contexts/translationContext";
-import { animationCreator, animationCancel } from "../../utils/helpers";
+import { LUFT_KOEFFICIENT } from "../../utils/consts";
+import { animationCreator, animationCancel } from "../../utils/animations";
 import "./styles/__title/Work__title.css";
 import "./styles/__link/Work__link.css";
 import "./styles/__button/Work__button.css";
@@ -10,6 +11,7 @@ import "./styles/__container/Work__container.css";
 import "./Work.css";
 import "./styles/__description/Work__description.css";
 import "./styles/_animation/Work_animation_standart.css";
+import "./styles/_animation/Work_animation_none.css";
 
 // **функционал
 function Work(props) {
@@ -21,10 +23,10 @@ function Work(props) {
     let newObject = Object.assign({}, props.openWorks);
     if (props.openWorks[key]) {
       newObject[key] = false;
-      props.setLuft(props.luft - 0.2);
+      props.setLuft(props.luft - LUFT_KOEFFICIENT);
     } else {
       newObject[key] = true;
-      props.setLuft(props.luft + 0.2);
+      props.setLuft(props.luft + LUFT_KOEFFICIENT);
     }
     props.setOpenWorks(newObject);
     props.setLuft(props.luft);
@@ -74,11 +76,16 @@ function Work(props) {
       {props.openWorks[props.index] ? (
         <div className="Work__container">
           <div
-            style={{ backgroundImage: `url(${props.imageSet[0]})` }}
+            style={{
+              backgroundImage: `url(${props.imageSet[0]})`,
+              animationDuration: props.animationTime,
+            }}
             onMouseOver={addAnimation}
             onMouseLeave={removeAnimation}
             className={`Work ${
               props.animation === "standart" && "Work_animation_standart"
+            } ${props.animation === "none" && "Work_animation_none"} ${
+              props.animation === "mmg" && "Work_animation_none"
             }`}
           ></div>
           <p className="Work__description">{translation[`${props.text}`]}</p>

@@ -4,7 +4,7 @@ import {
   TranslationContext,
   translations,
 } from "../../contexts/translationContext";
-import { picArray } from "../../utils/consts";
+import { PIC_ARRAY, HEIGHT_KOEFFICIENT } from "../../utils/consts";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -49,22 +49,21 @@ function App() {
         document.body.clientHeight,
         document.documentElement.clientHeight
       );
-      if (window.pageYOffset > scrollHeight * (0.73 + luft)) {
+      if (window.pageYOffset > scrollHeight * (HEIGHT_KOEFFICIENT + luft)) {
         gameRef.current = true;
       } else {
         gameRef.current = false;
-      }
-      setIsGame(gameRef.current);
+      }setIsGame(gameRef.current);
     }
     window.addEventListener("scroll", fromTop);
   });
 
   React.useEffect(() => {
-    for (let i = 0; i < picArray.length; i++) {
+    for (let i = 0; i < PIC_ARRAY.length; i++) {
       let img = new Image();
-      img.src = picArray[i];
+      img.src = PIC_ARRAY[i];
       img.onload = function () {
-        const loadStep = Math.round((100 / picArray.length) * 100) / 100;
+        const loadStep = Math.round((100 / PIC_ARRAY.length) * 100) / 100;
         const progress = (i + 1) * loadStep;
         setLoadProgress(progress);
       };

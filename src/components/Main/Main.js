@@ -1,7 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // ***импорты
 import React from "react";
-import { afterMidnight, GAME, newgame } from "../../utils/consts";
+import {
+  AFTER_MIDNIGHT,
+  GAME,
+  MINUTES_PER_DAY,
+  MINUTE_PER_MS,
+} from "../../utils/consts";
+import { newgame } from "../../utils/helpers";
 import Resume from "../Resume/Resume";
 import Game from "../Game/Game";
 import Popup from "../Popup/Popup";
@@ -53,12 +59,12 @@ function Main(props) {
   React.useEffect(() => {
     let time;
     countRef.current = endTime;
-    if (afterMidnight < countRef.current) {
-      time = countRef.current - afterMidnight;
+    if (AFTER_MIDNIGHT < countRef.current) {
+      time = countRef.current - AFTER_MIDNIGHT;
     } else {
-      time = countRef.current - afterMidnight + 1440;
+      time = countRef.current - AFTER_MIDNIGHT + MINUTES_PER_DAY;
     }
-    let timer = setTimeout(openOclockPopup, time * 60000);
+    let timer = setTimeout(openOclockPopup, time * MINUTE_PER_MS);
     return () => {
       clearTimeout(timer);
     };
@@ -84,7 +90,7 @@ function Main(props) {
   React.useEffect(() => {
     if (isNewTimer) {
       let time = newTime - countRef.current;
-      let timer = setTimeout(openOclockPopup, time * 60000);
+      let timer = setTimeout(openOclockPopup, time * MINUTE_PER_MS);
       return () => {
         setNewTimer(false);
         clearTimeout(timer);
@@ -111,7 +117,7 @@ function Main(props) {
   // *получение выбранных данных времени
   function getNewTimerValue() {
     let value = document.getElementById("timerChanger").value;
-    let timerValue = value * 60000;
+    let timerValue = value * MINUTE_PER_MS;
     setTimerEdited(true);
     setIntervalTime(timerValue);
   }

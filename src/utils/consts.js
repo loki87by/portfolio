@@ -42,7 +42,7 @@ import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
 import blueNoise from "../images/computer-screen-code-glitch.gif";
 
-export const picArray = [
+export const PIC_ARRAY = [
   avatar,
   project0,
   project1,
@@ -93,31 +93,37 @@ export const WORKS = [
     src: "https://github.com/loki87by/how-to-learn",
     text: "firstProjectInfo",
     animation: "standart",
+    animationTime: "7s",
   },
   {
     src: "https://github.com/loki87by/russian-travel",
     text: "secondProjectInfo",
     animation: "standart",
+    animationTime: "11s",
   },
   {
     src: "https://github.com/loki87by/mesto",
     text: "thirdProjectInfo",
     animation: "standart",
+    animationTime: "3s",
   },
   {
     src: "https://github.com/loki87by/mesto-react",
     text: "fourthProjectInfo",
     animation: "standart",
+    animationTime: "4s",
   },
   {
     src: "https://github.com/loki87by/react-mesto-auth",
     text: "fifthProjectInfo",
     animation: "standart",
+    animationTime: "3s",
   },
   {
     src: "https://github.com/loki87by/express-mesto",
     text: "sixthProjectInfo",
     animation: "standart",
+    animationTime: "4s",
   },
   {
     double: true,
@@ -132,26 +138,28 @@ export const WORKS = [
     src: "https://github.com/loki87by/wildlife",
     text: "sevenProjectInfo",
     animation: "standart",
+    animationTime: "3s",
   },
   {
     src: "https://github.com/loki87by/online-zoo",
     text: "eightProjectInfo",
-    animation: "standart",
+    animation: "zoo",
   },
   {
     src: "https://github.com/loki87by/virtual-piano",
     text: "nineProjectInfo",
-    animation: "standart",
+    animation: "none",
   },
   {
     src: "https://github.com/loki87by/photo-filter",
     text: "tenProjectInfo",
     animation: "standart",
+    animationTime: "2.5s",
   },
   {
     src: "https://github.com/loki87by/match-match-game",
     text: "elevenProjectInfo",
-    animation: "standart",
+    animation: "mmg",
   },
 ];
 export const GAME = [
@@ -172,171 +180,27 @@ export const GAME = [
   { number: "", area: "bottom3", back: "white", size: "4.5vw", color: "black" },
   { number: "", area: "bottom4", back: "white", size: "4.5vw", color: "black" },
 ];
-export const newgame = (arr) => {
-  let random = Math.random();
-  let rand = Math.floor(random * 16);
-  for (let i = 0; i < arr.length; i++) {
-    arr[i].number = "";
-    arr[i].back = "white";
-    arr[i].size = "4.5vw";
-    arr[i].color = "black";
-  }
-  arr[rand].number = 2;
-};
 
 const date = new Date();
 const time = date.toTimeString();
 const hours = +time.slice(0, 2);
 const minutes = +time.slice(3, 5);
-export let afterMidnight = hours * 60 + minutes;
+export const AFTER_MIDNIGHT = hours * 60 + minutes;
 
-export const getNewNumber = () => {
-  let random = Math.random();
-  if (random > 0.85) {
-    return 4;
-  } else {
-    return 2;
-  }
-};
+export const HEIGHT_KOEFFICIENT = 0.85;
 
-export function styler(array) {
-  array.forEach((item) => {
-    if (item.number < 65) {
-      item.back = `rgb(${255 - item.number * 4}, 255, 255)`;
-    } else if (item.number > 65 && item.number < 1024) {
-      item.back = `rgb(0, ${255 - item.number / 4}, 255)`;
-    } else if (item.number > 1023) {
-      item.back = `rgb(0, 0, ${255 - item.number / 64})`;
-    } else {
-      item.back = "white";
-    }
-    if (item.number > 9999) {
-      item.size = "3vw";
-    } else if (item.number > 999) {
-      item.size = "3.5vw";
-    } else {
-      item.size = "4.5vw";
-    }
-    if (item.number > 2000) {
-      item.color = "white";
-    } else {
-      item.color = "black";
-    }
-  });
-}
+export const LUFT_KOEFFICIENT = 0.2;
 
-export function allNumbers(array) {
-  let allCells = array.map((item) => {
-    return item.number;
-  });
-  let allNumbs = allCells.filter((item) => {
-    return typeof item === "number";
-  });
-  return allNumbs;
-}
+export const MAX_NUMBER = 2048;
 
-export function toVertical(
-  array,
-  firstLine,
-  secondLine,
-  thirdLine,
-  fourthLine
-) {
-  firstLine[0] = array[0].number;
-  firstLine[1] = array[4].number;
-  firstLine[2] = array[8].number;
-  firstLine[3] = array[12].number;
-  secondLine[0] = array[1].number;
-  secondLine[1] = array[5].number;
-  secondLine[2] = array[9].number;
-  secondLine[3] = array[13].number;
-  thirdLine[0] = array[2].number;
-  thirdLine[1] = array[6].number;
-  thirdLine[2] = array[10].number;
-  thirdLine[3] = array[14].number;
-  fourthLine[0] = array[3].number;
-  fourthLine[1] = array[7].number;
-  fourthLine[2] = array[11].number;
-  fourthLine[3] = array[15].number;
-}
+export const HALF_NUMBER = 1024;
 
-export function toHorizontal(
-  array,
-  firstLine,
-  secondLine,
-  thirdLine,
-  fourthLine
-) {
-  firstLine[0] = array[0].number;
-  firstLine[1] = array[1].number;
-  firstLine[2] = array[2].number;
-  firstLine[3] = array[3].number;
-  secondLine[0] = array[4].number;
-  secondLine[1] = array[5].number;
-  secondLine[2] = array[6].number;
-  secondLine[3] = array[7].number;
-  thirdLine[0] = array[8].number;
-  thirdLine[1] = array[9].number;
-  thirdLine[2] = array[10].number;
-  thirdLine[3] = array[11].number;
-  fourthLine[0] = array[12].number;
-  fourthLine[1] = array[13].number;
-  fourthLine[2] = array[14].number;
-  fourthLine[3] = array[15].number;
-}
+export const FIRST_COLOR_LEVEL = 16;
 
-export function fromVertical(
-  array,
-  firstLine,
-  secondLine,
-  thirdLine,
-  fourthLine
-) {
-  array[0].number = firstLine[0];
-  array[4].number = firstLine[1];
-  array[8].number = firstLine[2];
-  array[12].number = firstLine[3];
-  array[1].number = secondLine[0];
-  array[5].number = secondLine[1];
-  array[9].number = secondLine[2];
-  array[13].number = secondLine[3];
-  array[2].number = thirdLine[0];
-  array[6].number = thirdLine[1];
-  array[10].number = thirdLine[2];
-  array[14].number = thirdLine[3];
-  array[3].number = fourthLine[0];
-  array[7].number = fourthLine[1];
-  array[11].number = fourthLine[2];
-  array[15].number = fourthLine[3];
-}
-export function fromHorizontal(
-  array,
-  firstLine,
-  secondLine,
-  thirdLine,
-  fourthLine
-) {
-  array[0].number = firstLine[0];
-  array[1].number = firstLine[1];
-  array[2].number = firstLine[2];
-  array[3].number = firstLine[3];
-  array[4].number = secondLine[0];
-  array[5].number = secondLine[1];
-  array[6].number = secondLine[2];
-  array[7].number = secondLine[3];
-  array[8].number = thirdLine[0];
-  array[9].number = thirdLine[1];
-  array[10].number = thirdLine[2];
-  array[11].number = thirdLine[3];
-  array[12].number = fourthLine[0];
-  array[13].number = fourthLine[1];
-  array[14].number = fourthLine[2];
-  array[15].number = fourthLine[3];
-}
+export const SECOND_COLOR_LEVEL = 64;
 
-export function oldArrayString(array) {
-  let startNumbers = array.slice().map((i) => {
-    return i.number;
-  });
-  return startNumbers.join();
-}
+export const THIRD_COLOR_LEVEL = 128;
+
+export const MINUTES_PER_DAY = 1440;
+
+export const MINUTE_PER_MS = 60000;

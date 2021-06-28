@@ -200,6 +200,7 @@ function Resume(props) {
               firstLinkText={item.firstLinkText}
               secondLinkText={item.secondLinkText}
               secondLink={item.secondLink}
+              animationTime={item.animationTime}
               imageSet={imageSets[index]}
               luft={luft}
               setLuft={setLuft}

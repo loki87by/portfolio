@@ -10,6 +10,13 @@ import {
   toHorizontal,
   fromVertical,
   fromHorizontal,
+} from "../../utils/helpers";
+import {
+  MAX_NUMBER,
+  FIRST_COLOR_LEVEL,
+  HALF_NUMBER,
+  SECOND_COLOR_LEVEL,
+  THIRD_COLOR_LEVEL,
 } from "../../utils/consts";
 import "./GameField.css";
 
@@ -98,7 +105,7 @@ function GameField(props) {
   // *нахождение максимального числа(для стилей)
   function maxSeacher() {
     let allNums = allNumbers(numbers);
-    if (Math.max(...allNums) > 16) {
+    if (Math.max(...allNums) > FIRST_COLOR_LEVEL) {
       return setMaxNumber(Math.max(...allNums));
     }
   }
@@ -330,7 +337,7 @@ function GameField(props) {
   // *тест-чит для победы
   function cheat() {
     let cheatField = numbers.map((i) => {
-      i.number = 1024;
+      i.number = HALF_NUMBER;
       return i;
     });
     props.setNumbers(cheatField);
@@ -433,24 +440,26 @@ function GameField(props) {
 
   // *вызов попапа победы
   React.useEffect(() => {
-    if (maxNumber === 2048) {
+    if (maxNumber === MAX_NUMBER) {
       let popup = document.querySelector(".GamePopup_opened");
       if (!popup) {
         props.setPopupOpened(true);
         props.setPopupType("win");
-        setMaxNumber(2049);
+        setMaxNumber(MAX_NUMBER + 1);
       }
     }
   }, [maxNumber, props]);
 
   // **DOM
-  return maxNumber < 2049 ? (
+  return maxNumber < MAX_NUMBER + 1 ? (
     <div
       className="GameField"
       style={{
-        backgroundColor: `rgb(${127 + maxNumber / 16}, ${
-          127 + maxNumber / 16
-        }, ${128 - maxNumber / 16})`,
+        backgroundColor: `rgb(${
+          THIRD_COLOR_LEVEL - 1 + maxNumber / FIRST_COLOR_LEVEL
+        }, ${THIRD_COLOR_LEVEL - 1 + maxNumber / FIRST_COLOR_LEVEL}, ${
+          THIRD_COLOR_LEVEL - maxNumber / FIRST_COLOR_LEVEL
+        })`,
       }}
     >
       {numbers.map((cell, i) => (
@@ -460,7 +469,9 @@ function GameField(props) {
   ) : (
     <div
       className="GameField"
-      style={{ backgroundColor: `rgb(${255 - maxNumber / 64}, 255, 0)` }}
+      style={{
+        backgroundColor: `rgb(${255 - maxNumber / SECOND_COLOR_LEVEL}, 255, 0)`,
+      }}
     >
       {numbers.map((cell, i) => (
         <Cell key={i} cell={cell} />

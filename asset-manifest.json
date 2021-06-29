@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.a056f632.chunk.css",
-    "main.js": "/portfolio/static/js/main.65c986c5.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.65c986c5.chunk.js.map",
-    "runtime-main.js": "/portfolio/static/js/runtime-main.fda60caa.js",
-    "runtime-main.js.map": "/portfolio/static/js/runtime-main.fda60caa.js.map",
+    "main.css": "/portfolio/static/css/main.410e7dd9.chunk.css",
+    "main.js": "/portfolio/static/js/main.a4073e0f.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.a4073e0f.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.08abc844.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.08abc844.js.map",
     "static/js/2.15b1c80b.chunk.js": "/portfolio/static/js/2.15b1c80b.chunk.js",
     "static/js/2.15b1c80b.chunk.js.map": "/portfolio/static/js/2.15b1c80b.chunk.js.map",
-    "static/js/3.b4e6dda6.chunk.js": "/portfolio/static/js/3.b4e6dda6.chunk.js",
-    "static/js/3.b4e6dda6.chunk.js.map": "/portfolio/static/js/3.b4e6dda6.chunk.js.map",
+    "static/js/3.a14c5f99.chunk.js": "/portfolio/static/js/3.a14c5f99.chunk.js",
+    "static/js/3.a14c5f99.chunk.js.map": "/portfolio/static/js/3.a14c5f99.chunk.js.map",
     "index.html": "/portfolio/index.html",
-    "static/css/main.a056f632.chunk.css.map": "/portfolio/static/css/main.a056f632.chunk.css.map",
+    "static/css/main.410e7dd9.chunk.css.map": "/portfolio/static/css/main.410e7dd9.chunk.css.map",
     "static/js/2.15b1c80b.chunk.js.LICENSE.txt": "/portfolio/static/js/2.15b1c80b.chunk.js.LICENSE.txt",
     "static/media/20202WD00196.1b1e2658.pdf": "/portfolio/static/media/20202WD00196.1b1e2658.pdf",
     "static/media/GameField.css": "/portfolio/static/media/Iceberg-Regular.1ffbc606.woff",
@@ -20,9 +20,10 @@
     "static/media/cinema.b6c5977f.gif": "/portfolio/static/media/cinema.b6c5977f.gif",
     "static/media/computer-screen-code-glitch.ae8262fd.gif": "/portfolio/static/media/computer-screen-code-glitch.ae8262fd.gif",
     "static/media/glitch.cd6782ec.gif": "/portfolio/static/media/glitch.cd6782ec.gif",
-    "static/media/logo.6f9b38e9.png": "/portfolio/static/media/logo.6f9b38e9.png",
-    "static/media/logoEng.121af4b0.png": "/portfolio/static/media/logoEng.121af4b0.png",
+    "static/media/logo.71b4311b.svg": "/portfolio/static/media/logo.71b4311b.svg",
+    "static/media/logoEng.904c32a2.svg": "/portfolio/static/media/logoEng.904c32a2.svg",
     "static/media/matrix-code-animation-gif-free-animated-background.bcc52dbe.gif": "/portfolio/static/media/matrix-code-animation-gif-free-animated-background.bcc52dbe.gif",
+    "static/media/Header__input.css": "/portfolio/static/media/sun.a1a84020.svg",
     "static/media/project-0.88b65c86.jpg": "/portfolio/static/media/project-0.88b65c86.jpg",
     "static/media/project-1.f38c53cb.jpg": "/portfolio/static/media/project-1.f38c53cb.jpg",
     "static/media/project-10.d3c82603.jpg": "/portfolio/static/media/project-10.d3c82603.jpg",
@@ -33,6 +34,7 @@
     "static/media/project-11_3c.c4224a7d.jpg": "/portfolio/static/media/project-11_3c.c4224a7d.jpg",
     "static/media/project-11_4.deb7c7f9.jpg": "/portfolio/static/media/project-11_4.deb7c7f9.jpg",
     "static/media/project-11_5.625f0a2e.jpg": "/portfolio/static/media/project-11_5.625f0a2e.jpg",
+    "static/media/project-12.bb7a54f5.jpg": "/portfolio/static/media/project-12.bb7a54f5.jpg",
     "static/media/project-2.0d5c551e.jpg": "/portfolio/static/media/project-2.0d5c551e.jpg",
     "static/media/project-3.662e4a30.jpg": "/portfolio/static/media/project-3.662e4a30.jpg",
     "static/media/project-4.0d5c551e.jpg": "/portfolio/static/media/project-4.0d5c551e.jpg",
@@ -64,9 +66,9 @@
     "static/media/Акулич.cea7f0d8.pdf": "/portfolio/static/media/Акулич.cea7f0d8.pdf"
   },
   "entrypoints": [
-    "static/js/runtime-main.fda60caa.js",
+    "static/js/runtime-main.08abc844.js",
     "static/js/2.15b1c80b.chunk.js",
-    "static/css/main.a056f632.chunk.css",
-    "static/js/main.65c986c5.chunk.js"
+    "static/css/main.410e7dd9.chunk.css",
+    "static/js/main.a4073e0f.chunk.js"
   ]
 }

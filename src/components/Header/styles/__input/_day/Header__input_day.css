@@ -1,0 +1,12 @@
+.Header__input_day {
+  filter: invert(1);
+  background-color: #00c9b7;
+}
+
+.Header__input_day::before {
+  filter: invert(100%);
+}
+
+.Header__input_day::after {
+  filter: invert(100%);
+}

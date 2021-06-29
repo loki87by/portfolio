@@ -4,8 +4,8 @@
   top: -1vw;
   z-index: 3;
   visibility: hidden;
-  width: 110vw;
-  height: 110vh;
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

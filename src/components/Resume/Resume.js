@@ -15,11 +15,14 @@ import "./styles/__subsubtitle/Resume__subsubtitle.css";
 import "./styles/__text/Resume__text.css";
 import "./styles/__link/Resume__link.css";
 import "./styles/__photo/Resume__photo.css";
+import "./styles/__photo/_day/Resume__photo_day.css";
 import "./styles/__works/Resume__works.css";
 import "../Popup/Popup.css";
+import "../Popup/styles/_day/Popup_day.css";
 import "../Popup/styles/_opened/Popup_opened.css";
 import "./styles/__certificate/Resume__certificate.css";
 import "./styles/__certificate-open/Resume__certificate-open.css";
+import "./styles/__certificate-open/_day/Resume__certificate-open_day.css";
 import "./styles/__certificate-close/Resume__certificate-close.css";
 
 // **функционал
@@ -147,7 +150,7 @@ function Resume(props) {
       <img
         alt="фото"
         src={mouseOver ? effectAva : avatar}
-        className="Resume__photo"
+        className={`Resume__photo ${props.isDay && 'Resume__photo_day'}`}
       />
       <h2 className="Resume__subsubtitle">
         {translation.target}:{" "}
@@ -164,7 +167,7 @@ function Resume(props) {
         ) : (
           <button
             type="button"
-            className="Resume__certificate-open"
+            className={`Resume__certificate-open ${props.isDay && 'Resume__certificate-open_day'}`}
             onClick={openCertificate}
           >
             <h3 className="Resume__subsubtitle">{translation.showCertify}</h3>
@@ -207,11 +210,12 @@ function Resume(props) {
               openWorks={openWorks}
               setOpenWorks={setOpenWorks}
               animation={item.animation}
+              isDay={props.isDay}
             />
           );
         })}
       </section>
-      <section className={`Popup ${isCertificateOpen && "Popup_opened"}`}>
+      <section className={`Popup ${props.isDay && "Popup_day"} ${isCertificateOpen && "Popup_opened"}`}>
         <iframe
           className="Resume__certificate"
           title="sertify"

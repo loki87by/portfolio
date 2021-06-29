@@ -161,6 +161,7 @@ function Main(props) {
         setLuft={props.setLuft}
         lang={props.lang}
         images={props.images}
+        isDay={props.isDay}
       />
       <Game
         isMobile={props.isMobile}
@@ -176,6 +177,7 @@ function Main(props) {
         numbers={numbers}
         setNumbers={setNumbers}
         restarter={restarter}
+        isDay={props.isDay}
       />
       <Popup
         isOpen={popupOpened}
@@ -192,6 +194,7 @@ function Main(props) {
         getNewTimerValue={getNewTimerValue}
         newTimeInterval={newTimeInterval}
         restarter={restarter}
+        isDay={props.isDay}
       />
     </section>
   );

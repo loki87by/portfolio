@@ -1,0 +1,5 @@
+.Header__button-image_day {
+  filter: invert(100%);
+  border: 1px solid black;
+  box-shadow: 2px 2px 5px black;
+}

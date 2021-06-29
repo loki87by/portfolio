@@ -1,9 +1,9 @@
 .Header__logo {
-  height: 5.7vw;
+  height: 10vw;
 }
 
 @media (max-width: 768px) {
   .Header__logo {
-    height: 4vw;
+    height: 7vw;
   }
 }

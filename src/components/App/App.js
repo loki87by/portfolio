@@ -20,6 +20,7 @@ function App() {
   const [images, setImages] = React.useState([]);
   const [loadProgress, setLoadProgress] = React.useState(0);
   const [imagesIsLoad, setImagesIsLoad] = React.useState(false);
+  const [isDay, setDay] = React.useState(false);
   const gameRef = React.useRef(isGame);
   const Mobile =
     /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(
@@ -53,7 +54,8 @@ function App() {
         gameRef.current = true;
       } else {
         gameRef.current = false;
-      }setIsGame(gameRef.current);
+      }
+      setIsGame(gameRef.current);
     }
     window.addEventListener("scroll", fromTop);
   });
@@ -83,7 +85,7 @@ function App() {
   return (
     <>
       <TranslationContext.Provider value={translations[lang]}>
-        <Header setLang={setLang} lang={lang} />
+        <Header setLang={setLang} lang={lang} isDay={isDay} setDay={setDay} />
         {imagesIsLoad ? (
           <Main
             isMobile={mobileRef.current}
@@ -91,6 +93,7 @@ function App() {
             lang={lang}
             images={images}
             setLuft={setLuft}
+            isDay={isDay}
           />
         ) : (
           <h2

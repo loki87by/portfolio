@@ -6,9 +6,11 @@ import { animationCreator, animationCancel } from "../../utils/animations";
 import "./styles/__title/Work__title.css";
 import "./styles/__link/Work__link.css";
 import "./styles/__button/Work__button.css";
+import "./styles/__button/_day/Work__button_day.css";
 import "./styles/__button/_opened/Work__button_opened.css";
 import "./styles/__container/Work__container.css";
 import "./Work.css";
+import "./Work_day.css";
 import "./styles/__description/Work__description.css";
 import "./styles/_animation/Work_animation_standart.css";
 import "./styles/_animation/Work_animation_none.css";
@@ -68,7 +70,7 @@ function Work(props) {
       <button
         type="button"
         id={props.index}
-        className="Work__button"
+        className={`Work__button ${props.isDay && "Work__button_day"}`}
         onClick={workToggle}
       >
         {translation.more}
@@ -82,7 +84,7 @@ function Work(props) {
             }}
             onMouseOver={addAnimation}
             onMouseLeave={removeAnimation}
-            className={`Work ${
+            className={`Work ${props.isDay && "Work_day"} ${
               props.animation === "standart" && "Work_animation_standart"
             } ${props.animation === "none" && "Work_animation_none"} ${
               props.animation === "mmg" && "Work_animation_none"

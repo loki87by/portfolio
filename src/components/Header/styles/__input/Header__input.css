@@ -1,0 +1,38 @@
+.Header__input {
+  position: relative;
+  height: 16px;
+  width: 4.5vw;
+  padding: 2px;
+  margin-top: 3vw;
+  border-radius: 1vmax;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  outline: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.Header__input::before {
+  content: "";
+  background-image: url(../../../../images/moon.svg);
+  position: absolute;
+  width: 2vw;
+  height: 2.2vw;
+  left: -2.2vw;
+  top: -0.1px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.Header__input::after {
+  content: "";
+  background-image: url(../../../../images/sun.svg);
+  position: absolute;
+  width: 2vw;
+  height: 2.2vw;
+  right: -2.5vw;
+  top: -0.1px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

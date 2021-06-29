@@ -19,6 +19,7 @@ import {
   THIRD_COLOR_LEVEL,
 } from "../../utils/consts";
 import "./GameField.css";
+import "./GameField_day.css";
 
 // ***функционал
 function GameField(props) {
@@ -453,7 +454,7 @@ function GameField(props) {
   // **DOM
   return maxNumber < MAX_NUMBER + 1 ? (
     <div
-      className="GameField"
+      className={`GameField ${props.isDay && 'GameField_day'}`}
       style={{
         backgroundColor: `rgb(${
           THIRD_COLOR_LEVEL - 1 + maxNumber / FIRST_COLOR_LEVEL

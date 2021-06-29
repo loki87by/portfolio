@@ -10,6 +10,7 @@ import "./styles/__text-container/Game__text-container.css";
 import "./styles/__rules-title/Game__rules-title.css";
 import "./styles/__rules-text/Game__rules-text.css";
 import "./styles/__rules-span/Game__rules-span.css";
+import "./styles/__rules-span/_day/Game__rules-span_day.css";
 import "./styles/__restart-button/Game__restart-button.css";
 import "./styles/__restart-button/Game__restart-button_symbol.css";
 import "./styles/__rules-text/_gameStarted/Game__rules-text_gameStarted.css";
@@ -98,6 +99,7 @@ function Game(props) {
         setScore={props.setScore}
         setPopupOpened={props.setPopupOpened}
         setPopupType={props.setPopupType}
+        isDay={props.isDay}
       />
       <div className="Game__text-container">
         <h3

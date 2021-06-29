@@ -12,10 +12,10 @@ export const translations = {
     purpose:
       "Level up Linus Torvalds, Bill Gates, Steve Jobs, Pavel Durov, Satoshi Nakamoto or something like that. Contribute to IT new story of getting rich.",
     summary:
-      "Knowledge of JavaScript, React, Html, Css, Bash basics, Python basics, Django basics. Writing code both in Visual Studio Code and by hand. Understanding of OOP, knowledge of BEM. Working with the layout in Figma and Photoshop. Working with databases (SQL, NoSql). Ability to work with API requests in Postman and Charles. Knowledge of the basics of manual and automated testing. Knowledge of English at B1 level",
+      "Knowledge of JavaScript, React, Html, Css, Bash basics, TypeScript basics, Angular basics, Vue basics, Python basics, Django basics. Writing code both in Visual Studio Code and by hand. Understanding of OOP, knowledge of BEM. Working with the layout in Figma and Photoshop. Working with databases (SQL, NoSql). Ability to work with API requests in Postman and Charles. Knowledge of the basics of manual and automated testing. Knowledge of English at B1 level",
     experience: "work experience",
     workExperience:
-      "I have changed many different fields of activity (construction, logistics, freight and passenger transportation, furniture production, sales, etc.) I graduated from Yandex.Practicum courses as a web-developer, and I plan to further grow professionally in this area.",
+      "I have changed many different fields of activity (construction, logistics, freight and passenger transportation, furniture production, sales, etc.) I graduated from Yandex.Practicum courses as a web-developer, currently improving my skills at EPAM JS Rolling-Scopes-School, and I plan to further grow professionally in this area.",
     education: "Education",
     educationLevel:
       "Incomplete higher education teacher of mathematics and computer science.",
@@ -100,10 +100,10 @@ export const translations = {
     purpose:
       "Прокачаться до левела Линуса Торвальдса, Билла Гейтса, Стива Джобса, Павла Дурова, Сатоши Накамото или что-то вроде. Внести свой вклад в новую историю IT и разбогатеть.",
     summary:
-      "Знание JavaScript, React, Html, Css, основы Bash, основы Python и Django. Написание кода как в Visual Studio Code, так и вручную. Понимание ООП, знание БЭМ. Работа с макетом в Figma и Photoshop. Работа с базами данных (SQL, NoSql). Умение работать с запросами к API в Postman и Charles. Знание основ ручного и автоматизированного тестирования. Знание английскоо на уровне B1",
+      "Знание JavaScript, React, Html, Css, основы Bash, TypeScript, Angular, Vue, Python и Django. Написание кода как в Visual Studio Code, так и вручную. Понимание ООП, знание БЭМ. Работа с макетом в Figma и Photoshop. Работа с базами данных (SQL, NoSql). Умение работать с запросами к API в Postman и Charles. Знание основ ручного и автоматизированного тестирования. Знание английскоо на уровне B1",
     experience: "Опыт работы",
     workExperience:
-      "Сменил много различных сфер деятельности (строительство, логистика, грузовые и пассажирские перевозки, производство мебели, продажи и.т.д. Закончил курсы Яндекс.Практикум по специальности веб-разработчик, и планирую далее расти профессионально в этой области.",
+      "Сменил много различных сфер деятельности (строительство, логистика, грузовые и пассажирские перевозки, производство мебели, продажи и.т.д. Закончил курсы Яндекс.Практикум по специальности веб-разработчик, в данный момент повышаю скиллы в EPAM JS Rolling-Scopes-School, и планирую далее расти профессионально в этой области.",
     education: "Образование",
     educationLevel:
       "Незаконченное высшее по специальности преподаватель математики-информатики.",

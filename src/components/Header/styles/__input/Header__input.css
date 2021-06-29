@@ -13,26 +13,23 @@
   cursor: pointer;
 }
 
-.Header__input::before {
-  content: "";
-  background-image: url(../../../../images/moon.svg);
+.Header__input::before,
+.Header__input::after {
   position: absolute;
+  top: -0.1vw;
+  content: "";
   width: 2vw;
   height: 2.2vw;
-  left: -2.2vw;
-  top: -0.1px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
+.Header__input::before {
+  background-image: url(../../../../images/moon.svg);
+  left: -2.2vw;
+}
+
 .Header__input::after {
-  content: "";
-  background-image: url(../../../../images/sun.svg);
-  position: absolute;
-  width: 2vw;
-  height: 2.2vw;
   right: -2.5vw;
-  top: -0.1px;
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-image: url(../../../../images/sun.svg);
 }

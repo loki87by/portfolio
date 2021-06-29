@@ -37,6 +37,7 @@ import project11c from "../images/mmg/project-11_3b.jpg";
 import project11d from "../images/mmg/project-11_3c.jpg";
 import project11e from "../images/mmg/project-11_4.jpg";
 import project11f from "../images/mmg/project-11_5.jpg";
+import project12 from "../images/project-12.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -82,6 +83,7 @@ export const PIC_ARRAY = [
   project11d,
   project11e,
   project11f,
+  project12,
   matrix,
   blueNoise,
   cinema,
@@ -160,6 +162,11 @@ export const WORKS = [
     src: "https://github.com/loki87by/match-match-game",
     text: "elevenProjectInfo",
     animation: "mmg",
+  },
+  {
+    src: "https://github.com/loki87by/clean-code-s1e1",
+    text: "twelveProjectInfo",
+    animation: "none",
   },
 ];
 export const GAME = [

@@ -56,6 +56,7 @@ export const translations = {
     elevenProjectInfo:
       "A classic memory game written in TypeScript, with user data saved in IndexedDB",
     twelveProjectInfo: "Work to fix code quality",
+    thirteenProjectInfo: 'Photo gallery on react with the ability to add albums, images, process them with filters and download to your device',
     rulesTitle: "Rules",
     rules:
       "After each move, a cell of denomination “2” (with a probability of 85%) or “4” (with a probability of 15%) appears. By pressing the arrow, you can throw all the cells of the playing field to one of 4 sides. If, when dropped, two cells of the same denomination bump into one another, then they turn into one, the denomination of which is equal to the sum of the connected cells. If in one line or in one column there are more than two cells of the same denomination, then when dropped, they begin to connect from the side to which they were directed. If the location of the cells or their denomination does not change when the button is pressed, the move is not made. To win, you need to collect the number 2048 in one cell (more is possible). The game ends in defeat if after the next move it is impossible to perform an action.",
@@ -144,6 +145,7 @@ export const translations = {
     elevenProjectInfo:
       "Классическая игра на запоминание написанная на TypeScript, и с сохранением данных пользователя в IndexedDB.",
     twelveProjectInfo: "Работа по исправлению качества кода",
+    thirteenProjectInfo: 'Фотогалерея на реакте с возможностью добавлять альбомы, изображения, обрабатывать их фильтрами и скачивать на свое устройство',
     rulesTitle: "Правила",
     rules:
       "После каждого хода появляется ячейка номинала «2» (с вероятностью 85%) или «4» (с вероятностью 15%). Нажатием стрелки можно скинуть все ячейки игрового поля в одну из 4 сторон. Если при сбрасывании две ячейки одного номинала «налетают» одна на другую, то они превращаются в одну, номинал которой равен сумме соединившихся ячеек. Если в одной строчке или в одном столбце находится более двух ячеек одного номинала, то при сбрасывании они начинают соединяться с той стороны, в которую были направлены. Если при нажатии кнопки местоположение ячеек или их номинал не изменится, то ход не совершается. Для победы нужно собрать в одной ячейке число 2048(можно и больше). Игра заканчивается поражением, если после очередного хода невозможно совершить действие.",

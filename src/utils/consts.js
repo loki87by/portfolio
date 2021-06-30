@@ -38,6 +38,23 @@ import project11d from "../images/mmg/project-11_3c.jpg";
 import project11e from "../images/mmg/project-11_4.jpg";
 import project11f from "../images/mmg/project-11_5.jpg";
 import project12 from "../images/project-12.jpg";
+import project13 from "../images/gallery/project-13.jpg";
+import project13b from "../images/gallery/project-13b.jpg";
+import project13c from "../images/gallery/project-13c.jpg";
+import project13d from "../images/gallery/project-13d.jpg";
+import project13e from "../images/gallery/project-13e.jpg";
+import project13f from "../images/gallery/project-13f.jpg";
+import project13g from "../images/gallery/project-13g.jpg";
+import project13h from "../images/gallery/project-13h.jpg";
+import project13i from "../images/gallery/project-13i.jpg";
+import project13j from "../images/gallery/project-13j.jpg";
+import project13k from "../images/gallery/project-13k.jpg";
+import project13l from "../images/gallery/project-13l.jpg";
+import project13m from "../images/gallery/project-13m.jpg";
+import project13n from "../images/gallery/project-13n.jpg";
+import project13o from "../images/gallery/project-13o.jpg";
+import project13p from "../images/gallery/project-13p.jpg";
+import project13q from "../images/gallery/project-13q.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -84,6 +101,23 @@ export const PIC_ARRAY = [
   project11e,
   project11f,
   project12,
+  project13,
+  project13b,
+  project13c,
+  project13d,
+  project13e,
+  project13f,
+  project13g,
+  project13h,
+  project13i,
+  project13j,
+  project13k,
+  project13l,
+  project13m,
+  project13n,
+  project13o,
+  project13p,
+  project13q,
   matrix,
   blueNoise,
   cinema,
@@ -167,6 +201,11 @@ export const WORKS = [
     src: "https://github.com/loki87by/clean-code-s1e1",
     text: "twelveProjectInfo",
     animation: "none",
+  },
+  {
+    src: "https://github.com/loki87by/gallery",
+    text: "thirteenProjectInfo",
+    animation: "gallery",
   },
 ];
 export const GAME = [

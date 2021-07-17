@@ -1,7 +1,7 @@
 {
   "homepage": "https://loki87by.github.io/portfolio/",
   "name": "portfolio",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",

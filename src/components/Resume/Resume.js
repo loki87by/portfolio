@@ -34,13 +34,7 @@ function Resume(props) {
   const [mouseOver, setMouseOver] = React.useState(false);
   const [effectAva, setEffectAva] = React.useState(matrix);
   const [openWorks, setOpenWorks] = React.useState({
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-    6: false,
-    7: false,
+    1: false
   });
 
   const animations = props.images.slice(-4);
@@ -200,6 +194,8 @@ function Resume(props) {
               link={item.src}
               text={item.text}
               double={item.double}
+              type={item.type}
+              type2={item.type2}
               firstLinkText={item.firstLinkText}
               secondLinkText={item.secondLinkText}
               secondLink={item.secondLink}

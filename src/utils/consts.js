@@ -55,6 +55,28 @@ import project13n from "../images/gallery/project-13n.jpg";
 import project13o from "../images/gallery/project-13o.jpg";
 import project13p from "../images/gallery/project-13p.jpg";
 import project13q from "../images/gallery/project-13q.jpg";
+import project14 from "../images/gal-ng/project-14.jpg";
+import project14b from "../images/gal-ng/project-14b.jpg";
+import project14c from "../images/gal-ng/project-14c.jpg";
+import project14d from "../images/gal-ng/project-14d.jpg";
+import project14e from "../images/gal-ng/project-14e.jpg";
+import project14f from "../images/gal-ng/project-14f.jpg";
+import project14g from "../images/gal-ng/project-14g.jpg";
+import project14h from "../images/gal-ng/project-14h.jpg";
+import project14i from "../images/gal-ng/project-14i.jpg";
+import project14j from "../images/gal-ng/project-14j.jpg";
+import project14k from "../images/gal-ng/project-14k.jpg";
+import project14l from "../images/gal-ng/project-14l.jpg";
+import project14m from "../images/gal-ng/project-14m.jpg";
+import project14n from "../images/gal-ng/project-14n.jpg";
+import project14o from "../images/gal-ng/project-14o.jpg";
+import project14p from "../images/gal-ng/project-14p.jpg";
+import project14q from "../images/gal-ng/project-14q.jpg";
+import project14r from "../images/gal-ng/project-14r.jpg";
+import project14s from "../images/gal-ng/project-14s.jpg";
+import project14t from "../images/gal-ng/project-14t.jpg";
+import project14u from "../images/gal-ng/project-14u.jpg";
+import project14v from "../images/gal-ng/project-14v.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -118,6 +140,28 @@ export const PIC_ARRAY = [
   project13o,
   project13p,
   project13q,
+  project14,
+  project14b,
+  project14c,
+  project14d,
+  project14e,
+  project14f,
+  project14g,
+  project14h,
+  project14i,
+  project14j,
+  project14k,
+  project14l,
+  project14m,
+  project14n,
+  project14o,
+  project14p,
+  project14q,
+  project14r,
+  project14s,
+  project14t,
+  project14u,
+  project14v,
   matrix,
   blueNoise,
   cinema,
@@ -130,82 +174,104 @@ export const WORKS = [
     text: "firstProjectInfo",
     animation: "standart",
     animationTime: "7s",
+    type: 'landingPage'
   },
   {
     src: "https://github.com/loki87by/russian-travel",
     text: "secondProjectInfo",
     animation: "standart",
     animationTime: "11s",
+    type: 'landingPage'
   },
   {
     src: "https://github.com/loki87by/mesto",
     text: "thirdProjectInfo",
     animation: "standart",
     animationTime: "3s",
+    type: 'webService'
   },
   {
     src: "https://github.com/loki87by/mesto-react",
     text: "fourthProjectInfo",
     animation: "standart",
     animationTime: "4s",
+    type: 'webService'
   },
   {
     src: "https://github.com/loki87by/react-mesto-auth",
     text: "fifthProjectInfo",
     animation: "standart",
     animationTime: "3s",
+    type: 'webService'
   },
   {
     src: "https://github.com/loki87by/express-mesto",
     text: "sixthProjectInfo",
     animation: "standart",
     animationTime: "4s",
+    type: 'server'
   },
   {
     double: true,
-    src: "https://github.com/loki87by/react-mesto-auth",
+    src: "https://github.com/loki87by/news-explorer-api",
     text: "diplomInfo",
     animation: "diplom",
     firstLinkText: "back",
     secondLinkText: "front",
     secondLink: "https://github.com/loki87by/news-explorer-frontend",
+    type: 'server',
+    type2: 'searchSystem'
   },
   {
     src: "https://github.com/loki87by/wildlife",
     text: "sevenProjectInfo",
     animation: "standart",
     animationTime: "3s",
+    type: 'landingPage'
   },
   {
     src: "https://github.com/loki87by/online-zoo",
     text: "eightProjectInfo",
     animation: "zoo",
+    type: 'corporateWebsite'
   },
   {
     src: "https://github.com/loki87by/virtual-piano",
     text: "nineProjectInfo",
     animation: "none",
+    type: 'webService'
   },
   {
     src: "https://github.com/loki87by/photo-filter",
     text: "tenProjectInfo",
     animation: "standart",
     animationTime: "2.5s",
+    type: 'webService'
   },
   {
     src: "https://github.com/loki87by/match-match-game",
     text: "elevenProjectInfo",
     animation: "mmg",
+    type: 'webGame'
   },
   {
     src: "https://github.com/loki87by/clean-code-s1e1",
     text: "twelveProjectInfo",
     animation: "none",
+    type: 'cleanWork'
   },
   {
     src: "https://github.com/loki87by/gallery",
     text: "thirteenProjectInfo",
     animation: "gallery",
+    type: 'webService'
+  },
+  {
+    src: "https://github.com/loki87by/gallery-angular",
+    text: "forteenProjectInfo",
+    animation: "galleryNg",
+    animationTime: "2.5s",
+    type: 'webService'
   },
 ];
 export const GAME = [

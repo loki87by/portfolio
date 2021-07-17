@@ -51,7 +51,11 @@ function Work(props) {
   return (
     <>
       <h3 className="Work__title">
-        {translation.project} {props.index}: {props.double ? <br /> : ""}
+        {translation.project} {props.index} (
+        {props.double
+          ? `${translation[props.type]} & ${translation[props.type2]}`
+          : translation[props.type]}
+        ): {props.double ? <br /> : ""}
         <a className="Work__link" target="blank" href={props.link}>
           {props.double ? translation[props.firstLinkText] : ""} - {props.link}
         </a>
@@ -86,8 +90,12 @@ function Work(props) {
             onMouseLeave={removeAnimation}
             className={`Work ${props.isDay && "Work_day"} ${
               props.animation === "standart" && "Work_animation_standart"
-            } ${props.animation === "none" && "Work_animation_none"} ${
-              props.animation === "mmg" && "Work_animation_none"
+            } ${
+              (props.animation === "none" ||
+                props.animation === "mmg" ||
+                props.animation === "gallery" ||
+                props.animation === "galleryNg") &&
+              "Work_animation_none"
             }`}
           ></div>
           <p className="Work__description">{translation[`${props.text}`]}</p>

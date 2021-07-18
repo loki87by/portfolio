@@ -4,7 +4,8 @@ import {
   TranslationContext,
   translations,
 } from "../../contexts/translationContext";
-import { PIC_ARRAY, HEIGHT_KOEFFICIENT } from "../../utils/consts";
+import { HEIGHT_KOEFFICIENT } from "../../utils/consts";
+import { PIC_ARRAY } from "../../consts/pictures";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";

@@ -6,7 +6,7 @@ import matrix from "../../images/matrix-code-animation-gif-free-animated-backgro
 import close from "../../images/close.png";
 import certificateRu from "../../media/Акулич.pdf";
 import certificateEn from "../../media/20202WD00196.pdf";
-import { WORKS } from "../../utils/consts";
+import { WORKS } from "../../consts/works";
 import Work from "../Work/Work";
 import "./Resume.css";
 import "./styles/__title/Resume__title.css";
@@ -200,6 +200,7 @@ function Resume(props) {
               secondLinkText={item.secondLinkText}
               secondLink={item.secondLink}
               animationTime={item.animationTime}
+              additionally={item.additionally}
               imageSet={imageSets[index]}
               luft={luft}
               setLuft={setLuft}
@@ -207,6 +208,8 @@ function Resume(props) {
               setOpenWorks={setOpenWorks}
               animation={item.animation}
               isDay={props.isDay}
+              setRangeValue={props.setRangeValue}
+              rangeValue={props.rangeValue}
             />
           );
         })}

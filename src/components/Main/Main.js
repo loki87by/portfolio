@@ -12,10 +12,12 @@ import Resume from "../Resume/Resume";
 import Game from "../Game/Game";
 import Popup from "../Popup/Popup";
 import "./Main.css";
+import "./widget_disabled.css";
 
 // ***функционал
 function Main(props) {
   // **стейты
+  const [rangeValue, setRangeValue] = React.useState(0);
   const [endTime, setEndTime] = React.useState(1015);
   const [newTime, setNewTime] = React.useState(0);
   const [isTimerEdited, setTimerEdited] = React.useState(false);
@@ -41,7 +43,6 @@ function Main(props) {
     newgame(GAME);
     setGameStarted(true);
     setScore(0);
-    //newgame(GAME);
   }
 
   // **функции открытия попапа
@@ -153,6 +154,21 @@ function Main(props) {
     window.addEventListener("click", handleClickClose);
   });
 
+  // *монтирование виджета
+  React.useEffect(() => {
+    const widget = document.createElement("weather-widget");
+    document.body.appendChild(widget);
+    const script = document.createElement("script");
+    script.src =
+      "https://myweatherwidget.netlify.app/main.82b01c8ddb85e77eaaf3.js";
+    script.async = true;
+    script.onload = () => {
+      window.MyApp.init(widget);
+    };
+    widget.appendChild(script);
+    widget.classList.add("widget_disabled");
+  }, []);
+
   // **DOM
   return (
     <section className="Main">
@@ -162,7 +178,10 @@ function Main(props) {
         lang={props.lang}
         images={props.images}
         isDay={props.isDay}
+        setRangeValue={setRangeValue}
+        rangeValue={rangeValue}
       />
+      {rangeValue === 0 ? <weather-widget /> : ""}
       <Game
         isMobile={props.isMobile}
         isGame={props.isGame}

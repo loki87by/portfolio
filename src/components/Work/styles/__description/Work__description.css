@@ -1,11 +1,11 @@
 .Work__description {
   width: 45%;
   height: 60vh;
-  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
   overflow: auto;
-  font-size: 3vw;
-  line-height: 3.4vw;
-  color: white;
 }
 
 @media (max-width: 768px) {

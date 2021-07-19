@@ -17,6 +17,7 @@ import "./styles/_animation/Work_animation_standart.css";
 import "./styles/_animation/Work_animation_none.css";
 import "./styles/__additionally-range/Work__additionally-range.css";
 import "./styles/__additionally-range/_day/Work__additionally-range_day.css";
+import "./styles/widget_disabled.css";
 // **функционал
 function Work(props) {
   const translation = React.useContext(TranslationContext);
@@ -50,8 +51,9 @@ function Work(props) {
   }
 
   function widgetSwitcher(evt) {
-    const widget = document.querySelector("weather-widget");
     props.setRangeValue(evt.target.value);
+    const widget = document.querySelector(".Weather-widget-app");
+    console.log(widget);
     widget.classList.toggle("widget_disabled");
   }
 
@@ -112,7 +114,7 @@ function Work(props) {
             </p>
             {props.additionally ? (
               <>
-                <p className="Work__description-text">Turn on</p>
+                <p className="Work__description-text">{translation.turnOn}</p>
                 <input
                   type="range"
                   className={`Work__additionally-range ${
@@ -123,7 +125,7 @@ function Work(props) {
                   max="1"
                   onInput={widgetSwitcher}
                 />
-                <p className="Work__description-text">off widget</p>
+                <p className="Work__description-text">{translation.turnOf}</p>
               </>
             ) : (
               ""

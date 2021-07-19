@@ -1,22 +1,22 @@
 .Work__additionally-range {
-    height: 16px;
-    width: 4.5vw;
-    padding: 2px;
-    margin-top: 3vw;
-    border-radius: 1vmax;
-    appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: #fff;
-    outline: none;
-    transition: 0.3s;
-    cursor: pointer;
-  }
+  height: 16px;
+  width: 4.5vw;
+  padding: 2px;
+  margin-top: 3vw;
+  border-radius: 1vmax;
+  appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  outline: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
 
-  .Work__additionally-range::-webkit-slider-thumb,
-  .Work__additionally-range::-moz-range-thumb,
-  .Work__additionally-range::-ms-thumb {
-    appearance: none;
-    -webkit-appearance: none;
-    background: white;
-  }
+.Work__additionally-range::-webkit-slider-thumb,
+.Work__additionally-range::-moz-range-thumb,
+.Work__additionally-range::-ms-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  background: white;
+}

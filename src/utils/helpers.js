@@ -1,4 +1,3 @@
-
 export const newgame = (arr) => {
   let random = Math.random();
   let rand = Math.floor(random * 16);

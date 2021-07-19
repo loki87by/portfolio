@@ -12,7 +12,6 @@ import Resume from "../Resume/Resume";
 import Game from "../Game/Game";
 import Popup from "../Popup/Popup";
 import "./Main.css";
-import "./widget_disabled.css";
 
 // ***функционал
 function Main(props) {
@@ -160,13 +159,12 @@ function Main(props) {
     document.body.appendChild(widget);
     const script = document.createElement("script");
     script.src =
-      "https://myweatherwidget.netlify.app/main.82b01c8ddb85e77eaaf3.js";
+      "https://myweatherwidget.netlify.app/main.f950c6e9d9d1ac9c68fd.js";
     script.async = true;
     script.onload = () => {
       window.MyApp.init(widget);
     };
     widget.appendChild(script);
-    widget.classList.add("widget_disabled");
   }, []);
 
   // **DOM
@@ -178,10 +176,10 @@ function Main(props) {
         lang={props.lang}
         images={props.images}
         isDay={props.isDay}
-        setRangeValue={setRangeValue}
         rangeValue={rangeValue}
+        setRangeValue={setRangeValue}
       />
-      {rangeValue === 0 ? <weather-widget /> : ""}
+      <weather-widget />
       <Game
         isMobile={props.isMobile}
         isGame={props.isGame}

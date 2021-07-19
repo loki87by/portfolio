@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.3d115417.chunk.css",
-    "main.js": "/portfolio/static/js/main.33a84acc.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.33a84acc.chunk.js.map",
-    "runtime-main.js": "/portfolio/static/js/runtime-main.08abc844.js",
-    "runtime-main.js.map": "/portfolio/static/js/runtime-main.08abc844.js.map",
+    "main.css": "/portfolio/static/css/main.9be048a8.chunk.css",
+    "main.js": "/portfolio/static/js/main.a6f3de9f.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.a6f3de9f.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.71e3c899.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.71e3c899.js.map",
     "static/js/2.15b1c80b.chunk.js": "/portfolio/static/js/2.15b1c80b.chunk.js",
     "static/js/2.15b1c80b.chunk.js.map": "/portfolio/static/js/2.15b1c80b.chunk.js.map",
-    "static/js/3.a14c5f99.chunk.js": "/portfolio/static/js/3.a14c5f99.chunk.js",
-    "static/js/3.a14c5f99.chunk.js.map": "/portfolio/static/js/3.a14c5f99.chunk.js.map",
+    "static/js/3.2cdcd09d.chunk.js": "/portfolio/static/js/3.2cdcd09d.chunk.js",
+    "static/js/3.2cdcd09d.chunk.js.map": "/portfolio/static/js/3.2cdcd09d.chunk.js.map",
     "index.html": "/portfolio/index.html",
-    "static/css/main.3d115417.chunk.css.map": "/portfolio/static/css/main.3d115417.chunk.css.map",
+    "static/css/main.9be048a8.chunk.css.map": "/portfolio/static/css/main.9be048a8.chunk.css.map",
     "static/js/2.15b1c80b.chunk.js.LICENSE.txt": "/portfolio/static/js/2.15b1c80b.chunk.js.LICENSE.txt",
     "static/media/20202WD00196.1b1e2658.pdf": "/portfolio/static/media/20202WD00196.1b1e2658.pdf",
     "static/media/GameField.css": "/portfolio/static/media/Iceberg-Regular.1ffbc606.woff",
@@ -74,6 +74,7 @@
     "static/media/project-14t.6733aa82.jpg": "/portfolio/static/media/project-14t.6733aa82.jpg",
     "static/media/project-14u.b266acd5.jpg": "/portfolio/static/media/project-14u.b266acd5.jpg",
     "static/media/project-14v.7b947401.jpg": "/portfolio/static/media/project-14v.7b947401.jpg",
+    "static/media/project-15.bb7a54f5.jpg": "/portfolio/static/media/project-15.bb7a54f5.jpg",
     "static/media/project-2.0d5c551e.jpg": "/portfolio/static/media/project-2.0d5c551e.jpg",
     "static/media/project-3.662e4a30.jpg": "/portfolio/static/media/project-3.662e4a30.jpg",
     "static/media/project-4.0d5c551e.jpg": "/portfolio/static/media/project-4.0d5c551e.jpg",
@@ -105,9 +106,9 @@
     "static/media/Акулич.cea7f0d8.pdf": "/portfolio/static/media/Акулич.cea7f0d8.pdf"
   },
   "entrypoints": [
-    "static/js/runtime-main.08abc844.js",
+    "static/js/runtime-main.71e3c899.js",
     "static/js/2.15b1c80b.chunk.js",
-    "static/css/main.3d115417.chunk.css",
-    "static/js/main.33a84acc.chunk.js"
+    "static/css/main.9be048a8.chunk.css",
+    "static/js/main.a6f3de9f.chunk.js"
   ]
 }

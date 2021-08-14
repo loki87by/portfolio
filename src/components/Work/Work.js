@@ -17,6 +17,7 @@ import "./styles/_animation/Work_animation_standart.css";
 import "./styles/_animation/Work_animation_none.css";
 import "./styles/__additionally-range/Work__additionally-range.css";
 import "./styles/__additionally-range/_day/Work__additionally-range_day.css";
+import "./styles/__additionally-range/_mobile/Work__additionally-range_mobile.css";
 import "./styles/widget_disabled.css";
 // **функционал
 function Work(props) {
@@ -119,7 +120,7 @@ function Work(props) {
                   type="range"
                   className={`Work__additionally-range ${
                     props.isDay && "Work__additionally-range_day"
-                  }`}
+                  } ${ props.width < 850 && "Work__additionally-range_mobile"}`}
                   value={props.rangeValue}
                   min="0"
                   max="1"

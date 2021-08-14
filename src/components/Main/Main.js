@@ -178,6 +178,7 @@ function Main(props) {
         isDay={props.isDay}
         rangeValue={rangeValue}
         setRangeValue={setRangeValue}
+        width={props.width}
       />
       <weather-widget />
       <Game

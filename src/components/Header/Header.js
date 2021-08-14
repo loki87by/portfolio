@@ -8,6 +8,7 @@ import "./Header.css";
 import "./styles/__logo/Header__logo.css";
 import "./styles/__input/Header__input.css";
 import "./styles/__input/_day/Header__input_day.css";
+import "./styles/__input/_mobile/Header__input_mobile.css";
 import "./styles/__button/Header__button.css";
 import "./styles/__button-image/Header__button-image.css";
 import "./styles/__button-image/_day/Header__button-image_day.css";
@@ -39,7 +40,7 @@ function Header(props) {
         alt="логотип"
         src={props.lang === "ru" ? logo : logoEng}
       />
-      <input type="range" className={`Header__input ${props.isDay && 'Header__input_day'}`} value={rangeValue} min='1' max='2' onInput={switcher} />
+      <input type="range" className={`Header__input ${props.isDay && 'Header__input_day'} ${props.width <= 850 && 'Header__input_mobile'}`} value={rangeValue} min='1' max='2' onInput={switcher} />
       {props.lang === "ru" ? (
         <button className="Header__button" type="button" onClick={langChanger}>
           <img className={`Header__button-image ${props.isDay && 'Header__button-image_day'}`} src={eng} alt="флаг СК" />

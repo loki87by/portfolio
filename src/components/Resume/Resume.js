@@ -18,7 +18,6 @@ import "./styles/__certificate-close/Resume__certificate-close.css";
 // **функционал
 function Resume(props) {
   const translation = React.useContext(TranslationContext);
-  const [luft, setLuft] = React.useState(0);
   const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
   const [isCertificateOpen, setCertificateOpen] = React.useState(false);
   const [openWorks, setOpenWorks] = React.useState({
@@ -96,14 +95,15 @@ function Resume(props) {
               animationTime={item.animationTime}
               additionally={item.additionally}
               imageSet={imageSets[index]}
-              luft={luft}
-              setLuft={setLuft}
+              luft={props.luft}
+              setLuft={props.setLuft}
               openWorks={openWorks}
               setOpenWorks={setOpenWorks}
               animation={item.animation}
               isDay={props.isDay}
               setRangeValue={props.setRangeValue}
               rangeValue={props.rangeValue}
+              width={props.width}
             />
           );
         })}

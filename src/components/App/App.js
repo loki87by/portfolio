@@ -19,6 +19,7 @@ function App() {
   const [isGame, setIsGame] = React.useState(false);
   const [luft, setLuft] = React.useState(0);
   const [images, setImages] = React.useState([]);
+  const [width, setWidth] = React.useState(0);
   const [loadProgress, setLoadProgress] = React.useState(0);
   const [imagesIsLoad, setImagesIsLoad] = React.useState(false);
   const [isDay, setDay] = React.useState(false);
@@ -61,6 +62,19 @@ function App() {
     window.addEventListener("scroll", fromTop);
   });
 
+  // **отсеживание ширины страницы
+  React.useEffect(() => {
+    const scrollWidth = Math.max(
+      document.body.scrollWidth,
+      document.documentElement.scrollWidth,
+      document.body.offsetWidth,
+      document.documentElement.offsetWidth,
+      document.body.clientWidth,
+      document.documentElement.clientWidth
+    );
+    setWidth(scrollWidth);
+  }, []);
+
   React.useEffect(() => {
     for (let i = 0; i < PIC_ARRAY.length; i++) {
       let img = new Image();
@@ -86,7 +100,7 @@ function App() {
   return (
     <>
       <TranslationContext.Provider value={translations[lang]}>
-        <Header setLang={setLang} lang={lang} isDay={isDay} setDay={setDay} />
+        <Header setLang={setLang} lang={lang} isDay={isDay} setDay={setDay} width={width} />
         {imagesIsLoad ? (
           <Main
             isMobile={mobileRef.current}
@@ -95,6 +109,7 @@ function App() {
             images={images}
             setLuft={setLuft}
             isDay={isDay}
+            width={width}
           />
         ) : (
           <h2

@@ -33,6 +33,7 @@ function GameField(props) {
   // **функции
   // *начало игры
   let startGame = () => {
+    console.log((props.isGame.current))
     if (props.isGame.current) {
       props.setEndGame(false);
       props.setGameStarted(true);

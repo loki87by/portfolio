@@ -24,7 +24,7 @@ const hours = +time.slice(0, 2);
 const minutes = +time.slice(3, 5);
 export const AFTER_MIDNIGHT = hours * 60 + minutes;
 
-export const HEIGHT_KOEFFICIENT = 0.8;
+export const HEIGHT_KOEFFICIENT = 0.75;
 
 export const LUFT_KOEFFICIENT = 0.2;
 

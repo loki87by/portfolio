@@ -1,0 +1,9 @@
+.Work__clue {
+  position: absolute;
+  width: min-content;
+  font-size: 14px;
+  line-height: 16px;
+  margin: 0;
+  background: rgba(255, 255, 255, .7);
+  color: #000;
+}

@@ -1,4 +1,5 @@
 .Work {
+  position: relative;
   width: 50%;
   height: 60vh;
   cursor: pointer;

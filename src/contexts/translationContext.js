@@ -64,6 +64,8 @@ export const translations = {
       "An embeddable weather widget written in React using TypeScript. (If you have allowed access to your location, you should see it in the lower right corner. If it interferes, you can turn off the switch below)",
     turnOn: "Turn on",
     turnOf: "of widget",
+    clueForAnimation: "Hover over the image to animate",
+    clueForAnimationMobile: "Longtap on the image to animate",
     webService: "Web service",
     landingPage: "landing page",
     cleanWork: "Clean code work",
@@ -116,7 +118,7 @@ export const translations = {
     purpose:
       "Прокачаться до левела Линуса Торвальдса, Билла Гейтса, Стива Джобса, Павла Дурова, Сатоши Накамото или что-то вроде. Внести свой вклад в новую историю IT и разбогатеть.",
     summary:
-      "Знание JavaScript, React, Html, Css, основы Bash, TypeScript, Angular, Vue, Python и Django. Написание кода как в Visual Studio Code, так и вручную. Понимание ООП, знание БЭМ. Работа с макетом в Figma и Photoshop. Работа с базами данных (SQL, NoSql). Умение работать с запросами к API в Postman и Charles. Знание основ ручного и автоматизированного тестирования. Знание английскоо на уровне B1",
+      "Знание JavaScript, React, Html, Css, основы Bash, TypeScript, Angular, Vue, Python и Django. Написание кода как в Visual Studio Code, так и вручную. Понимание ООП, знание БЭМ. Работа с макетом в Figma и Photoshop. Работа с базами данных (SQL, NoSql). Умение работать с запросами к API в Postman и Charles. Знание основ ручного и автоматизированного тестирования. Знание английского на уровне B1",
     experience: "Опыт работы",
     workExperience:
       "Сменил много различных сфер деятельности (строительство, логистика, грузовые и пассажирские перевозки, производство мебели, продажи и.т.д. Закончил курсы Яндекс.Практикум по специальности веб-разработчик, в данный момент повышаю скиллы в EPAM JS Rolling-Scopes-School, и планирую далее расти профессионально в этой области.",
@@ -168,6 +170,8 @@ export const translations = {
       "Встраиваемый погодный виджет написанный на React с использованием TypeScript. (Если вы разрешили доступ к вашему местоположению, то должны видеть его в правом нижнем углу. Если мешает, можете отключить переключателем ниже)",
     turnOf: "выкл виджет",
     turnOn: "Вкл",
+    clueForAnimation: "Для анимации наведите курсор на изображение",
+    clueForAnimationMobile: "Для анимации выполните длительное касание по изображению",
     webService: "Интернет-сервис",
     landingPage: "Одностраничный сайт",
     cleanWork: "Работа по чистке кода",

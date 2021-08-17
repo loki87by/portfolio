@@ -104,6 +104,7 @@ function Resume(props) {
               setRangeValue={props.setRangeValue}
               rangeValue={props.rangeValue}
               width={props.width}
+              isMobile={props.isMobile}
             />
           );
         })}

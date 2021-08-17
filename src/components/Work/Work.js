@@ -11,6 +11,7 @@ import "./styles/__button/_opened/Work__button_opened.css";
 import "./styles/__container/Work__container.css";
 import "./Work.css";
 import "./Work_day.css";
+import "./styles/__clue/Work__clue.css";
 import "./styles/__description/Work__description.css";
 import "./styles/__description-text/Work__description-text.css";
 import "./styles/_animation/Work_animation_standart.css";
@@ -108,7 +109,11 @@ function Work(props) {
                 props.animation === "galleryNg") &&
               "Work_animation_none"
             }`}
-          ></div>
+          >
+            {props.animation === "none" ? '' :
+            <p className = "Work__clue">{props.isMobile ? translation.clueForAnimationMobile : translation.clueForAnimation}</p>
+            }
+          </div>
           <div className="Work__description">
             <p className="Work__description-text">
               {translation[`${props.text}`]}

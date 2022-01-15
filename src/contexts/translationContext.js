@@ -2,6 +2,7 @@ import React from "react";
 export const TranslationContext = React.createContext();
 export const translations = {
   en: {
+    changeBack: "Change background",
     author: "Alexey Akulich",
     specify: "Junior web-developer",
     contacts: "Contacts",
@@ -108,6 +109,7 @@ export const translations = {
     scrollSwither: "Turn on/off scrolling",
   },
   ru: {
+    changeBack: "Сменить фон",
     author: "Алексей Акулич",
     specify: "Младший веб-разработчик",
     contacts: "Контакты",

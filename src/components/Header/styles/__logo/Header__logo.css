@@ -1,5 +1,6 @@
 .Header__logo {
   height: 10vw;
+  filter: var(--filter);
 }
 
 @media (max-width: 768px) {

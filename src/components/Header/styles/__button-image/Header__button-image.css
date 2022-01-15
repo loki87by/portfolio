@@ -2,6 +2,7 @@
   width: 7vw;
   height: 7vw;
   border-radius: 50%;
+  border: 2px solid var(--main-color);
   cursor: pointer;
   background-size: cover;
   background-position: center;

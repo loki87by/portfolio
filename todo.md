@@ -1,1 +1,1 @@
-header: add svg sprites to logo
+fix: rgb(127.127.127) styles

@@ -1,6 +1,7 @@
 :root {
   --main-color: #fff;
   --back-color: #000;
+  --filter: none;
 }
 
 body {

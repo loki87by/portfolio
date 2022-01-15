@@ -1,7 +1,11 @@
 // **импорты
 import React from "react";
+import { getFilter } from "../../utils/filter.js"
+import { hexToRgb, rgbToHex } from "../../utils/helpers.js"
 import logo from "../../images/logo.svg";
+import logoBlack from "../../images/logo-black.svg";
 import logoEng from "../../images/logoEng.svg";
+import logoEngBlack from "../../images/logoEng-black.svg";
 import "./Header.css";
 import "./styles/__logo/Header__logo.css";
 import "./styles/__input/Header__input.css";
@@ -11,6 +15,7 @@ import "./styles/__button-image/Header__button-image_RU.css";
 
 // **функционал
 function Header(props) {
+  const [logoStyled, setLogoStyled] = React.useState(false)
   // *языковой переключатель
   function langChanger() {
     if (props.lang === "ru") {
@@ -20,28 +25,19 @@ function Header(props) {
     }
   }
 
-  function hexToRgb(hex) {
-    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-    hex = hex.replace(shorthandRegex, function(r, g, b) {
-      return r + r + g + g + b + b;
-    });
-
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-      r: parseInt(result[1], 16),
-      g: parseInt(result[2], 16),
-      b: parseInt(result[3], 16)
-    } : null;
-  }
-
 function changeColor(e) {
+  setLogoStyled(true);
   const html = document.querySelector('html')
+  const logo = document.querySelector('.Header__logo')
   const hex = e.target.value
   const rgb = hexToRgb(hex)
   const stringRgb = `rgb(${rgb.r}, ${rgb.b}, ${rgb.b})`
   const stringReverse = `rgb(${255 - rgb.r}, ${255 - rgb.b}, ${255 - rgb.b})`
+  const hexReverse = rgbToHex(255 - rgb.r, 255 - rgb.g, 255 - rgb.b)
   html.style.setProperty('--back-color', stringRgb)
   html.style.setProperty('--main-color', stringReverse)
+  const filter = getFilter(hexReverse)
+  logo.setAttribute('style', `filter: ${filter}`)
 }
 
   // *DOM
@@ -51,7 +47,9 @@ function changeColor(e) {
       <img
         className="Header__logo"
         alt="логотип"
-        src={props.lang === "ru" ? logo : logoEng}
+        src={props.lang === "ru" ?
+        logoStyled ? logoBlack : logo
+        : logoStyled ? logoEngBlack : logoEng}
       />
       {props.lang === "ru" ? (
           <div className='Header__button-image Header__button-image_UK' onClick={langChanger}></div>

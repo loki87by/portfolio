@@ -1,5 +1,15 @@
 .Header__button-image {
-  width: 6vw;
-  object-fit: cover;
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
   cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+  .Header__button-image {
+    width: 5vw;
+    height: 5vw;
+  }
 }

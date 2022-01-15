@@ -1,6 +1,7 @@
 .Header {
   padding: 1vw 5vw;
   display: flex;
-  justify-content: space-between;
-  background-color: black;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--back-color);
 }

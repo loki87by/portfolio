@@ -2,20 +2,15 @@
 import React from "react";
 import logo from "../../images/logo.svg";
 import logoEng from "../../images/logoEng.svg";
-import eng from "../../images/UK.png";
-import rus from "../../images/RU.png";
 import "./Header.css";
 import "./styles/__logo/Header__logo.css";
 import "./styles/__input/Header__input.css";
-import "./styles/__input/_day/Header__input_day.css";
-import "./styles/__input/_mobile/Header__input_mobile.css";
-import "./styles/__button/Header__button.css";
 import "./styles/__button-image/Header__button-image.css";
-import "./styles/__button-image/_day/Header__button-image_day.css";
+import "./styles/__button-image/Header__button-image_UK.css";
+import "./styles/__button-image/Header__button-image_RU.css";
 
 // **функционал
 function Header(props) {
-  const [rangeValue, setRangeValue] = React.useState(0)
   // *языковой переключатель
   function langChanger() {
     if (props.lang === "ru") {
@@ -24,31 +19,44 @@ function Header(props) {
       props.setLang("ru");
     }
   }
-  function switcher(evt) {
-    setRangeValue(evt.target.value)
-    const result = !props.isDay
-    props.setDay(result)
-    const body = document.getElementById('root')
-    body.classList.toggle('body_day');
+
+  function hexToRgb(hex) {
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    hex = hex.replace(shorthandRegex, function(r, g, b) {
+      return r + r + g + g + b + b;
+    });
+
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
   }
+
+function changeColor(e) {
+  const html = document.querySelector('html')
+  const hex = e.target.value
+  const rgb = hexToRgb(hex)
+  const stringRgb = `rgb(${rgb.r}, ${rgb.b}, ${rgb.b})`
+  const stringReverse = `rgb(${255 - rgb.r}, ${255 - rgb.b}, ${255 - rgb.b})`
+  html.style.setProperty('--back-color', stringRgb)
+  html.style.setProperty('--main-color', stringReverse)
+}
 
   // *DOM
   return (
     <header className="Header">
+      <input type="color" className="Header__input" onInput={changeColor}/>
       <img
         className="Header__logo"
         alt="логотип"
         src={props.lang === "ru" ? logo : logoEng}
       />
-      <input type="range" className={`Header__input ${props.isDay && 'Header__input_day'} ${props.width <= 850 && 'Header__input_mobile'}`} value={rangeValue} min='1' max='2' onInput={switcher} />
       {props.lang === "ru" ? (
-        <button className="Header__button" type="button" onClick={langChanger}>
-          <img className={`Header__button-image ${props.isDay && 'Header__button-image_day'}`} src={eng} alt="флаг СК" />
-        </button>
+          <div className='Header__button-image Header__button-image_UK' onClick={langChanger}></div>
       ) : (
-        <button className="Header__button" type="button" onClick={langChanger}>
-          <img className={`Header__button-image ${props.isDay && 'Header__button-image_day'}`} src={rus} alt="флаг РФ" />
-        </button>
+          <div className='Header__button-image Header__button-image_RU' onClick={langChanger}></div>
       )}
     </header>
   );

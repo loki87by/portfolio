@@ -1,44 +1,38 @@
 .Header__input {
-  position: relative;
-  height: 16px;
-  width: 4.5vw;
-  padding: 2px;
-  margin-top: 3vw;
-  border-radius: 1vmax;
-  appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: #fff;
-  outline: none;
-  transition: 0.3s;
+  width: 7vw;
+  height: 7vw;
+  padding: 0;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
   cursor: pointer;
-}
-
-.Header__input::-webkit-slider-thumb,
-.Header__input::-moz-range-thumb,
-.Header__input::-ms-thumb {
-  appearance: none;
   -webkit-appearance: none;
-  background: white;
 }
 
-.Header__input::before,
-.Header__input::after {
-  position: absolute;
-  top: -0.1vw;
-  content: "";
-  width: 2vw;
-  height: 2.2vw;
-  background-size: contain;
-  background-repeat: no-repeat;
+.Header__input::-webkit-color-swatch-wrapper {
+  padding: 0;
 }
 
-.Header__input::before {
-  background-image: url(../../../../images/moon.svg);
-  left: -2.2vw;
+.Header__input::-webkit-color-swatch {
+  padding: 0;
+  border: none;
+  border-radius: 50%;
 }
 
-.Header__input::after {
-  right: -2.5vw;
-  background-image: url(../../../../images/sun.svg);
+.Header__input::-moz-focus-inner {
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+}
+
+.Header__input::-moz-color-swatch {
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .Header__input {
+    width: 5vw;
+    height: 5vw;
+  }
 }

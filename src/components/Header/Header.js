@@ -1,8 +1,7 @@
 // **импорты
 import React from "react";
 import { TranslationContext } from "../../contexts/translationContext";
-import { getFilter } from "../../utils/filter.js"
-import { hexToRgb, rgbToHex } from "../../utils/helpers.js"
+import { hexToRgb, updateColors } from "../../utils/helpers.js"
 import logo from "../../images/logo.svg";
 import logoEng from "../../images/logoEng.svg";
 import "./Header.css";
@@ -25,22 +24,9 @@ function Header(props) {
   }
 
 function changeColor(e) {
-  const html = document.querySelector('html')
   const hex = e.target.value
   const rgb = hexToRgb(hex)
-  const stringRgb = `rgb(${rgb.r}, ${rgb.b}, ${rgb.b})`
-  let stringReverse = `rgb(${255 - rgb.r}, ${255 - rgb.b}, ${255 - rgb.b})`
-  const unreadable = (rgb.r >= 115 && rgb.r <= 140) && (rgb.b >= 115 && rgb.b <= 140) && (rgb.g >= 115 && rgb.g <= 140)
-
-  if(unreadable) {
-    stringReverse = `rgb(255, 255, 255)`
-  }
-  const hexReverse = rgbToHex(255 - rgb.r, 255 - rgb.g, 255 - rgb.b)
-  const filter = getFilter(hexReverse)
-  html.style.setProperty('--back-color', stringRgb)
-  const oldStyles = html.style.cssText
-  html.style.cssText = `${oldStyles} --filter: ${filter}`
-  html.style.setProperty('--main-color', stringReverse)
+  updateColors(rgb)
 }
 
   // *DOM

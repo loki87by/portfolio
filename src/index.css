@@ -1,6 +1,7 @@
 :root {
   --main-color: #fff;
   --back-color: #000;
+  --second-color: rgb(128, 128, 128);
   --filter: invert(100%);
 }
 

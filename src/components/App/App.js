@@ -4,7 +4,7 @@ import {
   TranslationContext,
   translations,
 } from "../../contexts/translationContext";
-import { HEIGHT_KOEFFICIENT } from "../../utils/consts";
+// import { HEIGHT_KOEFFICIENT } from "../../utils/consts";
 import { PIC_ARRAY } from "../../consts/pictures";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -16,14 +16,14 @@ import "./styles/App_preload.css";
 function App() {
   // **стейты
   const [lang, setLang] = React.useState("ru");
-  const [isGame, setIsGame] = React.useState(false);
-  const [luft, setLuft] = React.useState(0);
+  // const [isGame, setIsGame] = React.useState(false);
+  // const [luft, setLuft] = React.useState(0);
   const [images, setImages] = React.useState([]);
   const [width, setWidth] = React.useState(0);
   const [loadProgress, setLoadProgress] = React.useState(0);
   const [imagesIsLoad, setImagesIsLoad] = React.useState(false);
-  const [isDay, setDay] = React.useState(false);
-  const gameRef = React.useRef(isGame);
+  // const [isDay, setDay] = React.useState(false);
+  // const gameRef = React.useRef(isGame);
   const Mobile =
     /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(
       navigator.userAgent
@@ -41,7 +41,7 @@ function App() {
     }, 15000);
   });
 
-  // **отсеживание высоты страницы
+ /*  // **отсеживание высоты страницы
   React.useEffect(() => {
     function fromTop() {
       const scrollHeight = Math.max(
@@ -60,7 +60,7 @@ function App() {
       setIsGame(gameRef.current);
     }
     window.addEventListener("scroll", fromTop);
-  });
+  }); */
 
   // **отсеживание ширины страницы
   React.useEffect(() => {
@@ -100,15 +100,15 @@ function App() {
   return (
     <>
       <TranslationContext.Provider value={translations[lang]}>
-        <Header setLang={setLang} lang={lang} isDay={isDay} setDay={setDay} width={width} />
+        <Header setLang={setLang} lang={lang} width={width} />
         {imagesIsLoad ? (
           <Main
             isMobile={mobileRef.current}
-            isGame={gameRef}
+            // isGame={gameRef}
             lang={lang}
             images={images}
-            setLuft={setLuft}
-            isDay={isDay}
+            // setLuft={setLuft}
+            // isDay={isDay}
             width={width}
           />
         ) : (

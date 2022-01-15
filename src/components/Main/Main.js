@@ -1,23 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // ***импорты
 import React from "react";
-import {
+/* import {
   AFTER_MIDNIGHT,
   GAME,
   MINUTES_PER_DAY,
   MINUTE_PER_MS,
 } from "../../utils/consts";
-import { newgame } from "../../utils/helpers";
+import { newgame } from "../../utils/helpers"; */
 import Resume from "../Resume/Resume";
-import Game from "../Game/Game";
-import Popup from "../Popup/Popup";
+/* import Game from "../Game/Game";
+import Popup from "../Popup/Popup"; */
 import "./Main.css";
 
 // ***функционал
 function Main(props) {
   // **стейты
   const [rangeValue, setRangeValue] = React.useState(0);
-  const [endTime, setEndTime] = React.useState(1015);
+  /* const [endTime, setEndTime] = React.useState(1015);
   const [newTime, setNewTime] = React.useState(0);
   const [isTimerEdited, setTimerEdited] = React.useState(false);
   const [isTimedPopup, setTimedPopup] = React.useState(false);
@@ -25,37 +25,37 @@ function Main(props) {
   const [newInterval, setNewInterval] = React.useState(true);
   const [intervalTime, setIntervalTime] = React.useState(3300000);
   const [popupOpened, setPopupOpened] = React.useState(false);
-  const [popupType, setPopupType] = React.useState("");
-  const [gameStarted, setGameStarted] = React.useState(false);
+  const [popupType, setPopupType] = React.useState(""); */
+  /* const [gameStarted, setGameStarted] = React.useState(false);
   const [endGame, setEndGame] = React.useState(false);
   const [score, setScore] = React.useState(0);
-  const [numbers, setNumbers] = React.useState(GAME);
-  const countRef = React.useRef(endTime);
+  const [numbers, setNumbers] = React.useState(GAME); */
+  /* const countRef = React.useRef(endTime);
   countRef.current = endTime;
   const intervalRef = React.useRef(intervalTime);
-  intervalRef.current = intervalTime;
+  intervalRef.current = intervalTime; */
 
-  // *перезапуск геймплея
+  /* // *перезапуск геймплея
   function restarter() {
     handlePopupClose();
     setEndGame(false);
     newgame(GAME);
     setGameStarted(true);
     setScore(0);
-  }
+  } */
 
   // **функции открытия попапа
   // *открытие в установленное время
-  function openPopup() {
+  /* function openPopup() {
     setPopupOpened(true);
     setTimedPopup(true);
-  }
+  } */
   // *открытие попапа
-  function openOclockPopup() {
+  /* function openOclockPopup() {
     openPopup();
     setPopupType("oclock");
-  }
-  // *эффект первичного таймера
+  } */
+  /* // *эффект первичного таймера
   React.useEffect(() => {
     let time;
     countRef.current = endTime;
@@ -68,14 +68,14 @@ function Main(props) {
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, []); */
   // *открытие попапа кофе-брейка через час
-  function openCoffeePopup() {
+  /* function openCoffeePopup() {
     openPopup();
     setPopupType("coffee");
-  }
+  } */
   // *эффект первичного таймера попапа кофе-брейка
-  React.useEffect(() => {
+  /* React.useEffect(() => {
     intervalRef.current = intervalTime;
     if (newInterval) {
       let timer = setInterval(openCoffeePopup, intervalRef.current);
@@ -83,11 +83,11 @@ function Main(props) {
         clearInterval(timer);
       };
     }
-  }, [intervalRef.current]);
+  }, [intervalRef.current]); */
 
   // **функции перенастройки попапа
   // *эффект измененного таймера
-  React.useEffect(() => {
+  /* React.useEffect(() => {
     if (isNewTimer) {
       let time = newTime - countRef.current;
       let timer = setTimeout(openOclockPopup, time * MINUTE_PER_MS);
@@ -96,9 +96,9 @@ function Main(props) {
         clearTimeout(timer);
       };
     }
-  });
+  }); */
   // *считыватель выставленного времени
-  let mins;
+  /* let mins;
   let hrs;
   function handleEditTimer(e) {
     mins = +e.target.value.slice(3, 5);
@@ -106,52 +106,52 @@ function Main(props) {
     let time = hrs * 60 + mins;
     setNewTime(time);
     setTimerEdited(true);
-  }
+  } */
   // *установка нового таймера
-  function newTimer() {
+  /* function newTimer() {
     handlePopupClose();
     setTimerEdited(false);
     setEndTime(countRef.current);
     setNewTimer(true);
-  }
+  } */
   // *получение выбранных данных времени
-  function getNewTimerValue() {
+  /* function getNewTimerValue() {
     let value = document.getElementById("timerChanger").value;
     let timerValue = value * MINUTE_PER_MS;
     setTimerEdited(true);
     setIntervalTime(timerValue);
-  }
+  } */
   // *установка нового интервала
-  function newTimeInterval() {
+  /* function newTimeInterval() {
     handlePopupClose();
     setNewInterval(true);
-  }
+  } */
 
   // **функции закрытия попапа
   // *закрытие попапа
-  function handlePopupClose() {
+  /* function handlePopupClose() {
     setPopupOpened(false);
     setPopupType("");
     setTimedPopup(false);
     setNewInterval(false);
-  }
+  } */
   // *закрытие по esc
-  function handleEscClose(e) {
+  /* function handleEscClose(e) {
     if (e.key === "Escape") {
       handlePopupClose();
     }
-  }
+  } */
   // *закрытие по оверлею
-  function handleClickClose(e) {
+  /* function handleClickClose(e) {
     if (e.target.classList.contains("Popup_opened")) {
       handlePopupClose();
     }
-  }
+  } */
   // *слушатели закрытий
-  React.useEffect(() => {
+  /* React.useEffect(() => {
     window.addEventListener("keydown", handleEscClose);
     window.addEventListener("click", handleClickClose);
-  });
+  }); */
 
   // *монтирование виджета
   React.useEffect(() => {
@@ -181,7 +181,7 @@ function Main(props) {
         width={props.width}
       />
       <weather-widget />
-      <Game
+      {/* <Game
         isMobile={props.isMobile}
         isGame={props.isGame}
         score={score}
@@ -196,8 +196,8 @@ function Main(props) {
         setNumbers={setNumbers}
         restarter={restarter}
         isDay={props.isDay}
-      />
-      <Popup
+      /> */}
+      {/* <Popup
         isOpen={popupOpened}
         isTimedPopup={isTimedPopup}
         onClose={handlePopupClose}
@@ -213,7 +213,7 @@ function Main(props) {
         newTimeInterval={newTimeInterval}
         restarter={restarter}
         isDay={props.isDay}
-      />
+      /> */}
     </section>
   );
 }

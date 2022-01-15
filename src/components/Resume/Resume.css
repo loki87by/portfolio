@@ -1,4 +1,4 @@
 .Resume {
   padding: 0 5vw;
-  color: grey;
+  color: var(--second-color);
 }

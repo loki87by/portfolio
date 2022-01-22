@@ -109,6 +109,7 @@ function App() {
             images={images}
             // setLuft={setLuft}
             // isDay={isDay}
+            imagesIsLoad={imagesIsLoad}
             width={width}
           />
         ) : (

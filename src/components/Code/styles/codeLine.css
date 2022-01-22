@@ -1,0 +1,10 @@
+
+
+.codeLine > span {
+  white-space: pre;
+}
+
+.codeLine__space {
+  font-size: 5vw;
+  line-height: .01;
+}

@@ -1,5 +1,5 @@
 .Description__text {
   font-size: 3.5vw;
   line-height: 4vw;
-  color: white;
+  color: var(--main-color);
 }

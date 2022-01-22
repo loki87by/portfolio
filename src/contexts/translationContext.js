@@ -29,6 +29,7 @@ export const translations = {
     qualities: "Qualities",
     quals:
       "Since childhood, I have been and remain a wildly sociable person. I am able to find non-standard approaches to solving problems. Working in sales, I perfectly pumped stress resistance.",
+    biography: "Short biography",
     works: "My works",
     project: "Project",
     more: "Read more ...",
@@ -104,8 +105,6 @@ export const translations = {
     back: "Back-end",
     showCertify:
       "Show certificate of completion of the Web Development Training Course",
-    preGame:
-      "If you are tired of watching and want to distract yourself, then I bring to your attention my own implementation of the game 2048",
     scrollSwither: "Turn on/off scrolling",
   },
   ru: {
@@ -136,6 +135,7 @@ export const translations = {
     qualities: "Качества",
     quals:
       "С детства был и остаюсь дико коммуникабельным человеком. Умею находить нестандартные подходы к решению возникших проблем. Работая в продажах, прекрасно прокачал стрессоустойчивость.",
+    biography: "Краткая биография",
     works: "Мои работы",
     project: "Проект",
     more: "Подробнее...",
@@ -211,8 +211,6 @@ export const translations = {
     back: "Бэк",
     showCertify:
       "Показать сертификат о прохождении обучения по программе «Веб-разработчик»",
-    preGame:
-      "Если вы устали от просмотра, и хотите отвлечься, то предлагаю вашему вниманию собственную реализацию игры 2048",
     scrollSwither: "Вкл/выкл скролл",
   },
 };

@@ -1,4 +1,4 @@
-import { getFilter } from "./filter.js"
+import { getFilter } from "./filter.js";
 
 function componentToHex(c) {
   var hex = c.toString(16);
@@ -26,34 +26,45 @@ export function rgbToHex(r, g, b) {
 }
 
 export function updateColors(rgb) {
-  const html = document.querySelector('html')
-  let stringReverse = `rgb(${255 - rgb.r}, ${255 - rgb.b}, ${255 - rgb.b})`
-  const unreadable = (rgb.r >= 115 && rgb.r <= 140) && (rgb.b >= 115 && rgb.b <= 140) && (rgb.g >= 115 && rgb.g <= 140)
+  const html = document.querySelector("html");
+  let stringReverse = `rgb(${255 - rgb.r}, ${255 - rgb.b}, ${255 - rgb.b})`;
+  const unreadable =
+    rgb.r >= 115 &&
+    rgb.r <= 140 &&
+    rgb.b >= 115 &&
+    rgb.b <= 140 &&
+    rgb.g >= 115 &&
+    rgb.g <= 140;
 
-  if(unreadable) {
-    stringReverse = `rgb(255, 255, 255)`
+  if (unreadable) {
+    stringReverse = `rgb(255, 255, 255)`;
   }
-  let r = rgb.r + 128
-  let g = rgb.g + 128
-  let b = rgb.b + 128
-  if(r > 255 ) {
-    r -= 255
+  let r = rgb.r + 128;
+  let g = rgb.g + 128;
+  let b = rgb.b + 128;
+  if (r > 255) {
+    r -= 255;
   }
-  if(g > 255 ) {
-    g -= 255
+  if (g > 255) {
+    g -= 255;
   }
-  if(b > 255 ) {
-    b -= 255
+  if (b > 255) {
+    b -= 255;
   }
-  const secondColor = `rgb(${r}, ${g}, ${b})`
-  const stringRgb = `rgb(${rgb.r}, ${rgb.b}, ${rgb.b})`
-  const hexReverse = rgbToHex(255 - rgb.r, 255 - rgb.g, 255 - rgb.b)
-  const filter = getFilter(hexReverse)
-  const oldStyles = html.style.cssText
-  html.style.cssText = `${oldStyles} --filter: ${filter}`
-  html.style.setProperty('--back-color', stringRgb)
-  html.style.setProperty('--main-color', stringReverse)
-  html.style.setProperty('--second-color', secondColor)
+  const secondColor = `rgb(${r}, ${g}, ${b})`;
+  const stringRgb = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+  const hexReverse = rgbToHex(255 - rgb.r, 255 - rgb.g, 255 - rgb.b);
+  const filter = getFilter(hexReverse);
+  const oldStyles = html.style.cssText;
+  html.style.cssText = `${oldStyles} --filter: ${filter}`;
+  html.style.setProperty("--back-color", stringRgb);
+  html.style.setProperty("--main-color", stringReverse);
+  html.style.setProperty("--second-color", secondColor);
+}
+
+export function colorizeCode(code) {
+  const arr = code.split(" ");
+  console.log(arr);
 }
 
 export const newgame = (arr) => {

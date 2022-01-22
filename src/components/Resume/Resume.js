@@ -1,6 +1,6 @@
 // **импорты
 import React from "react";
-import { TranslationContext } from "../../contexts/translationContext";
+/* import { TranslationContext } from "../../contexts/translationContext"; */
 import close from "../../images/close.png";
 import certificateRu from "../../media/Акулич.pdf";
 import certificateEn from "../../media/20202WD00196.pdf";
@@ -9,7 +9,6 @@ import Description from "../Description/Description";
 import Work from "../Work/Work";
 import "./Resume.css";
 import "../Popup/Popup.css";
-import "../Popup/styles/_day/Popup_day.css";
 import "../Popup/styles/_opened/Popup_opened.css";
 import "./styles/__works/Resume__works.css";
 import "./styles/__certificate/Resume__certificate.css";
@@ -17,7 +16,7 @@ import "./styles/__certificate-close/Resume__certificate-close.css";
 
 // **функционал
 function Resume(props) {
-  const translation = React.useContext(TranslationContext);
+  /* const translation = React.useContext(TranslationContext); */
   const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
   const [isCertificateOpen, setCertificateOpen] = React.useState(false);
   const [openWorks, setOpenWorks] = React.useState({
@@ -74,9 +73,10 @@ function Resume(props) {
     <section className="Resume">
       <Description
         images={props.images}
-        isDay={props.isDay}
+        /* isDay={props.isDay} */
         isMobile={props.isMobile}
         setCertificateOpen={setCertificateOpen}
+        imagesIsLoad={props.imagesIsLoad}
       />
       <section className="Resume__works">
         {WORKS.map((item, index) => {
@@ -95,14 +95,14 @@ function Resume(props) {
               animationTime={item.animationTime}
               additionally={item.additionally}
               imageSet={imageSets[index]}
-              luft={props.luft}
-              setLuft={props.setLuft}
+              /* luft={props.luft}
+              setLuft={props.setLuft} */
               openWorks={openWorks}
               setOpenWorks={setOpenWorks}
               animation={item.animation}
-              isDay={props.isDay}
+              /* isDay={props.isDay}
               setRangeValue={props.setRangeValue}
-              rangeValue={props.rangeValue}
+              rangeValue={props.rangeValue} */
               width={props.width}
               isMobile={props.isMobile}
             />
@@ -110,7 +110,7 @@ function Resume(props) {
         })}
       </section>
       <section
-        className={`Popup ${props.isDay && "Popup_day"} ${
+        className={`Popup ${
           isCertificateOpen && "Popup_opened"
         }`}
       >
@@ -138,7 +138,6 @@ function Resume(props) {
           ""
         )}
       </section>
-      <p className="Resume__text">{translation.preGame}</p>
     </section>
   );
 }

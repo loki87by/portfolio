@@ -1,0 +1,14 @@
+.Code__line {
+  font-size: 2vw;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.Code__line > span {
+  white-space: pre;
+}
+
+.Code__line-tab {
+  font-size: 5vw;
+  line-height: .01;
+}

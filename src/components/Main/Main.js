@@ -16,7 +16,7 @@ import "./Main.css";
 // ***функционал
 function Main(props) {
   // **стейты
-  const [rangeValue, setRangeValue] = React.useState(0);
+  // const [rangeValue, setRangeValue] = React.useState(0);
   /* const [endTime, setEndTime] = React.useState(1015);
   const [newTime, setNewTime] = React.useState(0);
   const [isTimerEdited, setTimerEdited] = React.useState(false);
@@ -172,31 +172,12 @@ function Main(props) {
     <section className="Main">
       <Resume
         isMobile={props.isMobile}
-        setLuft={props.setLuft}
         lang={props.lang}
         images={props.images}
-        isDay={props.isDay}
-        rangeValue={rangeValue}
-        setRangeValue={setRangeValue}
         width={props.width}
+        imagesIsLoad={props.imagesIsLoad}
       />
       <weather-widget />
-      {/* <Game
-        isMobile={props.isMobile}
-        isGame={props.isGame}
-        score={score}
-        setScore={setScore}
-        setPopupOpened={setPopupOpened}
-        setPopupType={setPopupType}
-        setGameStarted={setGameStarted}
-        setEndGame={setEndGame}
-        gameStarted={gameStarted}
-        endGame={endGame}
-        numbers={numbers}
-        setNumbers={setNumbers}
-        restarter={restarter}
-        isDay={props.isDay}
-      /> */}
       {/* <Popup
         isOpen={popupOpened}
         isTimedPopup={isTimedPopup}

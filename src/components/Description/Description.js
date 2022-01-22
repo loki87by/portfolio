@@ -1,4 +1,5 @@
 import React from "react";
+import Code from "../Code/Code";
 import { TranslationContext } from "../../contexts/translationContext";
 import avatar from "../../images/avatar.jpg";
 import matrix from "../../images/matrix-code-animation-gif-free-animated-background.gif";
@@ -8,7 +9,6 @@ import "./styles/__subsubtitle/Description__subsubtitle.css";
 import "./styles/__text/Description__text.css";
 import "./styles/__link/Description__link.css";
 import "./styles/__photo/Description__photo.css";
-import "./styles/__photo/_day/Description__photo_day.css";
 import "./styles/__certificate-open/Description__certificate-open.css";
 import "./styles/__certificate-open/_day/Description__certificate-open_day.css";
 
@@ -19,11 +19,10 @@ function Description(props) {
   const [effectAva, setEffectAva] = React.useState(matrix);
   const animations = props.images.slice(-4);
 
-
   // *разворот сертификата
-  function openCertificate() {
+  /* function openCertificate() {
     props.setCertificateOpen(true);
-  }
+  } */
 
   // *эффекты аватарки
   React.useEffect(() => {
@@ -48,6 +47,15 @@ function Description(props) {
       ava.removeEventListener("mouseout", hoverOff);
     };
   });
+
+ /*  React.useEffect(() => {
+    if(props.imagesIsLoad) {
+      const codeSelector = document.getElementById('code')
+      //console.dir(code)
+      codeSelector.innerHTML = code
+    }
+  }) */
+
   return (
     <>
       <h1 className="Description__title">
@@ -80,16 +88,16 @@ function Description(props) {
       <img
         alt="фото"
         src={mouseOver ? effectAva : avatar}
-        className={`Description__photo ${props.isDay && "Description__photo_day"}`}
+        className="Description__photo"
       />
       <h2 className="Description__subsubtitle">
         {translation.target}:{" "}
         <span className="Description__text">{translation.purpose}</span>
       </h2>
-      <h2 className="Description__subsubtitle">
+      {/* <h2 className="Description__subsubtitle">
         Summary: <span className="Description__text">{translation.summary}</span>
-      </h2>
-      <h2 className="Description__subsubtitle">
+      </h2> */}
+      {/* <h2 className="Description__subsubtitle">
         {translation.experience}:{" "}
         <span className="Description__text">{translation.workExperience}</span>
         {props.isMobile ? (
@@ -105,7 +113,7 @@ function Description(props) {
             <h3 className="Description__subsubtitle">{translation.showCertify}</h3>
           </button>
         )}
-      </h2>
+      </h2> */}
       <h2 className="Description__subsubtitle">
         {translation.education}:{" "}
         <span className="Description__text">{translation.educationLevel}</span>
@@ -121,6 +129,11 @@ function Description(props) {
       <h2 className="Description__subsubtitle">
         {translation.qualities}:{" "}
         <span className="Description__text">{translation.quals}</span>
+      </h2>
+      <h2 className="Description__subsubtitle">
+        {translation.biography}:{" "}
+        {/* <div className="Description__text" id="code"></div> */}
+        <Code />
       </h2>
       <h2 className="Description__subtitle">{translation.works}:</h2>
       </>)

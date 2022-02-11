@@ -2,7 +2,6 @@ import React from "react";
 import { CODE } from "../../utils/consts.js";
 import "./Code.css";
 import "./styles/__line/Code__line.css";
-import "./styles/__line/_link/Code__line_link.css";
 
 function Code() {
   let tabCounter = 0;
@@ -79,6 +78,7 @@ function Code() {
     }
     let arr = keyword.split("(");
     let bracket = "(";
+
     if (keyword.includes("((")) {
       arr = keyword.split("((");
       bracket = "((";
@@ -153,13 +153,13 @@ function Code() {
   }
 
   function semicolonChecker(keyword) {
-  end = "";
-  return (
-    <>
-      {wordChecker(keyword.replace(";", ""))}
-      <span>;</span>
-    </>
-  );
+    end = "";
+    return (
+      <>
+        {wordChecker(keyword.replace(";", ""))}
+        <span>;</span>
+      </>
+    );
   }
 
   function commaChecker(keyword) {
@@ -184,71 +184,86 @@ function Code() {
 
   function wordChecker(word) {
     if (result) {
-      result = false
-      return (
-        <a href="/#" className="Code__line_link">
-          {wordChecker(word)}
-        </a>
-      )
+      result = false;
+      return <a href="/#">{wordChecker(word)}</a>;
     }
+
     if (+word === word - 1 + 1 && word !== " " && word !== "") {
       return <span style={{ color: "#a8e9a8" }}>{`${word}${end}`}</span>;
     }
+
     if (word === "=>") {
       return <span style={{ color: "#31a0ff" }}>{`${end}${word}${end}`}</span>;
     }
+
     if (word === "===") {
       return <span style={{ color: "#fff" }}>{`${end}${word}${end}`}</span>;
     }
+
     if (word === "import") {
       afterImport = true;
       return <span style={{ color: "#dd7dc9" }}>{`${word}${end}`}</span>;
     }
+
     if (word === "tab") {
       return <span className="Code__line-tab">{` `}</span>;
     }
+
     if (word === lastAfterPunkt) {
       end = " ";
     }
+
     if (
-      word === '.' || (word.includes(".") &&
-      word[0] !== "." &&
-      word[0] !== "'" &&
-      word[0] !== '"' &&
-      word[0] !== "\\`"
-    )) {
-      return pointsChecker(word)
+      word === "." ||
+      (word.includes(".") &&
+        word[0] !== "." &&
+        word[0] !== "'" &&
+        word[0] !== '"' &&
+        word[0] !== "\\`")
+    ) {
+      return pointsChecker(word);
     }
+
     if (afterImport) {
-      return importChecker(word)
+      return importChecker(word);
     }
+
     if (preGreenKeywords.includes(word)) {
       isGreen = true;
     }
+
     if (openBracket && word !== ")") {
       usedWords.push(word);
     }
+
     if (word.includes("(")) {
-      return openBracketChecker(word)
+      return openBracketChecker(word);
     }
+
     if (word.includes("[")) {
-      return openSquareBracketChecker(word)
+      return openSquareBracketChecker(word);
     }
+
     if (word.includes("]")) {
-      return closeSquareBracketChecker(word)
+      return closeSquareBracketChecker(word);
     }
+
     if (word[word.length - 1] === ";") {
       return semicolonChecker(word);
     }
+
     if (word[word.length - 1] === ",") {
-      return commaChecker(word)
+      return commaChecker(word);
     }
+
     if (word.includes(")")) {
-      return closeBracketChecker(word)
+      return closeBracketChecker(word);
     }
+
     if (word[0] === '"' || word[0] === "'" || word[0] === "\\`") {
       isString = true;
     }
+
     if (
       word[word.length - 1] === '"' ||
       word[word.length - 1] === "'" ||
@@ -257,30 +272,38 @@ function Code() {
       isString = false;
       return <span style={{ color: "#db7354" }}>{`${word}${end}`}</span>;
     }
+
     if (isString) {
       return <span style={{ color: "#db7354" }}>{`${word}${end}`}</span>;
     }
+
     if (pinkKeywords.includes(word)) {
       return <span style={{ color: "#dd7dc9" }}>{`${word}${end}`}</span>;
     }
+
     if (blueKeywords.includes(word)) {
       if (word === "const" || word === "let") {
         announce = true;
       }
       return <span style={{ color: "#2688c1" }}>{`${word}${end}`}</span>;
     }
+
     if (isGreen) {
-      return greenWordsChecker(word)
+      return greenWordsChecker(word);
     }
+
     if (consts.includes(word)) {
       return <span style={{ color: "#31a0ff" }}>{`${word}${end}`}</span>;
     }
+
     if (usedFunctions.includes(word)) {
       return <span style={{ color: "#d8d994" }}>{`${word}${end}`}</span>;
     }
+
     if (usedWords.includes(word)) {
       return <span style={{ color: "skyblue" }}>{`${word}${end}`}</span>;
     }
+
     if (announce) {
       announce = false;
       consts.push(word);
@@ -296,19 +319,22 @@ function Code() {
     }
     arr.forEach((element, index) => {
       end = " ";
+
       if (element.includes("{")) {
         tabCounter += 1;
       }
+
       if (element.includes("}")) {
         tabCounter -= 1;
+
         if (arr[index - 1] === "tab") {
           arr.splice(index - 1, 1);
         }
       }
     });
     return arr.map((element, index) => {
-      if(lastLine && index === arr.length - 1) {
-        result = true
+      if (lastLine && index === arr.length - 1) {
+        result = true;
       }
       return <span key={index}>{wordChecker(element)}</span>;
     });
@@ -329,8 +355,8 @@ function Code() {
       }
     });
     return arr.map((element, index) => {
-      if(index === arr.length - 1){
-        lastLine = true
+      if (index === arr.length - 1) {
+        lastLine = true;
       }
       return (
         <div key={index} className="Code__line">

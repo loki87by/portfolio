@@ -1,0 +1,5 @@
+.finger_bigLeft_open {
+  -webkit-transform: rotate(250deg);
+  -ms-transform: rotate(250deg);
+  transform: rotate(250deg);
+}

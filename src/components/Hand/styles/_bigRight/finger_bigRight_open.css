@@ -1,0 +1,5 @@
+.finger_bigRight_open {
+  -webkit-transform: rotate(110deg) translateY(-2%) translateY(-14%);
+  -ms-transform: rotate(110deg) translateY(-2%) translateY(-14%);
+  transform: rotate(110deg) translateY(-2%) translateY(-14%);
+}

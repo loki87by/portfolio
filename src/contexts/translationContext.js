@@ -2,6 +2,16 @@ import React from "react";
 export const TranslationContext = React.createContext();
 export const translations = {
   en: {
+    age: "Age",
+    years: "years",
+    mounthes: "mounthes",
+    weeks: "weeks",
+    days: "days",
+    hours: "hours",
+    minutes: "minutes",
+    seconds: "seconds",
+    toDecimal: "to decimal",
+    toBinary: "to fingers-binary",
     changeBack: "Change background",
     author: "Alexey Akulich",
     specify: "Junior web-developer",
@@ -108,6 +118,16 @@ export const translations = {
     scrollSwither: "Turn on/off scrolling",
   },
   ru: {
+    age: "Возраст",
+    years: "лет",
+    mounthes: "месяцев",
+    weeks: "недель",
+    days: "дней",
+    hours: "часов",
+    minutes: "минут",
+    seconds: "секунд",
+    toDecimal: "в десятичную",
+    toBinary: "в двоичную на пальцах",
     changeBack: "Сменить фон",
     author: "Алексей Акулич",
     specify: "Младший веб-разработчик",

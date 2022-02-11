@@ -1,5 +1,6 @@
 import React from "react";
 import Code from "../Code/Code";
+import Age from "../Age/Age";
 import { TranslationContext } from "../../contexts/translationContext";
 import avatar from "../../images/avatar.jpg";
 import matrix from "../../images/matrix-code-animation-gif-free-animated-background.gif";
@@ -9,6 +10,8 @@ import "./styles/__subsubtitle/Description__subsubtitle.css";
 import "./styles/__text/Description__text.css";
 import "./styles/__link/Description__link.css";
 import "./styles/__photo/Description__photo.css";
+import "./styles/__block/Description__block.css";
+import "./styles/__button/Description__button.css"
 import "./styles/__certificate-open/Description__certificate-open.css";
 import "./styles/__certificate-open/_day/Description__certificate-open_day.css";
 
@@ -17,8 +20,13 @@ function Description(props) {
   const translation = React.useContext(TranslationContext);
   const [mouseOver, setMouseOver] = React.useState(false);
   const [effectAva, setEffectAva] = React.useState(matrix);
+  const [binary, setBinary] = React.useState(true);
   const animations = props.images.slice(-4);
 
+  function changeDigitType() {
+    const newState = !binary
+    setBinary(newState)
+  }
   // *разворот сертификата
   /* function openCertificate() {
     props.setCertificateOpen(true);
@@ -48,14 +56,6 @@ function Description(props) {
     };
   });
 
- /*  React.useEffect(() => {
-    if(props.imagesIsLoad) {
-      const codeSelector = document.getElementById('code')
-      //console.dir(code)
-      codeSelector.innerHTML = code
-    }
-  }) */
-
   return (
     <>
       <h1 className="Description__title">
@@ -70,10 +70,11 @@ function Description(props) {
       </h3>
       <h3 className="Description__subsubtitle">
         {translation.phone}:{" "}
-        <span className="Description__text">+7(995)593-57-56</span>
+        <a href="tel:+79955935759" className="Description__text">+7(995)593-57-56</a>
       </h3>
       <h3 className="Description__subsubtitle">
-        e-mail: <span className="Description__text">loki87.666@gmail.com</span>
+        {`e-mail: `}
+        <a href="mailto:loki87.666@gmail.com" className="Description__text">loki87.666@gmail.com</a>
       </h3>
       <h3 className="Description__subsubtitle">
         Github:{" "}
@@ -90,6 +91,23 @@ function Description(props) {
         src={mouseOver ? effectAva : avatar}
         className="Description__photo"
       />
+      <div className="Description__block">
+      <h2 className="Description__subsubtitle">
+        {translation.age}:{" "}
+      </h2>
+      {binary ?
+      <button className="Description__button" onClick={changeDigitType}>
+      {translation.toDecimal}
+      </button>
+      :
+      <button className="Description__button" onClick={changeDigitType}>
+      {translation.toBinary}
+      </button>
+      }
+      </div>
+        <Age
+        binary={binary}
+        />
       <h2 className="Description__subsubtitle">
         {translation.target}:{" "}
         <span className="Description__text">{translation.purpose}</span>
@@ -114,14 +132,14 @@ function Description(props) {
           </button>
         )}
       </h2> */}
-      <h2 className="Description__subsubtitle">
+      {/* <h2 className="Description__subsubtitle">
         {translation.education}:{" "}
         <span className="Description__text">{translation.educationLevel}</span>
       </h2>
       <h2 className="Description__subsubtitle">
         {translation.info}:{" "}
         <span className="Description__text">{translation.inform}</span>
-      </h2>
+      </h2> */}
       <h2 className="Description__subsubtitle">
         {translation.hobby}:{" "}
         <span className="Description__text">{translation.outInterest}</span>

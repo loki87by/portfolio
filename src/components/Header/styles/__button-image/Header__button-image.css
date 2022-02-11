@@ -3,6 +3,8 @@
   height: 7vw;
   border-radius: 50%;
   border: 2px solid var(--main-color);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   cursor: pointer;
   background-size: cover;
   background-position: center;

@@ -29,28 +29,28 @@ this._evolution = state;
 }
 }
 
-let me = new CurrentHuman(myFather, myMother);
+let Me = new CurrentHuman(myFather, myMother);
 const agu = BasicHomoSapiens.translateToBabyLanguage('Hello, World');
-me.say(agu);
+Me.say(agu);
 
 function evolution(state) {
-me.updateEvolution(state);
+Me.updateEvolution(state);
 }
 
 const everyday = 24 * 60 * 60 * 1000;
 
 const interval = setInterval(() => {
-if (me.age === 28) {
+if (Me.age === 28) {
 const today = new Date();
 if (today.getMonth() === 6) {
 if (today.getDay() === 12) {
-evolution(married(me.getEvolution(), myWafe));
+evolution(married(Me.getEvolution(), myWafe));
 }
 }
 if (today.getMonth() === 11) {
 if (today.getDay() === 14) {
-evolution(birthChild(me.getEvolution(), myWafe));
-const mySon = new CurrentHuman(me, myWafe);
+evolution(birthChild(Me.getEvolution(), myWafe));
+const mySon = new CurrentHuman(Me, myWafe);
 mySon.name = "Igor";
 }
 interval.clearInterval();
@@ -58,7 +58,7 @@ interval.clearInterval();
 }
 }, everyday);
 
-const baby = this._mother.breastFeeding(me);
+const baby = this._mother.breastFeeding(Me);
 evolution(baby);
 const infancy = kindergarten(baby);
 evolution(infancy);
@@ -75,8 +75,8 @@ evolution(teenage);
 const youth = jobs.reduce((state, job) => {
 return job(state);
 }, teenage);
-me = evolution(youth);
-return me.now();`
+Me = evolution(youth);
+export default Me`
 
 export const GAME = [
   { number: "", area: "top1", back: "white", size: "4.5vw", color: "black" },

@@ -4,6 +4,7 @@ import React from "react";
 import close from "../../images/close.png";
 import certificateRu from "../../media/Акулич.pdf";
 import certificateEn from "../../media/20202WD00196.pdf";
+import epamCertificate from "../../media/ds8jpv3n.pdf";
 import { WORKS } from "../../consts/works";
 import Description from "../Description/Description";
 import Work from "../Work/Work";
@@ -19,6 +20,7 @@ function Resume(props) {
   /* const translation = React.useContext(TranslationContext); */
   const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
   const [isCertificateOpen, setCertificateOpen] = React.useState(false);
+  const [certificateType, setCertificateType] = React.useState(null);
   const [openWorks, setOpenWorks] = React.useState({
     1: false,
   });
@@ -73,10 +75,11 @@ function Resume(props) {
     <section className="Resume">
       <Description
         images={props.images}
-        /* isDay={props.isDay} */
         isMobile={props.isMobile}
         setCertificateOpen={setCertificateOpen}
+        setCertificateType={setCertificateType}
         imagesIsLoad={props.imagesIsLoad}
+        screenWidth={screenWidth}
       />
       <section className="Resume__works">
         {WORKS.map((item, index) => {
@@ -109,11 +112,7 @@ function Resume(props) {
           );
         })}
       </section>
-      <section
-        className={`Popup ${
-          isCertificateOpen && "Popup_opened"
-        }`}
-      >
+      <section className={`Popup ${isCertificateOpen && "Popup_opened"}`}>
         <iframe
           className="Resume__certificate"
           title="sertify"
@@ -121,9 +120,11 @@ function Resume(props) {
           height="100%"
           width="100%"
           src={
-            props.lang === "ru"
-              ? `${certificateRu}#zoom=${screenWidth / 20}`
-              : `${certificateEn}#zoom=${screenWidth / 20}`
+            certificateType === "yandex"
+              ? props.lang === "ru"
+                ? `${certificateRu}#zoom=${screenWidth / 20}`
+                : `${certificateEn}#zoom=${screenWidth / 20}`
+              : `${epamCertificate}#zoom=${screenWidth / 18}`
           }
         ></iframe>
         {isCertificateOpen ? (

@@ -4,6 +4,10 @@ import Age from "../Age/Age";
 import { TranslationContext } from "../../contexts/translationContext";
 import avatar from "../../images/avatar.jpg";
 import matrix from "../../images/matrix-code-animation-gif-free-animated-background.gif";
+import certificateRu from "../../media/Акулич.pdf";
+import certificateEn from "../../media/20202WD00196.pdf";
+import epamCertificate from "../../media/ds8jpv3n.pdf";
+import zoom from "../../images/zoom.svg";
 import "./styles/__title/Description__title.css";
 import "./styles/__subtitle/Description__subtitle.css";
 import "./styles/__subsubtitle/Description__subsubtitle.css";
@@ -11,7 +15,9 @@ import "./styles/__text/Description__text.css";
 import "./styles/__link/Description__link.css";
 import "./styles/__photo/Description__photo.css";
 import "./styles/__block/Description__block.css";
-import "./styles/__button/Description__button.css"
+import "./styles/__button/Description__button.css";
+import "./styles/__certificates/Description__certificates.css";
+import "./styles/__certificate/Description__certificate.css";
 import "./styles/__certificate-open/Description__certificate-open.css";
 import "./styles/__certificate-open/_day/Description__certificate-open_day.css";
 
@@ -23,14 +29,54 @@ function Description(props) {
   const [binary, setBinary] = React.useState(true);
   const animations = props.images.slice(-4);
 
+  // *сменить систему счисления
   function changeDigitType() {
-    const newState = !binary
-    setBinary(newState)
+    const newState = !binary;
+    setBinary(newState);
   }
+
   // *разворот сертификата
-  /* function openCertificate() {
+  function openCertificate(e) {
+    props.setCertificateType(e.target.id);
     props.setCertificateOpen(true);
-  } */
+  }
+
+  // *установка зуммеров на сертификаты
+  function setButton(type) {
+    const ifrs = document.getElementsByTagName("iframe");
+    let ifr;
+
+    if (type === 'yandex') {
+      ifr = ifrs[0];
+    }
+
+    if (type === 'epam') {
+      ifr = ifrs[1];
+    }
+    const frameHtml = ifr.contentDocument.children[0];
+    frameHtml.setAttribute('style', 'height: 100%; cursor: pointer');
+    const frameBody = frameHtml.children[1];
+    frameBody.setAttribute('style', 'position: relative; height: 100%; margin: 0');
+    const button = document.createElement('div');
+    button.id = type;
+    const styles = `position: fixed;
+    top: 30%;
+    left: 40%;
+    width: 20%;
+    height: 40%;
+    border-radius: 25%;
+    cursor: pointer;
+    background-image: url("${zoom}");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0, .5);`
+    button.setAttribute('style', styles);
+    frameBody.appendChild(button);
+    button.addEventListener('click', (e) => {openCertificate(e)});
+    button.addEventListener('mouseover', () => {button.setAttribute('style', styles.concat('transition: all .3s linear; transform: scale(1.3)'))});
+    button.addEventListener('mouseout', () => {button.setAttribute('style', styles)});
+  }
 
   // *эффекты аватарки
   React.useEffect(() => {
@@ -112,34 +158,6 @@ function Description(props) {
         {translation.target}:{" "}
         <span className="Description__text">{translation.purpose}</span>
       </h2>
-      {/* <h2 className="Description__subsubtitle">
-        Summary: <span className="Description__text">{translation.summary}</span>
-      </h2> */}
-      {/* <h2 className="Description__subsubtitle">
-        {translation.experience}:{" "}
-        <span className="Description__text">{translation.workExperience}</span>
-        {props.isMobile ? (
-          ""
-        ) : (
-          <button
-            type="button"
-            className={`Description__certificate-open ${
-              props.isDay && "Description__certificate-open_day"
-            }`}
-            onClick={openCertificate}
-          >
-            <h3 className="Description__subsubtitle">{translation.showCertify}</h3>
-          </button>
-        )}
-      </h2> */}
-      {/* <h2 className="Description__subsubtitle">
-        {translation.education}:{" "}
-        <span className="Description__text">{translation.educationLevel}</span>
-      </h2>
-      <h2 className="Description__subsubtitle">
-        {translation.info}:{" "}
-        <span className="Description__text">{translation.inform}</span>
-      </h2> */}
       <h2 className="Description__subsubtitle">
         {translation.hobby}:{" "}
         <span className="Description__text">{translation.outInterest}</span>
@@ -150,9 +168,38 @@ function Description(props) {
       </h2>
       <h2 className="Description__subsubtitle">
         {translation.biography}:{" "}
-        {/* <div className="Description__text" id="code"></div> */}
         <Code />
       </h2>
+      <h2 className="Description__subsubtitle">
+        {translation.certificates}:{" "}
+      </h2>
+      <section
+        className="Description__certificates"
+      >
+        <iframe
+        onLoad={() => {setButton('yandex')}}
+          className="Description__certificate"
+          title="certify"
+          allowtransparency="true"
+          height="auto"
+          width={`${props.screenWidth * .43}px`}
+          src={
+            props.lang === "ru"
+              ? `${certificateRu}#zoom=${props.screenWidth / 27.5}`
+              : `${certificateEn}#zoom=${props.screenWidth / 27.5}`
+          }
+        ></iframe>
+        <iframe
+        onLoad={() => {setButton('epam')}}
+          className="Description__certificate"
+          title="certify"
+          allowtransparency="true"
+          height="auto"
+          width={`${props.screenWidth * .43}px`}
+          src={`${epamCertificate}#zoom=${props.screenWidth / 27.5}`
+          }
+        ></iframe>
+      </section>
       <h2 className="Description__subtitle">{translation.works}:</h2>
       </>)
 }

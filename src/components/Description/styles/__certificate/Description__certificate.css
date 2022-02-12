@@ -1,0 +1,10 @@
+.Description__certificate {
+  height: auto;
+  margin: 1vmax;
+  border: none;
+  cursor: pointer;
+}
+
+.Description__certificate:last-of-type {
+  margin: 1vmax 0;
+}

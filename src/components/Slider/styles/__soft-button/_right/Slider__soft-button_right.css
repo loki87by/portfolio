@@ -1,0 +1,4 @@
+.Slider__soft-button_right {
+  right: 0;
+  transform: rotate(180deg) translateX(-1px);
+}

@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 // **импорты
 import React from "react";
 import {
@@ -18,7 +19,7 @@ function App() {
   const [lang, setLang] = React.useState("ru");
   // const [isGame, setIsGame] = React.useState(false);
   // const [luft, setLuft] = React.useState(0);
-  const [images, setImages] = React.useState([]);
+  const [images, setImages] = React.useState({});
   const [width, setWidth] = React.useState(0);
   const [loadProgress, setLoadProgress] = React.useState(0);
   const [imagesIsLoad, setImagesIsLoad] = React.useState(false);
@@ -76,21 +77,32 @@ function App() {
   }, []);
 
   React.useEffect(() => {
-    for (let i = 0; i < PIC_ARRAY.length; i++) {
-      let img = new Image();
-      img.src = PIC_ARRAY[i];
-      img.onload = function () {
-        const loadStep = Math.round((100 / PIC_ARRAY.length) * 100) / 100;
-        const progress = (i + 1) * loadStep;
-        setLoadProgress(progress);
-      };
-      const imagesArray = images || [];
-      imagesArray.push(img);
-      setImages(imagesArray);
+    const keys = Object.keys(PIC_ARRAY);
+    const values = Object.values(PIC_ARRAY);
+    const allPics = values.flat();
+    const entries = Object.entries(PIC_ARRAY);
+    let progressCounter = 0;
+    const loadStep = Math.round((100 / allPics.length) * 100) / 100;
+    const imagesArray = images || {};
+    for (let i = 0; i < entries.length; i++) {
+      const arr = []
+      for (let j = 0; j < values[i].length; j++) {
+        let img = new Image();
+        img.src = values[i][j];
+        img.onload = function () {
+          progressCounter ++;
+          const progress = progressCounter * loadStep;
+          setLoadProgress(progress);
+        };
+        arr.push(img);
+      }
+      imagesArray[keys[i]] = arr;
     }
+    setImages(imagesArray);
   }, [images]);
 
   React.useEffect(() => {
+
     if (Math.round(loadProgress) === 100) {
       setImagesIsLoad(true);
     }

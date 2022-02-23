@@ -22,24 +22,26 @@ export const translations = {
     target: "Purpose",
     purpose:
       "Level up Linus Torvalds, Bill Gates, Steve Jobs, Pavel Durov, Satoshi Nakamoto or something like that. Contribute to IT new story of getting rich.",
-    summary:
-      "Knowledge of JavaScript, React, Html, Css, Bash basics, TypeScript basics, Angular basics, Vue basics, Python basics, Django basics. Writing code both in Visual Studio Code and by hand. Understanding of OOP, knowledge of BEM. Working with the layout in Figma and Photoshop. Working with databases (SQL, NoSql). Ability to work with API requests in Postman and Charles. Knowledge of the basics of manual and automated testing. Knowledge of English at B1 level",
+    /* summary:
+      "Knowledge of JavaScript, React, Html, Css, Bash basics, TypeScript basics, Angular basics, Vue basics, Python basics, Django basics. Writing code both in Visual Studio Code and by hand. Understanding of OOP, knowledge of BEM. Working with the layout in Figma and Photoshop. Working with databases (SQL, NoSql). Ability to work with API requests in Postman and Charles. Knowledge of the basics of manual and automated testing. Knowledge of English at B1 level", */
     certificates: "Certificates",
     /* workExperience:
       "I have changed many different fields of activity (construction, logistics, freight and passenger transportation, furniture production, sales, etc.) I graduated from Yandex.Practicum courses as a web-developer, currently improving my skills at EPAM JS Rolling-Scopes-School, and I plan to further grow professionally in this area.", */
-    education: "Education",
+    /* education: "Education",
     educationLevel:
-      "Incomplete higher education teacher of mathematics and computer science.",
-    info: "Additional Information",
+      "Incomplete higher education teacher of mathematics and computer science.", */
+    /* info: "Additional Information",
     inform:
-      "I always fully immerse myself in work with full responsibility. Easy to learn new things.",
+      "I always fully immerse myself in work with full responsibility. Easy to learn new things.", */
     hobby: "Outside interest",
     outInterest:
       "I love to plunge into a good book or movie. From sports, billiards is the closest to me, but I don't mind having fun with more active games. Drive a motorcycle. ",
     qualities: "Qualities",
     quals:
       "Since childhood, I have been and remain a wildly sociable person. I am able to find non-standard approaches to solving problems. Working in sales, I perfectly pumped stress resistance.",
-    biography: "Short biography",
+    /* biography: "Short biography", */
+    stack: "My stack",
+    soft: "Used soft",
     works: "My works",
     project: "Project",
     more: "Read more ...",
@@ -138,24 +140,26 @@ export const translations = {
     target: "Цель",
     purpose:
       "Прокачаться до левела Линуса Торвальдса, Билла Гейтса, Стива Джобса, Павла Дурова, Сатоши Накамото или что-то вроде. Внести свой вклад в новую историю IT и разбогатеть.",
-    summary:
-      "Знание JavaScript, React, Html, Css, основы Bash, TypeScript, Angular, Vue, Python и Django. Написание кода как в Visual Studio Code, так и вручную. Понимание ООП, знание БЭМ. Работа с макетом в Figma и Photoshop. Работа с базами данных (SQL, NoSql). Умение работать с запросами к API в Postman и Charles. Знание основ ручного и автоматизированного тестирования. Знание английского на уровне B1",
+    /* summary:
+      "Знание JavaScript, React, Html, Css, основы Bash, TypeScript, Angular, Vue, Python и Django. Написание кода как в Visual Studio Code, так и вручную. Понимание ООП, знание БЭМ. Работа с макетом в Figma и Photoshop. Работа с базами данных (SQL, NoSql). Умение работать с запросами к API в Postman и Charles. Знание основ ручного и автоматизированного тестирования. Знание английского на уровне B1", */
     certificates: "Сертификаты",
     /* workExperience:
       "Сменил много различных сфер деятельности (строительство, логистика, грузовые и пассажирские перевозки, производство мебели, продажи и.т.д. Закончил курсы Яндекс.Практикум по специальности веб-разработчик, в данный момент повышаю скиллы в EPAM JS Rolling-Scopes-School, и планирую далее расти профессионально в этой области.", */
-    education: "Образование",
+    /* education: "Образование",
     educationLevel:
-      "Незаконченное высшее по специальности преподаватель математики-информатики.",
-    info: "Дополнительная информация",
+      "Незаконченное высшее по специальности преподаватель математики-информатики.", */
+    /* info: "Дополнительная информация",
     inform:
-      "Всегда полностью окунаюсь в работу со всей ответственностью. Легко обучаюсь новому.",
+      "Всегда полностью окунаюсь в работу со всей ответственностью. Легко обучаюсь новому.", */
     hobby: "Хобби",
     outInterest:
       "Люблю окунуться в хорошую книгу или фильм. Из спорта мне ближе всего бильярд, но не прочь развлечься и более активными играми. Гоняю на мотике.",
     qualities: "Качества",
     quals:
       "С детства был и остаюсь дико коммуникабельным человеком. Умею находить нестандартные подходы к решению возникших проблем. Работая в продажах, прекрасно прокачал стрессоустойчивость.",
-    biography: "Краткая биография",
+    /* biography: "Краткая биография", */
+    stack: "Мой стек",
+    soft: "Используемое ПО",
     works: "Мои работы",
     project: "Проект",
     more: "Подробнее...",

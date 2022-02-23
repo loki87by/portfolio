@@ -82,90 +82,142 @@ import matrix from "../images/matrix-code-animation-gif-free-animated-background
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
 import blueNoise from "../images/computer-screen-code-glitch.gif";
+import pinkyRight from "../images/hands/right/pinky.png";
+import pinkyLeft from "../images/hands/left/pinky.png";
+import unnamedRight from "../images/hands/right/unnamed.png";
+import unnamedLeft from "../images/hands/left/unnamed.png";
+import centralRight from "../images/hands/right/central.png";
+import centralLeft from "../images/hands/left/central.png";
+import pointingRight from "../images/hands/right/pointing.png";
+import pointingLeft from "../images/hands/left/pointing.png";
+import bigFingerRight from "../images/hands/right/big.png";
+import bigFingerLeft from "../images/hands/left/big.png";
+import handRight from "../images/hands/right/hand.png";
+import handLeft from "../images/hands/left/hand.png";
+import afterEffects from "../images/stack/after-effects.svg";
+import audition from "../images/stack/audition.svg";
+import charles from "../images/stack/charles.svg";
+import coreldraw from "../images/stack/coreldraw.svg";
+import figma from "../images/stack/figma.svg";
+import photoshop from "../images/stack/photoshop.svg";
+import postman from "../images/stack/postman.svg";
+import vsc from "../images/stack/vsc.svg";
+import webpack from "../images/stack/webpack.svg";
+import vue from "../images/stack/vue.svg";
+import typescript from "../images/stack/typescript.svg";
+import svg from "../images/stack/svg.svg";
+import sql from "../images/stack/sql.svg";
+import react from "../images/stack/reactjs.svg";
+import python from "../images/stack/python.svg";
+import node from "../images/stack/nodejs.svg";
+import mongo from "../images/stack/mongodb.svg";
+import markdown from "../images/stack/markdown.svg";
+import js from "../images/stack/javascript.svg";
+import html from "../images/stack/html.svg";
+import git from "../images/stack/git.svg";
+import django from "../images/stack/django.svg";
+import css from "../images/stack/css.svg";
+import bem from "../images/stack/bem.svg";
+import angular from "../images/stack/angular.svg";
 
-export const PIC_ARRAY = [
-  avatar,
-  project0,
-  project1,
-  project2,
-  project3,
-  project4,
-  project5,
-  project6a,
-  project6b,
-  project6c,
-  project6d,
-  project6e,
-  project6f,
-  project6g,
-  project6h,
-  project6i,
-  project6j,
-  project6k,
-  project6l,
-  project6m,
-  project6n,
-  project6o,
-  project6p,
-  project6q,
-  project6r,
-  project7,
-  project8,
-  project8a,
-  project8b,
-  project8c,
-  project9,
-  project10,
-  project11,
-  project11a,
-  project11b,
-  project11c,
-  project11d,
-  project11e,
-  project11f,
-  project12,
-  project13,
-  project13b,
-  project13c,
-  project13d,
-  project13e,
-  project13f,
-  project13g,
-  project13h,
-  project13i,
-  project13j,
-  project13k,
-  project13l,
-  project13m,
-  project13n,
-  project13o,
-  project13p,
-  project13q,
-  project14,
-  project14b,
-  project14c,
-  project14d,
-  project14e,
-  project14f,
-  project14g,
-  project14h,
-  project14i,
-  project14j,
-  project14k,
-  project14l,
-  project14m,
-  project14n,
-  project14o,
-  project14p,
-  project14q,
-  project14r,
-  project14s,
-  project14t,
-  project14u,
-  project14v,
-  project15,
-  matrix,
-  blueNoise,
-  cinema,
-  glitch,
-];
+export const PIC_ARRAY = {
+  avatar: [avatar],
+  avatarAnimation: [matrix, blueNoise, cinema, glitch],
+  fingers: [
+    handRight,
+    handLeft,
+    pinkyRight,
+    pointingRight,
+    pinkyLeft,
+    pointingLeft,
+    bigFingerRight,
+    bigFingerLeft,
+    unnamedRight,
+    unnamedLeft,
+    centralRight,
+    centralLeft,
+  ],
+  stack: [angular, bem, css, django, git, html, js, markdown, mongo, node, python, react, sql, svg, typescript, vue, webpack],
+  soft: [afterEffects, audition, charles, coreldraw, figma, photoshop, postman, vsc],
+  projects: [
+    project0,
+    project1,
+    project2,
+    project3,
+    project4,
+    project5,
+    project6a,
+    project6b,
+    project6c,
+    project6d,
+    project6e,
+    project6f,
+    project6g,
+    project6h,
+    project6i,
+    project6j,
+    project6k,
+    project6l,
+    project6m,
+    project6n,
+    project6o,
+    project6p,
+    project6q,
+    project6r,
+    project7,
+    project8,
+    project8a,
+    project8b,
+    project8c,
+    project9,
+    project10,
+    project11,
+    project11a,
+    project11b,
+    project11c,
+    project11d,
+    project11e,
+    project11f,
+    project12,
+    project13,
+    project13b,
+    project13c,
+    project13d,
+    project13e,
+    project13f,
+    project13g,
+    project13h,
+    project13i,
+    project13j,
+    project13k,
+    project13l,
+    project13m,
+    project13n,
+    project13o,
+    project13p,
+    project13q,
+    project14,
+    project14b,
+    project14c,
+    project14d,
+    project14e,
+    project14f,
+    project14g,
+    project14h,
+    project14i,
+    project14j,
+    project14k,
+    project14l,
+    project14m,
+    project14n,
+    project14o,
+    project14p,
+    project14q,
+    project14r,
+    project14s,
+    project14t,
+    project14u,
+    project14v,
+    project15,
+  ],
+};

@@ -16,53 +16,43 @@ import "./styles/leftUnnamed.css";
 import "./styles/rightUnnamed.css";
 import "./styles/leftPinky.css";
 import "./styles/rightPinky.css";
-import pinkyRight from "../../images/hands/right/pinky.png";
-import pinkyLeft from "../../images/hands/left/pinky.png";
-import unnamedRight from "../../images/hands/right/unnamed.png";
-import unnamedLeft from "../../images/hands/left/unnamed.png";
-import centralRight from "../../images/hands/right/central.png";
-import centralLeft from "../../images/hands/left/central.png";
-import pointingRight from "../../images/hands/right/pointing.png";
-import pointingLeft from "../../images/hands/left/pointing.png";
-import bigFingerRight from "../../images/hands/right/big.png";
-import bigFingerLeft from "../../images/hands/left/big.png";
-import handRight from "../../images/hands/right/hand.png";
-import handLeft from "../../images/hands/left/hand.png";
-
-const fingersData = [
-  {
-    leftClass: "leftPointing",
-    rightClass: "rightPointing",
-    leftSource: pointingLeft,
-    rightSource: pointingRight,
-  },
-  {
-    leftClass: "leftCentral",
-    rightClass: "rightCentral",
-    leftSource: centralLeft,
-    rightSource: centralRight,
-  },
-  {
-    leftClass: "leftUnnamed",
-    rightClass: "rightUnnamed",
-    leftSource: unnamedLeft,
-    rightSource: unnamedRight,
-  },
-  {
-    leftClass: "leftPinky",
-    rightClass: "rightPinky",
-    leftSource: pinkyLeft,
-    rightSource: pinkyRight,
-  },
-];
 
 function Hand(props) {
+  const fingersData = [
+    {
+      leftClass: "leftPointing",
+      rightClass: "rightPointing",
+      leftSource: props.images.fingers[5],
+      rightSource: props.images.fingers[3],
+    },
+    {
+      leftClass: "leftCentral",
+      rightClass: "rightCentral",
+      leftSource: props.images.fingers[11],
+      rightSource: props.images.fingers[10],
+    },
+    {
+      leftClass: "leftUnnamed",
+      rightClass: "rightUnnamed",
+      leftSource: props.images.fingers[9],
+      rightSource: props.images.fingers[8],
+    },
+    {
+      leftClass: "leftPinky",
+      rightClass: "rightPinky",
+      leftSource: props.images.fingers[4],
+      rightSource: props.images.fingers[2],
+    },
+  ];
+
   let dataArray = props.data.map((i) => +i);
 
   function bigFinger(num) {
     return (
       <img
-        src={props.left ? bigFingerLeft : bigFingerRight}
+        src={
+          props.left ? props.images.fingers[7].src : props.images.fingers[6].src
+        }
         alt={`big ${props.left ? "left" : "right"} finger`}
         className={
           props.left
@@ -84,7 +74,7 @@ function Hand(props) {
               return (
                 <img
                   key={`left-${index}`}
-                  src={fingersData[index - 1].leftSource}
+                  src={fingersData[index - 1].leftSource.src}
                   className={`finger ${fingersData[index - 1].leftClass} ${
                     el === 0 && "finger_close"
                   }`}
@@ -95,7 +85,7 @@ function Hand(props) {
               return (
                 <img
                   key={`right-${index}`}
-                  src={fingersData[3 - index].rightSource}
+                  src={fingersData[3 - index].rightSource.src}
                   className={`finger ${fingersData[3 - index].rightClass} ${
                     el === 0 && "finger_close"
                   }`}
@@ -112,7 +102,11 @@ function Hand(props) {
   return (
     <div className="Hand">
       <img
-        src={props.left === true ? handLeft : handRight}
+        src={
+          props.left === true
+            ? props.images.fingers[1].src
+            : props.images.fingers[0].src
+        }
         alt="hand"
         className={`${props.left === true && "Hand_left"} ${
           props.left !== true && "Hand_right"

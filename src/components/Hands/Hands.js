@@ -37,11 +37,11 @@ function Hands(props) {
   return (
     <div className="Hands">
       {alone ? (
-        <Hand data={data[0]} />
+        <Hand data={data[0]} images={props.images} />
       ) : (
         <>
-          <Hand data={data[0]} left={true} />
-          <Hand data={data[1]} />
+          <Hand data={data[0]} left={true} images={props.images} />
+          <Hand data={data[1]} images={props.images} />
         </>
       )}
     </div>

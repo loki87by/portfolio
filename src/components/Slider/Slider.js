@@ -57,7 +57,7 @@ function Slider(props) {
       }
     } */
 
-    if (position === props.slides.length - props.limit - 1 && direction === 0) {
+    if (position >= props.slides.length - props.limit - 1 && direction === 0) {
       /* if (props.icons) {
         props.icons[props.slides.length - (props.limit + position)].classList.add(
           props.activeIconClass
@@ -65,12 +65,13 @@ function Slider(props) {
       } */
 
       if (!props.paused) {
+        const shiftingPosition = position - (props.slides.length - props.limit * 2)
         const timer = setTimeout(() => {
-          setPosition(props.limit);
+          setPosition(shiftingPosition);
           for (let i = 0; i < props.slides.length; i++) {
             props.setStyle({
               transition: "none",
-              transform: `translateX(-${props.shift * props.limit}${
+              transform: `translateX(-${props.shift * shiftingPosition}${
                 props.unit
               })`,
             });
@@ -80,7 +81,7 @@ function Slider(props) {
           clearTimeout(timer);
           for (let i = 0; i < props.slides.length; i++) {
             props.setStyle({
-              transform: `translateX(-${props.shift * props.limit}${
+              transform: `translateX(-${props.shift * shiftingPosition}${
                 props.unit
               })`,
             });
@@ -89,7 +90,7 @@ function Slider(props) {
       }
     }
 
-    if (position === props.limit - 1 && direction === 1) {
+    if (position <= props.limit - 1 && direction === 1) {
       /* if (props.icons) {
         props.icons[props.icons.length - 1].classList.add(
           props.activeIconClass
@@ -97,13 +98,14 @@ function Slider(props) {
       } */
 
       if (!props.paused) {
+        const shiftingPosition = props.slides.length - props.limit * 2 + position
         const timer = setTimeout(() => {
-          setPosition(props.slides.length - (props.limit + 1));
+          setPosition(shiftingPosition);
           for (let i = 0; i < props.slides.length; i++) {
             props.setStyle({
               transition: "none",
               transform: `translateX(-${
-                props.shift * (props.slides.length - (props.limit + 1))
+                props.shift * shiftingPosition
               }${props.unit})`,
             });
           }
@@ -113,7 +115,7 @@ function Slider(props) {
           for (let i = 0; i < props.slides.length; i++) {
             props.setStyle({
               transform: `translateX(-${
-                props.shift * (props.slides.length - (props.limit + 1))
+                props.shift * shiftingPosition
               }${props.unit})`,
             });
           }

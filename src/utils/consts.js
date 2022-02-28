@@ -76,7 +76,98 @@ const youth = jobs.reduce((state, job) => {
 return job(state);
 }, teenage);
 Me = evolution(youth);
-export default Me`
+export default Me`;
+
+export const STACK = [
+  "angular",
+  "bem",
+  "css",
+  "django",
+  "git",
+  "html",
+  "js",
+  "markdown",
+  "mongo",
+  "node",
+  "python",
+  "react",
+  "sql",
+  "svg",
+  "typescript",
+  "vue",
+  "webpack",
+];
+
+export const STACK_STYLES = {
+  angular: {
+    top: "9.5vw",
+    left: "35%",
+  },
+  bem: {
+    top: "5vw",
+    left: "76%",
+  },
+  css: {
+    top: "0.5vw",
+    left: "85%",
+  },
+  django: {
+    top: "5vw",
+    left: "12%",
+  },
+  git: {
+    top: "5vw",
+    left: "44%",
+  },
+  html: {
+    top: "5vw",
+    left: "92%",
+  },
+  js: {
+    top: "9.5vw",
+    left: "83%",
+  },
+  markdown: {
+    top: "0.5vw",
+    left: "53%",
+  },
+  mongo: {
+    top: "5vw",
+    left: "60%",
+  },
+  node: {
+    top: "9.5vw",
+    left: "67%",
+  },
+  python: {
+    top: "9.5vw",
+    left: "19%",
+  },
+  react: {
+    top: "0.5vw",
+    left: "69%",
+  },
+  sql: {
+    top: "0.5vw",
+    left: "5%",
+  },
+  svg: {
+    top: "9.5vw",
+    left: "51%",
+  },
+  typescript: {
+    top: "0.5vw",
+    left: "37%",
+  },
+  vue: {
+    top: "0.5vw",
+    left: "21%",
+  },
+  webpack: {
+    top: "5vw",
+    left: "28%",
+  },
+};
 
 export const GAME = [
   { number: "", area: "top1", back: "white", size: "4.5vw", color: "black" },

@@ -1,0 +1,5 @@
+.Stack__image-container_selected {
+  border-radius: 10%;
+  opacity: .5;
+  backdrop-filter: hue-rotate(60deg) invert(0.1);
+}

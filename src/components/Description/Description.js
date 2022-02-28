@@ -2,12 +2,14 @@ import React from "react";
 import Code from "../Code/Code";
 import Age from "../Age/Age";
 import Slider from "../Slider/Slider";
+import Stack from "../Stack/Stack";
 import { TranslationContext } from "../../contexts/translationContext";
 import certificateRu from "../../media/Акулич.pdf";
 import certificateEn from "../../media/20202WD00196.pdf";
 import epamCertificate from "../../media/ds8jpv3n.pdf";
 import zoom from "../../images/zoom.svg";
-import { completeSliderArray } from '../../utils/helpers.js'
+import { completeSliderArray } from "../../utils/helpers.js";
+import { STACK } from "../../utils/consts.js";
 import "./styles/__title/Description__title.css";
 import "./styles/__subtitle/Description__subtitle.css";
 import "./styles/__subsubtitle/Description__subsubtitle.css";
@@ -34,37 +36,37 @@ function Description(props) {
   const [binary, setBinary] = React.useState(true);
   const [pausedSoftSlider, setPausedSoftSlider] = React.useState(false);
   const [softStyles, setSoftStyles] = React.useState([]);
+  const [selectedStack, setSelectedStack] = React.useState(STACK);
 
   function stopSoftAutoSlide() {
     setPausedSoftSlider(true);
   }
 
-  const softImages = completeSliderArray(props.images.soft.slice(), 5)
-  /* console.log(arr5)
-  const lastSlide = softImages[softImages.length - 1];
-  const firstSlide = softImages[0];
-  softImages.push(firstSlide);
-  softImages.unshift(lastSlide); */
+  const softImages = completeSliderArray(props.images.soft.slice(), 5);
   let stylesArray = JSON.parse(JSON.stringify(softStyles));
   const arr = [];
 
   const softImagesSlides = softImages.map((item, index) => {
-
     if (!stylesArray[index]) {
-      arr.push({display: 'flex'})
-      setSoftStyles(arr)
+      arr.push({ display: "flex" });
+      setSoftStyles(arr);
     }
     return (
-      <div className="Description__soft" key={`soft-${index}`} style={stylesArray[index]} onClick={stopSoftAutoSlide}>
+      <div
+        className="Description__soft"
+        key={`soft-${index}`}
+        style={stylesArray[index]}
+        onClick={stopSoftAutoSlide}
+      >
         <img src={item.src} className="Description__soft-image" alt="img" />
       </div>
     );
   });
 
   function setStyle(style) {
-    let arr = JSON.parse(JSON.stringify(softStyles))
+    let arr = JSON.parse(JSON.stringify(softStyles));
     arr = arr.map(() => style);
-    setSoftStyles(arr)
+    setSoftStyles(arr);
   }
 
   // *сменить систему счисления
@@ -248,7 +250,7 @@ function Description(props) {
           src={`${epamCertificate}#zoom=${props.screenWidth / 27.5}`}
         ></iframe>
       </section>
-      <h2 className="Description__subtitle">{translation.stack}:</h2>
+      <h2 className="Description__subtitle">{translation.skills}:</h2>
       <h3 className="Description__subsubtitle">{translation.soft}:</h3>
       <div className="Description__soft-container">
         <Slider
@@ -262,6 +264,12 @@ function Description(props) {
           interval={3000}
         />
       </div>
+      <h3 className="Description__subsubtitle">{translation.stack}:</h3>
+      <Stack
+        selectedStack={selectedStack}
+        setSelectedStack={setSelectedStack}
+        images={props.images}
+      />
     </>
   );
 }

@@ -1,0 +1,13 @@
+.Stack__filter_opened {
+  position: relative;
+  animation: show__filters .5s ease-out;
+}
+
+@keyframes show__filters {
+  from {
+    bottom: 14vw;
+   }
+   to {
+    bottom: 0;
+   }
+}

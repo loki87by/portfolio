@@ -40,7 +40,15 @@ export const translations = {
     quals:
       "Since childhood, I have been and remain a wildly sociable person. I am able to find non-standard approaches to solving problems. Working in sales, I perfectly pumped stress resistance.",
     /* biography: "Short biography", */
+    skills: "My skills",
     stack: "My stack",
+    elementary: "Elementary",
+    advanced: "Advanced",
+    experienced: "Experienced",
+    deleteFromListing: "Delete from listing",
+    addToListing: "Add to listing",
+    showFilters: "Show filters",
+    hideFilters: "Hide filters",
     soft: "Used soft",
     works: "My works",
     project: "Project",
@@ -158,7 +166,15 @@ export const translations = {
     quals:
       "С детства был и остаюсь дико коммуникабельным человеком. Умею находить нестандартные подходы к решению возникших проблем. Работая в продажах, прекрасно прокачал стрессоустойчивость.",
     /* biography: "Краткая биография", */
+    skills: "Мои навыки",
     stack: "Мой стек",
+    elementary: "Начальный",
+    advanced: "Продвинутый",
+    experienced: "Опытный",
+    deleteFromListing: "Удалить из списка",
+    addToListing: "Добавить в список",
+    showFilters: "Показать фильтры",
+    hideFilters: "Скрыть фильтры",
     soft: "Используемое ПО",
     works: "Мои работы",
     project: "Проект",
@@ -197,7 +213,8 @@ export const translations = {
     turnOf: "выкл виджет",
     turnOn: "Вкл",
     clueForAnimation: "Для анимации наведите курсор на изображение",
-    clueForAnimationMobile: "Для анимации выполните длительное касание по изображению",
+    clueForAnimationMobile:
+      "Для анимации выполните длительное касание по изображению",
     webService: "Интернет-сервис",
     landingPage: "Одностраничный сайт",
     cleanWork: "Работа по чистке кода",

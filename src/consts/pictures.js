@@ -119,6 +119,7 @@ import django from "../images/stack/django.svg";
 import css from "../images/stack/css.svg";
 import bem from "../images/stack/bem.svg";
 import angular from "../images/stack/angular.svg";
+import filter from "../images/stack/filter.svg";
 
 export const PIC_ARRAY = {
   avatar: [avatar],
@@ -137,8 +138,36 @@ export const PIC_ARRAY = {
     centralRight,
     centralLeft,
   ],
-  stack: [angular, bem, css, django, git, html, js, markdown, mongo, node, python, react, sql, svg, typescript, vue, webpack],
-  soft: [afterEffects, audition, charles, coreldraw, figma, photoshop, postman, vsc],
+  stack: [
+    angular,
+    bem,
+    css,
+    django,
+    git,
+    html,
+    js,
+    markdown,
+    mongo,
+    node,
+    python,
+    react,
+    sql,
+    svg,
+    typescript,
+    vue,
+    webpack,
+  ],
+  soft: [
+    afterEffects,
+    audition,
+    charles,
+    coreldraw,
+    figma,
+    photoshop,
+    postman,
+    vsc,
+  ],
+  filter: [filter],
   projects: [
     project0,
     project1,

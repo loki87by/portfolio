@@ -1,0 +1,29 @@
+.Stack__filter {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  width: max-content;
+  max-height: 14vw;
+  -webkit-column-count: 4;
+  -moz-column-count: 4;
+  column-count: 4;
+  -webkit-column-gap: 5%;
+  -moz-column-gap: 5%;
+  column-gap: 5%;
+  animation: hide__filters .5s ease-out;
+}
+
+@keyframes hide__filters {
+  0% {
+    position: relative;
+    bottom: 0;
+   }
+   99% {
+    position: relative;
+    bottom: 14vw;
+   }
+   100% {
+    position: absolute;
+    bottom: 0;
+   }
+}

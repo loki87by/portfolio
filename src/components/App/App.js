@@ -20,7 +20,7 @@ function App() {
   // const [isGame, setIsGame] = React.useState(false);
   // const [luft, setLuft] = React.useState(0);
   const [images, setImages] = React.useState({});
-  const [width, setWidth] = React.useState(0);
+  /* const [width, setWidth] = React.useState(0); */
   const [loadProgress, setLoadProgress] = React.useState(0);
   const [imagesIsLoad, setImagesIsLoad] = React.useState(false);
   // const [isDay, setDay] = React.useState(false);
@@ -42,7 +42,7 @@ function App() {
     }, 15000);
   });
 
- /*  // **отсеживание высоты страницы
+  /*  // **отсеживание высоты страницы
   React.useEffect(() => {
     function fromTop() {
       const scrollHeight = Math.max(
@@ -63,7 +63,7 @@ function App() {
     window.addEventListener("scroll", fromTop);
   }); */
 
-  // **отсеживание ширины страницы
+  /*   // **отсеживание ширины страницы
   React.useEffect(() => {
     const scrollWidth = Math.max(
       document.body.scrollWidth,
@@ -74,7 +74,7 @@ function App() {
       document.documentElement.clientWidth
     );
     setWidth(scrollWidth);
-  }, []);
+  }, []); */
 
   React.useEffect(() => {
     const keys = Object.keys(PIC_ARRAY);
@@ -85,12 +85,12 @@ function App() {
     const loadStep = Math.round((100 / allPics.length) * 100) / 100;
     const imagesArray = images || {};
     for (let i = 0; i < entries.length; i++) {
-      const arr = []
+      const arr = [];
       for (let j = 0; j < values[i].length; j++) {
         let img = new Image();
         img.src = values[i][j];
         img.onload = function () {
-          progressCounter ++;
+          progressCounter++;
           const progress = progressCounter * loadStep;
           setLoadProgress(progress);
         };
@@ -102,7 +102,6 @@ function App() {
   }, [images]);
 
   React.useEffect(() => {
-
     if (Math.round(loadProgress) === 100) {
       setImagesIsLoad(true);
     }
@@ -112,7 +111,7 @@ function App() {
   return (
     <>
       <TranslationContext.Provider value={translations[lang]}>
-        <Header setLang={setLang} lang={lang} width={width} />
+        <Header setLang={setLang} lang={lang} /* width={width} */ />
         {imagesIsLoad ? (
           <Main
             isMobile={mobileRef.current}
@@ -122,7 +121,7 @@ function App() {
             // setLuft={setLuft}
             // isDay={isDay}
             imagesIsLoad={imagesIsLoad}
-            width={width}
+            /* width={width} */
           />
         ) : (
           <h2

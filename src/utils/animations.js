@@ -1,8 +1,8 @@
-import diplomAnimation from './animations/diplomAnimation';
-import zooAnimation from './animations/zooAnimation';
-import galleryAnimation from './animations/galleryAnimation';
-import mmgAnimation from './animations/mmgAnimation';
-import galleryNgAnimation from './animations/galleryNgAnimation';
+import diplomAnimation from "./animations/diplomAnimation";
+import zooAnimation from "./animations/zooAnimation";
+import galleryAnimation from "./animations/galleryAnimation";
+import mmgAnimation from "./animations/mmgAnimation";
+import galleryNgAnimation from "./animations/galleryNgAnimation";
 let timersArray = [];
 
 export function animationCreator(name, array, element) {

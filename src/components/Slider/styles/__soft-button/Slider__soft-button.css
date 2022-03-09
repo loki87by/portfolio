@@ -8,6 +8,7 @@
   border: 0;
   background: rgba(255, 255, 255, .5);
   backdrop-filter: blur(1.5px) grayscale(.3);
+  cursor: pointer;
 }
 
 .Slider__soft-button::before {

@@ -1,0 +1,12 @@
+.Works__slider-container {
+  position: relative;
+  z-index: 0;
+  width: calc(80% - 1vw);
+  margin-left: 1vw;
+  height: 70vmin;
+  padding: 0 10%;
+  border-radius: 5vmax;
+  display: flex;
+  overflow: hidden;
+  background: var(--second-color);
+}

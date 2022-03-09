@@ -1,31 +1,134 @@
 // **импорты
 import React from "react";
-/* import { TranslationContext } from "../../contexts/translationContext"; */
 import close from "../../images/close.png";
 import certificateRu from "../../media/Акулич.pdf";
 import certificateEn from "../../media/20202WD00196.pdf";
 import epamCertificate from "../../media/ds8jpv3n.pdf";
 import { WORKS } from "../../consts/works";
+import { STACK } from "../../utils/consts.js";
+import { completeSliderArray } from "../../utils/helpers.js";
 import Description from "../Description/Description";
+import Slider from "../Slider/Slider";
+import Works from "../Works/Works";
 import Work from "../Work/Work";
 import "./Resume.css";
+import "../Works/styles/__slider-container/Works__slider-container.css";
+import "./styles/__openWorks-container/Resume__openWorks-container.css";
+import "./styles/__openWorks-container/_open/Resume__openWorks-container_open.css";
 import "../Popup/Popup.css";
 import "../Popup/styles/_opened/Popup_opened.css";
-import "./styles/__works/Resume__works.css";
 import "./styles/__certificate/Resume__certificate.css";
 import "./styles/__certificate-close/Resume__certificate-close.css";
 
 // **функционал
 function Resume(props) {
-  /* const translation = React.useContext(TranslationContext); */
   const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
   const [isCertificateOpen, setCertificateOpen] = React.useState(false);
   const [certificateType, setCertificateType] = React.useState(null);
-  const [openWorks, setOpenWorks] = React.useState({
+  const [softStyles, setSoftStyles] = React.useState([]);
+  const [pausedSoftSlider, setPausedSoftSlider] = React.useState(false);
+  const [worksStyles, setWorksStyles] = React.useState([]);
+  const [pausedWorksSlider, setPausedWorksSlider] = React.useState(false);
+  const [selectedStack, setSelectedStack] = React.useState(STACK);
+  const [worksIsOpen, setWorksOpen] = React.useState(true);
+  const [currentWorks, setCurrentWorks] = React.useState([]);
+  /* const [openWorks, setOpenWorks] = React.useState({
     1: false,
-  });
+  }); */
 
   let imagesObject = {};
+  const softImages = completeSliderArray(props.images.soft.slice(), 5);
+  const worksListArray = completeSliderArray(WORKS.slice(), 1);
+  let softStylesArray = JSON.parse(JSON.stringify(softStyles));
+  let worksStyleArray = JSON.parse(JSON.stringify(worksStyles));
+  const temporarySoftArray = [];
+  const temporaryWorksArray = [];
+
+  // *остановка автолистания слайдера софта
+  function stopSoftAutoSlide() {
+    setPausedSoftSlider(true);
+  }
+
+  // *перезапуск автолистания слайдера софта
+  function restartSoftAutoSlide() {
+    setPausedSoftSlider(false);
+  }
+
+  // *остановка автолистания слайдера проектов
+  function stopWorksAutoSlide() {
+    setPausedWorksSlider(true);
+  }
+
+  // *остановка автолистания слайдера проектов
+  function restartWorksAutoSlide() {
+    setPausedWorksSlider(false);
+  }
+
+  React.useEffect(() => {
+    if (!pausedWorksSlider) {
+      const newState = !worksIsOpen;
+      setWorksOpen(newState);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pausedWorksSlider]);
+
+  // *массив слайдов работ
+  const worksListSlides = worksListArray.map((item, index) => {
+    if (!worksStyleArray[index]) {
+      temporaryWorksArray.push({ display: "flex" });
+      setWorksStyles(temporaryWorksArray);
+    }
+    return (
+      <Works
+        key={`works-${index}`}
+        style={worksStyles[index]}
+        item={item}
+        index={index}
+        selectedStack={selectedStack}
+        setSelectedStack={setSelectedStack}
+        setPaused={stopWorksAutoSlide}
+        resetPaused={restartWorksAutoSlide}
+        images={props.images}
+        worksStyles={worksStyles}
+        worksIsOpen={worksIsOpen}
+        setWorksOpen={setWorksOpen}
+        setCurrentWorks={setCurrentWorks}
+        currentWorks={currentWorks}
+      />
+    );
+  });
+
+  // *массив слайдов софта
+  const softImagesSlides = softImages.map((item, index) => {
+    if (!softStylesArray[index]) {
+      temporarySoftArray.push({ display: "flex" });
+      setSoftStyles(temporarySoftArray);
+    }
+    return (
+      <div
+        className="Description__soft"
+        key={`soft-${index}`}
+        style={softStylesArray[index]}
+        onClick={stopSoftAutoSlide}
+      >
+        <img src={item.src} className="Description__soft-image" alt="img" />
+      </div>
+    );
+  });
+
+  // *смещение слайдов софта
+  function setSoftStyle(style) {
+    let arr = JSON.parse(JSON.stringify(softStyles));
+    arr = arr.map(() => style);
+    setSoftStyles(arr);
+  }
+
+  // *смещение слайдов работ
+  function setWorkStyle(style) {
+    let arr = JSON.parse(JSON.stringify(worksStyles));
+    arr = arr.map(() => style);
+    setWorksStyles(arr);
+  }
 
   // *закрытие сертификата
   function closeCertificate() {
@@ -68,7 +171,6 @@ function Resume(props) {
     }
     imagesObject[imageName].push(source);
   }
-  const imageSets = Object.values(imagesObject);
 
   // **DOM
   return (
@@ -80,38 +182,64 @@ function Resume(props) {
         setCertificateType={setCertificateType}
         imagesIsLoad={props.imagesIsLoad}
         screenWidth={screenWidth}
+        slides={softImagesSlides}
+        setStyle={setSoftStyle}
+        paused={pausedSoftSlider}
+        setPaused={stopSoftAutoSlide}
+        resetPaused={restartSoftAutoSlide}
+        selectedStack={selectedStack}
+        setSelectedStack={setSelectedStack}
       />
-      <section className="Resume__works">
-        {WORKS.map((item, index) => {
-          return (
-            <Work
-              key={index}
-              index={index + 1}
-              link={item.src}
-              text={item.text}
-              double={item.double}
-              type={item.type}
-              type2={item.type2}
-              firstLinkText={item.firstLinkText}
-              secondLinkText={item.secondLinkText}
-              secondLink={item.secondLink}
-              animationTime={item.animationTime}
-              additionally={item.additionally}
-              imageSet={imageSets[index]}
-              /* luft={props.luft}
-              setLuft={props.setLuft} */
-              openWorks={openWorks}
-              setOpenWorks={setOpenWorks}
-              animation={item.animation}
-              /* isDay={props.isDay}
-              setRangeValue={props.setRangeValue}
-              rangeValue={props.rangeValue} */
-              width={props.width}
-              isMobile={props.isMobile}
-            />
-          );
-        })}
+      <section className="Works__slider-container">
+        <Slider
+          slides={worksListSlides}
+          setStyle={setWorkStyle}
+          shift={(100 / 96) * 100}
+          unit="%"
+          limit={1}
+          paused={pausedWorksSlider}
+          setPaused={stopWorksAutoSlide}
+          resetPaused={restartWorksAutoSlide}
+          interval={10000}
+        />
       </section>
+      {worksIsOpen ? (
+        <section
+          className={`Resume__openWorks-container ${
+            worksIsOpen && "Resume__openWorks-container_open"
+          }`}
+        >
+          {currentWorks.map((item, index) => {
+            return (
+              <Work
+                key={`work-${index}`}
+                link={item.src}
+                type={item.type}
+                double={item.double}
+                firstLinkText={item.firstLinkText}
+                secondLinkText={item.secondLinkText}
+                secondLink={item.secondLink}
+                type2={item.type2}
+                name={item.name}
+                images={props.images}
+                animationTime={item.animationTime}
+                animation={item.animation}
+                text={item.text}
+                width={screenWidth}
+                isMobile={props.isMobile}
+                aspectRatio={item.aspectRatio}
+                /*
+              additionally={item.additionally}
+              setRangeValue={props.setRangeValue}
+              rangeValue={props.rangeValue}
+              */
+              />
+            );
+          })}
+        </section>
+      ) : (
+        ""
+      )}
       <section className={`Popup ${isCertificateOpen && "Popup_opened"}`}>
         <iframe
           className="Resume__certificate"

@@ -1,9 +1,11 @@
 .Work__clue {
   position: absolute;
-  width: min-content;
-  font-size: 14px;
-  line-height: 16px;
-  margin: 0;
-  background: rgba(255, 255, 255, .7);
-  color: #000;
+    width: 50%;
+    padding: 1vmin;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0;
+    background-color: var(--main-color);
+    color: var(--back-color);
+    opacity: .8;
 }

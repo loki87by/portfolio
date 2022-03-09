@@ -11,12 +11,12 @@ function Slider(props) {
   const [direction, setDirection] = React.useState(0);
 
   function toLeft() {
-    props.setPaused(false);
+    props.resetPaused();
     autoLeft();
   }
 
   function toRight() {
-    props.setPaused(false);
+    props.resetPaused();
     autoRight();
   }
 
@@ -65,7 +65,8 @@ function Slider(props) {
       } */
 
       if (!props.paused) {
-        const shiftingPosition = position - (props.slides.length - props.limit * 2)
+        const shiftingPosition =
+          position - (props.slides.length - props.limit * 2);
         const timer = setTimeout(() => {
           setPosition(shiftingPosition);
           for (let i = 0; i < props.slides.length; i++) {
@@ -86,7 +87,7 @@ function Slider(props) {
               })`,
             });
           }
-        }
+        };
       }
     }
 
@@ -98,15 +99,16 @@ function Slider(props) {
       } */
 
       if (!props.paused) {
-        const shiftingPosition = props.slides.length - props.limit * 2 + position
+        const shiftingPosition =
+          props.slides.length - props.limit * 2 + position;
         const timer = setTimeout(() => {
           setPosition(shiftingPosition);
           for (let i = 0; i < props.slides.length; i++) {
             props.setStyle({
               transition: "none",
-              transform: `translateX(-${
-                props.shift * shiftingPosition
-              }${props.unit})`,
+              transform: `translateX(-${props.shift * shiftingPosition}${
+                props.unit
+              })`,
             });
           }
         }, props.interval / 2);
@@ -114,12 +116,12 @@ function Slider(props) {
           clearTimeout(timer);
           for (let i = 0; i < props.slides.length; i++) {
             props.setStyle({
-              transform: `translateX(-${
-                props.shift * shiftingPosition
-              }${props.unit})`,
+              transform: `translateX(-${props.shift * shiftingPosition}${
+                props.unit
+              })`,
             });
           }
-        }
+        };
       }
     }
 
@@ -134,7 +136,7 @@ function Slider(props) {
       return () => clearTimeout(timer);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [position, direction]);
+  }, [position, direction, props.paused]);
   /*
 
   React.useEffect(() => {

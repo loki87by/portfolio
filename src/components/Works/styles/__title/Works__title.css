@@ -1,0 +1,6 @@
+.Works__title {
+  margin: 1vmin auto;
+  font-size: 4vw;
+  color: var(--back-color);
+  text-shadow: 2px 2px 2px var(--main-color);
+}

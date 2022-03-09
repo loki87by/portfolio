@@ -1,15 +1,8 @@
 .Work__description {
   width: 45%;
-  height: 60vh;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: baseline;
-  overflow: auto;
-}
-
-@media (max-width: 768px) {
-  .Work__description {
-    height: 100%;
-  }
 }

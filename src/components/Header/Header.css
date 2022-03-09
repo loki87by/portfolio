@@ -1,4 +1,7 @@
 .Header {
+  position: fixed;
+  z-index: 5;
+  width: calc(100% - 10vw);
   padding: 1vw 5vw;
   display: flex;
   justify-content: space-around;

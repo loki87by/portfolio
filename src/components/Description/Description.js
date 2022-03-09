@@ -8,8 +8,6 @@ import certificateRu from "../../media/Акулич.pdf";
 import certificateEn from "../../media/20202WD00196.pdf";
 import epamCertificate from "../../media/ds8jpv3n.pdf";
 import zoom from "../../images/zoom.svg";
-import { completeSliderArray } from "../../utils/helpers.js";
-import { STACK } from "../../utils/consts.js";
 import "./styles/__title/Description__title.css";
 import "./styles/__subtitle/Description__subtitle.css";
 import "./styles/__subsubtitle/Description__subsubtitle.css";
@@ -34,40 +32,6 @@ function Description(props) {
   const [mouseOver, setMouseOver] = React.useState(false);
   const [effectAva, setEffectAva] = React.useState(animations[0]);
   const [binary, setBinary] = React.useState(true);
-  const [pausedSoftSlider, setPausedSoftSlider] = React.useState(false);
-  const [softStyles, setSoftStyles] = React.useState([]);
-  const [selectedStack, setSelectedStack] = React.useState(STACK);
-
-  function stopSoftAutoSlide() {
-    setPausedSoftSlider(true);
-  }
-
-  const softImages = completeSliderArray(props.images.soft.slice(), 5);
-  let stylesArray = JSON.parse(JSON.stringify(softStyles));
-  const arr = [];
-
-  const softImagesSlides = softImages.map((item, index) => {
-    if (!stylesArray[index]) {
-      arr.push({ display: "flex" });
-      setSoftStyles(arr);
-    }
-    return (
-      <div
-        className="Description__soft"
-        key={`soft-${index}`}
-        style={stylesArray[index]}
-        onClick={stopSoftAutoSlide}
-      >
-        <img src={item.src} className="Description__soft-image" alt="img" />
-      </div>
-    );
-  });
-
-  function setStyle(style) {
-    let arr = JSON.parse(JSON.stringify(softStyles));
-    arr = arr.map(() => style);
-    setSoftStyles(arr);
-  }
 
   // *сменить систему счисления
   function changeDigitType() {
@@ -254,22 +218,24 @@ function Description(props) {
       <h3 className="Description__subsubtitle">{translation.soft}:</h3>
       <div className="Description__soft-container">
         <Slider
-          slides={softImagesSlides}
+          slides={props.slides}
+          setStyle={props.setStyle}
           shift={125}
           unit="%"
           limit={5}
-          paused={pausedSoftSlider}
-          setStyle={setStyle}
-          setPaused={setPausedSoftSlider}
+          paused={props.paused}
+          setPaused={props.setPaused}
+          resetPaused={props.resetPaused}
           interval={3000}
         />
       </div>
-      <h3 className="Description__subsubtitle">{translation.stack}:</h3>
+      <h3 className="Description__subsubtitle">{translation.works}:</h3>
       <Stack
-        selectedStack={selectedStack}
-        setSelectedStack={setSelectedStack}
+        selectedStack={props.selectedStack}
+        setSelectedStack={props.setSelectedStack}
         images={props.images}
       />
+      <h2 className="Description__subtitle">{translation.works}:</h2>
     </>
   );
 }

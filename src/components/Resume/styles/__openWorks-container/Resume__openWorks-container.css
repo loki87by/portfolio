@@ -1,5 +1,4 @@
-.Resume__works {
-  margin: 5vw 5vw 0;
+.Resume__openWorks-container {
   display: flex;
   flex-direction: column;
 }

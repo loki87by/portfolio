@@ -1,18 +1,6 @@
 .Work__container {
-  height: 70vh;
+  height: max-content;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-@media (max-width: 768px) {
-  .Work__container {
-    height: 40vh;
-  }
-}
-
-@media (max-width: 555px) {
-  .Work__container {
-    height: 50vw;
-  }
 }

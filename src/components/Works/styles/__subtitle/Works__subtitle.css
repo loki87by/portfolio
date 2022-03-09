@@ -1,0 +1,7 @@
+.Works__subtitle {
+  max-width: 80%;
+  margin: .5vmin auto;
+  font-size: 2vw;
+  color: var(--back-color);
+  text-shadow: 2px 2px 2px var(--main-color);
+}

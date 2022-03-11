@@ -1,8 +1,7 @@
 .Description__soft-container {
   position: relative;
   z-index: 0;
-  width: calc(80% - 1vw);
-  margin-left: 1vw;
+  width: 80%;
   height: max-content;
   padding: 0 10%;
   display: flex;

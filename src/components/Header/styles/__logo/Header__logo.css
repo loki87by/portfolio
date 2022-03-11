@@ -1,10 +1,10 @@
 .Header__logo {
-  height: 10vw;
+  height: 7vw;
   filter: var(--filter);
 }
-
+/*
 @media (max-width: 768px) {
   .Header__logo {
-    height: 7vw;
+    height: 4vmax;
   }
-}
+} */

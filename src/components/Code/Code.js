@@ -3,7 +3,7 @@ import { CODE } from "../../utils/consts.js";
 import "./Code.css";
 import "./styles/__line/Code__line.css";
 
-function Code() {
+function Code(props) {
   let tabCounter = 0;
   let afterImport = false;
   let multiplyImport = false;
@@ -30,6 +30,47 @@ function Code() {
     "class|enum|extends|implements|instanceof|interface|new|private|protected|public|static|void".split(
       "|"
     );
+
+  React.useEffect(() => {
+    const lines = document.querySelectorAll(".Code__line");
+    Array.from(lines).forEach((item) => {
+      const max = item.offsetWidth;
+      const children = Array.from(item.children);
+      // console.log(max, props.width * 0.86 - props.scrollbarWidth);
+      if (max < props.width * 0.86 - props.scrollbarWidth) {
+        let current = 0;
+        let maxWidth = false;
+        let spaceCounter = 0;
+        children.forEach((el) => {
+          if (el.children[0].classList.contains("Code__line-tab")) {
+            spaceCounter += 1;
+          }
+          if (!maxWidth) {
+            if (current + el.offsetWidth < max) {
+              current += el.offsetWidth;
+            } else {
+              item.setAttribute("style", "display: flex; flex-wrap: wrap");
+              el.setAttribute(
+                "style",
+                `margin-left: ${(spaceCounter + 1) * 0.75}vmax`
+              );
+              maxWidth = true;
+            }
+          } else {
+            el.setAttribute(
+              "style",
+              `margin-left: ${(spaceCounter + 2) * 0.75}vmax`
+            );
+          }
+        });
+      } else {
+        item.removeAttribute("style");
+        children.forEach((el) => {
+          el.removeAttribute("style");
+        });
+      }
+    });
+  }, [props.scrollbarWidth, props.width]);
 
   function pointsChecker(keyword) {
     if (keyword === ".") {
@@ -367,6 +408,10 @@ function Code() {
   }
 
   let html = <div className="Code">{splitCode(CODE)}</div>;
+  /* html.props.children.forEach((el) => {
+    console.dir(el);
+    console.log(el);
+  }); */
 
   return <>{html}</>;
 }

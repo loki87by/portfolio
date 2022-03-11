@@ -1,6 +1,6 @@
 .Header__button-image {
-  width: 7vw;
-  height: 7vw;
+  width: 5vw;
+  height: 5vw;
   border-radius: 50%;
   border: 2px solid var(--main-color);
   -webkit-box-sizing: border-box;
@@ -9,10 +9,10 @@
   background-size: cover;
   background-position: center;
 }
-
+/*
 @media (max-width: 768px) {
   .Header__button-image {
-    width: 5vw;
-    height: 5vw;
+    width: 3vmax;
+    height: 3vmax;
   }
-}
+} */

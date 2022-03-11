@@ -1,5 +1,8 @@
 .Code__line {
-  font-size: 2vw;
+  width: 100%;
+  /* display: flex;
+  flex-wrap: wrap; */
+  font-size: var(--fs5);
   line-height: 1.2;
   color: #fff;
 }

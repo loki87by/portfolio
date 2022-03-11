@@ -39,7 +39,7 @@ export const translations = {
     qualities: "Qualities",
     quals:
       "Since childhood, I have been and remain a wildly sociable person. I am able to find non-standard approaches to solving problems. Working in sales, I perfectly pumped stress resistance.",
-    /* biography: "Short biography", */
+    biography: "Short biography",
     skills: "My skills",
     stack: "My stack",
     elementary: "Elementary",
@@ -172,7 +172,7 @@ export const translations = {
     qualities: "Качества",
     quals:
       "С детства был и остаюсь дико коммуникабельным человеком. Умею находить нестандартные подходы к решению возникших проблем. Работая в продажах, прекрасно прокачал стрессоустойчивость.",
-    /* biography: "Краткая биография", */
+    biography: "Краткая биография",
     skills: "Мои навыки",
     stack: "Мой стек",
     elementary: "Начальный",

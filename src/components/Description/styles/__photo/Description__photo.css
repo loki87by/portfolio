@@ -2,7 +2,7 @@
   max-width: 68vw;
   max-height: 68vh;
   padding: 0;
-  margin: 2vw auto;
+  margin: 2vmin auto;
   border-radius: 50%;
   display: flex;
 }

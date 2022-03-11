@@ -1,11 +1,9 @@
-/* eslint-disable no-loop-func */
 // **импорты
 import React from "react";
 import {
   TranslationContext,
   translations,
 } from "../../contexts/translationContext";
-// import { HEIGHT_KOEFFICIENT } from "../../utils/consts";
 import { PIC_ARRAY } from "../../consts/pictures";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -17,14 +15,10 @@ import "./styles/App_preload.css";
 function App() {
   // **стейты
   const [lang, setLang] = React.useState("ru");
-  // const [isGame, setIsGame] = React.useState(false);
-  // const [luft, setLuft] = React.useState(0);
   const [images, setImages] = React.useState({});
-  /* const [width, setWidth] = React.useState(0); */
   const [loadProgress, setLoadProgress] = React.useState(0);
   const [imagesIsLoad, setImagesIsLoad] = React.useState(false);
-  // const [isDay, setDay] = React.useState(false);
-  // const gameRef = React.useRef(isGame);
+  const [scrollbarWidth, setScrollbarWidth] = React.useState(0);
   const Mobile =
     /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(
       navigator.userAgent
@@ -42,40 +36,6 @@ function App() {
     }, 15000);
   });
 
-  /*  // **отсеживание высоты страницы
-  React.useEffect(() => {
-    function fromTop() {
-      const scrollHeight = Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight,
-        document.body.offsetHeight,
-        document.documentElement.offsetHeight,
-        document.body.clientHeight,
-        document.documentElement.clientHeight
-      );
-      if (window.pageYOffset > scrollHeight * (HEIGHT_KOEFFICIENT + luft)) {
-        gameRef.current = true;
-      } else {
-        gameRef.current = false;
-      }
-      setIsGame(gameRef.current);
-    }
-    window.addEventListener("scroll", fromTop);
-  }); */
-
-  /*   // **отсеживание ширины страницы
-  React.useEffect(() => {
-    const scrollWidth = Math.max(
-      document.body.scrollWidth,
-      document.documentElement.scrollWidth,
-      document.body.offsetWidth,
-      document.documentElement.offsetWidth,
-      document.body.clientWidth,
-      document.documentElement.clientWidth
-    );
-    setWidth(scrollWidth);
-  }, []); */
-
   React.useEffect(() => {
     const keys = Object.keys(PIC_ARRAY);
     const values = Object.values(PIC_ARRAY);
@@ -89,6 +49,7 @@ function App() {
       for (let j = 0; j < values[i].length; j++) {
         let img = new Image();
         img.src = values[i][j];
+        // eslint-disable-next-line no-loop-func
         img.onload = function () {
           progressCounter++;
           const progress = progressCounter * loadStep;
@@ -107,21 +68,28 @@ function App() {
     }
   }, [loadProgress]);
 
+  React.useEffect(() => {
+    if (!Mobile) {
+      const scrollDiv = document.createElement("div");
+      scrollDiv.className = "scrollbar-measure";
+      document.body.appendChild(scrollDiv);
+      setScrollbarWidth(scrollDiv.offsetWidth - scrollDiv.clientWidth);
+      document.body.removeChild(scrollDiv);
+    }
+  }, [Mobile]);
+
   // **DOM
   return (
     <>
       <TranslationContext.Provider value={translations[lang]}>
-        <Header setLang={setLang} lang={lang} /* width={width} */ />
+        <Header setLang={setLang} lang={lang} />
         {imagesIsLoad ? (
           <Main
             isMobile={mobileRef.current}
-            // isGame={gameRef}
             lang={lang}
             images={images}
-            // setLuft={setLuft}
-            // isDay={isDay}
             imagesIsLoad={imagesIsLoad}
-            /* width={width} */
+            scrollbarWidth={scrollbarWidth}
           />
         ) : (
           <h2

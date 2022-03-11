@@ -19,7 +19,6 @@ import "./styles/__button/Description__button.css";
 import "./styles/__certificates/Description__certificates.css";
 import "./styles/__certificate/Description__certificate.css";
 import "./styles/__certificate-open/Description__certificate-open.css";
-import "./styles/__certificate-open/_day/Description__certificate-open_day.css";
 import "./styles/__soft/Description__soft.css";
 import "./styles/__soft-container/Description__soft-container.css";
 import "./styles/__soft-image/Description__soft-image.css";
@@ -183,7 +182,8 @@ function Description(props) {
         <span className="Description__text">{translation.quals}</span>
       </h2>
       <h2 className="Description__subsubtitle">
-        {translation.biography}: <Code />
+        {translation.biography}:{" "}
+        <Code width={props.screenWidth} scrollbarWidth={props.scrollbarWidth} />
       </h2>
       <h2 className="Description__subsubtitle">{translation.certificates}: </h2>
       <section className="Description__certificates">

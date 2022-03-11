@@ -1,6 +1,6 @@
 .Description__subtitle {
-  margin: 1vw;
+  margin: 1vmax;
   text-align: left;
-  font-size: 4.8vw;
-  line-height: 5vw;
+  font-size: var(--fs2);
+  line-height: 1.1;
 }

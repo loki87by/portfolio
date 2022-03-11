@@ -1,6 +1,6 @@
 .Work__link {
-  font-size: 3.5vw;
-  line-height: 4vw;
+  font-size: var(--fs3);
+  line-height: 1.1;
   color: white;
   text-decoration: none;
   cursor: pointer;

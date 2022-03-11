@@ -1,6 +1,6 @@
 .Header__input {
-  width: 7vw;
-  height: 7vw;
+  width: 5vw;
+  height: 5vw;
   padding: 0;
   border: 2px solid var(--main-color);
   border-radius: 50%;
@@ -29,10 +29,10 @@
   border: none;
   border-radius: 50%;
 }
-
+/*
 @media (max-width: 768px) {
   .Header__input {
-    width: 5vw;
-    height: 5vw;
+    width: 3vmax;
+    height: 3vmax;
   }
-}
+} */

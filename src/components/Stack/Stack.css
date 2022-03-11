@@ -1,4 +1,5 @@
 .Stack {
   position: relative;
   height: max-content;
+  margin: 1vmax;
 }

@@ -158,8 +158,7 @@ function Main(props) {
     const widget = document.createElement("weather-widget");
     document.body.appendChild(widget);
     const script = document.createElement("script");
-    script.src =
-      "https://myweatherwidget.netlify.app/main.js";
+    script.src = "https://myweatherwidget.netlify.app/main.js";
     script.async = true;
     script.onload = () => {
       window.MyApp.init(widget);
@@ -174,8 +173,8 @@ function Main(props) {
         isMobile={props.isMobile}
         lang={props.lang}
         images={props.images}
-        width={props.width}
         imagesIsLoad={props.imagesIsLoad}
+        scrollbarWidth={props.scrollbarWidth}
       />
       <weather-widget />
       {/* <Popup

@@ -80,7 +80,7 @@ function Resume(props) {
     }
     return (
       <Works
-        key={`works-${index}`}
+        key={`worksListSlide-${index}`}
         style={worksStyles[index]}
         item={item}
         index={index}
@@ -189,6 +189,7 @@ function Resume(props) {
         resetPaused={restartSoftAutoSlide}
         selectedStack={selectedStack}
         setSelectedStack={setSelectedStack}
+        scrollbarWidth={props.scrollbarWidth}
       />
       <section className="Works__slider-container">
         <Slider

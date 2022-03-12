@@ -129,6 +129,7 @@ class Color {
         case r:
           h = (g - b) / d + (g < b ? 6 : 0);
           break;
+
         case g:
           h = (b - r) / d + 2;
           break;
@@ -153,6 +154,7 @@ class Color {
     } else if (value < 0) {
       value = 0;
     }
+
     return value;
   }
 }
@@ -166,6 +168,7 @@ class Solver {
 
   solve() {
     const result = this.solveNarrow(this.solveWide());
+
     return {
       values: result.values,
       loss: result.loss,
@@ -182,10 +185,12 @@ class Solver {
     for (let i = 0; best.loss > 25 && i < 3; i++) {
       const initial = [50, 20, 3750, 50, 100, 100];
       const result = this.spsa(A, a, c, initial, 1000);
+
       if (result.loss < best.loss) {
         best = result;
       }
     }
+
     return best;
   }
 
@@ -194,6 +199,7 @@ class Solver {
     const c = 2;
     const A1 = A + 1;
     const a = [0.25 * A1, 0.25 * A1, A1, 0.25 * A1, 0.2 * A1, 0.2 * A1];
+
     return this.spsa(A, a, c, wide.values, 500);
   }
 
@@ -223,15 +229,18 @@ class Solver {
       }
 
       const loss = this.loss(values);
+
       if (loss < bestLoss) {
         best = values.slice(0);
         bestLoss = loss;
       }
     }
+
     return { values: best, loss: bestLoss };
 
     function fix(value, idx) {
       let max = 100;
+
       if (idx === 2 /* saturate */) {
         max = 7500;
       } else if (idx === 4 /* brightness */ || idx === 5 /* contrast */) {
@@ -249,6 +258,7 @@ class Solver {
       } else if (value > max) {
         value = max;
       }
+
       return value;
     }
   }
@@ -256,15 +266,14 @@ class Solver {
   loss(filters) {
     const color = this.reusedColor;
     color.set(0, 0, 0);
-
     color.invert(filters[0] / 100);
     color.sepia(filters[1] / 100);
     color.saturate(filters[2] / 100);
     color.hueRotate(filters[3] * 3.6);
     color.brightness(filters[4] / 100);
     color.contrast(filters[5] / 100);
-
     const colorHSL = color.hsl();
+
     return (
       Math.abs(color.r - this.target.r) +
       Math.abs(color.g - this.target.g) +
@@ -279,6 +288,7 @@ class Solver {
     function fmt(idx, multiplier = 1) {
       return Math.round(filters[idx] * multiplier);
     }
+
     return `filter: invert(${fmt(0)}%) sepia(${fmt(1)}%) saturate(${fmt(
       2
     )}%) hue-rotate(${fmt(3, 3.6)}deg) brightness(${fmt(4)}%) contrast(${fmt(
@@ -294,6 +304,7 @@ function hexToRgb(hex) {
   });
 
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+
   return result
     ? [
         parseInt(result[1], 16),
@@ -304,28 +315,10 @@ function hexToRgb(hex) {
 }
 
 export function getFilter(value) {
-  const rgb = hexToRgb(value)
+  const rgb = hexToRgb(value);
   const color = new Color(rgb[0], rgb[1], rgb[2]);
   const solver = new Solver(color);
   const result = solver.solve();
-  return result.filter.replace('filter: ', '')
-}
-/*
-$(document).ready(() => {
-    let lossMsg;
-    if (result.loss < 1) {
-      lossMsg = "This is a perfect result.";
-    } else if (result.loss < 5) {
-      lossMsg = "The is close enough.";
-    } else if (result.loss < 15) {
-      lossMsg = "The color is somewhat off. Consider running it again.";
-    } else {
-      lossMsg = "The color is extremely off. Run it again!";
-    }
 
-    $(".realPixel").css("background-color", color.toString());
-    $(".filterPixel").attr("style", result.filter);
-    $(".filterDetail").text(result.filter);
-    $(".lossDetail").html(`Loss: ${result.loss.toFixed(1)}. <b>${lossMsg}</b>`);
-  });
-}); */
+  return result.filter.replace("filter: ", "");
+}

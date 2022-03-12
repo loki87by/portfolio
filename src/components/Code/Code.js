@@ -36,7 +36,7 @@ function Code(props) {
     Array.from(lines).forEach((item) => {
       const max = item.offsetWidth;
       const children = Array.from(item.children);
-      // console.log(max, props.width * 0.86 - props.scrollbarWidth);
+
       if (max < props.width * 0.86 - props.scrollbarWidth) {
         let current = 0;
         let maxWidth = false;
@@ -45,6 +45,7 @@ function Code(props) {
           if (el.children[0].classList.contains("Code__line-tab")) {
             spaceCounter += 1;
           }
+
           if (!maxWidth) {
             if (current + el.offsetWidth < max) {
               current += el.offsetWidth;
@@ -98,16 +99,19 @@ function Code(props) {
   function importChecker(keyword) {
     if (keyword === "{") {
       multiplyImport = true;
+
       return <span>{`${keyword}${end}`}</span>;
     } else if (keyword === "}") {
       multiplyImport = false;
       afterImport = false;
+
       return <span>{`${keyword}${end}`}</span>;
     } else {
       if (!multiplyImport) {
         afterImport = false;
       }
       usedWords.push(keyword.replace(",", ""));
+
       return <span style={{ color: "skyblue" }}>{`${keyword}${end}`}</span>;
     }
   }
@@ -115,6 +119,7 @@ function Code(props) {
   function openBracketChecker(keyword) {
     if (keyword === "(" || keyword === "((") {
       openBracket = true;
+
       return <span>{`${keyword}`}</span>;
     }
     let arr = keyword.split("(");
@@ -134,6 +139,7 @@ function Code(props) {
       }
     }
     end = "";
+
     return arr.map((item, index) => {
       if (index === 0) {
         return <span key={index}>{wordChecker(item)}</span>;
@@ -169,6 +175,7 @@ function Code(props) {
     }
     const arr = keyword.split("[");
     end = "";
+
     return (
       <>
         {wordChecker(arr[0])}
@@ -184,6 +191,7 @@ function Code(props) {
     }
     const arr = keyword.split("]");
     end = "";
+
     return (
       <>
         {wordChecker(arr[0])}
@@ -195,6 +203,7 @@ function Code(props) {
 
   function semicolonChecker(keyword) {
     end = "";
+
     return (
       <>
         {wordChecker(keyword.replace(";", ""))}
@@ -220,12 +229,14 @@ function Code(props) {
         span.style.color = "#33b579";
       }
     });
+
     return <span style={{ color: "#33b579" }}>{`${keyword}${end}`}</span>;
   }
 
   function wordChecker(word) {
     if (result) {
       result = false;
+
       return <a href="/#">{wordChecker(word)}</a>;
     }
 
@@ -243,6 +254,7 @@ function Code(props) {
 
     if (word === "import") {
       afterImport = true;
+
       return <span style={{ color: "#dd7dc9" }}>{`${word}${end}`}</span>;
     }
 
@@ -311,6 +323,7 @@ function Code(props) {
       word[word.length - 1] === "\\`"
     ) {
       isString = false;
+
       return <span style={{ color: "#db7354" }}>{`${word}${end}`}</span>;
     }
 
@@ -326,6 +339,7 @@ function Code(props) {
       if (word === "const" || word === "let") {
         announce = true;
       }
+
       return <span style={{ color: "#2688c1" }}>{`${word}${end}`}</span>;
     }
 
@@ -348,8 +362,10 @@ function Code(props) {
     if (announce) {
       announce = false;
       consts.push(word);
+
       return <span style={{ color: "#31a0ff" }}>{`${word}${end}`}</span>;
     }
+
     return <span>{`${word}${end}`}</span>;
   }
 
@@ -373,10 +389,12 @@ function Code(props) {
         }
       }
     });
+
     return arr.map((element, index) => {
       if (lastLine && index === arr.length - 1) {
         result = true;
       }
+
       return <span key={index}>{wordChecker(element)}</span>;
     });
   }
@@ -395,10 +413,12 @@ function Code(props) {
         arr.splice(index, 1, start.join(" "), ...center, finish.join(" "));
       }
     });
+
     return arr.map((element, index) => {
       if (index === arr.length - 1) {
         lastLine = true;
       }
+
       return (
         <div key={index} className="Code__line">
           {lineChecker(element)}
@@ -408,10 +428,6 @@ function Code(props) {
   }
 
   let html = <div className="Code">{splitCode(CODE)}</div>;
-  /* html.props.children.forEach((el) => {
-    console.dir(el);
-    console.log(el);
-  }); */
 
   return <>{html}</>;
 }

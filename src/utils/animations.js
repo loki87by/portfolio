@@ -9,15 +9,19 @@ export function animationCreator(name, array, element) {
   if (name === "diplom") {
     timersArray = diplomAnimation(array, element);
   }
+
   if (name === "zoo") {
     return zooAnimation(array, element);
   }
+
   if (name === "mmg") {
     return mmgAnimation(array, element);
   }
+
   if (name === "gallery") {
     return galleryAnimation(array, element);
   }
+
   if (name === "galleryNg") {
     return galleryNgAnimation(array, element);
   }

@@ -1,6 +1,6 @@
 import React from "react";
 import { TranslationContext } from "../../contexts/translationContext";
-import Hands from '../Hands/Hands'
+import Hands from "../Hands/Hands";
 import "./Age.css";
 import "./styles/__section/Age__section.css";
 
@@ -95,6 +95,7 @@ function Age(props) {
     }
     intervalRef.current = intervalTime;
     let timer = setInterval(getTimeFromBirth, intervalRef.current);
+
     return () => {
       clearInterval(timer);
     };
@@ -107,49 +108,77 @@ function Age(props) {
           {translation.years}
           {":"}
         </h4>
-        {props.binary ? <Hands number={yearsOld} images={props.images} /> : <h3>{yearsOld}</h3>}
+        {props.binary ? (
+          <Hands number={yearsOld} images={props.images} />
+        ) : (
+          <h3>{yearsOld}</h3>
+        )}
       </section>
       <section className="Age__section">
         <h4>
           {translation.mounthes}
           {":"}
         </h4>
-        {props.binary ? <Hands number={mouthesOld} images={props.images} /> : <h3>{mouthesOld}</h3>}
+        {props.binary ? (
+          <Hands number={mouthesOld} images={props.images} />
+        ) : (
+          <h3>{mouthesOld}</h3>
+        )}
       </section>
       <section className="Age__section">
         <h4>
           {translation.weeks}
           {":"}
         </h4>
-        {props.binary ? <Hands number={weeksOld} images={props.images} /> : <h3>{weeksOld}</h3>}
+        {props.binary ? (
+          <Hands number={weeksOld} images={props.images} />
+        ) : (
+          <h3>{weeksOld}</h3>
+        )}
       </section>
       <section className="Age__section">
         <h4>
           {translation.days}
           {":"}
         </h4>
-        {props.binary ? <Hands number={daysOld} images={props.images} /> : <h3>{daysOld}</h3>}
+        {props.binary ? (
+          <Hands number={daysOld} images={props.images} />
+        ) : (
+          <h3>{daysOld}</h3>
+        )}
       </section>
       <section className="Age__section">
         <h4>
           {translation.hours}
           {":"}
         </h4>
-        {props.binary ? <Hands number={hoursOld} images={props.images} /> : <h3>{hoursOld}</h3>}
+        {props.binary ? (
+          <Hands number={hoursOld} images={props.images} />
+        ) : (
+          <h3>{hoursOld}</h3>
+        )}
       </section>
       <section className="Age__section">
         <h4>
           {translation.minutes}
           {":"}
         </h4>
-        {props.binary ? <Hands number={minutesOld} images={props.images} /> : <h3>{minutesOld}</h3>}
+        {props.binary ? (
+          <Hands number={minutesOld} images={props.images} />
+        ) : (
+          <h3>{minutesOld}</h3>
+        )}
       </section>
       <section className="Age__section">
         <h4>
           {translation.seconds}
           {":"}
         </h4>
-        {props.binary ? <Hands number={secondsOld} images={props.images} /> : <h3>{secondsOld}</h3>}
+        {props.binary ? (
+          <Hands number={secondsOld} images={props.images} />
+        ) : (
+          <h3>{secondsOld}</h3>
+        )}
       </section>
     </div>
   );

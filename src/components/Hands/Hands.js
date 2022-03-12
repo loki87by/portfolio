@@ -11,6 +11,7 @@ function Hands(props) {
     while (array.length < 5) {
       array.unshift("0");
     }
+
     return array;
   };
 

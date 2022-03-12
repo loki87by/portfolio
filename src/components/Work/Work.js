@@ -1,4 +1,3 @@
-// **импорты
 import React from "react";
 import { TranslationContext } from "../../contexts/translationContext";
 import { animationCreator, animationCancel } from "../../utils/animations";
@@ -11,46 +10,18 @@ import "./styles/__description/Work__description.css";
 import "./styles/_horizontal/Work_horizontal.css";
 import "./styles/__description-text/Work__description-text.css";
 import "./styles/_animation/Work_animation_standart.css";
-/* import { LUFT_KOEFFICIENT } from "../../utils/consts";
-import "./styles/__button/Work__button.css";
-import "./styles/__button/_day/Work__button_day.css";
-import "./styles/__button/_opened/Work__button_opened.css";
-import "./Work_day.css";
 import "./styles/_animation/Work_animation_none.css";
+/*
 import "./styles/__additionally-range/Work__additionally-range.css";
-import "./styles/__additionally-range/_day/Work__additionally-range_day.css";
 import "./styles/__additionally-range/_mobile/Work__additionally-range_mobile.css";
-import "./styles/widget_disabled.css"; */
-// **функционал
+import "./styles/widget_disabled.css";
+*/
+
 function Work(props) {
   const translation = React.useContext(TranslationContext);
   const images = props.images[`project_${props.name}`].map(
     (image) => image.src
   );
-  /* const [aspectRatio, setAspectRatio] = React.useState("cover");
-
-  React.useEffect(() => {
-    const image = props.images[`project_${props.name}`][0];
-    if (image.width > image.height) {
-      setAspectRatio("contain");
-    }
-  }, [props.images, props.name]); */
-
-  // *функция разворотов работ и переноса слушателей игры по кликам
-  /* function workToggle(e) {
-    let key = e.target.id;
-    let newObject = Object.assign({}, props.openWorks);
-    if (props.openWorks[key]) {
-      newObject[key] = false;
-      props.setLuft(props.luft - LUFT_KOEFFICIENT);
-    } else {
-      newObject[key] = true;
-      props.setLuft(props.luft + LUFT_KOEFFICIENT);
-    }
-    props.setOpenWorks(newObject);
-    props.setLuft(props.luft);
-    e.target.classList.toggle("Work__button_opened");
-  } */
 
   function addAnimation(event) {
     if (props.animation === "standart") {
@@ -71,7 +42,6 @@ function Work(props) {
     widget.classList.toggle("widget_disabled");
   } */
 
-  // **DOM
   return (
     <>
       <h3 className="Work__title">
@@ -94,15 +64,6 @@ function Work(props) {
           ""
         )}
       </h3>
-      {/* <button
-        type="button"
-        id={props.index}
-        className={`Work__button ${props.isDay && "Work__button_day"}`}
-        onClick={workToggle}
-      >
-        {translation.more}
-      </button> */}
-      {/* {props.openWorks[props.index] ? ( */}
       <div className="Work__container">
         <div
           style={{
@@ -153,12 +114,8 @@ function Work(props) {
             )} */}
         </div>
       </div>
-      {/* ) : (
-        ""
-      )} */}
     </>
   );
 }
 
-// **экспорт
 export default Work;

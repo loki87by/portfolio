@@ -1,4 +1,3 @@
-// **импорты
 import React from "react";
 import {
   TranslationContext,
@@ -13,7 +12,6 @@ import "./App.css";
 import "./styles/App_preload.css";
 
 function App() {
-  // **стейты
   const [lang, setLang] = React.useState("ru");
   const [images, setImages] = React.useState({});
   const [loadProgress, setLoadProgress] = React.useState(0);
@@ -25,7 +23,6 @@ function App() {
     );
   const mobileRef = React.useRef(Mobile);
 
-  // **проверка типа устройства пользователя
   React.useEffect(() => {
     setInterval(() => {
       const Mobile =
@@ -78,7 +75,6 @@ function App() {
     }
   }, [Mobile]);
 
-  // **DOM
   return (
     <>
       <TranslationContext.Provider value={translations[lang]}>
@@ -110,5 +106,4 @@ function App() {
   );
 }
 
-// **экспорт
 export default App;

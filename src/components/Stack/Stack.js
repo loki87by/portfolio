@@ -12,7 +12,6 @@ import "./styles/__filter/Stack__filter.css";
 import "./styles/__filter/_opened/Stack__filter_opened.css";
 import "./styles/__checkbox/Stack__checkbox.css";
 
-// **функционал
 function Stack(props) {
   const [showFilter, setShowFilter] = React.useState(false);
   const translation = React.useContext(TranslationContext);
@@ -25,6 +24,7 @@ function Stack(props) {
   function changeFilter(e) {
     const target = e.target;
     let arr = [];
+
     if (props.selectedStack.some((item) => item === target.name)) {
       arr = props.selectedStack
         .map((item) => {
@@ -41,6 +41,7 @@ function Stack(props) {
     }
     props.setSelectedStack(arr);
   }
+
   return (
     <section className="Stack">
       <div className="Stack__text-container">

@@ -1,4 +1,3 @@
-// **импорты
 import React from "react";
 import close from "../../images/close.png";
 import certificateRu from "../../media/Акулич.pdf";
@@ -20,7 +19,6 @@ import "../Popup/styles/_opened/Popup_opened.css";
 import "./styles/__certificate/Resume__certificate.css";
 import "./styles/__certificate-close/Resume__certificate-close.css";
 
-// **функционал
 function Resume(props) {
   const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
   const [isCertificateOpen, setCertificateOpen] = React.useState(false);
@@ -32,9 +30,6 @@ function Resume(props) {
   const [selectedStack, setSelectedStack] = React.useState(STACK);
   const [worksIsOpen, setWorksOpen] = React.useState(true);
   const [currentWorks, setCurrentWorks] = React.useState([]);
-  /* const [openWorks, setOpenWorks] = React.useState({
-    1: false,
-  }); */
 
   let imagesObject = {};
   const softImages = completeSliderArray(props.images.soft.slice(), 5);
@@ -44,22 +39,18 @@ function Resume(props) {
   const temporarySoftArray = [];
   const temporaryWorksArray = [];
 
-  // *остановка автолистания слайдера софта
   function stopSoftAutoSlide() {
     setPausedSoftSlider(true);
   }
 
-  // *перезапуск автолистания слайдера софта
   function restartSoftAutoSlide() {
     setPausedSoftSlider(false);
   }
 
-  // *остановка автолистания слайдера проектов
   function stopWorksAutoSlide() {
     setPausedWorksSlider(true);
   }
 
-  // *остановка автолистания слайдера проектов
   function restartWorksAutoSlide() {
     setPausedWorksSlider(false);
   }
@@ -72,12 +63,12 @@ function Resume(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pausedWorksSlider]);
 
-  // *массив слайдов работ
   const worksListSlides = worksListArray.map((item, index) => {
     if (!worksStyleArray[index]) {
       temporaryWorksArray.push({ display: "flex" });
       setWorksStyles(temporaryWorksArray);
     }
+
     return (
       <Works
         key={`worksListSlide-${index}`}
@@ -98,12 +89,12 @@ function Resume(props) {
     );
   });
 
-  // *массив слайдов софта
   const softImagesSlides = softImages.map((item, index) => {
     if (!softStylesArray[index]) {
       temporarySoftArray.push({ display: "flex" });
       setSoftStyles(temporarySoftArray);
     }
+
     return (
       <div
         className="Description__soft"
@@ -116,46 +107,42 @@ function Resume(props) {
     );
   });
 
-  // *смещение слайдов софта
   function setSoftStyle(style) {
     let arr = JSON.parse(JSON.stringify(softStyles));
     arr = arr.map(() => style);
     setSoftStyles(arr);
   }
 
-  // *смещение слайдов работ
   function setWorkStyle(style) {
     let arr = JSON.parse(JSON.stringify(worksStyles));
     arr = arr.map(() => style);
     setWorksStyles(arr);
   }
 
-  // *закрытие сертификата
   function closeCertificate() {
     setCertificateOpen(false);
   }
 
-  // *закрытие по esc
   function handleEscClose(e) {
     if (e.key === "Escape") {
       closeCertificate();
     }
   }
-  // *слушатели закрытия по Esc
   React.useEffect(() => {
     window.addEventListener("keydown", handleEscClose);
+
     return () => {
       window.removeEventListener("keydown", handleEscClose);
     };
   });
 
-  // *считыватель ширины экрана
   React.useEffect(function () {
     function resizer() {
       setScreenWidth(window.innerWidth);
     }
     window.addEventListener("resize", resizer);
     resizer();
+
     return () => window.removeEventListener("resize", resizer);
   });
 
@@ -166,13 +153,13 @@ function Resume(props) {
     const imageNameTitle = imageFullName.replace(/-\w*/, "");
     const imageNameIndex = imageFullName.match(/-\d*/)[0];
     const imageName = imageNameTitle + imageNameIndex;
+
     if (!imagesObject[imageName]) {
       imagesObject[imageName] = [];
     }
     imagesObject[imageName].push(source);
   }
 
-  // **DOM
   return (
     <section className="Resume">
       <Description
@@ -229,11 +216,6 @@ function Resume(props) {
                 width={screenWidth}
                 isMobile={props.isMobile}
                 aspectRatio={item.aspectRatio}
-                /*
-              additionally={item.additionally}
-              setRangeValue={props.setRangeValue}
-              rangeValue={props.rangeValue}
-              */
               />
             );
           })}
@@ -272,5 +254,4 @@ function Resume(props) {
   );
 }
 
-// **экспорт
 export default Resume;

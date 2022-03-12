@@ -1,4 +1,3 @@
-// **импорты
 import React from "react";
 import { TranslationContext } from "../../contexts/translationContext";
 import { STACK } from "../../utils/consts.js";
@@ -18,7 +17,6 @@ import "./styles/__background-image/_occupancy/Works__background-image_occupancy
 import "./styles/__background-image/_occupancy/Works__background-image_occupancy_more.css";
 import "./styles/__button/Works__button.css";
 
-// **функционал
 function Works(props) {
   const [selectedProjects, setSelectedProjects] = React.useState([]);
   const [projectsImages, setProjectsImages] = React.useState([]);
@@ -32,6 +30,7 @@ function Works(props) {
       let j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
+
     return arr;
   };
 
@@ -59,6 +58,7 @@ function Works(props) {
     const timer = setTimeout(() => {
       setNewStyle(true);
     }, 1000);
+
     return () => {
       clearTimeout(timer);
     };
@@ -69,6 +69,7 @@ function Works(props) {
       (i) => props.images[`project_${i.name}`][0].src
     );
     setProjectsImages(imgArray);
+
     if (projectsImages.length === 0) {
       setBackgroundModificator("empty");
     } else if (projectsImages.length === 1) {
@@ -152,5 +153,4 @@ function Works(props) {
   );
 }
 
-// **экспорт
 export default Works;

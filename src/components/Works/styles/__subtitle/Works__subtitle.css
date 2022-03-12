@@ -1,6 +1,6 @@
 .Works__subtitle {
   max-width: 80%;
-  margin: .5vmin auto;
+  margin: 0.5vmin auto;
   font-size: var(--fs4);
   color: var(--back-color);
   text-shadow: 2px 2px 2px var(--main-color);

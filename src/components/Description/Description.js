@@ -23,7 +23,6 @@ import "./styles/__soft/Description__soft.css";
 import "./styles/__soft-container/Description__soft-container.css";
 import "./styles/__soft-image/Description__soft-image.css";
 
-// **функционал
 function Description(props) {
   const avatar = props.images.avatar[0];
   const animations = props.images.avatarAnimation;
@@ -32,19 +31,16 @@ function Description(props) {
   const [effectAva, setEffectAva] = React.useState(animations[0]);
   const [binary, setBinary] = React.useState(true);
 
-  // *сменить систему счисления
   function changeDigitType() {
     const newState = !binary;
     setBinary(newState);
   }
 
-  // *разворот сертификата
   function openCertificate(e) {
     props.setCertificateType(e.target.id);
     props.setCertificateOpen(true);
   }
 
-  // *установка зуммеров на сертификаты
   function setButton(type) {
     const ifrs = document.getElementsByTagName("iframe");
     let ifr;
@@ -93,7 +89,6 @@ function Description(props) {
     });
   }
 
-  // *эффекты аватарки
   React.useEffect(() => {
     let ava = document.querySelector(".Description__photo");
     function changeEffect() {
@@ -111,6 +106,7 @@ function Description(props) {
     }
     ava.addEventListener("mouseover", hoverOn);
     ava.addEventListener("mouseout", hoverOff);
+
     return () => {
       ava.removeEventListener("mouseover", hoverOn);
       ava.removeEventListener("mouseout", hoverOff);

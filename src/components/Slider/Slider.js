@@ -5,7 +5,6 @@ import "./styles/__soft-button/_right/Slider__soft-button_right.css";
 import "./styles/__soft-button/_image/Slider__soft-button_image.css";
 import arrow from "../../images/arrow.svg";
 
-// **функционал
 function Slider(props) {
   const [position, setPosition] = React.useState(props.limit);
   const [direction, setDirection] = React.useState(0);
@@ -78,6 +77,7 @@ function Slider(props) {
             });
           }
         }, props.interval / 2);
+
         return () => {
           clearTimeout(timer);
           for (let i = 0; i < props.slides.length; i++) {
@@ -112,6 +112,7 @@ function Slider(props) {
             });
           }
         }, props.interval / 2);
+
         return () => {
           clearTimeout(timer);
           for (let i = 0; i < props.slides.length; i++) {
@@ -133,6 +134,7 @@ function Slider(props) {
           autoLeft();
         }
       }, props.interval);
+
       return () => clearTimeout(timer);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

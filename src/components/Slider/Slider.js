@@ -63,32 +63,32 @@ function Slider(props) {
         );
       } */
 
-      if (!props.paused) {
-        const shiftingPosition =
-          position - (props.slides.length - props.limit * 2);
-        const timer = setTimeout(() => {
-          setPosition(shiftingPosition);
-          for (let i = 0; i < props.slides.length; i++) {
-            props.setStyle({
-              transition: "none",
-              transform: `translateX(-${props.shift * shiftingPosition}${
-                props.unit
-              })`,
-            });
-          }
-        }, props.interval / 2);
+      // if (!props.paused) {
+      const shiftingPosition =
+        position - (props.slides.length - props.limit * 2);
+      const timer = setTimeout(() => {
+        setPosition(shiftingPosition);
+        for (let i = 0; i < props.slides.length; i++) {
+          props.setStyle({
+            transition: "none",
+            transform: `translateX(-${props.shift * shiftingPosition}${
+              props.unit
+            })`,
+          });
+        }
+      }, 10);
 
-        return () => {
-          clearTimeout(timer);
-          for (let i = 0; i < props.slides.length; i++) {
-            props.setStyle({
-              transform: `translateX(-${props.shift * shiftingPosition}${
-                props.unit
-              })`,
-            });
-          }
-        };
-      }
+      return () => {
+        clearTimeout(timer);
+        for (let i = 0; i < props.slides.length; i++) {
+          props.setStyle({
+            transform: `translateX(-${props.shift * shiftingPosition}${
+              props.unit
+            })`,
+          });
+        }
+      };
+      // }
     }
 
     if (position <= props.limit - 1 && direction === 1) {
@@ -98,32 +98,31 @@ function Slider(props) {
         );
       } */
 
-      if (!props.paused) {
-        const shiftingPosition =
-          props.slides.length - props.limit * 2 + position;
-        const timer = setTimeout(() => {
-          setPosition(shiftingPosition);
-          for (let i = 0; i < props.slides.length; i++) {
-            props.setStyle({
-              transition: "none",
-              transform: `translateX(-${props.shift * shiftingPosition}${
-                props.unit
-              })`,
-            });
-          }
-        }, props.interval / 2);
+      // if (!props.paused) {
+      const shiftingPosition = props.slides.length - props.limit * 2 + position;
+      const timer = setTimeout(() => {
+        setPosition(shiftingPosition);
+        for (let i = 0; i < props.slides.length; i++) {
+          props.setStyle({
+            transition: "none",
+            transform: `translateX(-${props.shift * shiftingPosition}${
+              props.unit
+            })`,
+          });
+        }
+      }, 10);
 
-        return () => {
-          clearTimeout(timer);
-          for (let i = 0; i < props.slides.length; i++) {
-            props.setStyle({
-              transform: `translateX(-${props.shift * shiftingPosition}${
-                props.unit
-              })`,
-            });
-          }
-        };
-      }
+      return () => {
+        clearTimeout(timer);
+        for (let i = 0; i < props.slides.length; i++) {
+          props.setStyle({
+            transform: `translateX(-${props.shift * shiftingPosition}${
+              props.unit
+            })`,
+          });
+        }
+      };
+      // }
     }
 
     if (!props.paused) {

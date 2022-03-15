@@ -54,20 +54,23 @@ function Works(props) {
   }, [props.item.array, props.selectedStack]);
 
   React.useEffect(() => {
-    setNewStyle(false);
     const timer = setTimeout(() => {
       setNewStyle(true);
-    }, 1000);
+    }, 300);
+    const pos = JSON.parse(JSON.stringify(props.style));
 
     return () => {
       clearTimeout(timer);
+      if (props.style !== pos) {
+        setNewStyle(false);
+      }
     };
-  }, [props.worksStyles]);
+  }, [projectsImages, props.style]);
 
   React.useEffect(() => {
-    const imgArray = selectedProjects.map(
-      (i) => props.images[`project_${i.name}`][0].src
-    );
+    const imgArray = selectedProjects.map((i) => {
+      return props.images[`project_${i.name}`][0].src;
+    });
     setProjectsImages(imgArray);
 
     if (projectsImages.length === 0) {
@@ -102,35 +105,28 @@ function Works(props) {
         {projectsImages.length > 0 ? (
           projectsImages.map((item, index) => {
             return (
-              <>
-                <div
-                  style={
-                    newStyle
-                      ? {
-                          transform: "translateY(0)",
-                          transition: "all 1s linear",
-                          transitionDelay: `${0.5 + index / 2}s`,
-                          maxHeight: "100%",
-                        }
-                      : { maxHeight: "100%" }
-                  }
-                  key={`project-demo-${index}`}
-                  className={`Works__background-image Works__background-image_occupancy_${backgroundModificator}`}
-                >
-                  <img
-                    src={item}
-                    alt="project-demo"
-                    style={{
-                      width: "100%",
-                    }}
-                  />
-                </div>
-                <button className="Works__button" onClick={openWorks}>
-                  {props.worksIsOpen
-                    ? translation.hideWorks
-                    : translation.showWorks}
-                </button>
-              </>
+              <div
+                key={`project-demo-${index}`}
+                style={
+                  newStyle
+                    ? {
+                        transform: "translateY(0)",
+                        transition: "all .7s linear",
+                        transitionDelay: `${index / 2}s`,
+                        maxHeight: "100%",
+                      }
+                    : { maxHeight: "100%" }
+                }
+                className={`Works__background-image Works__background-image_occupancy_${backgroundModificator}`}
+              >
+                <img
+                  src={item}
+                  alt="project-demo"
+                  style={{
+                    width: "100%",
+                  }}
+                />
+              </div>
             );
           })
         ) : (
@@ -149,6 +145,9 @@ function Works(props) {
           </h4>
         )}
       </div>
+      <button className="Works__button" onClick={openWorks}>
+        {props.worksIsOpen ? translation.hideWorks : translation.showWorks}
+      </button>
     </section>
   );
 }

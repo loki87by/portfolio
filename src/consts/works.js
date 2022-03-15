@@ -176,7 +176,7 @@ export const WORKS = [
         name: "myWeatherWidget",
         animation: "none",
         type: "widget",
-        additionally: "enableSwitchWitherWeadget",
+        additionally: true,
         stack: ["css", "react", "typescript", "webpack"],
       },
     ],

@@ -9,3 +9,7 @@
   background-color: var(--back-color);
   color: var(--main-color);
 }
+
+.hide-widget {
+  visibility: hidden;
+}

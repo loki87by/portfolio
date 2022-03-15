@@ -71,9 +71,9 @@ export const translations = {
     forteenProjectInfo:
       "Implementation of the previous project (Gallery) written in Angular with some differences",
     fifteenProjectInfo:
-      "An embeddable weather widget written in React using TypeScript. (If you have allowed access to your location, you should see it in the lower right corner. If it interferes, you can turn off the switch below)",
-    turnOn: "Turn on",
-    turnOf: "of widget",
+      "An embeddable weather widget written in React using TypeScript. (If you have permission to access your location, then after toggling the slider below, you should see it in the lower right corner).",
+    turnOn: "on widget",
+    turnOf: "Turn of",
     clueForAnimation: "Hover over the image to animate",
     clueForAnimationMobile: "Longtap on the image to animate",
     webService: "Web services",
@@ -165,9 +165,9 @@ export const translations = {
     forteenProjectInfo:
       "Реализация предыдущего проекта (Gallery) написанная на Angular с некоторыми отличиями",
     fifteenProjectInfo:
-      "Встраиваемый погодный виджет написанный на React с использованием TypeScript. (Если вы разрешили доступ к вашему местоположению, то должны видеть его в правом нижнем углу. Если мешает, можете отключить переключателем ниже)",
-    turnOf: "выкл виджет",
-    turnOn: "Вкл",
+      "Встраиваемый погодный виджет написанный на React с использованием TypeScript. (Если у вас разрешен доступ к вашему местоположению, то после переключения бегунка ниже вы должны увидеть его в правом нижнем углу).",
+    turnOf: "Выкл",
+    turnOn: "вкл виджет",
     clueForAnimation: "Для анимации наведите курсор на изображение",
     clueForAnimationMobile:
       "Для анимации выполните длительное касание по изображению",

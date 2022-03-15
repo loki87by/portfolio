@@ -14,8 +14,8 @@ import "./Resume.css";
 import "../Works/styles/__slider-container/Works__slider-container.css";
 import "./styles/__openWorks-container/Resume__openWorks-container.css";
 import "./styles/__openWorks-container/_open/Resume__openWorks-container_open.css";
-import "../Popup/Popup.css";
-import "../Popup/styles/_opened/Popup_opened.css";
+import "./styles/__popup/Resume__popup.css";
+import "./styles/__popup/_opened/Resume__popup_opened.css";
 import "./styles/__certificate/Resume__certificate.css";
 import "./styles/__certificate-close/Resume__certificate-close.css";
 
@@ -28,8 +28,9 @@ function Resume(props) {
   const [worksStyles, setWorksStyles] = React.useState([]);
   const [pausedWorksSlider, setPausedWorksSlider] = React.useState(false);
   const [selectedStack, setSelectedStack] = React.useState(STACK);
-  const [worksIsOpen, setWorksOpen] = React.useState(true);
+  const [worksIsOpen, setWorksOpen] = React.useState(false);
   const [currentWorks, setCurrentWorks] = React.useState([]);
+  const [widgetRangeValue, setWidgetRangeValue] = React.useState(0);
 
   let imagesObject = {};
   const softImages = completeSliderArray(props.images.soft.slice(), 5);
@@ -57,8 +58,7 @@ function Resume(props) {
 
   React.useEffect(() => {
     if (!pausedWorksSlider) {
-      const newState = !worksIsOpen;
-      setWorksOpen(newState);
+      setWorksOpen(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pausedWorksSlider]);
@@ -71,7 +71,7 @@ function Resume(props) {
 
     return (
       <Works
-        key={`worksListSlide-${index}`}
+        key={`worksListSlide-${item.type}-${index}`}
         style={worksStyles[index]}
         item={item}
         index={index}
@@ -202,6 +202,7 @@ function Resume(props) {
               <Work
                 key={`work-${index}`}
                 link={item.src}
+                index={index}
                 type={item.type}
                 double={item.double}
                 firstLinkText={item.firstLinkText}
@@ -216,6 +217,9 @@ function Resume(props) {
                 width={screenWidth}
                 isMobile={props.isMobile}
                 aspectRatio={item.aspectRatio}
+                additionally={item.additionally}
+                setRangeValue={setWidgetRangeValue}
+                rangeValue={widgetRangeValue}
               />
             );
           })}
@@ -223,7 +227,11 @@ function Resume(props) {
       ) : (
         ""
       )}
-      <section className={`Popup ${isCertificateOpen && "Popup_opened"}`}>
+      <section
+        className={`Resume__popup ${
+          isCertificateOpen && "Resume__popup_opened"
+        }`}
+      >
         <iframe
           className="Resume__certificate"
           title="sertify"

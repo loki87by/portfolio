@@ -11,11 +11,9 @@ import "./styles/_horizontal/Work_horizontal.css";
 import "./styles/__description-text/Work__description-text.css";
 import "./styles/_animation/Work_animation_standart.css";
 import "./styles/_animation/Work_animation_none.css";
-/*
 import "./styles/__additionally-range/Work__additionally-range.css";
 import "./styles/__additionally-range/_mobile/Work__additionally-range_mobile.css";
 import "./styles/widget_disabled.css";
-*/
 
 function Work(props) {
   const translation = React.useContext(TranslationContext);
@@ -35,12 +33,11 @@ function Work(props) {
     animationCancel(images[0], event.target);
   }
 
-  /* function widgetSwitcher(evt) {
+  function widgetSwitcher(evt) {
     props.setRangeValue(evt.target.value);
-    const widget = document.querySelector(".Weather-widget-app");
-    console.log(widget);
-    widget.classList.toggle("widget_disabled");
-  } */
+    const widget = document.getElementById("weatherWidget");
+    widget.classList.toggle("hide-widget");
+  }
 
   return (
     <>
@@ -96,22 +93,24 @@ function Work(props) {
           <p className="Work__description-text">
             {translation[`${props.text}`]}
           </p>
-          {/* {props.additionally ? (
-              <>
-                <p className="Work__description-text">{translation.turnOn}</p>
-                <input
-                  type="range"
-                  className={`Work__additionally-range ${ props.width < 850 && "Work__additionally-range_mobile"}`}
-                  value={props.rangeValue}
-                  min="0"
-                  max="1"
-                  onInput={widgetSwitcher}
-                />
-                <p className="Work__description-text">{translation.turnOf}</p>
-              </>
-            ) : (
-              ""
-            )} */}
+          {props.additionally ? (
+            <>
+              <p className="Work__description-text">{translation.turnOf}</p>
+              <input
+                type="range"
+                className={`Work__additionally-range ${
+                  props.width < 758 && "Work__additionally-range_mobile"
+                }`}
+                value={props.rangeValue}
+                min="0"
+                max="1"
+                onInput={widgetSwitcher}
+              />
+              <p className="Work__description-text">{translation.turnOn}</p>
+            </>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </>

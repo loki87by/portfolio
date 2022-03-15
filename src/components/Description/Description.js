@@ -62,10 +62,10 @@ function Description(props) {
     const button = document.createElement("div");
     button.id = type;
     const styles = `position: fixed;
-    top: 30%;
+    top: 40%;
     left: 40%;
     width: 20%;
-    height: 40%;
+    height: 30%;
     border-radius: 25%;
     cursor: pointer;
     background-image: url("${zoom}");
@@ -190,7 +190,7 @@ function Description(props) {
           className="Description__certificate"
           title="certify"
           allowtransparency="true"
-          height="auto"
+          height={`${props.screenWidth * 0.29}px`}
           width={`${props.screenWidth * 0.43}px`}
           src={
             props.lang === "ru"
@@ -205,7 +205,7 @@ function Description(props) {
           className="Description__certificate"
           title="certify"
           allowtransparency="true"
-          height="auto"
+          height={`${props.screenWidth * 0.29}px`}
           width={`${props.screenWidth * 0.43}px`}
           src={`${epamCertificate}#zoom=${props.screenWidth / 27.5}`}
         ></iframe>

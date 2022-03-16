@@ -3,11 +3,11 @@
   --back-color: #000;
   --second-color: rgb(128, 128, 128);
   --filter: invert(100%);
-  --fs1: 5vmax;
-  --fs2: 4vmax;
-  --fs3: 3vmax;
-  --fs4: 2.5vmax;
-  --fs5: 1.8vmax;
+  --fs1: 4vmax;
+  --fs2: 3vmax;
+  --fs3: 2vmax;
+  --fs4: 1.5vmax;
+  --fs5: 1.2vmax;
 }
 
 html {
@@ -26,4 +26,8 @@ body {
 
 a {
   text-decoration: none;
+}
+
+h4 {
+  font-size: var(--fs4);
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import "./styles/__soft-button/Slider__soft-button.css";
 import "./styles/__soft-button/_left/Slider__soft-button_left.css";
@@ -36,34 +37,21 @@ function Slider(props) {
       props.setStyle({
         transform: `translateX(${-position * props.shift}${props.unit})`,
       });
-    }
 
-    /*       if (props.icons) {
-        if (i === position) {
-          if (
-            position < props.slides.length - props.limit &&
-            position > props.limit - 1
-          ) {
-            props.icons[i - props.limit].classList.add(props.activeIconClass);
-          }
+      if (props.icons) {
+        if (position === 0) {
+          props.changeActiveIconClass(
+            position + props.icons.length - props.limit
+          );
+        } else if (position <= props.icons.length) {
+          props.changeActiveIconClass(position - props.limit);
         } else {
-          if (i < props.slides.length - props.limit && i > props.limit - 1) {
-            props.icons[i - props.limit].classList.remove(
-              props.activeIconClass
-            );
-          }
+          props.changeActiveIconClass(position - props.icons.length);
         }
       }
-    } */
+    }
 
     if (position >= props.slides.length - props.limit - 1 && direction === 0) {
-      /* if (props.icons) {
-        props.icons[props.slides.length - (props.limit + position)].classList.add(
-          props.activeIconClass
-        );
-      } */
-
-      // if (!props.paused) {
       const shiftingPosition =
         position - (props.slides.length - props.limit * 2);
       const timer = setTimeout(() => {
@@ -88,17 +76,9 @@ function Slider(props) {
           });
         }
       };
-      // }
     }
 
     if (position <= props.limit - 1 && direction === 1) {
-      /* if (props.icons) {
-        props.icons[props.icons.length - 1].classList.add(
-          props.activeIconClass
-        );
-      } */
-
-      // if (!props.paused) {
       const shiftingPosition = props.slides.length - props.limit * 2 + position;
       const timer = setTimeout(() => {
         setPosition(shiftingPosition);
@@ -122,7 +102,6 @@ function Slider(props) {
           });
         }
       };
-      // }
     }
 
     if (!props.paused) {
@@ -136,50 +115,20 @@ function Slider(props) {
 
       return () => clearTimeout(timer);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [position, direction, props.paused]);
-  /*
 
   React.useEffect(() => {
     if (props.icons) {
-      function getCurrentSlide(e) {
-        let currentIndex;
-        props.icons.forEach((item, index) => {
-          if (item === e.target) {
-            currentIndex = index + position;
-          }
-        });
-
-        if (currentIndex > props.limit) {
-          let q = currentIndex - props.limit;
-
-          for (let i = 0; i < q; i++) {
-            setDirection(1);
-            changeSlide();
-          }
-        }
-
-        if (currentIndex < props.limit) {
-          let q = props.limit - currentIndex;
-
-          for (let i = 0; i < q; i++) {
-            setDirection(0);
-            changeSlide();
-          }
-        }
+      if (props.targetWorkIcon > position - props.limit) {
+        setDirection(0);
       }
-      props.icons.forEach((item) => {
-        item.onClick = { getCurrentSlide };
-      });
-    }
-  }, [props.icons, changeSlide, props.limit, position]); */
-  // console.log(props.slides)
-  /* if (!props.paused) {
-  setTimeout(() => {
-    toRight()
-  }, props.interval * 2); */
 
-  // }
+      if (props.targetWorkIcon < position - props.limit) {
+        setDirection(1);
+      }
+      setPosition(props.targetWorkIcon + props.limit);
+    }
+  }, [props.targetWorkIcon]);
 
   return (
     <>

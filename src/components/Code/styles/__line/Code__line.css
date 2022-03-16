@@ -10,6 +10,6 @@
 }
 
 .Code__line-tab {
-  font-size: 5vw;
-  line-height: .01;
+  font-size: var(--fs4);
+  line-height: 0.01;
 }

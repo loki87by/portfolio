@@ -61,6 +61,7 @@ function Works(props) {
 
     return () => {
       clearTimeout(timer);
+
       if (props.style !== pos) {
         setNewStyle(false);
       }

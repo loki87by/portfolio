@@ -214,15 +214,15 @@ function Description(props) {
       <h3 className="Description__subsubtitle">{translation.soft}:</h3>
       <div className="Description__soft-container">
         <Slider
-          slides={props.slides}
-          setStyle={props.setStyle}
-          shift={125}
           unit="%"
           limit={5}
+          shift={125}
+          interval={3000}
+          slides={props.slides}
+          setStyle={props.setStyle}
           paused={props.paused}
           setPaused={props.setPaused}
           resetPaused={props.resetPaused}
-          interval={3000}
         />
       </div>
       <h3 className="Description__subsubtitle">{translation.works}:</h3>

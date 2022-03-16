@@ -5,7 +5,6 @@ import "./Age.css";
 import "./styles/__section/Age__section.css";
 
 function Age(props) {
-  const translation = React.useContext(TranslationContext);
   const [yearsOld, setYearsOld] = React.useState(0);
   const [mouthesOld, setMouthesOld] = React.useState(0);
   const [weeksOld, setWeeksOld] = React.useState(0);
@@ -13,6 +12,7 @@ function Age(props) {
   const [hoursOld, setHoursOld] = React.useState(0);
   const [minutesOld, setMinutesOld] = React.useState(0);
   const [secondsOld, setSecondsOld] = React.useState(0);
+  const translation = React.useContext(TranslationContext);
   const intervalTime = 1000;
   const intervalRef = React.useRef(intervalTime);
   intervalRef.current = intervalTime;

@@ -13,7 +13,6 @@ import "./styles/_animation/Work_animation_standart.css";
 import "./styles/_animation/Work_animation_none.css";
 import "./styles/__additionally-range/Work__additionally-range.css";
 import "./styles/__additionally-range/_mobile/Work__additionally-range_mobile.css";
-import "./styles/widget_disabled.css";
 
 function Work(props) {
   const translation = React.useContext(TranslationContext);

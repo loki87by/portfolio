@@ -6,6 +6,7 @@ import epamCertificate from "../../media/ds8jpv3n.pdf";
 import { WORKS } from "../../consts/works";
 import { STACK } from "../../utils/consts.js";
 import { completeSliderArray } from "../../utils/helpers.js";
+import { TranslationContext } from "../../contexts/translationContext";
 import Description from "../Description/Description";
 import Slider from "../Slider/Slider";
 import Works from "../Works/Works";
@@ -14,6 +15,9 @@ import "./Resume.css";
 import "../Works/styles/__slider-container/Works__slider-container.css";
 import "./styles/__openWorks-container/Resume__openWorks-container.css";
 import "./styles/__openWorks-container/_open/Resume__openWorks-container_open.css";
+import "./styles/__slider-icons/Works__slider-icons.css";
+import "./styles/__slider-icon/Works__slider-icon.css";
+import "./styles/__slider-icon/_active/Works__slider-icon_active.css";
 import "./styles/__popup/Resume__popup.css";
 import "./styles/__popup/_opened/Resume__popup_opened.css";
 import "./styles/__certificate/Resume__certificate.css";
@@ -31,14 +35,21 @@ function Resume(props) {
   const [worksIsOpen, setWorksOpen] = React.useState(false);
   const [currentWorks, setCurrentWorks] = React.useState([]);
   const [widgetRangeValue, setWidgetRangeValue] = React.useState(0);
+  const [workIconsStyles, setWorkIconsStyles] = React.useState([]);
+  const [targetWorkIcon, setTargetWorkIcon] = React.useState(null);
 
-  let imagesObject = {};
+  const translation = React.useContext(TranslationContext);
+
   const softImages = completeSliderArray(props.images.soft.slice(), 5);
   const worksListArray = completeSliderArray(WORKS.slice(), 1);
-  let softStylesArray = JSON.parse(JSON.stringify(softStyles));
-  let worksStyleArray = JSON.parse(JSON.stringify(worksStyles));
   const temporarySoftArray = [];
   const temporaryWorksArray = [];
+  const temporaryIconsArray = [];
+
+  let softStylesArray = JSON.parse(JSON.stringify(softStyles));
+  let worksStyleArray = JSON.parse(JSON.stringify(worksStyles));
+  let iconsStyleArray = JSON.parse(JSON.stringify(workIconsStyles));
+  let imagesObject = {};
 
   function stopSoftAutoSlide() {
     setPausedSoftSlider(true);
@@ -72,22 +83,56 @@ function Resume(props) {
     return (
       <Works
         key={`worksListSlide-${item.type}-${index}`}
+        selectedStack={selectedStack}
+        worksStyles={worksStyles}
+        worksIsOpen={worksIsOpen}
+        currentWorks={currentWorks}
         style={worksStyles[index]}
         item={item}
         index={index}
-        selectedStack={selectedStack}
+        images={props.images}
         setSelectedStack={setSelectedStack}
         setPaused={stopWorksAutoSlide}
         resetPaused={restartWorksAutoSlide}
-        images={props.images}
-        worksStyles={worksStyles}
-        worksIsOpen={worksIsOpen}
         setWorksOpen={setWorksOpen}
         setCurrentWorks={setCurrentWorks}
-        currentWorks={currentWorks}
       />
     );
   });
+
+  function replaceIconActiveClass(numb) {
+    const arr = [];
+    for (let i = 0; i < WORKS.length; i++) {
+      if (i !== numb) {
+        arr.push("Works__slider-icon");
+      } else {
+        arr.push("Works__slider-icon Works__slider-icon_active");
+      }
+    }
+    setWorkIconsStyles(arr);
+  }
+
+  const workSlideIcons = WORKS.map((item, index) => {
+    if (!iconsStyleArray[index]) {
+      temporaryIconsArray.push("Works__slider-icon");
+      setWorkIconsStyles(temporaryIconsArray);
+    }
+
+    return (
+      <div
+        key={`icon-${index}`}
+        id={`icon-${index}`}
+        title={translation[item.type]}
+        className={workIconsStyles[index]}
+        onClick={getCurrentSlide}
+      ></div>
+    );
+  });
+
+  function getCurrentSlide(e) {
+    let currentIndex = +e.target.id.replace("icon-", "");
+    setTargetWorkIcon(currentIndex);
+  }
 
   const softImagesSlides = softImages.map((item, index) => {
     if (!softStylesArray[index]) {
@@ -128,6 +173,7 @@ function Resume(props) {
       closeCertificate();
     }
   }
+
   React.useEffect(() => {
     window.addEventListener("keydown", handleEscClose);
 
@@ -163,32 +209,35 @@ function Resume(props) {
   return (
     <section className="Resume">
       <Description
-        images={props.images}
-        isMobile={props.isMobile}
-        setCertificateOpen={setCertificateOpen}
-        setCertificateType={setCertificateType}
-        imagesIsLoad={props.imagesIsLoad}
         screenWidth={screenWidth}
         slides={softImagesSlides}
-        setStyle={setSoftStyle}
         paused={pausedSoftSlider}
+        selectedStack={selectedStack}
+        images={props.images}
+        isMobile={props.isMobile}
+        imagesIsLoad={props.imagesIsLoad}
+        scrollbarWidth={props.scrollbarWidth}
+        setCertificateOpen={setCertificateOpen}
+        setCertificateType={setCertificateType}
+        setStyle={setSoftStyle}
         setPaused={stopSoftAutoSlide}
         resetPaused={restartSoftAutoSlide}
-        selectedStack={selectedStack}
         setSelectedStack={setSelectedStack}
-        scrollbarWidth={props.scrollbarWidth}
       />
       <section className="Works__slider-container">
         <Slider
-          slides={worksListSlides}
-          setStyle={setWorkStyle}
-          shift={(100 / 96) * 100}
           unit="%"
           limit={1}
+          shift={(100 / 96) * 100}
+          interval={10000}
+          icons={workSlideIcons}
           paused={pausedWorksSlider}
+          slides={worksListSlides}
+          targetWorkIcon={targetWorkIcon}
+          setStyle={setWorkStyle}
           setPaused={stopWorksAutoSlide}
           resetPaused={restartWorksAutoSlide}
-          interval={10000}
+          changeActiveIconClass={replaceIconActiveClass}
         />
       </section>
       {worksIsOpen ? (
@@ -201,6 +250,8 @@ function Resume(props) {
             return (
               <Work
                 key={`work-${index}`}
+                width={screenWidth}
+                rangeValue={widgetRangeValue}
                 link={item.src}
                 index={index}
                 type={item.type}
@@ -214,18 +265,16 @@ function Resume(props) {
                 animationTime={item.animationTime}
                 animation={item.animation}
                 text={item.text}
-                width={screenWidth}
                 isMobile={props.isMobile}
                 aspectRatio={item.aspectRatio}
                 additionally={item.additionally}
                 setRangeValue={setWidgetRangeValue}
-                rangeValue={widgetRangeValue}
               />
             );
           })}
         </section>
       ) : (
-        ""
+        <section className="Works__slider-icons">{workSlideIcons}</section>
       )}
       <section
         className={`Resume__popup ${

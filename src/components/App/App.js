@@ -57,7 +57,8 @@ function App() {
       imagesArray[keys[i]] = arr;
     }
     setImages(imagesArray);
-  }, [images]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   React.useEffect(() => {
     if (Math.round(loadProgress) === 100) {

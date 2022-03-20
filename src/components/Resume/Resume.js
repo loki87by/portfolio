@@ -1,8 +1,4 @@
 import React from "react";
-import close from "../../images/close.png";
-import certificateRu from "../../media/Акулич.pdf";
-import certificateEn from "../../media/20202WD00196.pdf";
-import epamCertificate from "../../media/ds8jpv3n.pdf";
 import { WORKS } from "../../consts/works";
 import { STACK } from "../../utils/consts.js";
 import { completeSliderArray } from "../../utils/helpers.js";
@@ -11,6 +7,7 @@ import Description from "../Description/Description";
 import Slider from "../Slider/Slider";
 import Works from "../Works/Works";
 import Work from "../Work/Work";
+import Certificate from "../Certificate/Certificate";
 import "./Resume.css";
 import "../Works/styles/__slider-container/Works__slider-container.css";
 import "./styles/__openWorks-container/Resume__openWorks-container.css";
@@ -182,7 +179,7 @@ function Resume(props) {
     };
   });
 
-  React.useEffect(function () {
+  React.useEffect(() => {
     function resizer() {
       setScreenWidth(window.innerWidth);
     }
@@ -213,6 +210,7 @@ function Resume(props) {
         slides={softImagesSlides}
         paused={pausedSoftSlider}
         selectedStack={selectedStack}
+        lang={props.lang}
         images={props.images}
         isMobile={props.isMobile}
         imagesIsLoad={props.imagesIsLoad}
@@ -281,31 +279,15 @@ function Resume(props) {
           isCertificateOpen && "Resume__popup_opened"
         }`}
       >
-        <iframe
-          className="Resume__certificate"
-          title="sertify"
-          allowtransparency="true"
-          height="100%"
-          width="100%"
-          src={
-            certificateType === "yandex"
-              ? props.lang === "ru"
-                ? `${certificateRu}#zoom=${screenWidth / 20}`
-                : `${certificateEn}#zoom=${screenWidth / 20}`
-              : `${epamCertificate}#zoom=${screenWidth / 18}`
-          }
-        ></iframe>
-        {isCertificateOpen ? (
-          <button
-            type="button"
-            className="Resume__certificate-close"
-            onClick={closeCertificate}
-          >
-            <img alt="close" src={close} />
-          </button>
-        ) : (
-          ""
-        )}
+        <Certificate
+          type={certificateType}
+          isCertificateOpen={isCertificateOpen}
+          screenWidth={props.screenWidth}
+          lang={props.lang}
+          setCertificateOpen={setCertificateOpen}
+          setCertificateType={setCertificateType}
+          closeCertificate={closeCertificate}
+        />
       </section>
     </section>
   );

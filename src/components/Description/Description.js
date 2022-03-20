@@ -3,11 +3,8 @@ import Code from "../Code/Code";
 import Age from "../Age/Age";
 import Slider from "../Slider/Slider";
 import Stack from "../Stack/Stack";
+import Certificate from "../Certificate/Certificate";
 import { TranslationContext } from "../../contexts/translationContext";
-import certificateRu from "../../media/Акулич.pdf";
-import certificateEn from "../../media/20202WD00196.pdf";
-import epamCertificate from "../../media/ds8jpv3n.pdf";
-import zoom from "../../images/zoom.svg";
 import "./styles/__title/Description__title.css";
 import "./styles/__subtitle/Description__subtitle.css";
 import "./styles/__subsubtitle/Description__subsubtitle.css";
@@ -17,8 +14,6 @@ import "./styles/__photo/Description__photo.css";
 import "./styles/__block/Description__block.css";
 import "./styles/__button/Description__button.css";
 import "./styles/__certificates/Description__certificates.css";
-import "./styles/__certificate/Description__certificate.css";
-import "./styles/__certificate-open/Description__certificate-open.css";
 import "./styles/__soft/Description__soft.css";
 import "./styles/__soft-container/Description__soft-container.css";
 import "./styles/__soft-image/Description__soft-image.css";
@@ -34,59 +29,6 @@ function Description(props) {
   function changeDigitType() {
     const newState = !binary;
     setBinary(newState);
-  }
-
-  function openCertificate(e) {
-    props.setCertificateType(e.target.id);
-    props.setCertificateOpen(true);
-  }
-
-  function setButton(type) {
-    const ifrs = document.getElementsByTagName("iframe");
-    let ifr;
-
-    if (type === "yandex") {
-      ifr = ifrs[0];
-    }
-
-    if (type === "epam") {
-      ifr = ifrs[1];
-    }
-    const frameHtml = ifr.contentDocument.children[0];
-    frameHtml.setAttribute("style", "height: 100%; cursor: pointer");
-    const frameBody = frameHtml.children[1];
-    frameBody.setAttribute(
-      "style",
-      "position: relative; height: 100%; margin: 0"
-    );
-    const button = document.createElement("div");
-    button.id = type;
-    const styles = `position: fixed;
-    top: 40%;
-    left: 40%;
-    width: 20%;
-    height: 30%;
-    border-radius: 25%;
-    cursor: pointer;
-    background-image: url("${zoom}");
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: rgba(0, 0, 0, .5);`;
-    button.setAttribute("style", styles);
-    frameBody.appendChild(button);
-    button.addEventListener("click", (e) => {
-      openCertificate(e);
-    });
-    button.addEventListener("mouseover", () => {
-      button.setAttribute(
-        "style",
-        styles.concat("transition: all .3s linear; transform: scale(1.3)")
-      );
-    });
-    button.addEventListener("mouseout", () => {
-      button.setAttribute("style", styles);
-    });
   }
 
   React.useEffect(() => {
@@ -183,32 +125,22 @@ function Description(props) {
       </h2>
       <h2 className="Description__subsubtitle">{translation.certificates}: </h2>
       <section className="Description__certificates">
-        <iframe
-          onLoad={() => {
-            setButton("yandex");
-          }}
-          className="Description__certificate"
-          title="certify"
-          allowtransparency="true"
-          height={`${props.screenWidth * 0.29}px`}
-          width={`${props.screenWidth * 0.43}px`}
-          src={
-            props.lang === "ru"
-              ? `${certificateRu}#zoom=${props.screenWidth / 27.5}`
-              : `${certificateEn}#zoom=${props.screenWidth / 27.5}`
-          }
-        ></iframe>
-        <iframe
-          onLoad={() => {
-            setButton("epam");
-          }}
-          className="Description__certificate"
-          title="certify"
-          allowtransparency="true"
-          height={`${props.screenWidth * 0.29}px`}
-          width={`${props.screenWidth * 0.43}px`}
-          src={`${epamCertificate}#zoom=${props.screenWidth / 27.5}`}
-        ></iframe>
+        <Certificate
+          type={"yandex"}
+          screenWidth={props.screenWidth}
+          lang={props.lang}
+          setCertificateOpen={props.setCertificateOpen}
+          setCertificateType={props.setCertificateType}
+          isCertificateOpen={props.isCertificateOpen}
+        />
+        <Certificate
+          type={"epam"}
+          screenWidth={props.screenWidth}
+          lang={props.lang}
+          setCertificateOpen={props.setCertificateOpen}
+          setCertificateType={props.setCertificateType}
+          isCertificateOpen={props.isCertificateOpen}
+        />
       </section>
       <h2 className="Description__subtitle">{translation.skills}:</h2>
       <h3 className="Description__subsubtitle">{translation.soft}:</h3>

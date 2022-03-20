@@ -96,7 +96,7 @@ function App() {
               }%, rgba(255,255,255,1) ${loadProgress}%)`,
             }}
           >
-            Идёт кэширование изображений. Пожалуйста ждите{" "}
+            {translations[lang].preload}
             {Math.round(loadProgress)}%
           </h2>
         )}

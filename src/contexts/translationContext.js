@@ -2,6 +2,7 @@ import React from "react";
 export const TranslationContext = React.createContext();
 export const translations = {
   en: {
+    preload: "Images are being cached. Please, wait... ",
     age: "Age",
     years: "years",
     mounthes: "mounthes",
@@ -96,6 +97,7 @@ export const translations = {
     hideWorks: "Hide projects",
   },
   ru: {
+    preload: "Идёт кэширование изображений. Пожалуйста ждите... ",
     age: "Возраст",
     years: "лет",
     mounthes: "месяцев",

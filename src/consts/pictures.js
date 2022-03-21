@@ -78,6 +78,12 @@ import project14t from "../images/projects/gal-ng/project-14t.jpg";
 import project14u from "../images/projects/gal-ng/project-14u.jpg";
 import project14v from "../images/projects/gal-ng/project-14v.jpg";
 import project15 from "../images/projects/project-15.jpg";
+import project16 from "../images/projects/2048/project-16.jpg";
+import project16b from "../images/projects/2048/project-16_2.jpg";
+import project16c from "../images/projects/2048/project-16_3.jpg";
+import project16d from "../images/projects/2048/project-16_4.jpg";
+import project16e from "../images/projects/2048/project-16_5.jpg";
+import project16f from "../images/projects/2048/project-16_6.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -252,4 +258,12 @@ export const PIC_ARRAY = {
     project14v,
   ],
   project_myWeatherWidget: [project15],
+  project_2048game: [
+    project16,
+    project16b,
+    project16c,
+    project16d,
+    project16e,
+    project16f,
+  ],
 };

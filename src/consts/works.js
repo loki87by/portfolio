@@ -152,6 +152,15 @@ export const WORKS = [
         aspectRatio: true,
         stack: ["css", "html", "js", "typescript", "webpack"],
       },
+      {
+        src: "https://github.com/loki87by/2048game",
+        text: "sixteenProjectInfo",
+        name: "2048game",
+        animation: "2048",
+        type: "webGame",
+        aspectRatio: true,
+        stack: ["css", "react", "bem"],
+      },
     ],
   },
   {

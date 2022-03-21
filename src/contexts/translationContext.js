@@ -73,6 +73,7 @@ export const translations = {
       "Implementation of the previous project (Gallery) written in Angular with some differences",
     fifteenProjectInfo:
       "An embeddable weather widget written in React using TypeScript. (If you have permission to access your location, then after toggling the slider below, you should see it in the lower right corner).",
+    sixteenProjectInfo: "The first web game I've made. Written in ReactJs.",
     turnOn: "on widget",
     turnOf: "Turn of",
     clueForAnimation: "Hover over the image to animate",
@@ -168,6 +169,8 @@ export const translations = {
       "Реализация предыдущего проекта (Gallery) написанная на Angular с некоторыми отличиями",
     fifteenProjectInfo:
       "Встраиваемый погодный виджет написанный на React с использованием TypeScript. (Если у вас разрешен доступ к вашему местоположению, то после переключения бегунка ниже вы должны увидеть его в правом нижнем углу).",
+    sixteenProjectInfo:
+      "Первая реализованная мной веб-игра. Написана на ReactJs.",
     turnOf: "Выкл",
     turnOn: "вкл виджет",
     clueForAnimation: "Для анимации наведите курсор на изображение",

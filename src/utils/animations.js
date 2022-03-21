@@ -3,6 +3,7 @@ import zooAnimation from "./animations/zooAnimation";
 import galleryAnimation from "./animations/galleryAnimation";
 import mmgAnimation from "./animations/mmgAnimation";
 import galleryNgAnimation from "./animations/galleryNgAnimation";
+import twentyFortyEightAnimation from "./animations/twentyFortyEightAnimation";
 let timersArray = [];
 
 export function animationCreator(name, array, element) {
@@ -24,6 +25,10 @@ export function animationCreator(name, array, element) {
 
   if (name === "galleryNg") {
     return galleryNgAnimation(array, element);
+  }
+
+  if (name === "2048") {
+    return twentyFortyEightAnimation(array, element);
   }
 }
 

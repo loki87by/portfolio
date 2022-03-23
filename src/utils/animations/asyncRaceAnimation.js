@@ -211,7 +211,7 @@ export default function asyncRaceAnimation(array, element) {
   const timer42 = setTimeout(() => {
     element.removeAttribute("style");
     element.setAttribute("style", `background-image: url(${array[42]});`);
-  }, 13150);
+  }, 12350);
   timersArray.push(timer42);
   const timer43 = setTimeout(() => {
     element.removeAttribute("style");
@@ -221,17 +221,17 @@ export default function asyncRaceAnimation(array, element) {
   const timer44 = setTimeout(() => {
     element.removeAttribute("style");
     element.setAttribute("style", `background-image: url(${array[44]});`);
-  }, 13650);
+  }, 13950);
   timersArray.push(timer44);
   const timer45 = setTimeout(() => {
     element.removeAttribute("style");
     element.setAttribute("style", `background-image: url(${array[45]});`);
-  }, 13950);
+  }, 14250);
   timersArray.push(timer45);
   const timer46 = setTimeout(() => {
     element.removeAttribute("style");
     element.setAttribute("style", `background-image: url(${array[46]});`);
-  }, 14300);
+  }, 14600);
   timersArray.push(timer46);
   return timersArray;
 }

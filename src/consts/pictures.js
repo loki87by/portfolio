@@ -123,6 +123,7 @@ import project17h1 from "../images/projects/async-race/project-17h1.jpg";
 import project17h2 from "../images/projects/async-race/project-17h2.jpg";
 import project17h3 from "../images/projects/async-race/project-17h3.jpg";
 import project17i from "../images/projects/async-race/project-17i.jpg";
+import project17i1 from "../images/projects/async-race/project-17i1.jpg";
 import project17j from "../images/projects/async-race/project-17j.jpg";
 import project17j1 from "../images/projects/async-race/project-17j1.jpg";
 import project17j2 from "../images/projects/async-race/project-17j2.jpg";
@@ -353,6 +354,7 @@ export const PIC_ARRAY = {
     project17h2,
     project17h3,
     project17i,
+    project17i1,
     project17j,
     project17j1,
     project17j2,

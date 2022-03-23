@@ -211,27 +211,32 @@ export default function asyncRaceAnimation(array, element) {
   const timer42 = setTimeout(() => {
     element.removeAttribute("style");
     element.setAttribute("style", `background-image: url(${array[42]});`);
-  }, 12350);
+  }, 12550);
   timersArray.push(timer42);
   const timer43 = setTimeout(() => {
     element.removeAttribute("style");
     element.setAttribute("style", `background-image: url(${array[43]});`);
-  }, 13350);
+  }, 13550);
   timersArray.push(timer43);
   const timer44 = setTimeout(() => {
     element.removeAttribute("style");
     element.setAttribute("style", `background-image: url(${array[44]});`);
-  }, 13950);
+  }, 14150);
   timersArray.push(timer44);
   const timer45 = setTimeout(() => {
     element.removeAttribute("style");
     element.setAttribute("style", `background-image: url(${array[45]});`);
-  }, 14250);
+  }, 14350);
   timersArray.push(timer45);
   const timer46 = setTimeout(() => {
     element.removeAttribute("style");
     element.setAttribute("style", `background-image: url(${array[46]});`);
-  }, 14600);
+  }, 14550);
   timersArray.push(timer46);
+  const timer47 = setTimeout(() => {
+    element.removeAttribute("style");
+    element.setAttribute("style", `background-image: url(${array[47]});`);
+  }, 15000);
+  timersArray.push(timer47);
   return timersArray;
 }

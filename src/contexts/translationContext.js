@@ -74,6 +74,7 @@ export const translations = {
     fifteenProjectInfo:
       "An embeddable weather widget written in React using TypeScript. (If you have permission to access your location, then after toggling the slider below, you should see it in the lower right corner).",
     sixteenProjectInfo: "The first web game I've made. Written in ReactJs.",
+    asyncRaceInfo: "Web game written in TypeScript built on API calls",
     turnOn: "on widget",
     turnOf: "Turn of",
     clueForAnimation: "Hover over the image to animate",
@@ -171,6 +172,8 @@ export const translations = {
       "Встраиваемый погодный виджет написанный на React с использованием TypeScript. (Если у вас разрешен доступ к вашему местоположению, то после переключения бегунка ниже вы должны увидеть его в правом нижнем углу).",
     sixteenProjectInfo:
       "Первая реализованная мной веб-игра. Написана на ReactJs.",
+    asyncRaceInfo:
+      "Web-игра построенная на обращениях к API написанная на TypeScript",
     turnOf: "Выкл",
     turnOn: "вкл виджет",
     clueForAnimation: "Для анимации наведите курсор на изображение",

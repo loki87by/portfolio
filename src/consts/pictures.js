@@ -84,6 +84,53 @@ import project16c from "../images/projects/2048/project-16_3.jpg";
 import project16d from "../images/projects/2048/project-16_4.jpg";
 import project16e from "../images/projects/2048/project-16_5.jpg";
 import project16f from "../images/projects/2048/project-16_6.jpg";
+import project17 from "../images/projects/async-race/project-17.jpg";
+import project17a from "../images/projects/async-race/project-17a.jpg";
+import project17a1 from "../images/projects/async-race/project-17a1.jpg";
+import project17a2 from "../images/projects/async-race/project-17a2.jpg";
+import project17a3 from "../images/projects/async-race/project-17a3.jpg";
+import project17a4 from "../images/projects/async-race/project-17a4.jpg";
+import project17b from "../images/projects/async-race/project-17b.jpg";
+import project17c from "../images/projects/async-race/project-17c.jpg";
+import project17c1 from "../images/projects/async-race/project-17c1.jpg";
+import project17c2 from "../images/projects/async-race/project-17c2.jpg";
+import project17c3 from "../images/projects/async-race/project-17c3.jpg";
+import project17c4 from "../images/projects/async-race/project-17c4.jpg";
+import project17c5 from "../images/projects/async-race/project-17c5.jpg";
+import project17c6 from "../images/projects/async-race/project-17c6.jpg";
+import project17d from "../images/projects/async-race/project-17d.jpg";
+import project17d1 from "../images/projects/async-race/project-17d1.jpg";
+import project17d2 from "../images/projects/async-race/project-17d2.jpg";
+import project17d3 from "../images/projects/async-race/project-17d3.jpg";
+import project17d4 from "../images/projects/async-race/project-17d4.jpg";
+import project17e from "../images/projects/async-race/project-17e.jpg";
+import project17e2 from "../images/projects/async-race/project-17e2.jpg";
+import project17e3 from "../images/projects/async-race/project-17e3.jpg";
+import project17e4 from "../images/projects/async-race/project-17e4.jpg";
+import project17e5 from "../images/projects/async-race/project-17e5.jpg";
+import project17e6 from "../images/projects/async-race/project-17e6.jpg";
+import project17f from "../images/projects/async-race/project-17f.jpg";
+import project17f1 from "../images/projects/async-race/project-17f1.jpg";
+import project17f2 from "../images/projects/async-race/project-17f2.jpg";
+import project17f3 from "../images/projects/async-race/project-17f3.jpg";
+import project17f4 from "../images/projects/async-race/project-17f4.jpg";
+import project17g from "../images/projects/async-race/project-17g.jpg";
+import project17g1 from "../images/projects/async-race/project-17g1.jpg";
+import project17g2 from "../images/projects/async-race/project-17g2.jpg";
+import project17g3 from "../images/projects/async-race/project-17g3.jpg";
+import project17h from "../images/projects/async-race/project-17h.jpg";
+import project17h1 from "../images/projects/async-race/project-17h1.jpg";
+import project17h2 from "../images/projects/async-race/project-17h2.jpg";
+import project17h3 from "../images/projects/async-race/project-17h3.jpg";
+import project17i from "../images/projects/async-race/project-17i.jpg";
+import project17j from "../images/projects/async-race/project-17j.jpg";
+import project17j1 from "../images/projects/async-race/project-17j1.jpg";
+import project17j2 from "../images/projects/async-race/project-17j2.jpg";
+import project17k from "../images/projects/async-race/project-17k.jpg";
+import project17l from "../images/projects/async-race/project-17l.jpg";
+import project17m from "../images/projects/async-race/project-17m.jpg";
+import project17n from "../images/projects/async-race/project-17n.jpg";
+import project17o from "../images/projects/async-race/project-17o.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -265,5 +312,54 @@ export const PIC_ARRAY = {
     project16d,
     project16e,
     project16f,
+  ],
+  project_asyncRace: [
+    project17,
+    project17a,
+    project17a1,
+    project17a2,
+    project17a3,
+    project17a4,
+    project17b,
+    project17c,
+    project17c1,
+    project17c2,
+    project17c3,
+    project17c4,
+    project17c5,
+    project17c6,
+    project17d,
+    project17d1,
+    project17d2,
+    project17d3,
+    project17d4,
+    project17e,
+    project17e2,
+    project17e3,
+    project17e4,
+    project17e5,
+    project17e6,
+    project17f,
+    project17f1,
+    project17f2,
+    project17f3,
+    project17f4,
+    project17g,
+    project17g1,
+    project17g2,
+    project17g3,
+    project17h,
+    project17h1,
+    project17h2,
+    project17h3,
+    project17i,
+    project17j,
+    project17j1,
+    project17j2,
+    project17k,
+    project17l,
+    project17m,
+    project17n,
+    project17o,
   ],
 };

@@ -4,6 +4,8 @@ import galleryAnimation from "./animations/galleryAnimation";
 import mmgAnimation from "./animations/mmgAnimation";
 import galleryNgAnimation from "./animations/galleryNgAnimation";
 import twentyFortyEightAnimation from "./animations/twentyFortyEightAnimation";
+import asyncRaceAnimation from "./animations/asyncRaceAnimation";
+
 let timersArray = [];
 
 export function animationCreator(name, array, element) {
@@ -29,6 +31,10 @@ export function animationCreator(name, array, element) {
 
   if (name === "2048") {
     return twentyFortyEightAnimation(array, element);
+  }
+
+  if (name === "asyncRace") {
+    timersArray = asyncRaceAnimation(array, element);
   }
 }
 

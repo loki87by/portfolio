@@ -132,6 +132,7 @@ import project17l from "../images/projects/async-race/project-17l.jpg";
 import project17m from "../images/projects/async-race/project-17m.jpg";
 import project17n from "../images/projects/async-race/project-17n.jpg";
 import project17o from "../images/projects/async-race/project-17o.jpg";
+import project18 from "../images/projects/project-18.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -364,4 +365,6 @@ export const PIC_ARRAY = {
     project17n,
     project17o,
   ],
+  project_ecwid: [project18],
+  project_ecwidVue: [project18],
 };

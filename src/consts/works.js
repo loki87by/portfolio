@@ -29,6 +29,26 @@ export const WORKS = [
         type: "landingPage",
         stack: ["css", "html", "js", "markdown"],
       },
+      {
+        src: "https://github.com/loki87by/ecwid-test",
+        text: "ecwidProjectInfo",
+        name: "ecwid",
+        animation: "none" /*
+        animationTime: "3s", */,
+        type: "landingPage",
+        aspectRatio: true,
+        stack: ["css", "html", "js", "markdown"],
+      },
+      {
+        src: "https://github.com/loki87by/ecwid-test-vue",
+        text: "ecwidVueProjectInfo",
+        name: "ecwidVue",
+        animation: "none" /*
+        animationTime: "3s", */,
+        type: "landingPage",
+        aspectRatio: true,
+        stack: ["css", "html", "vue", "markdown"],
+      },
     ],
   },
   {

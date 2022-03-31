@@ -79,6 +79,8 @@ export const translations = {
       "A small, simple adaptive layout project. JS is used only for the slider, everything else is pure HTML and CSS.",
     ecwidVueProjectInfo:
       "Implementation of the previous project (Ecwid) written in Vue",
+    multiRockSliderInfo:
+      "A pure js music slider with the ability to scroll through slides both horizontally and vertically by clicking or dragging the slide.",
     turnOn: "on widget",
     turnOf: "Turn of",
     clueForAnimation: "Hover over the image to animate",
@@ -182,6 +184,8 @@ export const translations = {
       "Небольшой простой адаптивный проект по верстке. JS испольлзуется только для слайдера, все остальное чистые HTML и CSS.",
     ecwidVueProjectInfo:
       "Реализация предыдущего проекта (Ecwid) написанная на Vue",
+    multiRockSliderInfo:
+      "Музыкальный слайдер на чистом js с возможностью прокрутки слайдов как горизонтально, так и вертикально кликом или перетаскиванием слайда.",
     turnOf: "Выкл",
     turnOn: "вкл виджет",
     clueForAnimation: "Для анимации наведите курсор на изображение",

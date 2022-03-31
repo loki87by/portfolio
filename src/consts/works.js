@@ -113,10 +113,20 @@ export const WORKS = [
         text: "forteenProjectInfo",
         name: "galleryAngular",
         animation: "galleryNg",
-        animationTime: "2.5s",
+        /* animationTime: "2.5s", */
         type: "webService",
         aspectRatio: true,
         stack: ["angular", "css", "typescript", "markdown"],
+      },
+      {
+        src: "https://github.com/loki87by/multidirection-slider",
+        text: "multiRockSliderInfo",
+        name: "multiRockSlider",
+        animation: "multiRockSlider",
+        /* animationTime: "2.5s", */
+        type: "webService",
+        aspectRatio: true,
+        stack: ["js", "css", "html", "markdown"],
       },
       {
         double: true,

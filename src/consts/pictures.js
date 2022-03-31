@@ -133,6 +133,16 @@ import project17m from "../images/projects/async-race/project-17m.jpg";
 import project17n from "../images/projects/async-race/project-17n.jpg";
 import project17o from "../images/projects/async-race/project-17o.jpg";
 import project18 from "../images/projects/project-18.jpg";
+import project19 from "../images/projects/mrs/project-19.jpg";
+import project19b from "../images/projects/mrs/project-19b.jpg";
+import project19c from "../images/projects/mrs/project-19c.jpg";
+import project19d from "../images/projects/mrs/project-19d.jpg";
+import project19e from "../images/projects/mrs/project-19e.jpg";
+import project19f from "../images/projects/mrs/project-19f.jpg";
+import project19g from "../images/projects/mrs/project-19g.jpg";
+import project19h from "../images/projects/mrs/project-19h.jpg";
+import project19i from "../images/projects/mrs/project-19i.jpg";
+import project19j from "../images/projects/mrs/project-19j.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -367,4 +377,16 @@ export const PIC_ARRAY = {
   ],
   project_ecwid: [project18],
   project_ecwidVue: [project18],
+  project_multiRockSlider: [
+    project19,
+    project19b,
+    project19c,
+    project19d,
+    project19e,
+    project19f,
+    project19g,
+    project19h,
+    project19i,
+    project19j,
+  ],
 };

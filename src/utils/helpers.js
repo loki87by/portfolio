@@ -81,8 +81,3 @@ export function updateColors(rgb) {
   html.style.setProperty("--main-color", stringReverse);
   html.style.setProperty("--second-color", secondColor);
 }
-
-export function colorizeCode(code) {
-  const arr = code.split(" ");
-  console.log(arr);
-}

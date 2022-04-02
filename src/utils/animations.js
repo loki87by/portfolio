@@ -6,6 +6,7 @@ import galleryNgAnimation from "./animations/galleryNgAnimation";
 import twentyFortyEightAnimation from "./animations/twentyFortyEightAnimation";
 import asyncRaceAnimation from "./animations/asyncRaceAnimation";
 import mrsAnimation from "./animations/mrsAnimation";
+import jsClockAnimation from "./animations/jsClockAnimation";
 
 let timersArray = [];
 
@@ -40,6 +41,10 @@ export function animationCreator(name, array, element) {
 
   if (name === "multiRockSlider") {
     timersArray = mrsAnimation(array, element);
+  }
+
+  if (name === "jsClock") {
+    timersArray = jsClockAnimation(array, element);
   }
 }
 

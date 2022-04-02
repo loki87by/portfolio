@@ -81,6 +81,8 @@ export const translations = {
       "Implementation of the previous project (Ecwid) written in Vue",
     multiRockSliderInfo:
       "A pure js music slider with the ability to scroll through slides both horizontally and vertically by clicking or dragging the slide.",
+    jsClockInfo:
+      "Pure js mechanical clock with some appearance settings and weather forecast",
     turnOn: "on widget",
     turnOf: "Turn of",
     clueForAnimation: "Hover over the image to animate",
@@ -186,6 +188,8 @@ export const translations = {
       "Реализация предыдущего проекта (Ecwid) написанная на Vue",
     multiRockSliderInfo:
       "Музыкальный слайдер на чистом js с возможностью прокрутки слайдов как горизонтально, так и вертикально кликом или перетаскиванием слайда.",
+    jsClockInfo:
+      "Механические часы на чистом js с некоторыми настройками отображения и прогнозом погоды",
     turnOf: "Выкл",
     turnOn: "вкл виджет",
     clueForAnimation: "Для анимации наведите курсор на изображение",

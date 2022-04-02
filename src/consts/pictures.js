@@ -143,6 +143,18 @@ import project19g from "../images/projects/mrs/project-19g.jpg";
 import project19h from "../images/projects/mrs/project-19h.jpg";
 import project19i from "../images/projects/mrs/project-19i.jpg";
 import project19j from "../images/projects/mrs/project-19j.jpg";
+import project20 from "../images/projects/clock/project-20.jpg";
+import project20a from "../images/projects/clock/project-20a.jpg";
+import project20b from "../images/projects/clock/project-20b.jpg";
+import project20c from "../images/projects/clock/project-20c.jpg";
+import project20d from "../images/projects/clock/project-20d.jpg";
+import project20e from "../images/projects/clock/project-20e.jpg";
+import project20f from "../images/projects/clock/project-20f.jpg";
+import project20g from "../images/projects/clock/project-20g.jpg";
+import project20h from "../images/projects/clock/project-20h.jpg";
+import project20i from "../images/projects/clock/project-20i.jpg";
+import project20j from "../images/projects/clock/project-20j.jpg";
+import project20k from "../images/projects/clock/project-20k.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -388,5 +400,19 @@ export const PIC_ARRAY = {
     project19h,
     project19i,
     project19j,
+  ],
+  project_jsClock: [
+    project20,
+    project20a,
+    project20b,
+    project20c,
+    project20d,
+    project20e,
+    project20f,
+    project20g,
+    project20h,
+    project20i,
+    project20j,
+    project20k,
   ],
 };

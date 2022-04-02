@@ -129,6 +129,16 @@ export const WORKS = [
         stack: ["js", "css", "html", "markdown"],
       },
       {
+        src: "https://github.com/loki87by/JS-Clock",
+        text: "jsClockInfo",
+        name: "jsClock",
+        animation: "jsClock",
+        /* animationTime: "2.5s", */
+        type: "webService",
+        aspectRatio: true,
+        stack: ["js", "css", "html", "markdown"],
+      },
+      {
         double: true,
         src: "https://github.com/loki87by/news-explorer-frontend",
         text: "diplomInfo",

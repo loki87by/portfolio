@@ -4,3 +4,12 @@
   display: flex;
   background-color: var(--back-color);
 }
+
+.scrollbar-measure {
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+  position: absolute;
+  background: transparent;
+  top: -99999px;
+}

@@ -1,6 +1,6 @@
 .Work__description-text {
   margin: 0;
-  font-size: 3vw;
-  line-height: 3.4vw;
+  font-size: var(--fs4);
+  line-height: 1.1;
   color: white;
 }

@@ -1,0 +1,23 @@
+.Stack__filter_opened {
+  position: relative;
+  -webkit-animation: show__filters 0.5s ease-out;
+  animation: show__filters 0.5s ease-out;
+}
+
+@-webkit-keyframes show__filters {
+  from {
+    bottom: 14vw;
+  }
+  to {
+    bottom: 0;
+  }
+}
+
+@keyframes show__filters {
+  from {
+    bottom: 14vw;
+  }
+  to {
+    bottom: 0;
+  }
+}

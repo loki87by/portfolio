@@ -1,7 +1,10 @@
 .Description__photo {
   max-width: 68vw;
   max-height: 68vh;
-  padding: 2vw 16%;
-  margin: auto;
+  padding: 0;
+  margin: 2vmin auto;
   border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }

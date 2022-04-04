@@ -1,6 +1,21 @@
 .Header {
-  padding: 1vw 5vw;
+  position: fixed;
+  z-index: 5;
+  width: calc(100% - 10vmin);
+  padding: 1vmin 5vmin;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  background-color: black;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--back-color);
+}
+
+@media (max-width: 768px) {
+  .Header {
+    width: 90vw;
+  }
 }

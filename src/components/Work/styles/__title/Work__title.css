@@ -1,5 +1,7 @@
 .Work__title {
-  margin: 1vw;
-  font-size: 4vw;
-  line-height: 4.5vw;
+  margin: 1vmax;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs3);
+  line-height: 1.1;
 }

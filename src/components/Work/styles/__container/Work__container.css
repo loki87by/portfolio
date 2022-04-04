@@ -1,18 +1,15 @@
 .Work__container {
-  height: 70vh;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
-}
-
-@media (max-width: 768px) {
-  .Work__container {
-    height: 40vh;
-  }
-}
-
-@media (max-width: 555px) {
-  .Work__container {
-    height: 50vw;
-  }
 }

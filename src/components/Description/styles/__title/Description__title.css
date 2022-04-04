@@ -1,7 +1,7 @@
 .Description__title {
-  margin: 2vw;
+  margin: 0 2vmax;
   text-align: center;
-  font-size: 6vw;
-  line-height: 10vw;
-  color: white;
+  font-size: var(--fs1);
+  line-height: 1.2;
+  color: var(--main-color);
 }

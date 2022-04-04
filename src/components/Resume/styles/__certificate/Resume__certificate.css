@@ -1,5 +1,12 @@
 .Resume__certificate {
   height: 100vh;
-  width: 98vw;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
   border: none;
+  overflow-x: scroll;
+}
+
+.Resume__certificate::-webkit-scrollbar {
+  width: 0;
 }

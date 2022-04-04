@@ -1,0 +1,7 @@
+.Hand {
+  position: relative;
+  width: 50%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}

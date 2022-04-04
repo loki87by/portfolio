@@ -1,6 +1,8 @@
 .Footer {
   padding: 1vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  background-color: black;
-  color: white;
+  background-color: var(--back-color);
+  color: var(--main-color);
 }

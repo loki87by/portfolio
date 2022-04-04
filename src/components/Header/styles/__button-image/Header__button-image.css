@@ -1,5 +1,11 @@
 .Header__button-image {
-  width: 6vw;
-  object-fit: cover;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  border: 2px solid var(--main-color);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   cursor: pointer;
+  background-size: cover;
+  background-position: center;
 }

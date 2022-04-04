@@ -1,10 +1,8 @@
-// **импорты
 import React from "react";
 import {
   TranslationContext,
   translations,
 } from "../../contexts/translationContext";
-import { HEIGHT_KOEFFICIENT } from "../../utils/consts";
 import { PIC_ARRAY } from "../../consts/pictures";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -14,23 +12,17 @@ import "./App.css";
 import "./styles/App_preload.css";
 
 function App() {
-  // **стейты
   const [lang, setLang] = React.useState("ru");
-  const [isGame, setIsGame] = React.useState(false);
-  const [luft, setLuft] = React.useState(0);
-  const [images, setImages] = React.useState([]);
-  const [width, setWidth] = React.useState(0);
+  const [images, setImages] = React.useState({});
   const [loadProgress, setLoadProgress] = React.useState(0);
   const [imagesIsLoad, setImagesIsLoad] = React.useState(false);
-  const [isDay, setDay] = React.useState(false);
-  const gameRef = React.useRef(isGame);
+  const [scrollbarWidth, setScrollbarWidth] = React.useState(0);
   const Mobile =
     /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(
       navigator.userAgent
     );
   const mobileRef = React.useRef(Mobile);
 
-  // **проверка типа устройства пользователя
   React.useEffect(() => {
     setInterval(() => {
       const Mobile =
@@ -41,54 +33,32 @@ function App() {
     }, 15000);
   });
 
-  // **отсеживание высоты страницы
   React.useEffect(() => {
-    function fromTop() {
-      const scrollHeight = Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight,
-        document.body.offsetHeight,
-        document.documentElement.offsetHeight,
-        document.body.clientHeight,
-        document.documentElement.clientHeight
-      );
-      if (window.pageYOffset > scrollHeight * (HEIGHT_KOEFFICIENT + luft)) {
-        gameRef.current = true;
-      } else {
-        gameRef.current = false;
+    const keys = Object.keys(PIC_ARRAY);
+    const values = Object.values(PIC_ARRAY);
+    const allPics = values.flat();
+    const entries = Object.entries(PIC_ARRAY);
+    let progressCounter = 0;
+    const loadStep = Math.round((100 / allPics.length) * 100) / 100;
+    const imagesArray = images || {};
+    for (let i = 0; i < entries.length; i++) {
+      const arr = [];
+      for (let j = 0; j < values[i].length; j++) {
+        let img = new Image();
+        img.src = values[i][j];
+        // eslint-disable-next-line no-loop-func
+        img.onload = function () {
+          progressCounter++;
+          const progress = progressCounter * loadStep;
+          setLoadProgress(progress);
+        };
+        arr.push(img);
       }
-      setIsGame(gameRef.current);
+      imagesArray[keys[i]] = arr;
     }
-    window.addEventListener("scroll", fromTop);
-  });
-
-  // **отсеживание ширины страницы
-  React.useEffect(() => {
-    const scrollWidth = Math.max(
-      document.body.scrollWidth,
-      document.documentElement.scrollWidth,
-      document.body.offsetWidth,
-      document.documentElement.offsetWidth,
-      document.body.clientWidth,
-      document.documentElement.clientWidth
-    );
-    setWidth(scrollWidth);
+    setImages(imagesArray);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  React.useEffect(() => {
-    for (let i = 0; i < PIC_ARRAY.length; i++) {
-      let img = new Image();
-      img.src = PIC_ARRAY[i];
-      img.onload = function () {
-        const loadStep = Math.round((100 / PIC_ARRAY.length) * 100) / 100;
-        const progress = (i + 1) * loadStep;
-        setLoadProgress(progress);
-      };
-      const imagesArray = images || [];
-      imagesArray.push(img);
-      setImages(imagesArray);
-    }
-  }, [images]);
 
   React.useEffect(() => {
     if (Math.round(loadProgress) === 100) {
@@ -96,20 +66,27 @@ function App() {
     }
   }, [loadProgress]);
 
-  // **DOM
+  React.useEffect(() => {
+    if (!Mobile) {
+      const scrollDiv = document.createElement("div");
+      scrollDiv.className = "scrollbar-measure";
+      document.body.appendChild(scrollDiv);
+      setScrollbarWidth(scrollDiv.offsetWidth - scrollDiv.clientWidth);
+      document.body.removeChild(scrollDiv);
+    }
+  }, [Mobile]);
+
   return (
     <>
       <TranslationContext.Provider value={translations[lang]}>
-        <Header setLang={setLang} lang={lang} isDay={isDay} setDay={setDay} width={width} />
+        <Header setLang={setLang} lang={lang} />
         {imagesIsLoad ? (
           <Main
             isMobile={mobileRef.current}
-            isGame={gameRef}
             lang={lang}
             images={images}
-            setLuft={setLuft}
-            isDay={isDay}
-            width={width}
+            imagesIsLoad={imagesIsLoad}
+            scrollbarWidth={scrollbarWidth}
           />
         ) : (
           <h2
@@ -120,7 +97,7 @@ function App() {
               }%, rgba(255,255,255,1) ${loadProgress}%)`,
             }}
           >
-            Идёт кэширование изображений. Пожалуйста ждите{" "}
+            {translations[lang].preload}
             {Math.round(loadProgress)}%
           </h2>
         )}
@@ -130,5 +107,4 @@ function App() {
   );
 }
 
-// **экспорт
 export default App;

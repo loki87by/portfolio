@@ -1,0 +1,6 @@
+.Slider__soft-button_right {
+  right: 0;
+  -webkit-transform: rotate(180deg) translateX(-1px);
+  -ms-transform: rotate(180deg) translateX(-1px);
+  transform: rotate(180deg) translateX(-1px);
+}

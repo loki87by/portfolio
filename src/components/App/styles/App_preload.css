@@ -1,5 +1,5 @@
 .App_preload {
   margin: 0;
-  padding: 1vmax;
+  padding: calc(6vw + 2vmin) 1vmax 1vmax;
   text-align: center;
 }

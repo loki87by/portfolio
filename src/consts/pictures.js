@@ -155,6 +155,19 @@ import project20h from "../images/projects/clock/project-20h.jpg";
 import project20i from "../images/projects/clock/project-20i.jpg";
 import project20j from "../images/projects/clock/project-20j.jpg";
 import project20k from "../images/projects/clock/project-20k.jpg";
+import project21 from "../images/projects/wack-a-mole/project-21.jpg";
+import project21a from "../images/projects/wack-a-mole/project-21a.jpg";
+import project21b from "../images/projects/wack-a-mole/project-21a1.jpg";
+import project21c from "../images/projects/wack-a-mole/project-21b.jpg";
+import project21d from "../images/projects/wack-a-mole/project-21b1.jpg";
+import project21e from "../images/projects/wack-a-mole/project-21b2.jpg";
+import project21f from "../images/projects/wack-a-mole/project-21b3.jpg";
+import project21g from "../images/projects/wack-a-mole/project-21b4.jpg";
+import project21h from "../images/projects/wack-a-mole/project-21c.jpg";
+import project21i from "../images/projects/wack-a-mole/project-21c1.jpg";
+import project21j from "../images/projects/wack-a-mole/project-21c2.jpg";
+import project21k from "../images/projects/wack-a-mole/project-21d.jpg";
+import project21l from "../images/projects/wack-a-mole/project-21d1.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -414,5 +427,20 @@ export const PIC_ARRAY = {
     project20i,
     project20j,
     project20k,
+  ],
+  project_wackAMole: [
+    project21,
+    project21a,
+    project21b,
+    project21c,
+    project21d,
+    project21e,
+    project21f,
+    project21g,
+    project21h,
+    project21i,
+    project21j,
+    project21k,
+    project21l,
   ],
 };

@@ -33,8 +33,7 @@ export const WORKS = [
         src: "https://github.com/loki87by/ecwid-test",
         text: "ecwidProjectInfo",
         name: "ecwid",
-        animation: "none" /*
-        animationTime: "3s", */,
+        animation: "none",
         type: "landingPage",
         aspectRatio: true,
         stack: ["css", "html", "js", "markdown"],
@@ -43,8 +42,7 @@ export const WORKS = [
         src: "https://github.com/loki87by/ecwid-test-vue",
         text: "ecwidVueProjectInfo",
         name: "ecwidVue",
-        animation: "none" /*
-        animationTime: "3s", */,
+        animation: "none",
         type: "landingPage",
         aspectRatio: true,
         stack: ["css", "html", "vue", "markdown"],
@@ -113,7 +111,6 @@ export const WORKS = [
         text: "forteenProjectInfo",
         name: "galleryAngular",
         animation: "galleryNg",
-        /* animationTime: "2.5s", */
         type: "webService",
         aspectRatio: true,
         stack: ["angular", "css", "typescript", "markdown"],
@@ -123,7 +120,6 @@ export const WORKS = [
         text: "multiRockSliderInfo",
         name: "multiRockSlider",
         animation: "multiRockSlider",
-        /* animationTime: "2.5s", */
         type: "webService",
         aspectRatio: true,
         stack: ["js", "css", "html", "markdown"],
@@ -133,7 +129,6 @@ export const WORKS = [
         text: "jsClockInfo",
         name: "jsClock",
         animation: "jsClock",
-        /* animationTime: "2.5s", */
         type: "webService",
         aspectRatio: true,
         stack: ["js", "css", "html", "markdown"],
@@ -227,6 +222,15 @@ export const WORKS = [
         type: "webGame",
         aspectRatio: true,
         stack: ["css", "react", "bem", "markdown"],
+      },
+      {
+        src: "https://github.com/loki87by/whack-a-mole",
+        text: "wackAMoleInfo",
+        name: "wackAMole",
+        animation: "wackAMoleAnimation",
+        type: "webGame",
+        aspectRatio: true,
+        stack: ["css", "html", "js", "markdown"],
       },
       {
         double: true,

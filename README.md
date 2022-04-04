@@ -6,7 +6,7 @@
 Так же иногда проект обрастает новым функционалом
 Деплой тут: (https://loki87by.github.io/portfolio/) [https://loki87by.github.io/portfolio/]
 # Версия 0 (12.01.21 - 17.08.21)
-## доступна к просмотру в ветке main
+## доступна к просмотру в ветке (first-version) [https://github.com/loki87by/portfolio/tree/first-version]
 
 <details>
 
@@ -32,7 +32,7 @@
 </details>
 
 # Версия 1 (20.03.22 - 04.04.22)
-## доступна к просмотру в ветке updateToNewVresion
+## доступна к просмотру в ветке main
 
 <details>
 

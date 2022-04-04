@@ -23,7 +23,7 @@ function Description(props) {
   const animations = props.images.avatarAnimation;
   const translation = React.useContext(TranslationContext);
   const [mouseOver, setMouseOver] = React.useState(false);
-  const [effectAva, setEffectAva] = React.useState(animations[0]);
+  const [effectAva, setEffectAva] = React.useState(animations[0].src);
   const [binary, setBinary] = React.useState(true);
 
   function changeDigitType() {

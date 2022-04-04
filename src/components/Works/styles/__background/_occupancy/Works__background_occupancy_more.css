@@ -5,4 +5,7 @@
   -webkit-column-gap: 4%;
   -moz-column-gap: 4%;
   column-gap: 4%;
+  -webkit-column-fill: auto;
+  -moz-column-fill: auto;
+  column-fill: auto;
 }

@@ -85,6 +85,8 @@ export const translations = {
       "Pure js mechanical clock with some appearance settings and weather forecast",
     wackAMoleInfo:
       "A classic game of reaction speed and attentiveness written in pure js",
+    louvre:
+      "The web page of the world-famous Louvre museum filled with various functional (not a copy of the original, but an alternative to it)",
     turnOn: "on widget",
     turnOf: "Turn of",
     clueForAnimation: "Hover over the image to animate",
@@ -194,6 +196,8 @@ export const translations = {
       "Механические часы на чистом js с некоторыми настройками отображения и прогнозом погоды",
     wackAMoleInfo:
       "Классическая игра на скорость реакции и внимательность написанная на чистом js",
+    louvreInfo:
+      "Веб-страница всемирно известного музея Лувр, наполненная различным функционалом (не копия оригинала, а альтернатива ему)",
     turnOf: "Выкл",
     turnOn: "вкл виджет",
     clueForAnimation: "Для анимации наведите курсор на изображение",

@@ -1,4 +1,7 @@
 .Works__background-image {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   -o-object-fit: cover;
   object-fit: cover;
   -o-object-position: top;

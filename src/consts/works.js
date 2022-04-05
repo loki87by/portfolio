@@ -47,6 +47,15 @@ export const WORKS = [
         aspectRatio: true,
         stack: ["css", "html", "vue", "markdown"],
       },
+      {
+        src: "https://github.com/loki87by/louvre",
+        text: "louvreInfo",
+        name: "louvre",
+        animation: "standart",
+        animationTime: "6s",
+        type: "landingPage",
+        stack: ["css", "html", "js", "markdown"],
+      },
     ],
   },
   {

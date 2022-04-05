@@ -168,6 +168,7 @@ import project21i from "../images/projects/wack-a-mole/project-21c1.jpg";
 import project21j from "../images/projects/wack-a-mole/project-21c2.jpg";
 import project21k from "../images/projects/wack-a-mole/project-21d.jpg";
 import project21l from "../images/projects/wack-a-mole/project-21d1.jpg";
+import project22 from "../images/projects/project-22.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -443,4 +444,5 @@ export const PIC_ARRAY = {
     project21k,
     project21l,
   ],
+  project_louvre: [project22],
 };

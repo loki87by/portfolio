@@ -1,7 +1,5 @@
 .Works__background {
   max-width: 100%;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
+  height: auto;
   margin-top: 1vmax !important;
 }

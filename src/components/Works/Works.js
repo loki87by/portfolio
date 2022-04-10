@@ -109,14 +109,16 @@ function Works(props) {
               <div
                 key={`project-demo-${index}`}
                 style={
-                  newStyle
+                  newStyle &&
+                  props.showedWorks.key
+                    .replace("worksListSlide-", "")
+                    .replace(/-\d/, "") === props.item.type
                     ? {
                         transform: "translateY(0)",
                         transition: "all .7s linear",
                         transitionDelay: `${index / 2}s`,
-                        maxHeight: "100%",
                       }
-                    : { maxHeight: "100%" }
+                    : {}
                 }
                 className={`Works__background-image Works__background-image_occupancy_${backgroundModificator}`}
               >

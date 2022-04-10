@@ -1,7 +1,5 @@
 .Works__background-image {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  max-height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
   -o-object-position: top;
@@ -9,4 +7,5 @@
   -webkit-transform: translateY(1000%);
   -ms-transform: translateY(1000%);
   transform: translateY(1000%);
+  overflow: hidden;
 }

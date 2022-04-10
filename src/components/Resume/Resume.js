@@ -31,6 +31,7 @@ function Resume(props) {
   const [selectedStack, setSelectedStack] = React.useState(STACK);
   const [worksIsOpen, setWorksOpen] = React.useState(false);
   const [currentWorks, setCurrentWorks] = React.useState([]);
+  const [showedWorks, setShowedWorks] = React.useState({});
   const [widgetRangeValue, setWidgetRangeValue] = React.useState(0);
   const [workIconsStyles, setWorkIconsStyles] = React.useState([]);
   const [targetWorkIcon, setTargetWorkIcon] = React.useState(null);
@@ -84,6 +85,7 @@ function Resume(props) {
         worksStyles={worksStyles}
         worksIsOpen={worksIsOpen}
         currentWorks={currentWorks}
+        showedWorks={showedWorks}
         style={worksStyles[index]}
         item={item}
         index={index}
@@ -228,6 +230,7 @@ function Resume(props) {
           limit={1}
           shift={(100 / 96) * 100}
           interval={10000}
+          isWorks={true}
           icons={workSlideIcons}
           paused={pausedWorksSlider}
           slides={worksListSlides}
@@ -236,6 +239,7 @@ function Resume(props) {
           setPaused={stopWorksAutoSlide}
           resetPaused={restartWorksAutoSlide}
           changeActiveIconClass={replaceIconActiveClass}
+          setShowedWorks={setShowedWorks}
         />
       </section>
       {worksIsOpen ? (

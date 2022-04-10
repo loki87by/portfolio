@@ -20,16 +20,26 @@ function Slider(props) {
     autoRight();
   }
 
+  function setCurrent(newPosition) {
+    props.setShowedWorks(props.slides[newPosition]);
+  }
+
   function autoLeft() {
     setDirection(1);
     const newPosition = position - 1;
     setPosition(newPosition);
+    if (props.isWorks) {
+      setCurrent(newPosition);
+    }
   }
 
   function autoRight() {
     const newPosition = position + 1;
     setDirection(0);
     setPosition(newPosition);
+    if (props.isWorks) {
+      setCurrent(newPosition);
+    }
   }
 
   React.useEffect(() => {

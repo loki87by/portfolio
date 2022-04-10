@@ -85,8 +85,12 @@ export const translations = {
       "Pure js mechanical clock with some appearance settings and weather forecast",
     wackAMoleInfo:
       "A classic game of reaction speed and attentiveness written in pure js",
-    louvre:
+    louvreInfo:
       "The web page of the world-famous Louvre museum filled with various functional (not a copy of the original, but an alternative to it)",
+    shpargalikiInfo:
+      "Operating online store. To check authorship, you can click on the © symbol in the lower right corner",
+    shpargalikiApiInfo:
+      "Server of an existing online store. To check authorship, you need to press © in the lower right corner with alt and ctrl pressed, then enter your email and click OK",
     turnOn: "on widget",
     turnOf: "Turn of",
     clueForAnimation: "Hover over the image to animate",
@@ -103,6 +107,7 @@ export const translations = {
     tryResetFilters: "You can try",
     resetFilters: " reset filters",
     searchSystem: "Search system",
+    webStore: "Web store",
     front: "Front-end",
     back: "Back-end",
     showCertify:
@@ -198,6 +203,10 @@ export const translations = {
       "Классическая игра на скорость реакции и внимательность написанная на чистом js",
     louvreInfo:
       "Веб-страница всемирно известного музея Лувр, наполненная различным функционалом (не копия оригинала, а альтернатива ему)",
+    shpargalikiInfo:
+      "Действующий интернет-магазин. Для проверки авторства можно кликнуть на символ © в правом нижнем углу",
+    shpargalikiApiInfo:
+      "Сервер действующего интернет-магазина. Для проверки авторства нужно кликнуть © в правом нижнем углу с зажатыми alt и ctrl, затем ввести свой email и нажать OK",
     turnOf: "Выкл",
     turnOn: "вкл виджет",
     clueForAnimation: "Для анимации наведите курсор на изображение",
@@ -211,6 +220,7 @@ export const translations = {
     server: "Серверы",
     widget: "Виджеты",
     searchSystem: "Поисковая система",
+    webStore: "Интернет-магазин",
     worksSubtitle:
       "По выбранным фильтрам подобрано проектов в данной категории: ",
     tryResetFilters: "Вы можете попробовать",

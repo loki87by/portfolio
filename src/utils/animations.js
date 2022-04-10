@@ -8,6 +8,7 @@ import asyncRaceAnimation from "./animations/asyncRaceAnimation";
 import mrsAnimation from "./animations/mrsAnimation";
 import jsClockAnimation from "./animations/jsClockAnimation";
 import wackAMoleAnimation from "./animations/wackAMoleAnimation";
+import shpargalikiAnimation from "./animations/shpargalikiAnimation";
 
 let timersArray = [];
 
@@ -50,6 +51,10 @@ export function animationCreator(name, array, element) {
 
   if (name === "wackAMole") {
     timersArray = wackAMoleAnimation(array, element);
+  }
+
+  if (name === "shpargaliki") {
+    timersArray = shpargalikiAnimation(array, element);
   }
 }
 

@@ -169,6 +169,21 @@ import project21j from "../images/projects/wack-a-mole/project-21c2.jpg";
 import project21k from "../images/projects/wack-a-mole/project-21d.jpg";
 import project21l from "../images/projects/wack-a-mole/project-21d1.jpg";
 import project22 from "../images/projects/project-22.jpg";
+import project23 from "../images/projects/shpargaliki/project-23.jpg";
+import project23a from "../images/projects/shpargaliki/project-23a.jpg";
+import project23b from "../images/projects/shpargaliki/project-23b.jpg";
+import project23c from "../images/projects/shpargaliki/project-23c.jpg";
+import project23d from "../images/projects/shpargaliki/project-23d.jpg";
+import project23e from "../images/projects/shpargaliki/project-23e.jpg";
+import project23f from "../images/projects/shpargaliki/project-23f.jpg";
+import project23g from "../images/projects/shpargaliki/project-23g.jpg";
+import project23h from "../images/projects/shpargaliki/project-23h.jpg";
+import project23i from "../images/projects/shpargaliki/project-23i.jpg";
+import project23j from "../images/projects/shpargaliki/project-23j.jpg";
+import project23k from "../images/projects/shpargaliki/project-23k.jpg";
+import project23l from "../images/projects/shpargaliki/project-23l.jpg";
+import project23m from "../images/projects/shpargaliki/project-23m.jpg";
+import project23n from "../images/projects/shpargaliki/project-23n.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -445,4 +460,21 @@ export const PIC_ARRAY = {
     project21l,
   ],
   project_louvre: [project22],
+  project_shpargaliki: [
+    project23,
+    project23a,
+    project23b,
+    project23c,
+    project23d,
+    project23e,
+    project23f,
+    project23g,
+    project23h,
+    project23i,
+    project23j,
+    project23k,
+    project23l,
+    project23m,
+    project23n,
+  ],
 };

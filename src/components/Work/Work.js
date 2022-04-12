@@ -40,7 +40,10 @@ function Work(props) {
 
   return (
     <>
-      <h3 className="Work__title">
+      <h3
+        className="Work__title"
+        ref={props.currentWorkName === props.name ? props.scrollRef : null}
+      >
         {props.double
           ? `${translation[props.type]} & ${translation[props.type2]}`
           : ""}

@@ -31,12 +31,16 @@ function Resume(props) {
   const [selectedStack, setSelectedStack] = React.useState(STACK);
   const [worksIsOpen, setWorksOpen] = React.useState(false);
   const [currentWorks, setCurrentWorks] = React.useState([]);
-  const [showedWorks, setShowedWorks] = React.useState({});
+  const [currentWorkName, setCurrentWorkName] = React.useState("");
+  const [showedWorks, setShowedWorks] = React.useState(
+    completeSliderArray(WORKS)[0]
+  );
   const [widgetRangeValue, setWidgetRangeValue] = React.useState(0);
   const [workIconsStyles, setWorkIconsStyles] = React.useState([]);
   const [targetWorkIcon, setTargetWorkIcon] = React.useState(null);
 
   const translation = React.useContext(TranslationContext);
+  const scrollRef = React.useRef(null);
 
   const softImages = completeSliderArray(props.images.soft.slice(), 5);
   const worksListArray = completeSliderArray(WORKS.slice(), 1);
@@ -48,6 +52,28 @@ function Resume(props) {
   let worksStyleArray = JSON.parse(JSON.stringify(worksStyles));
   let iconsStyleArray = JSON.parse(JSON.stringify(workIconsStyles));
   let imagesObject = {};
+
+  function scrollToElement() {
+    setTimeout(() => {
+      scrollRef.current.scrollIntoView({
+        block: "start",
+        behavior: "smooth",
+      });
+      const vmin =
+        Math.min(
+          document.documentElement.clientHeight,
+          document.documentElement.clientWidth
+        ) / 100;
+      const vmax =
+        Math.max(
+          document.documentElement.clientHeight,
+          document.documentElement.clientWidth
+        ) / 100;
+      const vw = document.documentElement.clientWidth / 100;
+      const headerHeight = Math.ceil(3 * vmin + 5 * vw - vmax);
+      window.scrollTo(0, scrollRef.current.offsetTop - headerHeight);
+    }, 10);
+  }
 
   function stopSoftAutoSlide() {
     setPausedSoftSlider(true);
@@ -95,6 +121,8 @@ function Resume(props) {
         resetPaused={restartWorksAutoSlide}
         setWorksOpen={setWorksOpen}
         setCurrentWorks={setCurrentWorks}
+        setCurrentWorkName={setCurrentWorkName}
+        scrollToElement={scrollToElement}
       />
     );
   });
@@ -252,8 +280,11 @@ function Resume(props) {
             return (
               <Work
                 key={`work-${index}`}
+                id={`work-${index}`}
                 width={screenWidth}
                 rangeValue={widgetRangeValue}
+                currentWorkName={currentWorkName}
+                scrollRef={scrollRef}
                 link={item.src}
                 index={index}
                 type={item.type}

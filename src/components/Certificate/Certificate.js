@@ -7,7 +7,7 @@ import "./Certificate.css";
 import "./styles/__open-button/Certificate__open-button.css";
 
 function Certificate(props) {
-  const [source, setSource] = React.useState(null);
+  const [source, setSource] = React.useState(epamCertificate);
   const [certifyWidth, setCertifyWidth] = React.useState(
     props.screenWidth * 0.43
   );

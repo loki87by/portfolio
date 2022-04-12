@@ -66,8 +66,13 @@ function App() {
     }
   }, [loadProgress]);
 
+  function getScrollWidth() {
+    console.log(this);
+  }
+
   React.useEffect(() => {
     if (!Mobile) {
+      getScrollWidth();
       const scrollDiv = document.createElement("div");
       scrollDiv.className = "scrollbar-measure";
       document.body.appendChild(scrollDiv);
@@ -101,6 +106,7 @@ function App() {
             {Math.round(loadProgress)}%
           </h2>
         )}
+        <div className="scrollbar-measure"></div>
         <Footer />
       </TranslationContext.Provider>
     </>

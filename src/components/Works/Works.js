@@ -23,6 +23,15 @@ function Works(props) {
   const [backgroundModificator, setBackgroundModificator] = React.useState("");
   const [newStyle, setNewStyle] = React.useState(false);
   const translation = React.useContext(TranslationContext);
+  let showedWorksType;
+
+  if (props.showedWorks.key !== undefined) {
+    showedWorksType = props.showedWorks.key
+      .replace("worksListSlide-", "")
+      .replace(/-\d/, "");
+  } else {
+    showedWorksType = props.showedWorks.type;
+  }
 
   const shuffle = (array) => {
     let arr = array;
@@ -93,6 +102,15 @@ function Works(props) {
     props.setWorksOpen(newState);
   }
 
+  function show(e) {
+    const id = e.target.id;
+    const index = id.replace("project-demo-", "");
+    props.setCurrentWorks(props.item.array);
+    props.setWorksOpen(true);
+    props.setCurrentWorkName(selectedProjects[+index].name);
+    props.scrollToElement();
+  }
+
   return (
     <section className="Works" style={props.style} onClick={props.setPaused}>
       <h3 className="Works__title">{translation[props.item.type]}</h3>
@@ -109,10 +127,7 @@ function Works(props) {
               <div
                 key={`project-demo-${index}`}
                 style={
-                  newStyle &&
-                  props.showedWorks.key
-                    .replace("worksListSlide-", "")
-                    .replace(/-\d/, "") === props.item.type
+                  newStyle && showedWorksType === props.item.type
                     ? {
                         transform: "translateY(0)",
                         transition: "all .7s linear",
@@ -120,10 +135,12 @@ function Works(props) {
                       }
                     : {}
                 }
+                onClick={show}
                 className={`Works__background-image Works__background-image_occupancy_${backgroundModificator}`}
               >
                 <img
                   src={item}
+                  id={`project-demo-${index}`}
                   alt="project-demo"
                   style={{
                     width: "100%",

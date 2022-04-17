@@ -8,4 +8,5 @@
   -ms-transform: translateY(1000%);
   transform: translateY(1000%);
   overflow: hidden;
+  cursor: pointer;
 }

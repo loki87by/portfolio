@@ -147,7 +147,7 @@ function Slider(props) {
         onClick={toLeft}
       >
         <svg className="Slider__soft-button_image">
-          <use xlinkHref={`${arrow}#soft`}></use>
+          <use href={`${arrow}#soft`}></use>
         </svg>
       </div>
       {props.slides}
@@ -156,7 +156,7 @@ function Slider(props) {
         onClick={toRight}
       >
         <svg className="Slider__soft-button_image">
-          <use xlinkHref={`${arrow}#soft`}></use>
+          <use href={`${arrow}#soft`}></use>
         </svg>
       </div>
     </>

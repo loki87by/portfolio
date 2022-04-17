@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.1f10fb9b.chunk.css",
-    "main.js": "/portfolio/static/js/main.b7369fc2.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.b7369fc2.chunk.js.map",
+    "main.js": "/portfolio/static/js/main.80bde40d.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.80bde40d.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.f8bfa9cf.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.f8bfa9cf.js.map",
     "static/js/2.26b51a08.chunk.js": "/portfolio/static/js/2.26b51a08.chunk.js",
@@ -17,7 +17,7 @@
     "static/media/Header__button-image_UK.css": "/portfolio/static/media/UK.24a08dc3.png",
     "static/media/after-effects.e7835b64.svg": "/portfolio/static/media/after-effects.e7835b64.svg",
     "static/media/angular.0e61aa5a.svg": "/portfolio/static/media/angular.0e61aa5a.svg",
-    "static/media/arrow.c0dd5371.svg": "/portfolio/static/media/arrow.c0dd5371.svg",
+    "static/media/arrow.b795e275.svg": "/portfolio/static/media/arrow.b795e275.svg",
     "static/media/audition.aac14e8e.svg": "/portfolio/static/media/audition.aac14e8e.svg",
     "static/media/avatar.f097ab73.jpg": "/portfolio/static/media/avatar.f097ab73.jpg",
     "static/media/bem.1f6be2b0.svg": "/portfolio/static/media/bem.1f6be2b0.svg",
@@ -254,6 +254,6 @@
     "static/js/runtime-main.f8bfa9cf.js",
     "static/js/2.26b51a08.chunk.js",
     "static/css/main.1f10fb9b.chunk.css",
-    "static/js/main.b7369fc2.chunk.js"
+    "static/js/main.80bde40d.chunk.js"
   ]
 }

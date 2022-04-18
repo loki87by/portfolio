@@ -65,13 +65,8 @@ function App() {
     }
   }, [loadProgress]);
 
-  function getScrollWidth() {
-    console.log(this);
-  }
-
   React.useEffect(() => {
     if (!Mobile) {
-      getScrollWidth();
       const scrollDiv = document.createElement("div");
       scrollDiv.className = "scrollbar-measure";
       document.body.appendChild(scrollDiv);

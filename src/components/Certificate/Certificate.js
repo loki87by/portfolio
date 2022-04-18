@@ -34,14 +34,14 @@ function Certificate(props) {
 
   React.useEffect(() => {
     if (!props.isCertificateOpen) {
-      if (props.screenWidth < 555) {
-        setCertifyZoom(props.screenWidth / 5);
-        setCertifyWidth(props.screenWidth * 0.86);
-        setCertifyHeight(props.screenWidth * 0.58);
+      if (window.innerWidth < 555) {
+        setCertifyZoom(window.innerWidth / 5);
+        setCertifyWidth(window.innerWidth * 0.86);
+        setCertifyHeight(window.innerWidth * 0.58);
       } else {
-        setCertifyZoom(props.screenWidth / 29);
-        setCertifyWidth(props.screenWidth * 0.42);
-        setCertifyHeight(props.screenWidth * 0.29);
+        setCertifyZoom(window.innerWidth / 29);
+        setCertifyWidth(window.innerWidth * 0.42);
+        setCertifyHeight(window.innerWidth * 0.29);
       }
     } else {
       if (props.type === "yandex") {
@@ -53,7 +53,7 @@ function Certificate(props) {
       setCertifyWidth(window.innerWidth * 0.9);
       setCertifyHeight(window.innerWidth);
     }
-  }, [props.isCertificateOpen, props.screenWidth, props.type]);
+  }, [props.isCertificateOpen, props.type]);
 
   function openCertificate(e) {
     const type = e.target.id.replace("-button", "");

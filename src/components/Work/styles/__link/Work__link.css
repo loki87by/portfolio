@@ -1,7 +1,7 @@
 .Work__link {
   font-size: var(--fs3);
   line-height: 1.1;
-  color: white;
+  color: var(--main-color);
   text-decoration: none;
   cursor: pointer;
 }

@@ -43,6 +43,23 @@ function Slider(props) {
   }
 
   React.useEffect(() => {
+    if (props.icons) {
+      if (props.targetWorkIcon > position - props.limit) {
+        setDirection(0);
+      }
+
+      if (props.targetWorkIcon < position - props.limit) {
+        setDirection(1);
+      }
+      setPosition(props.targetWorkIcon + props.limit);
+
+      if (props.isWorks) {
+        setCurrent(props.targetWorkIcon + props.limit);
+      }
+    }
+  }, [props.targetWorkIcon]);
+
+  React.useEffect(() => {
     for (let i = 0; i < props.slides.length; i++) {
       props.setStyle({
         transform: `translateX(${-position * props.shift}${props.unit})`,
@@ -126,19 +143,6 @@ function Slider(props) {
       return () => clearTimeout(timer);
     }
   }, [position, direction, props.paused]);
-
-  React.useEffect(() => {
-    if (props.icons) {
-      if (props.targetWorkIcon > position - props.limit) {
-        setDirection(0);
-      }
-
-      if (props.targetWorkIcon < position - props.limit) {
-        setDirection(1);
-      }
-      setPosition(props.targetWorkIcon + props.limit);
-    }
-  }, [props.targetWorkIcon]);
 
   return (
     <>

@@ -9,11 +9,13 @@ import "./styles/__background/_occupancy/Works__background_occupancy_empty.css";
 import "./styles/__background/_occupancy/Works__background_occupancy_alone.css";
 import "./styles/__background/_occupancy/Works__background_occupancy_double.css";
 import "./styles/__background/_occupancy/Works__background_occupancy_triple.css";
+import "./styles/__background/_occupancy/Works__background_occupancy_four.css";
 import "./styles/__background/_occupancy/Works__background_occupancy_more.css";
 import "./styles/__background-image/Works__background-image.css";
 import "./styles/__background-image/_occupancy/Works__background-image_occupancy_alone.css";
 import "./styles/__background-image/_occupancy/Works__background-image_occupancy_double.css";
 import "./styles/__background-image/_occupancy/Works__background-image_occupancy_triple.css";
+import "./styles/__background-image/_occupancy/Works__background-image_occupancy_four.css";
 import "./styles/__background-image/_occupancy/Works__background-image_occupancy_more.css";
 import "./styles/__button/Works__button.css";
 
@@ -91,6 +93,8 @@ function Works(props) {
       setBackgroundModificator("double");
     } else if (projectsImages.length === 3) {
       setBackgroundModificator("triple");
+    } else if (projectsImages.length === 4) {
+      setBackgroundModificator("four");
     } else {
       setBackgroundModificator("more");
     }
@@ -132,8 +136,9 @@ function Works(props) {
                         transform: "translateY(0)",
                         transition: "all .7s linear",
                         transitionDelay: `${index / 2}s`,
+                        maxHeight: "100%",
                       }
-                    : {}
+                    : { maxHeight: "100%" }
                 }
                 onClick={show}
                 className={`Works__background-image Works__background-image_occupancy_${backgroundModificator}`}
@@ -144,6 +149,7 @@ function Works(props) {
                   alt="project-demo"
                   style={{
                     width: "100%",
+                    display: "block",
                   }}
                 />
               </div>

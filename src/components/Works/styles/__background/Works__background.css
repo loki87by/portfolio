@@ -1,5 +1,15 @@
 .Works__background {
   max-width: 100%;
-  height: auto;
+  max-height: 130%;
   margin-top: 1vmax !important;
-}
+}/*
+.Works__background {
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin-top: 1vmax !important;
+  column-count: 4;
+  column-gap: normal;
+} */
+

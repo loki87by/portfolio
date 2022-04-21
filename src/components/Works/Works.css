@@ -2,10 +2,7 @@
   position: relative;
   min-width: 96%;
   max-width: 96%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  min-height: -webkit-fill-available;
+  height: auto;
   margin: 1vmin 2% 0;
   display: -webkit-box;
   display: -ms-flexbox;

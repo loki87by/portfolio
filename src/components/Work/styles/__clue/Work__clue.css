@@ -10,6 +10,6 @@
   opacity: 0.8;
 }
 
-.Work:hover .Work__clue{
+.Work:hover .Work__clue {
   opacity: 0;
 }

@@ -33,15 +33,18 @@ function Description(props) {
 
   React.useEffect(() => {
     let ava = document.querySelector(".Description__photo");
+
     function changeEffect() {
       const rand = Math.random();
       const chanse = Math.floor(4 * rand);
       const avatarEffect = animations[chanse].src;
       setEffectAva(avatarEffect);
     }
+
     function hoverOn() {
       setMouseOver(true);
     }
+
     function hoverOff() {
       setMouseOver(false);
       changeEffect();

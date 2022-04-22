@@ -4,5 +4,5 @@
 
 .codeLine__space {
   font-size: var(--fs1);
-  line-height: .01;
+  line-height: 0.01;
 }

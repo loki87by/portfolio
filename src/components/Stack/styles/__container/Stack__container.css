@@ -8,6 +8,7 @@
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  background: -o-linear-gradient(left, red, yellow, green, blue);
   background: -webkit-gradient(
     linear,
     left top,
@@ -17,6 +18,5 @@
     color-stop(green),
     to(blue)
   );
-  background: -o-linear-gradient(left, red, yellow, green, blue);
   background: linear-gradient(to right, red, yellow, green, blue);
 }

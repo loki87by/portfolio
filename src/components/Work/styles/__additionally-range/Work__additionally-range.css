@@ -4,11 +4,14 @@
   padding: 2px;
   margin: 2vw 1vw 0;
   border-radius: 1vmax;
+  -moz-appearance: none;
   appearance: none;
   -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
   outline: none;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
   cursor: pointer;
 }

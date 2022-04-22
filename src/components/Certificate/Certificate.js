@@ -23,10 +23,12 @@ function Certificate(props) {
       if (props.lang === "ru") {
         setSource(certificateRu);
       }
+
       if (props.lang === "en") {
         setSource(certificateEn);
       }
     }
+
     if (props.type === "epam") {
       setSource(epamCertificate);
     }
@@ -47,6 +49,7 @@ function Certificate(props) {
       if (props.type === "yandex") {
         setCertifyZoom(window.innerWidth / 18);
       }
+
       if (props.type === "epam") {
         setCertifyZoom(window.innerWidth / 20);
       }

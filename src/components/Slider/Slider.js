@@ -28,6 +28,7 @@ function Slider(props) {
     setDirection(1);
     const newPosition = position - 1;
     setPosition(newPosition);
+
     if (props.isWorks) {
       setCurrent(newPosition);
     }
@@ -37,6 +38,7 @@ function Slider(props) {
     const newPosition = position + 1;
     setDirection(0);
     setPosition(newPosition);
+
     if (props.isWorks) {
       setCurrent(newPosition);
     }

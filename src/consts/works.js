@@ -180,7 +180,7 @@ export const WORKS = [
         secondLink: "https://github.com/loki87by/contact-list-api",
         type: "webService",
         type2: "server",
-        stack: ["react", "css", "typescript", "bem", "markdown"],
+        stack: ["react", "css", "typescript", "redux", "bem", "markdown"],
       },
     ],
   },

@@ -237,6 +237,7 @@ import vue from "../images/stack/vue.svg";
 import typescript from "../images/stack/typescript.svg";
 import svg from "../images/stack/svg.svg";
 import sql from "../images/stack/sql.svg";
+import redux from "../images/stack/redux.svg";
 import react from "../images/stack/reactjs.svg";
 import python from "../images/stack/python.svg";
 import node from "../images/stack/nodejs.svg";
@@ -248,7 +249,6 @@ import git from "../images/stack/git.svg";
 import django from "../images/stack/django.svg";
 import css from "../images/stack/css.svg";
 import bem from "../images/stack/bem.svg";
-import redux from "../images/stack/redux.svg";
 import angular from "../images/stack/angular.svg";
 import filter from "../images/stack/filter.svg";
 
@@ -281,12 +281,12 @@ export const PIC_ARRAY = {
     node,
     python,
     react,
+    redux,
     sql,
     svg,
     typescript,
     vue,
     webpack,
-    redux,
   ],
   soft: [
     afterEffects,

@@ -90,6 +90,7 @@ export const STACK = [
   "node",
   "python",
   "react",
+  "redux",
   "sql",
   "svg",
   "typescript",
@@ -98,68 +99,72 @@ export const STACK = [
 ];
 
 export const STACK_STYLES = {
-  angular: {
-    top: "9.5vw",
-    left: "36%",
-  },
-  js: {
-    top: "5vw",
-    left: "86%",
-  },
-  html: {
-    top: "0.5vw",
-    left: "96%",
-  },
-  django: {
-    top: "5vw",
-    left: "10%",
-  },
-  svg: {
-    top: "5vw",
-    left: "48%",
-  },
-  css: {
-    top: "9.5vw",
-    left: "93%",
-  },
-  mongo: {
-    top: "0.5vw",
-    left: "60%",
-  },
-  node: {
-    top: "5vw",
-    left: "67%",
-  },
-  react: {
-    top: "9.5vw",
-    left: "74%",
-  },
-  python: {
-    top: "9.5vw",
-    left: "17%",
-  },
-  bem: {
-    top: "0.5vw",
-    left: "79%",
-  },
   sql: {
     top: "0.5vw",
     left: "3%",
   },
-  markdown: {
-    top: "9.5vw",
-    left: "55%",
+  django: {
+    top: "5vw",
+    left: "9%",
   },
-  typescript: {
-    top: "0.5vw",
-    left: "41%",
+  python: {
+    top: "9.5vw",
+    left: "15%",
   },
   vue: {
     top: "0.5vw",
-    left: "22%",
+    left: "20%",
+  },
+  redux: {
+    top: "5vw",
+    left: "26%",
+  },
+  angular: {
+    top: "9.5vw",
+    left: "32%",
   },
   webpack: {
+    top: "0.5vw",
+    left: "37%",
+  },
+  typescript: {
     top: "5vw",
-    left: "29%",
+    left: "43%",
+  },
+  svg: {
+    top: "9.5vw",
+    left: "49%",
+  },
+  markdown: {
+    top: "0.5vw",
+    left: "54%",
+  },
+  mongo: {
+    top: "5vw",
+    left: "60%",
+  },
+  node: {
+    top: "9.5vw",
+    left: "67%",
+  },
+  react: {
+    top: "0.5vw",
+    left: "72%",
+  },
+  bem: {
+    top: "5vw",
+    left: "78%",
+  },
+  js: {
+    top: "9.5vw",
+    left: "84%",
+  },
+  css: {
+    top: "0.5vw",
+    left: "89%",
+  },
+  html: {
+    top: "5vw",
+    left: "95%",
   },
 };

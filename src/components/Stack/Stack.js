@@ -74,11 +74,11 @@ function Stack(props) {
             style={{
               width:
                 (img.naturalWidth / img.naturalHeight) * 4 < 10
-                  ? `${(img.naturalWidth / img.naturalHeight) * 4}vw`
+                  ? `${(img.naturalWidth / img.naturalHeight) * 3.5}vw`
                   : "10vw",
               height:
-                (img.naturalWidth / img.naturalHeight) * 4 < 10
-                  ? "4vw"
+                (img.naturalWidth / img.naturalHeight) * 3.5 < 10
+                  ? "3.5vw"
                   : `${(10 / img.naturalWidth) * img.naturalHeight}vw`,
               top: STACK_STYLES[STACK[index]].top,
               left: STACK_STYLES[STACK[index]].left,

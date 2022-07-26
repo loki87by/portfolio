@@ -184,6 +184,30 @@ import project23k from "../images/projects/shpargaliki/project-23k.jpg";
 import project23l from "../images/projects/shpargaliki/project-23l.jpg";
 import project23m from "../images/projects/shpargaliki/project-23m.jpg";
 import project23n from "../images/projects/shpargaliki/project-23n.jpg";
+import project24 from "../images/projects/contact-list/project-24a.jpg";
+import project24a from "../images/projects/contact-list/project-24b.jpg";
+import project24b from "../images/projects/contact-list/project-24c.jpg";
+import project24c from "../images/projects/contact-list/project-24d.jpg";
+import project24d from "../images/projects/contact-list/project-24e.jpg";
+import project24e from "../images/projects/contact-list/project-24f.jpg";
+import project24f from "../images/projects/contact-list/project-24g.jpg";
+import project24g from "../images/projects/contact-list/project-24h.jpg";
+import project24h from "../images/projects/contact-list/project-24i.jpg";
+import project24i from "../images/projects/contact-list/project-24j.jpg";
+import project24j from "../images/projects/contact-list/project-24k.jpg";
+import project24k from "../images/projects/contact-list/project-24l.jpg";
+import project24l from "../images/projects/contact-list/project-24m.jpg";
+import project24m from "../images/projects/contact-list/project-24n.jpg";
+import project24n from "../images/projects/contact-list/project-24o.jpg";
+import project24o from "../images/projects/contact-list/project-24p.jpg";
+import project24p from "../images/projects/contact-list/project-24q.jpg";
+import project24q from "../images/projects/contact-list/project-24r.jpg";
+import project24r from "../images/projects/contact-list/project-24t.jpg";
+import project24s from "../images/projects/contact-list/project-24u.jpg";
+import project24t from "../images/projects/contact-list/project-24v.jpg";
+import project24u from "../images/projects/contact-list/project-24w.jpg";
+import project24v from "../images/projects/contact-list/project-24x.jpg";
+import project24w from "../images/projects/contact-list/project-24y.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -224,6 +248,7 @@ import git from "../images/stack/git.svg";
 import django from "../images/stack/django.svg";
 import css from "../images/stack/css.svg";
 import bem from "../images/stack/bem.svg";
+import redux from "../images/stack/redux.svg";
 import angular from "../images/stack/angular.svg";
 import filter from "../images/stack/filter.svg";
 
@@ -261,6 +286,7 @@ export const PIC_ARRAY = {
     typescript,
     vue,
     webpack,
+    redux,
   ],
   soft: [
     afterEffects,
@@ -476,5 +502,31 @@ export const PIC_ARRAY = {
     project23l,
     project23m,
     project23n,
+  ],
+  project_contactList: [
+    project24,
+    project24a,
+    project24b,
+    project24c,
+    project24d,
+    project24e,
+    project24f,
+    project24g,
+    project24h,
+    project24i,
+    project24j,
+    project24k,
+    project24l,
+    project24m,
+    project24n,
+    project24o,
+    project24p,
+    project24q,
+    project24r,
+    project24s,
+    project24t,
+    project24u,
+    project24v,
+    project24w,
   ],
 };

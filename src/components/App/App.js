@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 import React from "react";
 import {
   TranslationContext,
@@ -16,6 +17,7 @@ function App() {
   const [images, setImages] = React.useState({});
   const [loadProgress, setLoadProgress] = React.useState(0);
   const [imagesIsLoad, setImagesIsLoad] = React.useState(false);
+  const [dataIsRecorded, setDataRecorded] = React.useState(false);
   const [scrollbarWidth, setScrollbarWidth] = React.useState(0);
   const Mobile =
     /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(
@@ -39,24 +41,29 @@ function App() {
     const allPics = values.flat();
     const entries = Object.entries(PIC_ARRAY);
     let progressCounter = 0;
-    const loadStep = Math.round((100 / allPics.length) * 100) / 100;
+    const loadStep = Math.ceil((100 / allPics.length) * 100) / 100;
     const imagesArray = images || {};
     for (let i = 0; i < entries.length; i++) {
       const arr = [];
       for (let j = 0; j < values[i].length; j++) {
         let img = new Image();
         img.src = values[i][j];
-        // eslint-disable-next-line no-loop-func
         img.onload = function () {
           progressCounter++;
           const progress = progressCounter * loadStep;
           setLoadProgress(progress);
+          setDataRecorded(true);
         };
+
+        if (dataIsRecorded) {
+          setDataRecorded(false);
+        }
         arr.push(img);
       }
       imagesArray[keys[i]] = arr;
     }
     setImages(imagesArray);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [images]);
 
   React.useEffect(() => {

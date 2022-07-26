@@ -9,6 +9,7 @@ import mrsAnimation from "./animations/mrsAnimation";
 import jsClockAnimation from "./animations/jsClockAnimation";
 import wackAMoleAnimation from "./animations/wackAMoleAnimation";
 import shpargalikiAnimation from "./animations/shpargalikiAnimation";
+import contactListAnimation from "./animations/contactListAnimation";
 
 let timersArray = [];
 
@@ -55,6 +56,10 @@ export function animationCreator(name, array, element) {
 
   if (name === "shpargaliki") {
     timersArray = shpargalikiAnimation(array, element);
+  }
+
+  if (name === "contactList") {
+    timersArray = contactListAnimation(array, element);
   }
 }
 

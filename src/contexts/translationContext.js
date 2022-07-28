@@ -91,6 +91,8 @@ export const translations = {
       "Operating online store. To check authorship, you can click on the © symbol in the lower right corner",
     shpargalikiApiInfo:
       "Server of an existing online store. To check authorship, you need to press © in the lower right corner with alt and ctrl pressed, then enter your email and click OK",
+    contactListInfo: "React+typescript+webpack web-sketchpad",
+    pseudoSocialNetworkInfo: "Mini social network on react+typescript+webpack",
     turnOn: "on widget",
     turnOf: "Turn of",
     clueForAnimation: "Hover over the image to animate",
@@ -207,7 +209,8 @@ export const translations = {
       "Действующий интернет-магазин. Для проверки авторства можно кликнуть на символ © в правом нижнем углу",
     shpargalikiApiInfo:
       "Сервер действующего интернет-магазина. Для проверки авторства нужно кликнуть © в правом нижнем углу с зажатыми alt и ctrl, затем ввести свой email и нажать OK",
-    contactListInfo: "Веб-визитка на react+typescript+webpack",
+    contactListInfo: "Веб-записная книжка на react+typescript+webpack",
+    pseudoSocialNetworkInfo: "Мини социальная сеть на react+typescript+webpack",
     turnOf: "Выкл",
     turnOn: "вкл виджет",
     clueForAnimation: "Для анимации наведите курсор на изображение",

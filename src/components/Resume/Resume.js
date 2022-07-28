@@ -300,6 +300,7 @@ function Resume(props) {
                 text={item.text}
                 isMobile={props.isMobile}
                 aspectRatio={item.aspectRatio}
+                /* aspectRatioVariable={item.aspectRatioVariable} */
                 additionally={item.additionally}
                 setRangeValue={setWidgetRangeValue}
               />

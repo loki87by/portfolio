@@ -208,6 +208,22 @@ import project24t from "../images/projects/contact-list/project-24v.jpg";
 import project24u from "../images/projects/contact-list/project-24w.jpg";
 import project24v from "../images/projects/contact-list/project-24x.jpg";
 import project24w from "../images/projects/contact-list/project-24y.jpg";
+import project25 from "../images/projects/psn/project25a.jpg";
+import project25a from "../images/projects/psn/project25b.jpg";
+import project25b from "../images/projects/psn/project25c.jpg";
+import project25c from "../images/projects/psn/project25d.jpg";
+import project25d from "../images/projects/psn/project25e.jpg";
+import project25e from "../images/projects/psn/project25f.jpg";
+import project25f from "../images/projects/psn/project25g.jpg";
+import project25g from "../images/projects/psn/project25h.jpg";
+import project25h from "../images/projects/psn/project25i.jpg";
+import project25i from "../images/projects/psn/project25j.jpg";
+import project25j from "../images/projects/psn/project25k.jpg";
+import project25k from "../images/projects/psn/project25l.jpg";
+import project25l from "../images/projects/psn/project25m.jpg";
+import project25m from "../images/projects/psn/project25n.jpg";
+import project25n from "../images/projects/psn/project25o.jpg";
+import project25o from "../images/projects/psn/project25p.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -528,5 +544,23 @@ export const PIC_ARRAY = {
     project24u,
     project24v,
     project24w,
+  ],
+  project_pseudoSocialNetwork: [
+    project25,
+    project25a,
+    project25b,
+    project25c,
+    project25d,
+    project25e,
+    project25f,
+    project25g,
+    project25h,
+    project25i,
+    project25j,
+    project25k,
+    project25l,
+    project25m,
+    project25n,
+    project25o,
   ],
 };

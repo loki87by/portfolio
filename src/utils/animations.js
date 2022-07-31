@@ -11,6 +11,7 @@ import wackAMoleAnimation from "./animations/wackAMoleAnimation";
 import shpargalikiAnimation from "./animations/shpargalikiAnimation";
 import contactListAnimation from "./animations/contactListAnimation";
 import pseudoSocialNetworkAnimation from "./animations/pseudoSocialNetwork";
+import countersAnimation from "./animations/counters";
 
 let timersArray = [];
 
@@ -65,6 +66,10 @@ export function animationCreator(name, array, element) {
 
   if (name === "pseudoSocialNetwork") {
     timersArray = pseudoSocialNetworkAnimation(array, element);
+  }
+
+  if (name === "counters") {
+    timersArray = countersAnimation(array, element);
   }
 }
 

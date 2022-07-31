@@ -200,6 +200,16 @@ export const WORKS = [
         type: "webService",
         stack: ["react", "css", "typescript", "redux", "webpack", "markdown"],
       },
+      {
+        src: "https://github.com/loki87by/counters",
+        text: "countersInfo",
+        name: "counters",
+        animation: "counters",
+        firstLinkText: "front",
+        aspectRatio: true,
+        type: "webService",
+        stack: ["react", "css", "typescript", "redux", "webpack", "markdown"],
+      },
     ],
   },
   {

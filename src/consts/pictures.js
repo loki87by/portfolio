@@ -224,6 +224,37 @@ import project25l from "../images/projects/psn/project25m.jpg";
 import project25m from "../images/projects/psn/project25n.jpg";
 import project25n from "../images/projects/psn/project25o.jpg";
 import project25o from "../images/projects/psn/project25p.jpg";
+import project26a from "../images/projects/counters/project-26a.jpg";
+import project26a2 from "../images/projects/counters/project-26a2.jpg";
+import project26a3 from "../images/projects/counters/project-26a3.jpg";
+import project26a4 from "../images/projects/counters/project-26a4.jpg";
+import project26a5 from "../images/projects/counters/project-26a5.jpg";
+import project26b from "../images/projects/counters/project-26b.jpg";
+import project26b2 from "../images/projects/counters/project-26b2.jpg";
+import project26b3 from "../images/projects/counters/project-26b3.jpg";
+import project26c from "../images/projects/counters/project-26c.jpg";
+import project26c1 from "../images/projects/counters/project-26c1.jpg";
+import project26c2 from "../images/projects/counters/project-26c2.jpg";
+import project26d from "../images/projects/counters/project-26d.jpg";
+import project26d2 from "../images/projects/counters/project-26d2.jpg";
+import project26d3 from "../images/projects/counters/project-26d3.jpg";
+import project26d4 from "../images/projects/counters/project-26d4.jpg";
+import project26d5 from "../images/projects/counters/project-26d5.jpg";
+import project26d6 from "../images/projects/counters/project-26d6.jpg";
+import project26e from "../images/projects/counters/project-26e.jpg";
+import project26f from "../images/projects/counters/project-26f.jpg";
+import project26f1 from "../images/projects/counters/project-26f1.jpg";
+import project26f2 from "../images/projects/counters/project-26f2.jpg";
+import project26f3 from "../images/projects/counters/project-26f3.jpg";
+import project26f4 from "../images/projects/counters/project-26f4.jpg";
+import project26g from "../images/projects/counters/project-26g.jpg";
+import project26g1 from "../images/projects/counters/project-26g1.jpg";
+import project26g2 from "../images/projects/counters/project-26g2.jpg";
+import project26h from "../images/projects/counters/project-26h.jpg";
+import project26h1 from "../images/projects/counters/project-26h1.jpg";
+import project26h2 from "../images/projects/counters/project-26h2.jpg";
+import project26h3 from "../images/projects/counters/project-26h3.jpg";
+import project26h4 from "../images/projects/counters/project-26h4.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -562,5 +593,38 @@ export const PIC_ARRAY = {
     project25m,
     project25n,
     project25o,
+  ],
+  project_counters: [
+    project26a,
+    project26a2,
+    project26a3,
+    project26a4,
+    project26a5,
+    project26b,
+    project26b2,
+    project26b3,
+    project26c,
+    project26c1,
+    project26c2,
+    project26d,
+    project26d2,
+    project26d3,
+    project26d4,
+    project26d5,
+    project26d6,
+    project26e,
+    project26f,
+    project26f1,
+    project26f2,
+    project26f3,
+    project26f4,
+    project26g,
+    project26g1,
+    project26g2,
+    project26h,
+    project26h1,
+    project26h2,
+    project26h3,
+    project26h4,
   ],
 };

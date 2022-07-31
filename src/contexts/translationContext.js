@@ -93,7 +93,7 @@ export const translations = {
       "Server of an existing online store. To check authorship, you need to press © in the lower right corner with alt and ctrl pressed, then enter your email and click OK",
     contactListInfo: "React+typescript+webpack web-sketchpad",
     pseudoSocialNetworkInfo: "Mini social network on react+typescript+webpack",
-    counters: "Automatic counter generator with react+typescript+webpack",
+    countersInfo: "Automatic counter generator with react+typescript+webpack",
     turnOn: "on widget",
     turnOf: "Turn of",
     clueForAnimation: "Hover over the image to animate",
@@ -212,7 +212,8 @@ export const translations = {
       "Сервер действующего интернет-магазина. Для проверки авторства нужно кликнуть © в правом нижнем углу с зажатыми alt и ctrl, затем ввести свой email и нажать OK",
     contactListInfo: "Веб-записная книжка на react+typescript+webpack",
     pseudoSocialNetworkInfo: "Мини социальная сеть на react+typescript+webpack",
-    counters: "Автоматический генератор счетчиков на react+typescript+webpack",
+    countersInfo:
+      "Автоматический генератор счетчиков на react+typescript+webpack",
     turnOf: "Выкл",
     turnOn: "вкл виджет",
     clueForAnimation: "Для анимации наведите курсор на изображение",

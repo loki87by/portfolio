@@ -6,7 +6,7 @@ import "./styles/__section/Age__section.css";
 
 function Age(props) {
   const [yearsOld, setYearsOld] = React.useState(0);
-  const [mouthesOld, setMouthesOld] = React.useState(0);
+  const [monthesOld, setMonthesOld] = React.useState(0);
   const [weeksOld, setWeeksOld] = React.useState(0);
   const [daysOld, setDaysOld] = React.useState(0);
   const [hoursOld, setHoursOld] = React.useState(0);
@@ -27,66 +27,62 @@ function Age(props) {
 
   React.useEffect(() => {
     function getTimeFromBirth() {
-      const birthMouth = 1;
+      const birthMonth = 1;
       const birthDay = 3;
       const birthYear = 1987;
       const now = new Date();
       const birth = new Date(
-        `${digitCheker(birthMouth)} ${digitCheker(birthDay)} ${birthYear}`
+        `${digitCheker(birthMonth)} ${digitCheker(birthDay)} ${birthYear}`
       );
       let res = now - birth;
       let countdown = res / (365 * 24 * 60 * 60 * 1000);
       const years = Math.floor(countdown);
       setYearsOld(years);
       const lastBirthYear = new Date(
-        `${digitCheker(birthMouth)} ${digitCheker(birthDay)} ${
+        `${digitCheker(birthMonth)} ${digitCheker(birthDay)} ${
           birthYear + years
         }`
       );
       res = now - lastBirthYear;
       countdown = res / (24 * 60 * 60 * 1000);
-      const mouthes = Math.floor(countdown / 30);
-      setMouthesOld(mouthes);
+      const monthes = Math.floor(countdown / 30.42);
+      setMonthesOld(monthes);
       const lastBirthMouth = new Date(
-        `${birthMouth + mouthes} ${digitCheker(birthDay)} ${birthYear + years}`
+        `${birthMonth + monthes} ${digitCheker(birthDay)} ${birthYear + years}`
       );
       res = now - lastBirthMouth;
       countdown = res / (7 * 24 * 60 * 60 * 1000);
       const weeks = Math.floor(countdown);
       setWeeksOld(weeks);
       const lastBirthWeek = new Date(
-        `${birthMouth + mouthes} ${birthDay + weeks * 7} ${birthYear + years}`
+        `${birthMonth + monthes} ${birthDay + weeks * 7} ${birthYear + years}`
       );
       res = now - lastBirthWeek;
       countdown = res / (24 * 60 * 60 * 1000);
       const days = Math.floor(countdown);
       setDaysOld(days);
       const lastBirthDay = new Date(
-        `${digitCheker(birthMouth + mouthes)} ${digitCheker(
-          birthDay + weeks * 7 + days
-        )} ${birthYear + years}`
+        `${now.toString().split(" ")[1]} ${now.toString().split(" ")[2]} ${
+          birthYear + years
+        }`
       );
       res = now - lastBirthDay;
       countdown = res / (60 * 60 * 1000);
       const hours = Math.floor(countdown);
       setHoursOld(hours);
       const lastBirthHour = new Date(
-        `${birthYear + years}-${digitCheker(
-          birthMouth + mouthes
-        )}-${digitCheker(birthDay + weeks * 7 + days)}T${digitCheker(
-          hours
-        )}:00:00`
+        `${now.toString().split(" ")[1]} ${now.toString().split(" ")[2]}, ${
+          birthYear + years
+        } ${digitCheker(hours)}:00:00`
       );
       res = now - lastBirthHour;
       countdown = res / (60 * 1000);
       let mins = Math.floor(countdown);
       setMinutesOld(mins);
       const lastBirthMin = new Date(
-        `${birthYear + years}-${digitCheker(
-          birthMouth + mouthes
-        )}-${digitCheker(birthDay + weeks * 7 + days)}T${digitCheker(
-          hours
-        )}:${digitCheker(mins)}:00`
+        `${now.toString().split(" ")[1]} ${now.toString().split(" ")[2]}, ${
+          birthYear + years
+        } ${digitCheker(hours)}:${digitCheker(mins)}:00`
       );
       res = now - lastBirthMin;
       countdown = res / 1000;
@@ -120,9 +116,9 @@ function Age(props) {
           {":"}
         </h4>
         {props.binary ? (
-          <Hands number={mouthesOld} images={props.images} />
+          <Hands number={monthesOld} images={props.images} />
         ) : (
-          <h3>{mouthesOld}</h3>
+          <h3>{monthesOld}</h3>
         )}
       </section>
       <section className="Age__section">

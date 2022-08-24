@@ -210,6 +210,15 @@ export const WORKS = [
         type: "webService",
         stack: ["react", "css", "typescript", "redux", "webpack", "markdown"],
       },
+      {
+        src: "https://github.com/loki87by/disney-fairy-tales",
+        text: "disneyInfo",
+        name: "dft",
+        animation: "disney",
+        aspectRatio: true,
+        type: "webService",
+        stack: ["react", "css", "bem", "markdown"],
+      },
     ],
   },
   {

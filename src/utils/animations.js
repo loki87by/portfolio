@@ -2,6 +2,7 @@ import diplomAnimation from "./animations/diplomAnimation";
 import zooAnimation from "./animations/zooAnimation";
 import shpargalikiAnimation from "./animations/shpargalikiAnimation";
 import pseudoSocialNetworkAnimation from "./animations/pseudoSocialNetwork";
+import disneyAnimation from "./animations/disney";
 import { lightAnimation } from "./helpers";
 import lightAnimations from "./animations/lightAnimations";
 
@@ -26,6 +27,10 @@ export function animationCreator(name, array, element) {
 
   if (name === "pseudoSocialNetwork") {
     timersArray = pseudoSocialNetworkAnimation(array, element);
+  }
+
+  if (name === "disney") {
+    timersArray = disneyAnimation(array, element);
   }
 }
 

@@ -255,6 +255,24 @@ import project26h1 from "../images/projects/counters/project-26h1.jpg";
 import project26h2 from "../images/projects/counters/project-26h2.jpg";
 import project26h3 from "../images/projects/counters/project-26h3.jpg";
 import project26h4 from "../images/projects/counters/project-26h4.jpg";
+import project27a from "../images/projects/dft/project-27.jpg";
+import project27b from "../images/projects/dft/project-27a.jpg";
+import project27c from "../images/projects/dft/project-27b.jpg";
+import project27d from "../images/projects/dft/project-27c.jpg";
+import project27e from "../images/projects/dft/project-27c2.jpg";
+import project27f from "../images/projects/dft/project-27d.jpg";
+import project27g from "../images/projects/dft/project-27d2.jpg";
+import project27h from "../images/projects/dft/project-27e.jpg";
+import project27i from "../images/projects/dft/project-27e2.jpg";
+import project27j from "../images/projects/dft/project-27e3.jpg";
+import project27k from "../images/projects/dft/project-27e4.jpg";
+import project27l from "../images/projects/dft/project-27e5.jpg";
+import project27m from "../images/projects/dft/project-27e6.jpg";
+import project27n from "../images/projects/dft/project-27e7.jpg";
+import project27o from "../images/projects/dft/project-27e8.jpg";
+import project27p from "../images/projects/dft/project-27e9.jpg";
+import project27q from "../images/projects/dft/project-27f.jpg";
+import project27r from "../images/projects/dft/project-27f2.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -626,5 +644,25 @@ export const PIC_ARRAY = {
     project26h2,
     project26h3,
     project26h4,
+  ],
+  project_dft: [
+    project27a,
+    project27b,
+    project27c,
+    project27d,
+    project27e,
+    project27f,
+    project27g,
+    project27h,
+    project27i,
+    project27j,
+    project27k,
+    project27l,
+    project27m,
+    project27n,
+    project27o,
+    project27p,
+    project27q,
+    project27r,
   ],
 };

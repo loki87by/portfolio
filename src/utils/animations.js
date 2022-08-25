@@ -1,10 +1,8 @@
-import diplomAnimation from "./animations/diplomAnimation";
-import zooAnimation from "./animations/zooAnimation";
-import shpargalikiAnimation from "./animations/shpargalikiAnimation";
 import pseudoSocialNetworkAnimation from "./animations/pseudoSocialNetwork";
 import disneyAnimation from "./animations/disney";
-import { lightAnimation } from "./helpers";
+import { lightAnimation, mediumAnimation } from "./helpers";
 import lightAnimations from "./animations/lightAnimations";
+import mediumAnimations from "./animations/mediumAnimations";
 
 let timersArray = [];
 
@@ -13,16 +11,8 @@ export function animationCreator(name, array, element) {
     timersArray = lightAnimation(array, element, lightAnimations[name]);
   }
 
-  if (name === "diplom") {
-    timersArray = diplomAnimation(array, element);
-  }
-
-  if (name === "zoo") {
-    return zooAnimation(array, element);
-  }
-
-  if (name === "shpargaliki") {
-    timersArray = shpargalikiAnimation(array, element);
+  if (Object.keys(mediumAnimations).includes(name)) {
+    timersArray = mediumAnimation(array, element, mediumAnimations[name]);
   }
 
   if (name === "pseudoSocialNetwork") {

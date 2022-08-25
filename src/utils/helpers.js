@@ -96,3 +96,25 @@ export function lightAnimation(array, element, timeoutsArray) {
   }
   return timersArray;
 }
+
+export function mediumAnimation(array, element, data) {
+  let timersArray = [];
+  const style = element.style.cssText;
+  element.setAttribute("style", `${style} ${data.basic}`);
+
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < data[i].length; j++) {
+      const timer = setTimeout(() => {
+        element.removeAttribute("style");
+        element.setAttribute(
+          "style",
+          `background-image: url(${array[i]}); ${
+            data[i][j].style ? data[i][j].style : data[i].style
+          }`
+        );
+      }, data[i][j].time);
+      timersArray.push(timer);
+    }
+  }
+  return timersArray;
+}

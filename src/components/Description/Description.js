@@ -17,6 +17,8 @@ import "./styles/__certificates/Description__certificates.css";
 import "./styles/__soft/Description__soft.css";
 import "./styles/__soft-container/Description__soft-container.css";
 import "./styles/__soft-image/Description__soft-image.css";
+import "./styles/__paralax/_outer/Description__parralax_outer.css";
+import "./styles/__paralax/_inner/Description__parralax_inner.css";
 
 function Description(props) {
   const avatar = props.images.avatar[0];
@@ -126,6 +128,19 @@ function Description(props) {
         {translation.biography}:{" "}
         <Code width={props.screenWidth} scrollbarWidth={props.scrollbarWidth} />
       </h2>
+      <div className="Description__parralax_outer">
+        <div
+          style={{
+            height: `${
+              (props.screenWidth * 0.9 - props.scrollbarWidth) / 5.933
+            }px`,
+            backgroundSize: `cover, ${
+              props.screenWidth * 0.9 - props.scrollbarWidth
+            }px`,
+          }}
+          className="Description__parralax_inner"
+        ></div>
+      </div>
       <h2 className="Description__subsubtitle">{translation.certificates}: </h2>
       <section className="Description__certificates">
         <Certificate

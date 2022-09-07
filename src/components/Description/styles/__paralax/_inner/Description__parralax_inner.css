@@ -1,0 +1,9 @@
+.Description__parralax_inner {
+  background-image: url("../../../../../images/paralax-plug.png"),
+    url("../../../../../images/paralax-active.png");
+  background-position-y: bottom, bottom;
+  background-position-x: left, center;
+  background-attachment: scroll, fixed;
+  background-repeat: no-repeat;
+  background-size: cover, auto;
+}

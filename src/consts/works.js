@@ -219,6 +219,15 @@ export const WORKS = [
         type: "webService",
         stack: ["react", "css", "bem", "markdown"],
       },
+      {
+        src: "https://github.com/loki87by/currency-converter",
+        text: "currenciesInfo",
+        name: "currencies",
+        animation: "currencies",
+        aspectRatio: true,
+        type: "webService",
+        stack: ["react", "angular", "vue", "js", "css", "html", "markdown"],
+      },
     ],
   },
   {

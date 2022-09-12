@@ -42,6 +42,10 @@ const wackAMoleAnimationTiming = [
   2000, 3000, 4000, 5000, 5700, 6400, 7400, 8100, 9100, 9800, 10800, 11800,
 ];
 
+const currenciesAnimationTiming = [
+  2000, 3000, 3750, 4500, 5250, 6000, 6750, 7500, 8250, 9000, 10000,
+];
+
 const lightAnimations = {
   asyncRace: asyncRaceAnimationTiming,
   contactList: contactListAnimationTiming,
@@ -53,6 +57,7 @@ const lightAnimations = {
   multiRockSlider: mrsAnimationTiming,
   2048: twentyFortyEightAnimationTiming,
   wackAMole: wackAMoleAnimationTiming,
+  currencies: currenciesAnimationTiming,
 };
 
 export default lightAnimations;

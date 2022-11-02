@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.94815cd6.chunk.css",
-    "main.js": "/portfolio/static/js/main.bcb8e8e8.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.bcb8e8e8.chunk.js.map",
+    "main.js": "/portfolio/static/js/main.1be37882.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.1be37882.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.854e465f.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.854e465f.js.map",
     "static/js/2.26b51a08.chunk.js": "/portfolio/static/js/2.26b51a08.chunk.js",
@@ -295,6 +295,17 @@
     "static/media/project-28h.5d31fb30.jpg": "/portfolio/static/media/project-28h.5d31fb30.jpg",
     "static/media/project-28i.aee40d6b.jpg": "/portfolio/static/media/project-28i.aee40d6b.jpg",
     "static/media/project-28j.145952b2.jpg": "/portfolio/static/media/project-28j.145952b2.jpg",
+    "static/media/project-29.8598cf38.jpg": "/portfolio/static/media/project-29.8598cf38.jpg",
+    "static/media/project-29a.eb921b22.jpg": "/portfolio/static/media/project-29a.eb921b22.jpg",
+    "static/media/project-29b.6287383c.jpg": "/portfolio/static/media/project-29b.6287383c.jpg",
+    "static/media/project-29c.e3903d80.jpg": "/portfolio/static/media/project-29c.e3903d80.jpg",
+    "static/media/project-29d.49400e95.jpg": "/portfolio/static/media/project-29d.49400e95.jpg",
+    "static/media/project-29e.44a86c46.jpg": "/portfolio/static/media/project-29e.44a86c46.jpg",
+    "static/media/project-29f.cae60d85.jpg": "/portfolio/static/media/project-29f.cae60d85.jpg",
+    "static/media/project-29g.115815a3.jpg": "/portfolio/static/media/project-29g.115815a3.jpg",
+    "static/media/project-29h.fd710bc5.jpg": "/portfolio/static/media/project-29h.fd710bc5.jpg",
+    "static/media/project-29i.a92dabdb.jpg": "/portfolio/static/media/project-29i.a92dabdb.jpg",
+    "static/media/project-29j.e9c46dea.jpg": "/portfolio/static/media/project-29j.e9c46dea.jpg",
     "static/media/project-3.662e4a30.jpg": "/portfolio/static/media/project-3.662e4a30.jpg",
     "static/media/project-4.0d5c551e.jpg": "/portfolio/static/media/project-4.0d5c551e.jpg",
     "static/media/project-5.52c8f870.jpg": "/portfolio/static/media/project-5.52c8f870.jpg",
@@ -356,6 +367,6 @@
     "static/js/runtime-main.854e465f.js",
     "static/js/2.26b51a08.chunk.js",
     "static/css/main.94815cd6.chunk.css",
-    "static/js/main.bcb8e8e8.chunk.js"
+    "static/js/main.1be37882.chunk.js"
   ]
 }

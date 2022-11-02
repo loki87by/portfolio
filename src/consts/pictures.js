@@ -700,7 +700,7 @@ export const PIC_ARRAY = {
     project28i,
     project28j,
   ],
-  project_bshop: [
+  project_bShop: [
     project29,
     project29a,
     project29b,

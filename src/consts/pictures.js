@@ -284,6 +284,17 @@ import project28g from "../images/projects/currencies/project-28g.jpg";
 import project28h from "../images/projects/currencies/project-28h.jpg";
 import project28i from "../images/projects/currencies/project-28i.jpg";
 import project28j from "../images/projects/currencies/project-28j.jpg";
+import project29 from "../images/projects/b-shop/project-29.jpg";
+import project29a from "../images/projects/b-shop/project-29a.jpg";
+import project29b from "../images/projects/b-shop/project-29b.jpg";
+import project29c from "../images/projects/b-shop/project-29c.jpg";
+import project29d from "../images/projects/b-shop/project-29d.jpg";
+import project29e from "../images/projects/b-shop/project-29e.jpg";
+import project29f from "../images/projects/b-shop/project-29f.jpg";
+import project29g from "../images/projects/b-shop/project-29g.jpg";
+import project29h from "../images/projects/b-shop/project-29h.jpg";
+import project29i from "../images/projects/b-shop/project-29i.jpg";
+import project29j from "../images/projects/b-shop/project-29j.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -688,5 +699,18 @@ export const PIC_ARRAY = {
     project28h,
     project28i,
     project28j,
+  ],
+  project_bshop: [
+    project29,
+    project29a,
+    project29b,
+    project29c,
+    project29d,
+    project29e,
+    project29f,
+    project29g,
+    project29h,
+    project29i,
+    project29j,
   ],
 };

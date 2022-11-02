@@ -228,6 +228,15 @@ export const WORKS = [
         type: "webService",
         stack: ["react", "angular", "vue", "js", "css", "html", "markdown"],
       },
+      {
+        src: "https://github.com/loki87by/banki-shop",
+        text: "bShopInfo",
+        name: "bShop",
+        animation: "bShop",
+        aspectRatio: true,
+        type: "webService",
+        stack: ["vue", "js", "css", "html", "bem", "markdown"],
+      },
     ],
   },
   {

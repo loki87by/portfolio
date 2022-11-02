@@ -46,6 +46,10 @@ const currenciesAnimationTiming = [
   2000, 3000, 3750, 4500, 5250, 6000, 6750, 7500, 8250, 9000, 10000,
 ];
 
+const bShopAnimationTiming = [
+  2000, 3000, 3750, 4500, 5500, 6250, 7000, 8000, 8750, 9500, 10250,
+];
+
 const lightAnimations = {
   asyncRace: asyncRaceAnimationTiming,
   contactList: contactListAnimationTiming,
@@ -58,6 +62,7 @@ const lightAnimations = {
   2048: twentyFortyEightAnimationTiming,
   wackAMole: wackAMoleAnimationTiming,
   currencies: currenciesAnimationTiming,
+  bShop: bShopAnimationTiming,
 };
 
 export default lightAnimations;

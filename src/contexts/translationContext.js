@@ -97,6 +97,7 @@ export const translations = {
     disneyInfo: `Site for subscribers deceived by "Deagostini inc". It was created so that it was possible to listen and download both the promised, but never released, and the rest of the tales of the series.`,
     currenciesInfo:
       "Currency converter written in 4 variations: ReactJs, VueJs, AngularJs and native JavaScript",
+    bShopInfo: "Simple store on Vue.js",
     turnOn: "on widget",
     turnOf: "Turn of",
     clueForAnimation: "Hover over the image to animate",
@@ -220,6 +221,7 @@ export const translations = {
     disneyInfo: `Сайт для "кинутых" компанией Deagostini подписчиков. Создан чтоб было возможно послушать и скачать как обещанные, но так и не вышедшие, так и остальные сказки серии.`,
     currenciesInfo:
       "Конвертер валют написанный в 4х вариациях: на ReactJs, на VueJs, на AngularJs и на нативном JavaScript",
+    bShopInfo: "Простенький магазин на Vue.js",
     turnOf: "Выкл",
     turnOn: "вкл виджет",
     clueForAnimation: "Для анимации наведите курсор на изображение",

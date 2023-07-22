@@ -1,23 +1,27 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
 import Hands from "../Hands/Hands";
+import Preloader from "../Preloader/Preloader";
 import "./Age.css";
 import "./styles/__section/Age__section.css";
 
 function Age(props) {
-  const [yearsOld, setYearsOld] = React.useState(0);
-  const [monthesOld, setMonthesOld] = React.useState(0);
-  const [weeksOld, setWeeksOld] = React.useState(0);
-  const [daysOld, setDaysOld] = React.useState(0);
-  const [hoursOld, setHoursOld] = React.useState(0);
-  const [minutesOld, setMinutesOld] = React.useState(0);
-  const [secondsOld, setSecondsOld] = React.useState(0);
-  const translation = React.useContext(TranslationContext);
+  const [yearsOld, setYearsOld] = useState(0);
+  const [monthesOld, setMonthesOld] = useState(0);
+  const [weeksOld, setWeeksOld] = useState(0);
+  const [daysOld, setDaysOld] = useState(0);
+  const [hoursOld, setHoursOld] = useState(0);
+  const [minutesOld, setMinutesOld] = useState(0);
+  const [secondsOld, setSecondsOld] = useState(0);
+
+  const translation = useContext(TranslationContext);
+
   const intervalTime = 1000;
   const intervalRef = React.useRef(intervalTime);
   intervalRef.current = intervalTime;
 
   const digitCheker = (number) => {
+
     if (number < 10) {
       return `0${number}`;
     } else {
@@ -25,7 +29,7 @@ function Age(props) {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     function getTimeFromBirth() {
       const birthMonth = 1;
       const birthDay = 3;
@@ -105,7 +109,8 @@ function Age(props) {
           {":"}
         </h4>
         {props.binary ? (
-          <Hands number={yearsOld} images={props.images} />
+          props.images.fingers && props.images.fingers.length > 11 ? <Hands number={yearsOld} images={props.images} />
+          : <Preloader />
         ) : (
           <h3>{yearsOld}</h3>
         )}

@@ -1,6 +1,4 @@
 import React from "react";
-import Code from "../Code/Code";
-import Age from "../Age/Age";
 import Slider from "../Slider/Slider";
 import Stack from "../Stack/Stack";
 import Certificate from "../Certificate/Certificate";
@@ -21,19 +19,19 @@ import "./styles/__paralax/_outer/Description__parralax_outer.css";
 import "./styles/__paralax/_inner/Description__parralax_inner.css";
 
 function Description(props) {
-  const avatar = props.images.avatar[0];
-  const animations = props.images.avatarAnimation;
+  //const avatar = props.images.avatar[0];
+  /* const animations = props.images.avatarAnimation; */
   const translation = React.useContext(TranslationContext);
-  const [mouseOver, setMouseOver] = React.useState(false);
-  const [effectAva, setEffectAva] = React.useState(animations[0].src);
-  const [binary, setBinary] = React.useState(true);
+  /* const [mouseOver, setMouseOver] = React.useState(false);
+  const [effectAva, setEffectAva] = React.useState(animations[0].src); */
+/*   const [binary, setBinary] = React.useState(true);
 
   function changeDigitType() {
     const newState = !binary;
     setBinary(newState);
-  }
+  } */
 
-  React.useEffect(() => {
+  /* React.useEffect(() => {
     let ava = document.querySelector(".Description__photo");
 
     function changeEffect() {
@@ -58,7 +56,7 @@ function Description(props) {
       ava.removeEventListener("mouseover", hoverOn);
       ava.removeEventListener("mouseout", hoverOff);
     };
-  });
+  }); */
 
   return (
     <>
@@ -94,12 +92,12 @@ function Description(props) {
           https://github.com/loki87by
         </a>
       </h3>
-      <img
+      {/* <img
         alt="фото"
         src={mouseOver ? effectAva : avatar.src}
         className="Description__photo"
-      />
-      <div className="Description__block">
+      /> */}
+      {/* <div className="Description__block">
         <h2 className="Description__subsubtitle">{translation.age}: </h2>
         {binary ? (
           <button className="Description__button" onClick={changeDigitType}>
@@ -127,7 +125,7 @@ function Description(props) {
       <h2 className="Description__subsubtitle">
         {translation.biography}:{" "}
         <Code width={props.screenWidth} scrollbarWidth={props.scrollbarWidth} />
-      </h2>
+      </h2> */}
       <div className="Description__parralax_outer">
         <div
           style={{

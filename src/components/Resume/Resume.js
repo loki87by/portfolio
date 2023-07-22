@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
-import Sprite from '../Sprite/Sprite';
-import bio from '../../images/bio.svg';
-import contacts from '../../images/contacts.svg';
-import docs from '../../images/docs.svg';
-import info from '../../images/info.svg';
-import stack from '../../images/stack.svg';
-import works from '../../images/works.svg';
+import Sprite from "../Sprite/Sprite";
+import bio from "../../images/bio.svg";
+import contacts from "../../images/contacts.svg";
+import docs from "../../images/docs.svg";
+import info from "../../images/info.svg";
+import stack from "../../images/stack.svg";
+import works from "../../images/works.svg";
 import "./Resume.css";
 
 function Resume(props) {
@@ -17,14 +17,16 @@ function Resume(props) {
     { src: null },
     { src: null },
   ]);
-  const [mouseOver, setMouseOver] = useState(false);
+  const [mouseOver, setMouseOver] = useState(false);/*
+  const [avaLoaded, setAvaLoaded] = useState(false); */
   const [effectAva, setEffectAva] = useState(null);
 
-  const translation = React.useContext(TranslationContext);
+  const translation = useContext(TranslationContext);
 
   useEffect(() => {
     if (props.images.avatar) {
       setAvatar(props.images.avatar[0]);
+      /* setAvaLoaded(true); */
     }
   }, [props.images.avatar]);
 
@@ -35,7 +37,7 @@ function Resume(props) {
     }
   }, [props.images.avatarAnimation]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     let ava = document.querySelector(".Resume__photo");
 
     function changeEffect() {
@@ -64,24 +66,73 @@ function Resume(props) {
 
   return (
     <section className="Resume">
-      <div className="Resume__button Resume__button_top Resume__button_top_first">
-      <Sprite src={bio} id="bio" width='2.5vmax' height='2.5vmax' title={translation.bio} />
-      </div>
-      <div className="Resume__button Resume__button_top Resume__button_top_second">
-      <Sprite src={contacts} id="contacts" width='2.5vmax' height='2.5vmax' title={translation.contacts} /></div>
-      <div className="Resume__button Resume__button_top Resume__button_top_third">
-      <Sprite src={docs} id="docs" width='2.5vmax' height='2.5vmax' title={translation.docs} /> </div>
-      <img
-        alt="фото"
-        src={mouseOver ? effectAva : avatar.src}
-        className="Resume__photo"
-      />
-      <div className="Resume__button Resume__button_bottom Resume__button_bottom_first">
-      <Sprite src={info} id="info" width='2.5vmax' height='2.5vmax' title={translation.info} /></div>
-      <div className="Resume__button Resume__button_bottom Resume__button_bottom_second">
-      <Sprite src={stack} id="stack" width='2.5vmax' height='2.5vmax' title={translation.stack} /></div>
-      <div className="Resume__button Resume__button_bottom Resume__button_bottom_third">
-      <Sprite src={works} id="works" width='2.5vmax' height='2.5vmax' title={translation.works} /></div>
+          <div className="Resume__button Resume__button_top Resume__button_top_first">
+            <Sprite
+              src={bio}
+              click={()=>{props.setOpenedSection('bio')}}
+              id="bio"
+              width="2.5vmax"
+              height="2.5vmax"
+              title={translation.bio}
+            />
+          </div>
+          <div className="Resume__button Resume__button_top Resume__button_top_second">
+            <Sprite
+              src={contacts}
+              click={()=>{props.setOpenedSection('contacts')}}
+              id="contacts"
+              width="2.5vmax"
+              height="2.5vmax"
+              title={translation.contacts}
+            />
+          </div>
+          <div className="Resume__button Resume__button_top Resume__button_top_third">
+            <Sprite
+              src={docs}
+              click={()=>{props.setOpenedSection('docs')}}
+              id="docs"
+              width="2.5vmax"
+              height="2.5vmax"
+              title={translation.docs}
+            />{" "}
+          </div>
+          <img
+            alt="фото"
+            src={mouseOver ? effectAva : avatar.src}
+            className="Resume__photo"
+          />
+          <div className="Resume__button Resume__button_bottom Resume__button_bottom_first">
+            <Sprite
+              src={info}
+              click={()=>{props.setOpenedSection('info')}}
+              id="info"
+              width="2.5vmax"
+              height="2.5vmax"
+              title={translation.info}
+            />
+          </div>
+          <div className="Resume__button Resume__button_bottom Resume__button_bottom_second">
+            <Sprite
+              src={stack}
+              click={()=>{props.setOpenedSection('stack')}}
+              id="stack"
+              width="2.5vmax"
+              height="2.5vmax"
+              title={translation.stack}
+            />
+          </div>
+          <div className="Resume__button Resume__button_bottom Resume__button_bottom_third">
+            <Sprite
+              src={works}
+              click={()=>{props.setOpenedSection('works')}}
+              id="works"
+              width="2.5vmax"
+              height="2.5vmax"
+              title={translation.works}
+            />
+          </div>
+        {/* </>
+      )} */}
     </section>
   );
 }

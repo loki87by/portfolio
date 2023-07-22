@@ -1,5 +1,5 @@
 /* eslint-disable no-loop-func */
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   TranslationContext,
   translations,
@@ -7,26 +7,30 @@ import {
 import { PIC_ARRAY } from "../../consts/pictures";
 import Header from "../Header/Header";
 import Resume from "../Resume/Resume";
+import Bio from "../Bio/Bio"
 import Footer from "../Footer/Footer";
 import "../../vendor/normalize.css";
 import "./App.css";
 import "./styles/App_preload.css";
 
 function App() {
-  const [lang, setLang] = React.useState("ru");
-  const [images, setImages] = React.useState({});
-  const [isInitWidget, setInitWidget] = React.useState(false);
-  /* const [loadProgress, setLoadProgress] = React.useState(0); */
+  const [lang, setLang] = useState("ru");
+  const [images, setImages] = useState({});
+  const [isInitWidget, setInitWidget] = useState(false);
+  const [avaLoaded, setAvaLoaded] = useState(false);
+  const [openedSection, setOpenedSection] = useState("");
+  const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
   /* const [imagesIsLoad, setImagesIsLoad] = React.useState(false); */
-  const [dataIsRecorded, setDataRecorded] = React.useState(false);
-  const [scrollbarWidth, setScrollbarWidth] = React.useState(0);
+  const [dataIsRecorded, setDataRecorded] = useState(false);
+  const [scrollbarWidth, setScrollbarWidth] = useState(0);
   const Mobile =
     /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(
       navigator.userAgent
     );
-  const mobileRef = React.useRef(Mobile);
 
-  React.useEffect(() => {
+  const mobileRef = useRef(Mobile);
+
+  useEffect(() => {
     setInterval(() => {
       const Mobile =
         /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(
@@ -36,7 +40,7 @@ function App() {
     }, 15000);
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     const keys = Object.keys(PIC_ARRAY);
     const values = Object.values(PIC_ARRAY);
     /* const allPics = values.flat(); */
@@ -71,13 +75,13 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [images]);
 
-/*   React.useEffect(() => {
-    if (Math.round(loadProgress) === 100) {
-      setImagesIsLoad(true);
+  useEffect(() => {
+    if (images && images.avatar && images.avatar[0]) {
+      setAvaLoaded(true);
     }
-  }, [loadProgress]); */
+  }, [images])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!Mobile) {
       const scrollDiv = document.createElement("div");
       scrollDiv.className = "scrollbar-measure";
@@ -87,7 +91,7 @@ function App() {
     }
   }, [Mobile]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const widget = document.createElement("weather-widget");
     widget.id = "weatherWidget";
     document.body.appendChild(widget);
@@ -102,40 +106,45 @@ function App() {
     setInitWidget(true);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const widget = document.getElementById("weatherWidget");
     widget.classList.add("hide-widget");
   }, [isInitWidget]);
+
+  useEffect(() => {
+    function resizer() {
+      setScreenWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", resizer);
+    resizer();
+
+    return () => window.removeEventListener("resize", resizer);
+  });
 
   return (
     <>
       <TranslationContext.Provider value={translations[lang]}>
         <Header setLang={setLang} lang={lang} />{/*
         {imagesIsLoad ? ( */}
-        <main>
+        <main>{!avaLoaded ?
+        <p>{translations[lang].welcome}</p> :
           <Resume
             isMobile={mobileRef.current}
             lang={lang}
             images={images}
             /* imagesIsLoad={imagesIsLoad} */
             scrollbarWidth={scrollbarWidth}
-          />{/*
-        ) : (
-          <h2
-            className="App_preload"
-            style={{
-              background: `linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) ${
-                loadProgress - 1
-              }%, rgba(255,255,255,1) ${loadProgress}%)`,
-            }}
-          >
-            {translations[lang].preload}
-            {Math.round(loadProgress)}%
-          </h2>
-        )}
-        <div className="scrollbar-measure"></div> */}
+            setOpenedSection={setOpenedSection}
+          />
+      }
+      {/* {openedSection === 'contacts' ? <Contacts /> : ''}
+      {openedSection === 'docs' ? <Docs /> : ''}
+      {openedSection === 'info' ? <Info /> : ''}
+      {openedSection === 'stack' ? <Stack /> : ''}
+      {openedSection === 'works' ? <Works /> : ''} */}
         </main>
-        <Footer />
+        {openedSection === 'bio' ? <Bio images={images} screenWidth={screenWidth} scrollbarWidth={scrollbarWidth} /> : ''}
+      <Footer />
       </TranslationContext.Provider>
     </>
   );

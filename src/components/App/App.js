@@ -8,6 +8,7 @@ import { PIC_ARRAY } from "../../consts/pictures";
 import Header from "../Header/Header";
 import Resume from "../Resume/Resume";
 import Bio from "../Bio/Bio"
+import Contacts from '../Contacts/Contacts'
 import Footer from "../Footer/Footer";
 import "../../vendor/normalize.css";
 import "./App.css";
@@ -19,7 +20,7 @@ function App() {
   const [isInitWidget, setInitWidget] = useState(false);
   const [avaLoaded, setAvaLoaded] = useState(false);
   const [openedSection, setOpenedSection] = useState("");
-  const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
+  const [screenWidth, setScreenWidth] = useState(window.screen.width);
   /* const [imagesIsLoad, setImagesIsLoad] = React.useState(false); */
   const [dataIsRecorded, setDataRecorded] = useState(false);
   const [scrollbarWidth, setScrollbarWidth] = useState(0);
@@ -137,13 +138,14 @@ function App() {
             setOpenedSection={setOpenedSection}
           />
       }
-      {/* {openedSection === 'contacts' ? <Contacts /> : ''}
+      {/*
       {openedSection === 'docs' ? <Docs /> : ''}
       {openedSection === 'info' ? <Info /> : ''}
       {openedSection === 'stack' ? <Stack /> : ''}
       {openedSection === 'works' ? <Works /> : ''} */}
         </main>
         {openedSection === 'bio' ? <Bio images={images} screenWidth={screenWidth} scrollbarWidth={scrollbarWidth} /> : ''}
+        {openedSection === 'contacts' ? <Contacts /> : ''}
       <Footer />
       </TranslationContext.Provider>
     </>

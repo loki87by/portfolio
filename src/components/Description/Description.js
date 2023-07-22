@@ -59,7 +59,7 @@ function Description(props) {
   }); */
 
   return (
-    <>
+    <>{/*
       <h1 className="Description__title">
         {translation.specify}
         <br />
@@ -91,7 +91,7 @@ function Description(props) {
         >
           https://github.com/loki87by
         </a>
-      </h3>
+      </h3> */}
       {/* <img
         alt="фото"
         src={mouseOver ? effectAva : avatar.src}

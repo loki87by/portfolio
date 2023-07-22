@@ -1,8 +1,10 @@
 .Header {
   position: fixed;
   z-index: 5;
-  width: calc(100% - 10vmin);
-  padding: 1vmin 5vmin;
+  width: 100%;
+  padding: 1vmin 5vmin 0;
+  height: 5vmax;
+  box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

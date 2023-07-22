@@ -1,0 +1,9 @@
+.Works__slider-icon {
+  width: 1vw;
+  height: 1vw;
+  margin: 1vw;
+  border-radius: 50%;
+  border: 1px solid var(--main-color);
+  background: var(--back-color);
+  cursor: pointer;
+}

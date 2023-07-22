@@ -4,12 +4,13 @@
   "version": "1.1.5",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "caniuse-lite": "^1.0.30001370",
+    "babel-preset-react-app": "^10.0.1",
+    "caniuse-lite": "^1.0.30001516",
     "history": "^5.3.0",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^5.3.3",
@@ -19,8 +20,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",

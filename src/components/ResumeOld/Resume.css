@@ -1,0 +1,4 @@
+.Resume {
+  padding: calc(5vw + 2vmin) 5vw 0;
+  color: var(--second-color);
+}

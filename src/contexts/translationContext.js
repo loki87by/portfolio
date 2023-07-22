@@ -3,6 +3,9 @@ export const TranslationContext = React.createContext();
 export const translations = {
   en: {
     preload: "Images are being cached. Please, wait... ",
+    bio: "Biography",
+    docs: "Sertificates",
+    info: 'Information',
     age: "Age",
     years: "years",
     mounthes: "mounthes",
@@ -124,6 +127,9 @@ export const translations = {
   },
   ru: {
     preload: "Идёт кэширование изображений. Пожалуйста ждите... ",
+    bio: "Биография",
+    docs: "Сертификаты",
+    info: "Информация",
     age: "Возраст",
     years: "лет",
     mounthes: "месяцев",

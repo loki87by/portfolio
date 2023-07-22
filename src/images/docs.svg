@@ -1,0 +1,15 @@
+<svg display="none">
+<symbol id="docs" viewBox="0 0 272 272" xmlns="http://www.w3.org/2000/svg" fill="var(--primary, none)" stroke-width="2">
+<defs>
+  </defs>
+  <title/>
+  <polygon fill="#f54337" points="214.49 248 225.81 228.4 245.4 239.72 230.91 185.63 200 193.91 214.49 248"/>
+  <polygon fill="#f54337" points="185.51 248 174.19 228.4 154.6 239.72 169.09 185.63 200 193.91 185.51 248"/>
+  <rect fill="#f3f4f2" height="160" width="256" x="8" y="24"/>
+  <circle fill="#ffeb3c" cx="200" cy="152" r="48"/>
+  <rect height="8" width="216" x="32" y="52"/>
+  <rect height="8" width="216" x="32" y="76"/>
+  <rect height="8" width="104" x="32" y="100"/>
+  <rect height="8" width="104" x="32" y="124"/>
+  <rect height="8" width="104" x="32" y="148"/>
+  </svg>

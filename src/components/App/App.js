@@ -6,7 +6,7 @@ import {
 } from "../../contexts/translationContext";
 import { PIC_ARRAY } from "../../consts/pictures";
 import Header from "../Header/Header";
-import Main from "../Main/Main";
+import Resume from "../Resume/Resume";
 import Footer from "../Footer/Footer";
 import "../../vendor/normalize.css";
 import "./App.css";
@@ -15,8 +15,9 @@ import "./styles/App_preload.css";
 function App() {
   const [lang, setLang] = React.useState("ru");
   const [images, setImages] = React.useState({});
-  const [loadProgress, setLoadProgress] = React.useState(0);
-  const [imagesIsLoad, setImagesIsLoad] = React.useState(false);
+  const [isInitWidget, setInitWidget] = React.useState(false);
+  /* const [loadProgress, setLoadProgress] = React.useState(0); */
+  /* const [imagesIsLoad, setImagesIsLoad] = React.useState(false); */
   const [dataIsRecorded, setDataRecorded] = React.useState(false);
   const [scrollbarWidth, setScrollbarWidth] = React.useState(0);
   const Mobile =
@@ -38,20 +39,20 @@ function App() {
   React.useEffect(() => {
     const keys = Object.keys(PIC_ARRAY);
     const values = Object.values(PIC_ARRAY);
-    const allPics = values.flat();
+    /* const allPics = values.flat(); */
     const entries = Object.entries(PIC_ARRAY);
-    let progressCounter = 0;
-    const loadStep = Math.ceil((100 / allPics.length) * 100) / 100;
-    const imagesArray = images || {};
+    /* let progressCounter = 0;
+    const loadStep = Math.ceil((100 / allPics.length) * 100) / 100; */
     for (let i = 0; i < entries.length; i++) {
+      new Promise(() => {
       const arr = [];
       for (let j = 0; j < values[i].length; j++) {
         let img = new Image();
         img.src = values[i][j];
         img.onload = function () {
-          progressCounter++;
-          const progress = progressCounter * loadStep;
-          setLoadProgress(progress);
+          /* progressCounter++; */
+          /* const progress = progressCounter * loadStep; */
+          /* setLoadProgress(progress); */
           setDataRecorded(true);
         };
 
@@ -60,17 +61,21 @@ function App() {
         }
         arr.push(img);
       }
+      const imagesArray = images || {};
       imagesArray[keys[i]] = arr;
+      return imagesArray
+    }).then((res) => {
+      setImages(res)
+    })
     }
-    setImages(imagesArray);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [images]);
 
-  React.useEffect(() => {
+/*   React.useEffect(() => {
     if (Math.round(loadProgress) === 100) {
       setImagesIsLoad(true);
     }
-  }, [loadProgress]);
+  }, [loadProgress]); */
 
   React.useEffect(() => {
     if (!Mobile) {
@@ -82,18 +87,39 @@ function App() {
     }
   }, [Mobile]);
 
+  React.useEffect(() => {
+    const widget = document.createElement("weather-widget");
+    widget.id = "weatherWidget";
+    document.body.appendChild(widget);
+    const script = document.createElement("script");
+    script.src =
+      "https://myweatherwidget.netlify.app/main.5b97e72ea5ec56747edc.js";
+    script.async = true;
+    script.onload = () => {
+      window.MyApp.init(widget);
+    };
+    widget.appendChild(script);
+    setInitWidget(true);
+  }, []);
+
+  React.useEffect(() => {
+    const widget = document.getElementById("weatherWidget");
+    widget.classList.add("hide-widget");
+  }, [isInitWidget]);
+
   return (
     <>
       <TranslationContext.Provider value={translations[lang]}>
-        <Header setLang={setLang} lang={lang} />
-        {imagesIsLoad ? (
-          <Main
+        <Header setLang={setLang} lang={lang} />{/*
+        {imagesIsLoad ? ( */}
+        <main>
+          <Resume
             isMobile={mobileRef.current}
             lang={lang}
             images={images}
-            imagesIsLoad={imagesIsLoad}
+            /* imagesIsLoad={imagesIsLoad} */
             scrollbarWidth={scrollbarWidth}
-          />
+          />{/*
         ) : (
           <h2
             className="App_preload"
@@ -107,7 +133,8 @@ function App() {
             {Math.round(loadProgress)}%
           </h2>
         )}
-        <div className="scrollbar-measure"></div>
+        <div className="scrollbar-measure"></div> */}
+        </main>
         <Footer />
       </TranslationContext.Provider>
     </>

@@ -1,4 +1,4 @@
-.Main {
+.Resume__openWorks-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6,10 +6,4 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: var(--back-color);
-  color: var(--main-color);
-}
-
-.hide-widget {
-  visibility: hidden;
 }

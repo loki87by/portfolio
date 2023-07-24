@@ -8,3 +8,25 @@
   box-sizing: border-box;
   background-color: #302f2f;
 }
+
+.Code__line {
+  width: 100%;
+  font-size: var(--fs5);
+  line-height: 1.2;
+  color: #fff;
+}
+
+.Code__line > span {
+  white-space: pre;
+}
+
+.Code__line-tab {
+  font-size: var(--fs4);
+  line-height: 0.01;
+}
+
+.Code__line_link {
+  text-decoration: none;
+  color: #fff;
+}
+

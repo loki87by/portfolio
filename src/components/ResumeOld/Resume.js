@@ -7,7 +7,7 @@ import Description from "../Description/Description";
 import Slider from "../Slider/Slider";
 import Works from "../Works/Works";
 import Work from "../Work/Work";
-import Certificate from "../Certificate/Certificate";
+/* import Certificate from "../Certificate/Certificate"; */
 import "./Resume.css";
 import "../Works/styles/__slider-container/Works__slider-container.css";
 import "./styles/__openWorks-container/Resume__openWorks-container.css";
@@ -21,9 +21,9 @@ import "./styles/__certificate/Resume__certificate.css";
 import "./styles/__certificate-close/Resume__certificate-close.css";
 
 function Resume(props) {
-  const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
+  const [screenWidth, setScreenWidth] = React.useState(window.screen.width);/*
   const [isCertificateOpen, setCertificateOpen] = React.useState(false);
-  const [certificateType, setCertificateType] = React.useState(null);
+  const [certificateType, setCertificateType] = React.useState(null); */
   const [softStyles, setSoftStyles] = React.useState([]);
   const [pausedSoftSlider, setPausedSoftSlider] = React.useState(false);
   const [worksStyles, setWorksStyles] = React.useState([]);
@@ -40,7 +40,7 @@ function Resume(props) {
   const [targetWorkIcon, setTargetWorkIcon] = React.useState(null);
 
   const translation = React.useContext(TranslationContext);
-  const scrollRef = React.useRef(null);
+  /* const scrollRef = React.useRef(null); */
 
   const softImages = completeSliderArray(props.images.soft.slice(), 5);
   const worksListArray = completeSliderArray(WORKS.slice(), 1);
@@ -51,7 +51,7 @@ function Resume(props) {
   let softStylesArray = JSON.parse(JSON.stringify(softStyles));
   let worksStyleArray = JSON.parse(JSON.stringify(worksStyles));
   let iconsStyleArray = JSON.parse(JSON.stringify(workIconsStyles));
-  let imagesObject = {};
+  let imagesObject = {};/*
 
   function scrollToElement() {
     setTimeout(() => {
@@ -73,7 +73,7 @@ function Resume(props) {
       const headerHeight = Math.ceil(3 * vmin + 5 * vw - vmax);
       window.scrollTo(0, scrollRef.current.offsetTop - headerHeight);
     }, 10);
-  }
+  } */
 
   function stopSoftAutoSlide() {
     setPausedSoftSlider(true);
@@ -122,7 +122,7 @@ function Resume(props) {
         setWorksOpen={setWorksOpen}
         setCurrentWorks={setCurrentWorks}
         setCurrentWorkName={setCurrentWorkName}
-        scrollToElement={scrollToElement}
+        /* scrollToElement={scrollToElement} */
       />
     );
   });
@@ -189,7 +189,7 @@ function Resume(props) {
     let arr = JSON.parse(JSON.stringify(worksStyles));
     arr = arr.map(() => style);
     setWorksStyles(arr);
-  }
+  }/*
 
   function closeCertificate() {
     setCertificateOpen(false);
@@ -201,13 +201,13 @@ function Resume(props) {
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("keydown", handleEscClose);
 
     return () => {
       window.removeEventListener("keydown", handleEscClose);
     };
-  });
+  }); */
 
   React.useEffect(() => {
     function resizer() {
@@ -244,9 +244,9 @@ function Resume(props) {
         images={props.images}
         isMobile={props.isMobile}
         imagesIsLoad={props.imagesIsLoad}
-        scrollbarWidth={props.scrollbarWidth}
+        scrollbarWidth={props.scrollbarWidth}/*
         setCertificateOpen={setCertificateOpen}
-        setCertificateType={setCertificateType}
+        setCertificateType={setCertificateType} */
         setStyle={setSoftStyle}
         setPaused={stopSoftAutoSlide}
         resetPaused={restartSoftAutoSlide}
@@ -284,7 +284,7 @@ function Resume(props) {
                 width={screenWidth}
                 rangeValue={widgetRangeValue}
                 currentWorkName={currentWorkName}
-                scrollRef={scrollRef}
+                /* scrollRef={scrollRef} */
                 link={item.src}
                 index={index}
                 type={item.type}
@@ -309,7 +309,7 @@ function Resume(props) {
       ) : (
         <section className="Works__slider-icons">{workSlideIcons}</section>
       )}
-      <section
+      {/* <section
         className={`Resume__popup ${
           isCertificateOpen && "Resume__popup_opened"
         }`}
@@ -323,7 +323,7 @@ function Resume(props) {
           setCertificateType={setCertificateType}
           closeCertificate={closeCertificate}
         />
-      </section>
+      </section> */}
     </section>
   );
 }

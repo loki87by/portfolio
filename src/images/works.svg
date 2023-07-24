@@ -11,7 +11,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/">
-   <symbol id="works" width="23" height="23" viewBox="0 0 22.577778 22.577778" xmlns="http://www.w3.org/2000/svg" fill="var(--primary, none)">
+   <symbol id="works" width="33" height="38" viewBox="1 2 22.577778 22.577778" xmlns="http://www.w3.org/2000/svg" fill="var(--primary, none)">
   <defs
      id="defs825">
     <pattern

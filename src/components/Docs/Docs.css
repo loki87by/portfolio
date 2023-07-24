@@ -1,0 +1,52 @@
+.Docs__title {
+  margin: 1vmax;
+  text-align: left;
+  font-size: var(--fs2);
+  line-height: 1.1;
+}
+
+.Docs__certificates {
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.Docs__popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  -webkit-transition: opacity 0s visibility 0s linear 0.3s;
+  -o-transition: opacity 0s visibility 0s linear 0.3s;
+  transition: opacity 0s visibility 0s linear 0.3s;
+}
+
+.Docs__popup_opened {
+  visibility: visible;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 1;
+  -webkit-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+

@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
 import "./Footer.css";
-import "./styles/Footer__link.css";
 
 function Footer() {
-  const translation = React.useContext(TranslationContext);
+  const translation = useContext(TranslationContext);
 
   return (
     <footer className="Footer">

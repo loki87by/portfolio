@@ -5,12 +5,11 @@
   display: flex;
   align-items: center;
   color: var(--second-color);
-  overflow: hidden;
 }
 
 .Resume__button {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   width: 5vmax;
   height: 5vmax;
   border-radius: 50%;
@@ -26,12 +25,12 @@
     2.5vmax +
       (
         ((100vh - 10vmax) / 2 + 2vmin) +
-          (((100vmin - 15vmax) / 2) * sin(var(--first-top-angle) * pi / 180))
+          (((100vmin - 10vmax) / 2) * sin(var(--first-top-angle) * pi / 180))
       )
   );
   right: calc(
-    -5vmax - 2vmin + ((100vw - 10vmax) -
-          (((100vmin - 15vmax) / 2) * cos(var(--first-top-angle) * pi / 180)))
+    -2.5vmax + 2vmin + ((100vw - 10vmax) -
+          (((100vmin - 10vmax) / 2) * cos(var(--first-top-angle) * pi / 180)))
   );
   transform: translateX(100vw);
   animation: 1.5s 1 alternate forwards toLeft,
@@ -44,12 +43,12 @@
     2.5vmax +
       (
         ((100vh - 10vmax) / 2 + 2vmin) +
-          (((100vmin - 15vmax) / 2) * sin(var(--second-top-angle) * pi / 180))
+          (((100vmin - 10vmax) / 2) * sin(var(--second-top-angle) * pi / 180))
       )
   );
   right: calc(
-    -5vmax - 2vmin + ((100vw - 10vmax) -
-          (((100vmin - 15vmax) / 2) * cos(var(--second-top-angle) * pi / 180)))
+    -2.5vmax + 2vmin + ((100vw - 10vmax) -
+          (((100vmin - 10vmax) / 2) * cos(var(--second-top-angle) * pi / 180)))
   );
   transform: translateX(100vw);
   animation: 1.5s 1 0.3s alternate forwards toLeft,
@@ -62,12 +61,12 @@
     2.5vmax +
       (
         ((100vh - 10vmax) / 2 + 2vmin) +
-          (((100vmin - 15vmax) / 2) * sin(var(--third-top-angle) * pi / 180))
+          (((100vmin - 10vmax) / 2) * sin(var(--third-top-angle) * pi / 180))
       )
   );
   right: calc(
-    -5vmax - 2vmin + ((100vw - 10vmax) -
-          (((100vmin - 15vmax) / 2) * cos(var(--third-top-angle) * pi / 180)))
+    -2.5vmax + 2vmin + ((100vw - 10vmax) -
+          (((100vmin - 10vmax) / 2) * cos(var(--third-top-angle) * pi / 180)))
   );
   transform: translateX(100vw);
   animation: 1.5s 1 0.6s alternate forwards toLeft,
@@ -78,11 +77,11 @@
   --first-bottom-angle: 180;
   bottom: calc(
     -2.5vmax + (((100vh - 10vmax) / 2) -
-          (((100vmin - 15vmax) / 2) * sin(var(--first-bottom-angle) * pi / 180)))
+          (((100vmin - 10vmax) / 2) * sin(var(--first-bottom-angle) * pi / 180)))
   );
   left: calc(
-    -5vmax - 2vmin + (((100vw - 10vmax) / 2 - 30vmin) +
-          (((100vmin - 15vmax) / 2) * cos(var(--first-bottom-angle) * pi / 180)))
+    -15vmax + (((100vw - 10vmax) / 2 - 30vmin) +
+          (((100vmin - 10vmax) / 2) * cos(var(--first-bottom-angle) * pi / 180)))
   );
   animation: 1.5s 1 alternate forwards toRight,
     1.5s 1 1.5s alternate forwards firstRightRotate;
@@ -93,14 +92,14 @@
   bottom: calc(
     -2.5vmax + (((100vh - 10vmax) / 2) -
           (
-            ((100vmin - 15vmax) / 2) *
+            ((100vmin - 10vmax) / 2) *
               sin(var(--second-bottom-angle) * pi / 180)
           ))
   );
   left: calc(
-    -5vmax - 2vmin + (((100vw - 10vw) / 2 - 30vmin) +
+    -15vmax + (((100vw - 10vw) / 2 - 30vmin) +
           (
-            ((100vmin - 15vmax) / 2) *
+            ((100vmin - 10vmax) / 2) *
               cos(var(--second-bottom-angle) * pi / 180)
           ))
   );
@@ -112,11 +111,11 @@
   --third-bottom-angle: 180;
   bottom: calc(
     -2.5vmax + (((100vh - 10vmax) / 2) -
-          (((100vmin - 15vmax) / 2) * sin(var(--third-bottom-angle) * pi / 180)))
+          (((100vmin - 10vmax) / 2) * sin(var(--third-bottom-angle) * pi / 180)))
   );
   left: calc(
-    -5vmax - 2vmin + (((100vw - 10vw) / 2 - 30vmin) +
-          (((100vmin - 15vmax) / 2) * cos(var(--third-bottom-angle) * pi / 180)))
+    -15vmax + (((100vw - 10vw) / 2 - 30vmin) +
+          (((100vmin - 10vmax) / 2) * cos(var(--third-bottom-angle) * pi / 180)))
   );
   animation: 1.5s 1 0.6s alternate forwards toRight,
     1.5s 1 2.1s alternate forwards thirdRightRotate;

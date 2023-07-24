@@ -1,21 +1,5 @@
 import React from "react";
 import "./Hand.css";
-import "./Hand_left.css";
-import "./Hand_right.css";
-import "./styles/finger.css";
-import "./styles/_close/finger_close.css";
-import "./styles/_bigLeft/finger_bigLeft.css";
-import "./styles/_bigLeft/finger_bigLeft_open.css";
-import "./styles/_bigRight/finger_bigRight.css";
-import "./styles/_bigRight/finger_bigRight_open.css";
-import "./styles/leftPointing.css";
-import "./styles/rightPointing.css";
-import "./styles/leftCentral.css";
-import "./styles/rightCentral.css";
-import "./styles/leftUnnamed.css";
-import "./styles/rightUnnamed.css";
-import "./styles/leftPinky.css";
-import "./styles/rightPinky.css";
 
 function Hand(props) {
   const fingersData = [
@@ -67,9 +51,11 @@ function Hand(props) {
     return (
       <>
         {dataArray.map((el, index) => {
+
           if ((index === 0 && props.left) || (index === 4 && !props.left)) {
             return "";
           } else {
+
             if (props.left) {
               return (
                 <img

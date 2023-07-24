@@ -1,9 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
 import Hands from "../Hands/Hands";
 import Preloader from "../Preloader/Preloader";
 import "./Age.css";
-import "./styles/__section/Age__section.css";
 
 function Age(props) {
   const [yearsOld, setYearsOld] = useState(0);
@@ -17,7 +16,7 @@ function Age(props) {
   const translation = useContext(TranslationContext);
 
   const intervalTime = 1000;
-  const intervalRef = React.useRef(intervalTime);
+  const intervalRef = useRef(intervalTime);
   intervalRef.current = intervalTime;
 
   const digitCheker = (number) => {

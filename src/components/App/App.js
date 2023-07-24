@@ -7,8 +7,9 @@ import {
 import { PIC_ARRAY } from "../../consts/pictures";
 import Header from "../Header/Header";
 import Resume from "../Resume/Resume";
-import Bio from "../Bio/Bio"
-import Contacts from '../Contacts/Contacts'
+import Bio from "../Bio/Bio";
+import Contacts from "../Contacts/Contacts";
+import Docs from "../Docs/Docs";
 import Footer from "../Footer/Footer";
 import "../../vendor/normalize.css";
 import "./App.css";
@@ -30,6 +31,29 @@ function App() {
     );
 
   const mobileRef = useRef(Mobile);
+  const scrollRef = useRef(null);
+
+  function scrollToElement() {
+    setTimeout(() => {
+      scrollRef.current.scrollIntoView({
+        block: "start",
+        behavior: "smooth",
+      });
+      const vmin =
+        Math.min(
+          document.documentElement.clientHeight,
+          document.documentElement.clientWidth
+        ) / 100;
+      const vmax =
+        Math.max(
+          document.documentElement.clientHeight,
+          document.documentElement.clientWidth
+        ) / 100;
+      const vw = document.documentElement.clientWidth / 100;
+      const headerHeight = Math.ceil(3 * vmin + 5 * vw - vmax);
+      window.scrollTo(0, scrollRef.current.offsetTop - headerHeight);
+    }, 10);
+  }
 
   useEffect(() => {
     setInterval(() => {
@@ -50,37 +74,37 @@ function App() {
     const loadStep = Math.ceil((100 / allPics.length) * 100) / 100; */
     for (let i = 0; i < entries.length; i++) {
       new Promise(() => {
-      const arr = [];
-      for (let j = 0; j < values[i].length; j++) {
-        let img = new Image();
-        img.src = values[i][j];
-        img.onload = function () {
-          /* progressCounter++; */
-          /* const progress = progressCounter * loadStep; */
-          /* setLoadProgress(progress); */
-          setDataRecorded(true);
-        };
+        const arr = [];
+        for (let j = 0; j < values[i].length; j++) {
+          let img = new Image();
+          img.src = values[i][j];
+          img.onload = function () {
+            /* progressCounter++; */
+            /* const progress = progressCounter * loadStep; */
+            /* setLoadProgress(progress); */
+            setDataRecorded(true);
+          };
 
-        if (dataIsRecorded) {
-          setDataRecorded(false);
+          if (dataIsRecorded) {
+            setDataRecorded(false);
+          }
+          arr.push(img);
         }
-        arr.push(img);
-      }
-      const imagesArray = images || {};
-      imagesArray[keys[i]] = arr;
-      return imagesArray
-    }).then((res) => {
-      setImages(res)
-    })
+        const imagesArray = images || {};
+        imagesArray[keys[i]] = arr;
+        return imagesArray;
+      }).then((res) => {
+        setImages(res);
+      });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [images]);
 
   useEffect(() => {
     if (images && images.avatar && images.avatar[0]) {
       setAvaLoaded(true);
     }
-  }, [images])
+  }, [images]);
 
   useEffect(() => {
     if (!Mobile) {
@@ -125,28 +149,58 @@ function App() {
   return (
     <>
       <TranslationContext.Provider value={translations[lang]}>
-        <Header setLang={setLang} lang={lang} />{/*
+        <Header setLang={setLang} lang={lang} />
+        {/*
         {imagesIsLoad ? ( */}
-        <main>{!avaLoaded ?
-        <p>{translations[lang].welcome}</p> :
-          <Resume
-            isMobile={mobileRef.current}
-            lang={lang}
-            images={images}
-            /* imagesIsLoad={imagesIsLoad} */
-            scrollbarWidth={scrollbarWidth}
-            setOpenedSection={setOpenedSection}
-          />
-      }
-      {/*
-      {openedSection === 'docs' ? <Docs /> : ''}
+        <main>
+          {!avaLoaded ? (
+            <p>{translations[lang].welcome}</p>
+          ) : (
+            <Resume
+              isMobile={mobileRef.current}
+              lang={lang}
+              images={images}
+              /* imagesIsLoad={imagesIsLoad} */
+              scrollbarWidth={scrollbarWidth}
+              setOpenedSection={setOpenedSection}
+              scrollToElement={scrollToElement}
+            />
+          )}
+          {/*
       {openedSection === 'info' ? <Info /> : ''}
       {openedSection === 'stack' ? <Stack /> : ''}
       {openedSection === 'works' ? <Works /> : ''} */}
         </main>
-        {openedSection === 'bio' ? <Bio images={images} screenWidth={screenWidth} scrollbarWidth={scrollbarWidth} /> : ''}
-        {openedSection === 'contacts' ? <Contacts /> : ''}
-      <Footer />
+        {openedSection === "bio" ? (
+          <Bio
+          ref={openedSection === 'bio' ? scrollRef : null}
+            images={images}
+            scrollRef={scrollRef}
+            openedSection={openedSection}
+            screenWidth={screenWidth}
+            scrollbarWidth={scrollbarWidth}
+          />
+        ) : (
+          ""
+        )}
+        {openedSection === "contacts" ? (
+          <Contacts
+          ref={openedSection === 'contacts' ? scrollRef : null} openedSection={openedSection} scrollRef={scrollRef} />
+        ) : (
+          ""
+        )}
+        {openedSection === "docs" ? (
+          <Docs
+          ref={openedSection === 'docs' ? scrollRef : null}
+            screenWidth={screenWidth}
+            lang={lang}
+            openedSection={openedSection}
+            scrollRef={scrollRef}
+          />
+        ) : (
+          ""
+        )}
+        <Footer />
       </TranslationContext.Provider>
     </>
   );

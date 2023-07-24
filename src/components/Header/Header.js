@@ -1,18 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
 import { hexToRgb, updateColors } from "../../utils/helpers.js";
 import logo from "../../images/logo.svg";
 import logoEng from "../../images/logoEng.svg";
 import "./Header.css";
-import "./styles/__logo/Header__logo.css";
-import "./styles/__input/Header__input.css";
-import "./styles/__button-image/Header__button-image.css";
-import "./styles/__button-image/Header__button-image_UK.css";
-import "./styles/__button-image/Header__button-image_RU.css";
 
 function Header(props) {
-  const translation = React.useContext(TranslationContext);
+  const translation = useContext(TranslationContext);
   function langChanger() {
+
     if (props.lang === "ru") {
       props.setLang("en");
     } else {

@@ -14,7 +14,7 @@ function Bio(props) {
   }
 
   return (
-    <section className="Bio">
+    <section className="Bio" >
       <div className="Bio__age">
         <h2 className="Bio__subsubtitle">{translation.age}: </h2>
         {binary ? (

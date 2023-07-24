@@ -1,7 +1,6 @@
 import React from "react";
 import Slider from "../Slider/Slider";
 import Stack from "../Stack/Stack";
-import Certificate from "../Certificate/Certificate";
 import { TranslationContext } from "../../contexts/translationContext";
 import "./styles/__title/Description__title.css";
 import "./styles/__subtitle/Description__subtitle.css";
@@ -139,7 +138,7 @@ function Description(props) {
           className="Description__parralax_inner"
         ></div>
       </div>
-      <h2 className="Description__subsubtitle">{translation.certificates}: </h2>
+      {/* <h2 className="Description__subsubtitle">{translation.certificates}: </h2>
       <section className="Description__certificates">
         <Certificate
           type={"yandex"}
@@ -157,7 +156,7 @@ function Description(props) {
           setCertificateType={props.setCertificateType}
           isCertificateOpen={props.isCertificateOpen}
         />
-      </section>
+      </section> */}
       <h2 className="Description__subtitle">{translation.skills}:</h2>
       <h3 className="Description__subsubtitle">{translation.soft}:</h3>
       <div className="Description__soft-container">

@@ -29,7 +29,7 @@ function Docs(props) {
   });
 
   return (
-    <section className="Docs">
+    <section className="Docs" ref={props.scrollRef}>
       <h2 className="Docs__title">{translation.certificates}: </h2>
       <section className="Docs__certificates">
         <Certificate

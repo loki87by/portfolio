@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
 import "./Contacts.css";
 
-function Contacts() {
+function Contacts(props) {
   const translation = useContext(TranslationContext);
 
   return (
-    <section className="Contacts">
+    <section className="Contacts" ref={props.scrollRef}>
       <h1 className="Contacts__title">
         {translation.specify}
         <br />

@@ -1,15 +1,20 @@
-/* eslint-disable no-loop-func */
-import React, { useState, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef
+} from "react";
 import {
   TranslationContext,
   translations,
 } from "../../contexts/translationContext";
-import { PIC_ARRAY } from "../../consts/pictures";
+import { PIC_ARRAY } from "../../consts/pictures"; /*
+import { STACK } from "../../utils/consts.js"; */
 import Header from "../Header/Header";
 import Resume from "../Resume/Resume";
 import Bio from "../Bio/Bio";
 import Contacts from "../Contacts/Contacts";
 import Docs from "../Docs/Docs";
+import Stack from "../Stack/Stack";
 import Footer from "../Footer/Footer";
 import "../../vendor/normalize.css";
 import "./App.css";
@@ -24,7 +29,10 @@ function App() {
   const [screenWidth, setScreenWidth] = useState(window.screen.width);
   /* const [imagesIsLoad, setImagesIsLoad] = React.useState(false); */
   const [dataIsRecorded, setDataRecorded] = useState(false);
-  const [scrollbarWidth, setScrollbarWidth] = useState(0);
+  const [scrollbarWidth, setScrollbarWidth] = useState(0);/*
+  const [softStyles, setSoftStyles] = React.useState([]); *//*
+  const [pausedSoftSlider, setPausedSoftSlider] = React.useState(false); */
+  //const [selectedStack, setSelectedStack] = React.useState(STACK);
   const Mobile =
     /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(
       navigator.userAgent
@@ -32,6 +40,16 @@ function App() {
 
   const mobileRef = useRef(Mobile);
   const scrollRef = useRef(null);
+  /* const softImages = useCallback(() => {
+    console.log(images)
+    if (images && images.soft) {
+      return completeSliderArray(images.soft.slice(), 5);
+    }
+  }, [images]); *//*
+  const temporarySoftArray = useMemo(() => {
+    return [];
+  }, []); *//*
+  let softStylesArray = JSON.parse(JSON.stringify(softStyles)); */
 
   function scrollToElement() {
     setTimeout(() => {
@@ -53,7 +71,50 @@ function App() {
       const headerHeight = Math.ceil(3 * vmin + 5 * vw - vmax);
       window.scrollTo(0, scrollRef.current.offsetTop - headerHeight);
     }, 10);
+  }/*
+
+  function setSoftStyle(style) {
+    let arr = JSON.parse(JSON.stringify(softStyles));
+    arr = arr.map(() => style);
+    setSoftStyles(arr);
+  } *//*
+
+  function stopSoftAutoSlide() {
+    setPausedSoftSlider(true);
   }
+
+  function restartSoftAutoSlide() {
+    setPausedSoftSlider(false);
+  } *//*
+
+  const softImagesSlides = useCallback(() => {
+    console.log(softImages)
+    if (softImages) {
+      softImages.map((item, index) => {
+        if (!softStylesArray[index]) {
+          temporarySoftArray.push({ display: "flex" });
+          setSoftStyles(temporarySoftArray);
+
+          return (
+            <div
+              className="Description__soft"
+              key={`soft-${index}`}
+              style={softStylesArray[index]}
+              onClick={stopSoftAutoSlide}
+            >
+              <img
+                src={item.src}
+                className="Description__soft-image"
+                alt="img"
+              />
+            </div>
+          );
+        } else {
+          return null;
+        }
+      });
+    }
+  }, [softImages, softStylesArray, temporarySoftArray]); */
 
   useEffect(() => {
     setInterval(() => {
@@ -150,8 +211,6 @@ function App() {
     <>
       <TranslationContext.Provider value={translations[lang]}>
         <Header setLang={setLang} lang={lang} />
-        {/*
-        {imagesIsLoad ? ( */}
         <main>
           {!avaLoaded ? (
             <p>{translations[lang].welcome}</p>
@@ -160,22 +219,16 @@ function App() {
               isMobile={mobileRef.current}
               lang={lang}
               images={images}
-              /* imagesIsLoad={imagesIsLoad} */
               scrollbarWidth={scrollbarWidth}
               setOpenedSection={setOpenedSection}
               scrollToElement={scrollToElement}
             />
           )}
-          {/*
-      {openedSection === 'info' ? <Info /> : ''}
-      {openedSection === 'stack' ? <Stack /> : ''}
-      {openedSection === 'works' ? <Works /> : ''} */}
         </main>
         {openedSection === "bio" ? (
           <Bio
-          ref={openedSection === 'bio' ? scrollRef : null}
+          scrollRef={openedSection === "bio" ? scrollRef : null}
             images={images}
-            scrollRef={scrollRef}
             openedSection={openedSection}
             screenWidth={screenWidth}
             scrollbarWidth={scrollbarWidth}
@@ -185,21 +238,44 @@ function App() {
         )}
         {openedSection === "contacts" ? (
           <Contacts
-          ref={openedSection === 'contacts' ? scrollRef : null} openedSection={openedSection} scrollRef={scrollRef} />
+          scrollRef={openedSection === "contacts" ? scrollRef : null}
+            openedSection={openedSection}
+          />
         ) : (
           ""
         )}
         {openedSection === "docs" ? (
           <Docs
-          ref={openedSection === 'docs' ? scrollRef : null}
+          scrollRef={openedSection === "docs" ? scrollRef : null}
             screenWidth={screenWidth}
             lang={lang}
             openedSection={openedSection}
-            scrollRef={scrollRef}
           />
         ) : (
           ""
         )}
+        {/*
+        {openedSection === 'info' ? <Info
+          ref={openedSection === 'info' ? scrollRef : null}
+          scrollRef={scrollRef}/>
+          lang={lang} : ''} */}
+        {openedSection === "stack" ? (
+          <Stack
+          scrollRef={openedSection === "stack" ? scrollRef : null}/*
+            slides={softImagesSlides} */
+            lang={lang}
+            /* paused={pausedSoftSlider} */ /*
+          selectedStack={selectedStack}
+          setSelectedStack={setSelectedStack} */
+            images={images}
+            /* setPaused={stopSoftAutoSlide}
+            resetPaused={restartSoftAutoSlide} */
+          />
+        ) : (
+          ""
+        )}
+        {/*
+      {openedSection === 'works' ? <Works /> : ''} */}
         <Footer />
       </TranslationContext.Provider>
     </>

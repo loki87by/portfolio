@@ -1,8 +1,18 @@
+.Docs {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .Docs__title {
   margin: 1vmax;
   text-align: left;
   font-size: var(--fs2);
   line-height: 1.1;
+  color: var(--second-color);
 }
 
 .Docs__certificates {

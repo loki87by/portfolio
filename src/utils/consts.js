@@ -78,6 +78,18 @@ return job(state);
 Me = evolution(youth);
 export default Me`;
 
+export const SOFT = [
+  'Adobe After Effects',
+  'Adobe Audition',
+  'Charles',
+  'CorelDRAW',
+  'Figma',
+  'Adobe Photoshop',
+  'Postman',
+  'Visual Studio Code',
+  'Git'
+]
+
 export const STACK = [
   "angular",
   "bem",

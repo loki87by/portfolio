@@ -1,6 +1,6 @@
 import React from "react";
-import { WORKS } from "../../consts/works";
-import { STACK } from "../../utils/consts.js";
+import { WORKS } from "../../consts/works";/*
+import { STACK } from "../../utils/consts.js"; */
 import { completeSliderArray } from "../../utils/helpers.js";
 import { TranslationContext } from "../../contexts/translationContext";
 import Description from "../Description/Description";
@@ -23,12 +23,12 @@ import "./styles/__certificate-close/Resume__certificate-close.css";
 function Resume(props) {
   const [screenWidth, setScreenWidth] = React.useState(window.screen.width);/*
   const [isCertificateOpen, setCertificateOpen] = React.useState(false);
-  const [certificateType, setCertificateType] = React.useState(null); */
-  const [softStyles, setSoftStyles] = React.useState([]);
-  const [pausedSoftSlider, setPausedSoftSlider] = React.useState(false);
+  const [certificateType, setCertificateType] = React.useState(null); *//*
+  const [softStyles, setSoftStyles] = React.useState([]); *//*
+  const [pausedSoftSlider, setPausedSoftSlider] = React.useState(false); */
   const [worksStyles, setWorksStyles] = React.useState([]);
-  const [pausedWorksSlider, setPausedWorksSlider] = React.useState(false);
-  const [selectedStack, setSelectedStack] = React.useState(STACK);
+  const [pausedWorksSlider, setPausedWorksSlider] = React.useState(false);/*
+  const [selectedStack, setSelectedStack] = React.useState(STACK); */
   const [worksIsOpen, setWorksOpen] = React.useState(false);
   const [currentWorks, setCurrentWorks] = React.useState([]);
   const [currentWorkName, setCurrentWorkName] = React.useState("");
@@ -41,14 +41,14 @@ function Resume(props) {
 
   const translation = React.useContext(TranslationContext);
   /* const scrollRef = React.useRef(null); */
-
-  const softImages = completeSliderArray(props.images.soft.slice(), 5);
-  const worksListArray = completeSliderArray(WORKS.slice(), 1);
-  const temporarySoftArray = [];
+/*
+  const softImages = completeSliderArray(props.images.soft.slice(), 5); */
+  const worksListArray = completeSliderArray(WORKS.slice(), 1);/*
+  const temporarySoftArray = []; */
   const temporaryWorksArray = [];
   const temporaryIconsArray = [];
-
-  let softStylesArray = JSON.parse(JSON.stringify(softStyles));
+/*
+  let softStylesArray = JSON.parse(JSON.stringify(softStyles)); */
   let worksStyleArray = JSON.parse(JSON.stringify(worksStyles));
   let iconsStyleArray = JSON.parse(JSON.stringify(workIconsStyles));
   let imagesObject = {};/*
@@ -73,7 +73,7 @@ function Resume(props) {
       const headerHeight = Math.ceil(3 * vmin + 5 * vw - vmax);
       window.scrollTo(0, scrollRef.current.offsetTop - headerHeight);
     }, 10);
-  } */
+  } *//*
 
   function stopSoftAutoSlide() {
     setPausedSoftSlider(true);
@@ -81,7 +81,7 @@ function Resume(props) {
 
   function restartSoftAutoSlide() {
     setPausedSoftSlider(false);
-  }
+  } */
 
   function stopWorksAutoSlide() {
     setPausedWorksSlider(true);
@@ -107,7 +107,7 @@ function Resume(props) {
     return (
       <Works
         key={`worksListSlide-${item.type}-${index}`}
-        selectedStack={selectedStack}
+        /* selectedStack={selectedStack} */
         worksStyles={worksStyles}
         worksIsOpen={worksIsOpen}
         currentWorks={currentWorks}
@@ -116,7 +116,7 @@ function Resume(props) {
         item={item}
         index={index}
         images={props.images}
-        setSelectedStack={setSelectedStack}
+        /* setSelectedStack={setSelectedStack} */
         setPaused={stopWorksAutoSlide}
         resetPaused={restartWorksAutoSlide}
         setWorksOpen={setWorksOpen}
@@ -159,7 +159,7 @@ function Resume(props) {
   function getCurrentSlide(e) {
     let currentIndex = +e.target.id.replace("icon-", "");
     setTargetWorkIcon(currentIndex);
-  }
+  }/*
 
   const softImagesSlides = softImages.map((item, index) => {
     if (!softStylesArray[index]) {
@@ -177,13 +177,13 @@ function Resume(props) {
         <img src={item.src} className="Description__soft-image" alt="img" />
       </div>
     );
-  });
+  }); *//*
 
   function setSoftStyle(style) {
     let arr = JSON.parse(JSON.stringify(softStyles));
     arr = arr.map(() => style);
     setSoftStyles(arr);
-  }
+  } */
 
   function setWorkStyle(style) {
     let arr = JSON.parse(JSON.stringify(worksStyles));
@@ -236,21 +236,21 @@ function Resume(props) {
   return (
     <section className="Resume">
       <Description
-        screenWidth={screenWidth}
-        slides={softImagesSlides}
-        paused={pausedSoftSlider}
-        selectedStack={selectedStack}
+        screenWidth={screenWidth}/*
+        slides={softImagesSlides} *//*
+        paused={pausedSoftSlider} */
+        /* selectedStack={selectedStack} */
         lang={props.lang}
         images={props.images}
         isMobile={props.isMobile}
         imagesIsLoad={props.imagesIsLoad}
         scrollbarWidth={props.scrollbarWidth}/*
         setCertificateOpen={setCertificateOpen}
-        setCertificateType={setCertificateType} */
-        setStyle={setSoftStyle}
+        setCertificateType={setCertificateType} *//*
+        setStyle={setSoftStyle} *//*
         setPaused={stopSoftAutoSlide}
-        resetPaused={restartSoftAutoSlide}
-        setSelectedStack={setSelectedStack}
+        resetPaused={restartSoftAutoSlide} */
+        /* setSelectedStack={setSelectedStack} */
       />
       <section className="Works__slider-container">
         <Slider

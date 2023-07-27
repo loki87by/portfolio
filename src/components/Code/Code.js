@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CODE } from "../../utils/consts.js";
 import "./Code.css";
 
@@ -30,7 +30,7 @@ function Code(props) {
       "|"
     );
 
-  React.useEffect(() => {
+  useEffect(() => {
     const lines = document.querySelectorAll(".Code__line");
     Array.from(lines).forEach((item) => {
       const max = item.offsetWidth;
@@ -46,7 +46,6 @@ function Code(props) {
           }
 
           if (!maxWidth) {
-
             if (current + el.offsetWidth < max) {
               current += el.offsetWidth;
             } else {
@@ -74,14 +73,12 @@ function Code(props) {
   }, [props.scrollbarWidth, props.width]);
 
   function pointsChecker(keyword) {
-
     if (keyword === ".") {
       return <span>{`${keyword}`}</span>;
     } else {
       const arr = keyword.split(".");
       lastAfterPunkt = arr[arr.length - 1];
       return arr.map((item, index) => {
-
         if (index === 0) {
           end = "";
           return <span key={index}>{wordChecker(item)}</span>;
@@ -99,7 +96,6 @@ function Code(props) {
   }
 
   function importChecker(keyword) {
-
     if (keyword === "{") {
       multiplyImport = true;
 
@@ -120,7 +116,6 @@ function Code(props) {
   }
 
   function openBracketChecker(keyword) {
-
     if (keyword === "(" || keyword === "((") {
       openBracket = true;
 
@@ -134,7 +129,6 @@ function Code(props) {
       bracket = "((";
     }
     for (let i = 0; i < arr.length; i += 2) {
-
       if (
         !pinkKeywords.includes(arr[i]) &&
         !blueKeywords.includes(arr[i]) &&
@@ -146,7 +140,6 @@ function Code(props) {
     end = "";
 
     return arr.map((item, index) => {
-
       if (index === 0) {
         return <span key={index}>{wordChecker(item)}</span>;
       } else {
@@ -161,7 +154,6 @@ function Code(props) {
   }
 
   function closeBracketChecker(keyword) {
-
     if (keyword === ")") {
       openBracket = false;
       end = " ";
@@ -177,7 +169,6 @@ function Code(props) {
   }
 
   function openSquareBracketChecker(keyword) {
-
     if (keyword === "[") {
       return <span>[</span>;
     }
@@ -194,7 +185,6 @@ function Code(props) {
   }
 
   function closeSquareBracketChecker(keyword) {
-
     if (keyword === "]") {
       return <span>]</span>;
     }
@@ -234,7 +224,6 @@ function Code(props) {
     isGreen = false;
     const spans = document.querySelectorAll("span");
     Array.from(spans).forEach((span) => {
-
       if (span.textContent === `${keyword}${end}`) {
         span.style.color = "#33b579";
       }
@@ -244,7 +233,6 @@ function Code(props) {
   }
 
   function wordChecker(word) {
-
     if (result) {
       result = false;
 
@@ -347,7 +335,6 @@ function Code(props) {
     }
 
     if (blueKeywords.includes(word)) {
-
       if (word === "const" || word === "let") {
         announce = true;
       }
@@ -403,7 +390,6 @@ function Code(props) {
     });
 
     return arr.map((element, index) => {
-
       if (lastLine && index === arr.length - 1) {
         result = true;
       }
@@ -415,7 +401,6 @@ function Code(props) {
   function splitCode(code) {
     let arr = code.split("\n");
     arr.forEach((element, index) => {
-
       if (element.length > 100) {
         let parts = element.split(" { ");
         const start = parts[0].split(" ");
@@ -429,7 +414,6 @@ function Code(props) {
     });
 
     return arr.map((element, index) => {
-
       if (index === arr.length - 1) {
         lastLine = true;
       }

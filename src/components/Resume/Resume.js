@@ -2,11 +2,17 @@ import React, { useState, useEffect, useContext } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
 import Sprite from "../Sprite/Sprite";
 import bio from "../../images/bio.svg";
+import games from "../../images/games.svg";
 import contacts from "../../images/contacts.svg";
+import servers from "../../images/servers.svg";
 import docs from "../../images/docs.svg";
+import sites from "../../images/sites.svg";
 import info from "../../images/info.svg";
+import servises from "../../images/servises.svg";
 import stack from "../../images/stack.svg";
+import social from "../../images/social.svg";
 import works from "../../images/works.svg";
+import undo from "../../images/undo.svg";
 import "./Resume.css";
 
 function Resume(props) {
@@ -62,45 +68,61 @@ function Resume(props) {
     };
   });
 
+  function openSection(arg) {
+    props.setOpenedSection(arg);
+
+    if (arg !== '' && arg !== "works") {
+    props.scrollToElement();
+  }
+  }
+
   return (
     <section className="Resume">
-      <div className="Resume__button Resume__button_top Resume__button_top_first">
+      <div
+        className={`Resume__button Resume__button_top Resume__button_top_first
+      ${props.openedWorks && "Resume__button_top_first_work"}`}
+      >
         <Sprite
-          src={bio}
+          src={!props.openedWorks ? bio : games}
           click={() => {
-            props.setOpenedSection("bio");
-            props.scrollToElement();
+            !props.openedWorks ? openSection("bio") : openSection("games");
           }}
-          id="bio"
+          id={!props.openedWorks ? 'bio' : 'games'}
           width="2.5vmax"
           height="2.5vmax"
-          title={translation.bio}
+          title={!props.openedWorks ? translation.bio : translation.games}
         />
       </div>
-      <div className="Resume__button Resume__button_top Resume__button_top_second">
+      <div
+        className={`Resume__button Resume__button_top Resume__button_top_second ${
+          props.openedWorks && "Resume__button_top_second_work"
+        }`}
+      >
         <Sprite
-          src={contacts}
+          src={!props.openedWorks ? contacts : servers}
           click={() => {
-            props.setOpenedSection("contacts");
-            props.scrollToElement();
+            !props.openedWorks ? openSection("contacts") : openSection("servers");
           }}
-          id="contacts"
+          id={!props.openedWorks ? 'contacts' : 'servers'}
           width="2.5vmax"
           height="2.5vmax"
-          title={translation.contacts}
+          title={!props.openedWorks ? translation.contacts : translation.server}
         />
       </div>
-      <div className="Resume__button Resume__button_top Resume__button_top_third">
+      <div
+        className={`Resume__button Resume__button_top Resume__button_top_third ${
+          props.openedWorks && "Resume__button_top_third_work"
+        }`}
+      >
         <Sprite
-          src={docs}
+          src={!props.openedWorks ? docs : sites}
           click={() => {
-            props.setOpenedSection("docs");
-            props.scrollToElement();
+            !props.openedWorks ? openSection("docs") : openSection("sites");
           }}
-          id="docs"
+          id={!props.openedWorks ? 'docs' : 'sites'}
           width="2.5vmax"
           height="2.5vmax"
-          title={translation.docs}
+          title={!props.openedWorks ? translation.docs : translation.landing}
         />
       </div>
       <img
@@ -108,43 +130,53 @@ function Resume(props) {
         src={mouseOver ? effectAva : avatar.src}
         className="Resume__photo"
       />
-      <div className="Resume__button Resume__button_bottom Resume__button_bottom_first">
+      <div
+        className={`Resume__button Resume__button_bottom Resume__button_bottom_first
+      ${props.openedWorks && "Resume__button_bottom_first_work"}`}
+      >
         <Sprite
-          src={info}
+          src={!props.openedWorks ? info : servises}
           click={() => {
-            props.setOpenedSection("info");
-            props.scrollToElement();
+            !props.openedWorks ? openSection("info") : openSection("servises");
           }}
-          id="info"
+          id={!props.openedWorks ? 'info' : 'servises'}
           width="2.5vmax"
           height="2.5vmax"
-          title={translation.info}
+          title={!props.openedWorks ? translation.info : translation.webService}
         />
       </div>
-      <div className="Resume__button Resume__button_bottom Resume__button_bottom_second">
+      <div
+        className={`Resume__button Resume__button_bottom Resume__button_bottom_second
+      ${props.openedWorks && "Resume__button_bottom_second_work"}`}
+      >
         <Sprite
-          src={stack}
+          src={!props.openedWorks ? stack : social}
           click={() => {
-            props.setOpenedSection("stack");
-            props.scrollToElement();
+            !props.openedWorks ? openSection("stack") : openSection("social");
           }}
-          id="stack"
+          id={!props.openedWorks ? 'stack' : 'social'}
           width="2.5vmax"
           height="2.5vmax"
-          title={translation.stack}
+          title={!props.openedWorks ? translation.stack : translation.social}
         />
       </div>
-      <div className="Resume__button Resume__button_bottom Resume__button_bottom_third">
+      <div
+        className={`Resume__button Resume__button_bottom Resume__button_bottom_third
+      ${props.openedWorks && "Resume__button_bottom_third_work"}`}
+      >
         <Sprite
-          src={works}
-          click={() => {
-            props.setOpenedSection("works");
-            props.scrollToElement();
+          src={!props.openedWorks ? works : undo}
+          click={!props.openedWorks ? () => {
+            openSection("works");
+            props.setOpenedWorks(true);
+          } : () => {
+            openSection("");
+            props.setOpenedWorks(false);
           }}
-          id="works"
+          id={!props.openedWorks ? "works" : "undo"}
           width="2.5vmax"
           height="2.5vmax"
-          title={translation.works}
+          title={!props.openedWorks ? translation.works : translation.undo}
         />
       </div>
     </section>

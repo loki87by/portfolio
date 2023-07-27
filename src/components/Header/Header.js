@@ -8,7 +8,6 @@ import "./Header.css";
 function Header(props) {
   const translation = useContext(TranslationContext);
   function langChanger() {
-
     if (props.lang === "ru") {
       props.setLang("en");
     } else {

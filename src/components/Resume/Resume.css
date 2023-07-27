@@ -9,10 +9,11 @@
 
 .Resume__button {
   position: absolute;
-  z-index: 3;
+  z-index: 6;
   width: 5vmax;
   height: 5vmax;
   border-radius: 50%;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +30,7 @@
       )
   );
   right: calc(
-    -2.5vmax + 2vmin + ((100vw - 10vmax) -
+    -2.5vmax + 2.5vmin + ((100vw - 10vmax) -
           (((100vmin - 10vmax) / 2) * cos(var(--first-top-angle) * pi / 180)))
   );
   transform: translateX(100vw);
@@ -47,7 +48,7 @@
       )
   );
   right: calc(
-    -2.5vmax + 2vmin + ((100vw - 10vmax) -
+    -2.5vmax + 2.5vmin + ((100vw - 10vmax) -
           (((100vmin - 10vmax) / 2) * cos(var(--second-top-angle) * pi / 180)))
   );
   transform: translateX(100vw);
@@ -65,7 +66,7 @@
       )
   );
   right: calc(
-    -2.5vmax + 2vmin + ((100vw - 10vmax) -
+    -2.5vmax + 2.5vmin + ((100vw - 10vmax) -
           (((100vmin - 10vmax) / 2) * cos(var(--third-top-angle) * pi / 180)))
   );
   transform: translateX(100vw);
@@ -119,6 +120,30 @@
   );
   animation: 1.5s 1 0.6s alternate forwards toRight,
     1.5s 1 2.1s alternate forwards thirdRightRotate;
+}
+
+.Resume__button_top_first_work {
+  animation: 1.3s 1 alternate forwards rotate-top-first;
+}
+
+.Resume__button_top_second_work {
+  animation: 1.3s 1 alternate forwards rotate-top-second;
+}
+
+.Resume__button_top_third_work {
+  animation: 1.3s 1 alternate forwards rotate-top-third;
+}
+
+.Resume__button_bottom_first_work {
+  animation: 1.3s 1 alternate forwards rotate-bottom-first;
+}
+
+.Resume__button_bottom_second_work {
+  animation: 1.3s 1 alternate forwards rotate-bottom-second;
+}
+
+.Resume__button_bottom_third_work {
+  animation: 1.3s 1 alternate forwards rotate-bottom-third;
 }
 
 .Resume__photo {
@@ -257,5 +282,101 @@
   to {
     --third-bottom-angle: 120;
     transform: translateX(calc(45vw - 30vmin)) scale(1);
+  }
+}
+
+@keyframes rotate-top-first {
+  from {
+    --first-top-angle: 180;
+    border: none;
+        background-color: var(--main-color);
+    transform: translateX(calc(55vw - 30vmin)) scale(1) rotateX(0);
+  }
+
+  to {
+    --first-top-angle: 180;
+    border: .5vmax solid var(--main-color);
+    background-color: var(--second-color);
+    transform: translateX(calc(55vw - 30vmin)) scale(1.5) rotateX(180deg);
+  }
+}
+
+@keyframes rotate-top-second {
+  from {
+    --second-top-angle: 240;
+    border: none;
+    background-color: var(--main-color);
+    transform: translateX(calc(55vw - 30vmin)) scale(1) rotateX(0);
+  }
+
+  to {
+    --second-top-angle: 240;
+    border: .5vmax solid var(--main-color);
+    background-color: var(--second-color);
+    transform: translateX(calc(55vw - 30vmin)) scale(1.5) rotateX(180deg);
+  }
+}
+
+@keyframes rotate-top-third {
+  from {
+    --third-top-angle: 300;
+    border: none;
+    background-color: var(--main-color);
+    transform: translateX(calc(55vw - 30vmin)) scale(1) rotateX(0);
+  }
+
+  to {
+    --third-top-angle: 300;
+        border: .5vmax solid var(--main-color);
+    background-color: var(--second-color);
+    transform: translateX(calc(55vw - 30vmin)) scale(1.5) rotateX(180deg);
+  }
+}
+
+@keyframes rotate-bottom-first {
+  from {
+    --first-bottom-angle: 0;
+    border: none;
+    background-color: var(--main-color);
+    transform: translateX(calc(45vw - 30vmin)) rotateX(0);
+  }
+
+  to {
+    --first-bottom-angle: 0;
+    border: .5vmax solid var(--main-color);
+    background-color: var(--second-color);
+    transform: translateX(calc(45vw - 30vmin)) scale(1.5) rotateX(180deg);
+  }
+}
+
+@keyframes rotate-bottom-second {
+  from {
+    --second-bottom-angle: 60;
+    border: none;
+    background-color: var(--main-color);
+    transform: translateX(calc(45vw - 30vmin)) scale(1) rotateX(0);
+  }
+
+  to {
+    --second-bottom-angle: 60;
+    border: .5vmax solid var(--main-color);
+    background-color: var(--second-color);
+    transform: translateX(calc(45vw - 30vmin)) scale(1.5) rotateX(180deg);
+  }
+}
+
+@keyframes rotate-bottom-third {
+  from {
+    --third-bottom-angle: 120;
+    border: none;
+    background-color: var(--main-color);
+    transform: translateX(calc(45vw - 30vmin)) scale(1) rotateX(0);
+  }
+
+  to {
+    --third-bottom-angle: 120;
+    border: .5vmax solid var(--main-color);
+    background-color: var(--second-color);
+    transform: translateX(calc(45vw - 30vmin)) scale(1.5) rotateX(180deg);
   }
 }

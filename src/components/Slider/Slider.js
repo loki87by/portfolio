@@ -41,6 +41,7 @@ function Slider(props) {
         position - (props.slides.length - props.limit * 2);
       const timer = setTimeout(() => {
         setPosition(shiftingPosition);
+
         for (let i = 0; i < props.slides.length; i++) {
           props.setStyle({
             transition: "none",
@@ -53,6 +54,7 @@ function Slider(props) {
 
       return () => {
         clearTimeout(timer);
+
         for (let i = 0; i < props.slides.length; i++) {
           props.setStyle({
             transform: `translateX(-${props.shift * shiftingPosition}${
@@ -67,6 +69,7 @@ function Slider(props) {
       const shiftingPosition = props.slides.length - props.limit * 2 + position;
       const timer = setTimeout(() => {
         setPosition(shiftingPosition);
+
         for (let i = 0; i < props.slides.length; i++) {
           props.setStyle({
             transition: "none",
@@ -79,6 +82,7 @@ function Slider(props) {
 
       return () => {
         clearTimeout(timer);
+
         for (let i = 0; i < props.slides.length; i++) {
           props.setStyle({
             transform: `translateX(-${props.shift * shiftingPosition}${

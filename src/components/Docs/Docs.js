@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
 import Certificate from "../Certificate/Certificate";
 import "./Docs.css";
@@ -6,9 +6,8 @@ import "./Docs.css";
 function Docs(props) {
   const translation = useContext(TranslationContext);
 
-  const [isCertificateOpen, setCertificateOpen] = React.useState(false);
-  const [certificateType, setCertificateType] = React.useState(null);
-
+  const [isCertificateOpen, setCertificateOpen] = useState(false);
+  const [certificateType, setCertificateType] = useState(null);
 
   function closeCertificate() {
     setCertificateOpen(false);
@@ -50,19 +49,18 @@ function Docs(props) {
         />
       </section>
       <section
-        className={`Docs__popup ${
-          isCertificateOpen && "Docs__popup_opened"
-        }`}
+        className={`Docs__popup ${isCertificateOpen && "Docs__popup_opened"}`}
       >
-      <Certificate
-        type={certificateType}
-        isCertificateOpen={isCertificateOpen}
-        screenWidth={props.screenWidth}
-        lang={props.lang}
-        setCertificateOpen={setCertificateOpen}
-        setCertificateType={setCertificateType}
-        closeCertificate={closeCertificate}
-      /></section>
+        <Certificate
+          type={certificateType}
+          isCertificateOpen={isCertificateOpen}
+          screenWidth={props.screenWidth}
+          lang={props.lang}
+          setCertificateOpen={setCertificateOpen}
+          setCertificateType={setCertificateType}
+          closeCertificate={closeCertificate}
+        />
+      </section>
     </section>
   );
 }

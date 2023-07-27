@@ -20,7 +20,6 @@ function Age(props) {
   intervalRef.current = intervalTime;
 
   const digitCheker = (number) => {
-
     if (number < 10) {
       return `0${number}`;
     } else {
@@ -108,8 +107,11 @@ function Age(props) {
           {":"}
         </h4>
         {props.binary ? (
-          props.images.fingers && props.images.fingers.length > 11 ? <Hands number={yearsOld} images={props.images} />
-          : <Preloader />
+          props.images.fingers && props.images.fingers.length > 11 ? (
+            <Hands number={yearsOld} images={props.images} />
+          ) : (
+            <Preloader />
+          )
         ) : (
           <h3>{yearsOld}</h3>
         )}

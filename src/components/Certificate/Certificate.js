@@ -7,20 +7,12 @@ import "./Certificate.css";
 
 function Certificate(props) {
   const [source, setSource] = useState(epamCertificate);
-  const [certifyWidth, setCertifyWidth] = useState(
-    props.screenWidth * 0.43
-  );
-  const [certifyHeight, setCertifyHeight] = useState(
-    props.screenWidth * 0.43
-  );
-  const [certifyZoom, setCertifyZoom] = useState(
-    props.screenWidth / 27.5
-  );
+  const [certifyWidth, setCertifyWidth] = useState(props.screenWidth * 0.43);
+  const [certifyHeight, setCertifyHeight] = useState(props.screenWidth * 0.43);
+  const [certifyZoom, setCertifyZoom] = useState(props.screenWidth / 27.5);
 
   useEffect(() => {
-
     if (props.type === "yandex") {
-
       if (props.lang === "ru") {
         setSource(certificateRu);
       }
@@ -36,9 +28,7 @@ function Certificate(props) {
   }, [props.type, props.lang]);
 
   useEffect(() => {
-
     if (!props.isCertificateOpen) {
-
       if (window.innerWidth < 555) {
         setCertifyZoom(window.innerWidth / 5);
         setCertifyWidth(window.innerWidth * 0.86);
@@ -49,7 +39,6 @@ function Certificate(props) {
         setCertifyHeight(window.innerWidth * 0.29);
       }
     } else {
-
       if (props.type === "yandex") {
         setCertifyZoom(window.innerWidth / 18);
       }

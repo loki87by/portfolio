@@ -51,11 +51,9 @@ function Hand(props) {
     return (
       <>
         {dataArray.map((el, index) => {
-
           if ((index === 0 && props.left) || (index === 4 && !props.left)) {
             return "";
           } else {
-
             if (props.left) {
               return (
                 <img

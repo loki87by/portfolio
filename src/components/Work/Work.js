@@ -40,7 +40,6 @@ function Work(props) {
 
     if (isAnimationStarted) {
       const timeout = setTimeout(() => {
-
         setBackground(
           props.images[`project_${props.data.name}`][animationCounter].src
         );
@@ -87,7 +86,9 @@ function Work(props) {
             props.data.aspectRatio && "Work__image_horizontal"
           }`}
           onMouseOver={() => {
-            setAnimationStarted(true);
+            if (props.data.animation !== "none") {
+              setAnimationStarted(true);
+            }
           }}
           onMouseLeave={removeAnimation}
         >

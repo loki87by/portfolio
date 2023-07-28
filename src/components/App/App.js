@@ -205,6 +205,11 @@ function App() {
         ) : (
           ""
         )}
+                {openedSection === "servises" ? (
+                          <Works filter="webService" scrollRef={openedSection === "servises" ? scrollRef : null} images={images} isMobile={mobileRef.current} />
+                                  ) : (
+                                            ""
+                                                    )}
         {openedSection === "social" ? (
           <Works filter="social" scrollRef={openedSection === "social" ? scrollRef : null} images={images} isMobile={mobileRef.current} />
         ) : (

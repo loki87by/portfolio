@@ -43,7 +43,7 @@ function Works(props) {
   }, [setOpenedSection, currentWorks])
 
   return (
-    <section className="Works"  ref={props.scrollRef}>
+    <section className="Works" ref={props.scrollRef}>
       {Object.keys(currentWorks).map((i, ind) => (
         <article
           key={`${i}-${ind}`}

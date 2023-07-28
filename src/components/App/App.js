@@ -205,6 +205,26 @@ function App() {
         ) : (
           ""
         )}
+        {openedSection === "games" ? (
+          <Works
+            filter="webGame"
+            scrollRef={openedSection === "games" ? scrollRef : null}
+            images={images}
+            isMobile={mobileRef.current}
+          />
+        ) : (
+          ""
+        )}
+        {openedSection === "servers" ? (
+          <Works
+            filter="server"
+            scrollRef={openedSection === "servers" ? scrollRef : null}
+            images={images}
+            isMobile={mobileRef.current}
+          />
+        ) : (
+          ""
+        )}
         {openedSection === "sites" ? (
           <Works
             filter="landingPage"

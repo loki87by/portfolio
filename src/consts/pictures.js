@@ -185,45 +185,15 @@ import project23l from "../images/projects/shpargaliki/project-23l.jpg";
 import project23m from "../images/projects/shpargaliki/project-23m.jpg";
 import project23n from "../images/projects/shpargaliki/project-23n.jpg";
 import project24 from "../images/projects/contact-list/project-24a.jpg";
-import project24a from "../images/projects/contact-list/project-24b.jpg";
 import project24b from "../images/projects/contact-list/project-24c.jpg";
-import project24c from "../images/projects/contact-list/project-24d.jpg";
-import project24d from "../images/projects/contact-list/project-24e.jpg";
-import project24e from "../images/projects/contact-list/project-24f.jpg";
-import project24f from "../images/projects/contact-list/project-24g.jpg";
-import project24g from "../images/projects/contact-list/project-24h.jpg";
-import project24h from "../images/projects/contact-list/project-24i.jpg";
-import project24i from "../images/projects/contact-list/project-24j.jpg";
-import project24j from "../images/projects/contact-list/project-24k.jpg";
 import project24k from "../images/projects/contact-list/project-24l.jpg";
-import project24l from "../images/projects/contact-list/project-24m.jpg";
 import project24m from "../images/projects/contact-list/project-24n.jpg";
-import project24n from "../images/projects/contact-list/project-24o.jpg";
-import project24o from "../images/projects/contact-list/project-24p.jpg";
-import project24p from "../images/projects/contact-list/project-24q.jpg";
-import project24q from "../images/projects/contact-list/project-24r.jpg";
-import project24r from "../images/projects/contact-list/project-24t.jpg";
-import project24s from "../images/projects/contact-list/project-24u.jpg";
-import project24t from "../images/projects/contact-list/project-24v.jpg";
-import project24u from "../images/projects/contact-list/project-24w.jpg";
-import project24v from "../images/projects/contact-list/project-24x.jpg";
 import project24w from "../images/projects/contact-list/project-24y.jpg";
 import project25 from "../images/projects/psn/project25a.jpg";
-import project25a from "../images/projects/psn/project25b.jpg";
-import project25b from "../images/projects/psn/project25c.jpg";
 import project25c from "../images/projects/psn/project25d.jpg";
-import project25d from "../images/projects/psn/project25e.jpg";
-import project25e from "../images/projects/psn/project25f.jpg";
 import project25f from "../images/projects/psn/project25g.jpg";
 import project25g from "../images/projects/psn/project25h.jpg";
-import project25h from "../images/projects/psn/project25i.jpg";
-import project25i from "../images/projects/psn/project25j.jpg";
-import project25j from "../images/projects/psn/project25k.jpg";
-import project25k from "../images/projects/psn/project25l.jpg";
 import project25l from "../images/projects/psn/project25m.jpg";
-import project25m from "../images/projects/psn/project25n.jpg";
-import project25n from "../images/projects/psn/project25o.jpg";
-import project25o from "../images/projects/psn/project25p.jpg";
 import project26a from "../images/projects/counters/project-26a.jpg";
 import project26a2 from "../images/projects/counters/project-26a2.jpg";
 import project26a3 from "../images/projects/counters/project-26a3.jpg";
@@ -592,47 +562,17 @@ export const PIC_ARRAY = {
   ],
   project_contactList: [
     project24,
-    project24a,
     project24b,
-    project24c,
-    project24d,
-    project24e,
-    project24f,
-    project24g,
-    project24h,
-    project24i,
-    project24j,
     project24k,
-    project24l,
     project24m,
-    project24n,
-    project24o,
-    project24p,
-    project24q,
-    project24r,
-    project24s,
-    project24t,
-    project24u,
-    project24v,
     project24w,
   ],
   project_pseudoSocialNetwork: [
     project25,
-    project25a,
-    project25b,
     project25c,
-    project25d,
-    project25e,
     project25f,
     project25g,
-    project25h,
-    project25i,
-    project25j,
-    project25k,
     project25l,
-    project25m,
-    project25n,
-    project25o,
   ],
   project_counters: [
     project26a,

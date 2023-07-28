@@ -10,31 +10,40 @@ function Works(props) {
 
   const translation = useContext(TranslationContext);
 
-  useEffect(() => {
-    const filtered = WORKS.filter((i) => i.type[0] === props.filter).sort(
-      (a, b) => (a.type[1] < b.type[1] ? 1 : -1)
-    );
-    const reduced = filtered.reduce((p, i) => {
-      if (!p[i.type[1]]) {
-        p[i.type[1]] = [i];
-      } else {
-        p[i.type[1]].push(i);
-      }
-      return p;
-    }, {});
-    setCurrentWorks(reduced);
-  }, [props.filter]);
-
   function checkSection(id) {
-    if (openedSection === id) {
+    if (openedSection === id && Object.keys(currentWorks).length > 1) {
       setOpenedSection("");
     } else {
       setOpenedSection(id);
     }
   }
 
+  useEffect(() => {
+    const filtered = WORKS.filter((i) => i.type[0] === props.filter).sort(
+      (a, b) => (a.type[1] < b.type[1] ? 1 : -1)
+    );
+    const reduced = filtered.reduce((p, i) => {
+      const key = i.type[1] ? i.type[1] : i.type[0]
+      if (!p[key]) {
+
+        p[key] = [i];
+      } else {
+        p[key].push(i);
+      }
+      return p;
+    }, {});
+    setCurrentWorks(reduced);
+  }, [props.filter]);
+
+  useEffect(() => {
+
+    if (Object.keys(currentWorks).length === 1) {
+      setOpenedSection(Object.keys(currentWorks)[0]);
+    }
+  }, [setOpenedSection, currentWorks])
+
   return (
-    <section className="Works">
+    <section className="Works"  ref={props.scrollRef}>
       {Object.keys(currentWorks).map((i, ind) => (
         <article
           key={`${i}-${ind}`}
@@ -47,7 +56,12 @@ function Works(props) {
           <h3>{translation[i]}:</h3>
           {openedSection === i
             ? currentWorks[i].map((item) => (
-                <Work key={item.name} data={item} images={props.images} />
+                <Work
+                  key={item.name}
+                  data={item}
+                  images={props.images}
+                  isMobile={props.isMobile}
+                />
               ))
             : ""}
         </article>

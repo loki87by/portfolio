@@ -23,6 +23,7 @@ function App() {
   const [openedSection, setOpenedSection] = useState("");
   const [openedWorks, setOpenedWorks] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.screen.width);
+  // const [screenHeight, setScreenHeight] = useState(window.screen.height);
   const [dataIsRecorded, setDataRecorded] = useState(false);
   const [scrollbarWidth, setScrollbarWidth] = useState(0);
   const Mobile =
@@ -135,6 +136,7 @@ function App() {
   useEffect(() => {
     function resizer() {
       setScreenWidth(window.innerWidth);
+      // setScreenHeight(window.innerHeight);
     }
     window.addEventListener("resize", resizer);
     resizer();
@@ -203,10 +205,16 @@ function App() {
         ) : (
           ""
         )}
-      {openedSection === 'works' ? <Works
-      filter="other"
-            images={images}
-            /> : ''}
+        {openedSection === "social" ? (
+          <Works filter="social" scrollRef={openedSection === "social" ? scrollRef : null} images={images} isMobile={mobileRef.current} />
+        ) : (
+          ""
+        )}
+        {openedSection === "works" ? (
+          <Works filter="other" images={images} isMobile={mobileRef.current} />
+        ) : (
+          ""
+        )}
         <Footer />
       </TranslationContext.Provider>
     </>

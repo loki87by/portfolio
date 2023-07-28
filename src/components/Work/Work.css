@@ -63,6 +63,22 @@
   background-size: contain;
 }
 
+.Work__clue {
+  position: absolute;
+  width: 50%;
+  padding: 1vmin;
+  font-size: 14px;
+  line-height: 16px;
+  margin: 0;
+  background-color: var(--main-color);
+  color: var(--back-color);
+  opacity: 0.8;
+}
+
+.Work__image:hover .Work__clue {
+  opacity: 0;
+}
+
 .Work__description {
   position: relative;
   width: 45%;
@@ -97,8 +113,8 @@
 }
 
 .Work__stack-icon {
-height: 100%;
-width: auto;
-margin-right: 1vmin;
-object-fit: contain;
+  height: 100%;
+  width: auto;
+  margin-right: 1vmin;
+  object-fit: contain;
 }

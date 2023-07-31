@@ -26,6 +26,7 @@ function App() {
   // const [screenHeight, setScreenHeight] = useState(window.screen.height);
   const [dataIsRecorded, setDataRecorded] = useState(false);
   const [scrollbarWidth, setScrollbarWidth] = useState(0);
+    const [widgetRangeValue, setWidgetRangeValue] = useState(0);
   const Mobile =
     /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(
       navigator.userAgent
@@ -256,7 +257,9 @@ function App() {
           ""
         )}
         {openedSection === "works" ? (
-          <Works filter="other" images={images} isMobile={mobileRef.current} />
+          <Works filter="other" images={images} isMobile={mobileRef.current}
+          screenWidth={screenWidth}
+           widgetRangeValue={widgetRangeValue} setWidgetRangeValue={setWidgetRangeValue} />
         ) : (
           ""
         )}

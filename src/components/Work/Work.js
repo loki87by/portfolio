@@ -13,7 +13,6 @@ function Work(props) {
 
   useEffect(() => {
     if (props.images && props.images[`project_${props.data.name}`]) {
-      console.dir(props.images[`project_${props.data.name}`]);
       setBackground(props.images[`project_${props.data.name}`][0].src);
     }
   }, [props.images, props.data.name]);
@@ -58,6 +57,12 @@ function Work(props) {
     setAnimationCounter(1);
     setAnimationStarted(false);
     setBackground(props.images[`project_${props.data.name}`][0].src);
+  }
+
+  function widgetSwitcher(evt) {
+    props.setWidgetRangeValue(evt.target.value);
+    const widget = document.getElementById("weatherWidget");
+    widget.classList.toggle("hide-widget");
   }
 
   return (
@@ -106,24 +111,24 @@ function Work(props) {
           <p className="Work__description-text">
             {translation[`${props.data.text}`]}
           </p>
-          {/* {props.additionally ? (
-            <>
+          {props.data.additionally ? (
+            <div className="Work__additionally-container">
               <p className="Work__description-text">{translation.turnOf}</p>
               <input
                 type="range"
                 className={`Work__additionally-range ${
-                  props.width < 758 && "Work__additionally-range_mobile"
+                  props.screenWidth < 758 && "Work__additionally-range_mobile"
                 }`}
-                value={props.rangeValue}
+                value={props.widgetRangeValue}
                 min="0"
                 max="1"
                 onInput={widgetSwitcher}
               />
               <p className="Work__description-text">{translation.turnOn}</p>
-            </>
+            </div>
           ) : (
             ""
-          )} */}
+          )}
           <div className="Work__stack">
             {stack.map((i) => (
               <img

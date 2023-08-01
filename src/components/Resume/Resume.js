@@ -88,8 +88,8 @@ function Resume(props) {
             !props.openedWorks ? openSection("bio") : openSection("games");
           }}
           id={!props.openedWorks ? 'bio' : 'games'}
-          width="2.5vmax"
-          height="2.5vmax"
+          width="5vmin"
+          height="5vmin"
           title={!props.openedWorks ? translation.bio : translation.games}
         />
       </div>
@@ -104,8 +104,8 @@ function Resume(props) {
             !props.openedWorks ? openSection("contacts") : openSection("servers");
           }}
           id={!props.openedWorks ? 'contacts' : 'servers'}
-          width="2.5vmax"
-          height="2.5vmax"
+          width="5vmin"
+          height="5vmin"
           title={!props.openedWorks ? translation.contacts : translation.server}
         />
       </div>
@@ -120,8 +120,8 @@ function Resume(props) {
             !props.openedWorks ? openSection("docs") : openSection("sites");
           }}
           id={!props.openedWorks ? 'docs' : 'sites'}
-          width="2.5vmax"
-          height="2.5vmax"
+          width="5vmin"
+          height="5vmin"
           title={!props.openedWorks ? translation.docs : translation.landing}
         />
       </div>
@@ -140,8 +140,8 @@ function Resume(props) {
             !props.openedWorks ? openSection("info") : openSection("servises");
           }}
           id={!props.openedWorks ? 'info' : 'servises'}
-          width="2.5vmax"
-          height="2.5vmax"
+          width="5vmin"
+          height="5vmin"
           title={!props.openedWorks ? translation.info : translation.webService}
         />
       </div>
@@ -155,8 +155,8 @@ function Resume(props) {
             !props.openedWorks ? openSection("stack") : openSection("social");
           }}
           id={!props.openedWorks ? 'stack' : 'social'}
-          width="2.5vmax"
-          height="2.5vmax"
+          width="5vmin"
+          height="5vmin"
           title={!props.openedWorks ? translation.stack : translation.social}
         />
       </div>
@@ -174,8 +174,8 @@ function Resume(props) {
             props.setOpenedWorks(false);
           }}
           id={!props.openedWorks ? "works" : "undo"}
-          width="2.5vmax"
-          height="2.5vmax"
+          width="5vmin"
+          height="5vmin"
           title={!props.openedWorks ? translation.works : translation.undo}
         />
       </div>

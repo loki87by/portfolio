@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Hand from "../Hand/Hand";
 import "./Hands.css";
 
 function Hands(props) {
-  const [alone, setAlone] = React.useState(true);
-  const [data, setData] = React.useState([["0", "0", "0", "0", "0"]]);
+  const [alone, setAlone] = useState(true);
+  const [data, setData] = useState([["0", "0", "0", "0", "0"]]);
 
   const arrayConverter = (str) => {
     const array = str.split("");
+
     while (array.length < 5) {
       array.unshift("0");
     }
@@ -15,7 +16,7 @@ function Hands(props) {
     return array;
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const bin = props.number.toString(2);
     const num = String(bin);
     let totalArr = [];

@@ -1,8 +1,0 @@
-.Works__background_occupancy_empty {
-  position: absolute;
-  z-index: -1;
-  height: 100%;
-  margin-top: 0 !important;
-  background: -o-radial-gradient(var(--main-color) 0%, var(--second-color) 70%);
-  background: radial-gradient(var(--main-color) 0%, var(--second-color) 70%);
-}

@@ -1,179 +1,83 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
-import { STACK } from "../../utils/consts.js";
+import { WORKS } from "../../consts/works";
+import Work from "../Work/Work";
+import Sprite from "../Sprite/Sprite";
+import triangle from "../../images/triangle.svg";
 import "./Works.css";
-import "./styles/__title/Works__title.css";
-import "./styles/__subtitle/Works__subtitle.css";
-import "./styles/__background/Works__background.css";
-import "./styles/__background/_occupancy/Works__background_occupancy_empty.css";
-import "./styles/__background/_occupancy/Works__background_occupancy_alone.css";
-import "./styles/__background/_occupancy/Works__background_occupancy_double.css";
-import "./styles/__background/_occupancy/Works__background_occupancy_triple.css";
-import "./styles/__background/_occupancy/Works__background_occupancy_four.css";
-import "./styles/__background/_occupancy/Works__background_occupancy_more.css";
-import "./styles/__background-image/Works__background-image.css";
-import "./styles/__background-image/_occupancy/Works__background-image_occupancy_alone.css";
-import "./styles/__background-image/_occupancy/Works__background-image_occupancy_double.css";
-import "./styles/__background-image/_occupancy/Works__background-image_occupancy_triple.css";
-import "./styles/__background-image/_occupancy/Works__background-image_occupancy_four.css";
-import "./styles/__background-image/_occupancy/Works__background-image_occupancy_more.css";
-import "./styles/__button/Works__button.css";
 
 function Works(props) {
-  const [selectedProjects, setSelectedProjects] = React.useState([]);
-  const [projectsImages, setProjectsImages] = React.useState([]);
-  const [backgroundModificator, setBackgroundModificator] = React.useState("");
-  const [newStyle, setNewStyle] = React.useState(false);
-  const translation = React.useContext(TranslationContext);
-  let showedWorksType;
+  const [currentWorks, setCurrentWorks] = useState({});
+  const [openedSection, setOpenedSection] = useState("");
 
-  if (props.showedWorks.key !== undefined) {
-    showedWorksType = props.showedWorks.key
-      .replace("worksListSlide-", "")
-      .replace(/-\d/, "");
-  } else {
-    showedWorksType = props.showedWorks.type;
-  }
+  const translation = useContext(TranslationContext);
 
-  const shuffle = (array) => {
-    let arr = array;
-    for (let i = array.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-
-    return arr;
-  };
-
-  function filtersReset() {
-    props.setSelectedStack(STACK.slice());
-  }
-
-  React.useEffect(() => {
-    const array = props.item.array.filter((work) => {
-      if (
-        work.stack.every((item) => {
-          return props.selectedStack.some((e) => e === item);
-        })
-      ) {
-        return work;
-      } else {
-        return null;
-      }
-    });
-    setSelectedProjects(shuffle(array));
-  }, [props.item.array, props.selectedStack]);
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setNewStyle(true);
-    }, 300);
-    const pos = JSON.parse(JSON.stringify(props.style));
-
-    return () => {
-      clearTimeout(timer);
-
-      if (props.style !== pos) {
-        setNewStyle(false);
-      }
-    };
-  }, [projectsImages, props.style]);
-
-  React.useEffect(() => {
-    const imgArray = selectedProjects.map((i) => {
-      return props.images[`project_${i.name}`][0].src;
-    });
-    setProjectsImages(imgArray);
-
-    if (projectsImages.length === 0) {
-      setBackgroundModificator("empty");
-    } else if (projectsImages.length === 1) {
-      setBackgroundModificator("alone");
-    } else if (projectsImages.length === 2) {
-      setBackgroundModificator("double");
-    } else if (projectsImages.length === 3) {
-      setBackgroundModificator("triple");
-    } else if (projectsImages.length === 4) {
-      setBackgroundModificator("four");
+  function checkSection(id) {
+    if (openedSection === id && Object.keys(currentWorks).length > 1) {
+      setOpenedSection("");
     } else {
-      setBackgroundModificator("more");
+      setOpenedSection(id);
     }
-  }, [projectsImages.length, props.images, selectedProjects]);
-
-  function openWorks() {
-    props.setCurrentWorks(props.item.array);
-    const newState = !props.worksIsOpen;
-    props.setWorksOpen(newState);
   }
 
-  function show(e) {
-    const id = e.target.id;
-    const index = id.replace("project-demo-", "");
-    props.setCurrentWorks(props.item.array);
-    props.setWorksOpen(true);
-    props.setCurrentWorkName(selectedProjects[+index].name);
-    props.scrollToElement();
-  }
+  useEffect(() => {
+    const filtered = WORKS.filter((i) => i.type[0] === props.filter).sort(
+      (a, b) => (a.type[1] < b.type[1] ? 1 : -1)
+    );
+    const reduced = filtered.reduce((p, i) => {
+      const key = i.type[1] ? i.type[1] : i.type[0];
+
+      if (!p[key]) {
+        p[key] = [i];
+      } else {
+        p[key].push(i);
+      }
+      return p;
+    }, {});
+    setCurrentWorks(reduced);
+  }, [props.filter]);
+
+  useEffect(() => {
+    if (Object.keys(currentWorks).length === 1) {
+      setOpenedSection(Object.keys(currentWorks)[0]);
+    }
+  }, [setOpenedSection, currentWorks]);
 
   return (
-    <section className="Works" style={props.style} onClick={props.setPaused}>
-      <h3 className="Works__title">{translation[props.item.type]}</h3>
-      <h4 className="Works__subtitle">
-        {translation.worksSubtitle}
-        {selectedProjects.length}
-      </h4>
-      <div
-        className={`Works__background Works__background_occupancy_${backgroundModificator}`}
-      >
-        {projectsImages.length > 0 ? (
-          projectsImages.map((item, index) => {
-            return (
-              <div
-                key={`project-demo-${index}`}
-                style={
-                  newStyle && showedWorksType === props.item.type
-                    ? {
-                        transform: "translateY(0)",
-                        transition: "all .7s linear",
-                        transitionDelay: `${index / 2}s`,
-                        maxHeight: "100%",
-                      }
-                    : { maxHeight: "100%" }
-                }
-                onClick={show}
-                className={`Works__background-image Works__background-image_occupancy_${backgroundModificator}`}
-              >
-                <img
-                  src={item}
-                  id={`project-demo-${index}`}
-                  alt="project-demo"
-                  style={{
-                    width: "100%",
-                    display: "block",
-                  }}
-                />
-              </div>
-            );
-          })
-        ) : (
-          <h4
-            className="Works__subtitle"
-            style={{ marginTop: "calc(6vmin + 8vw)" }}
+    <section className="Works" ref={props.scrollRef}>
+      {Object.keys(currentWorks).map((i, ind) => (
+        <article key={`${i}-${ind}`} id={i} className="Works__section">
+          <div
+            className="Works__section-title"
+            onClick={() => {
+              checkSection(i);
+            }}
           >
-            {translation.tryResetFilters}
-            <span
-              onClick={filtersReset}
-              className="Works__subtitle"
-              style={{ cursor: "pointer" }}
-            >
-              {translation.resetFilters}
-            </span>
-          </h4>
-        )}
-      </div>
-      <button className="Works__button" onClick={openWorks}>
-        {props.worksIsOpen ? translation.hideWorks : translation.showWorks}
-      </button>
+            <Sprite
+              style={openedSection === i ? { transform: "rotate(90deg)" } : {}}
+              src={triangle}
+              id="triangle"
+              width="2vmax"
+              height="2vmax"
+              title="triangle"
+            />
+            <h3 className="Works__section-text">{translation[i]}:</h3>
+          </div>
+          {openedSection === i
+            ? currentWorks[i].map((item) => (
+                <Work
+                  key={item.name}
+                  data={item}
+                  images={props.images}
+                  isMobile={props.isMobile}
+                  screenWidth={props.screenWidth}
+                  widgetRangeValue={props.widgetRangeValue}
+                  setWidgetRangeValue={props.setWidgetRangeValue}
+                />
+              ))
+            : ""}
+        </article>
+      ))}
     </section>
   );
 }

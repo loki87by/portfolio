@@ -1,24 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import certificateRu from "../../media/Акулич.pdf";
 import certificateEn from "../../media/20202WD00196.pdf";
 import epamCertificate from "../../media/ds8jpv3n.pdf";
 import close from "../../images/close.png";
 import "./Certificate.css";
-import "./styles/__open-button/Certificate__open-button.css";
 
 function Certificate(props) {
-  const [source, setSource] = React.useState(epamCertificate);
-  const [certifyWidth, setCertifyWidth] = React.useState(
-    props.screenWidth * 0.43
-  );
-  const [certifyHeight, setCertifyHeight] = React.useState(
-    props.screenWidth * 0.43
-  );
-  const [certifyZoom, setCertifyZoom] = React.useState(
-    props.screenWidth / 27.5
-  );
+  const [source, setSource] = useState(epamCertificate);
+  const [certifyWidth, setCertifyWidth] = useState(props.screenWidth * 0.43);
+  const [certifyHeight, setCertifyHeight] = useState(props.screenWidth * 0.43);
+  const [certifyZoom, setCertifyZoom] = useState(props.screenWidth / 27.5);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (props.type === "yandex") {
       if (props.lang === "ru") {
         setSource(certificateRu);
@@ -34,7 +27,7 @@ function Certificate(props) {
     }
   }, [props.type, props.lang]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!props.isCertificateOpen) {
       if (window.innerWidth < 555) {
         setCertifyZoom(window.innerWidth / 5);
@@ -67,12 +60,12 @@ function Certificate(props) {
   return (
     <div
       className={
-        props.isCertificateOpen ? "Resume__certificate" : "Certificate"
+        props.isCertificateOpen ? "Certificate__opened" : "Certificate"
       }
     >
       {props.isCertificateOpen ? (
         <div
-          className="Resume__certificate-close"
+          className="Certificate__close"
           id={`${props.type}-button`}
           onClick={props.closeCertificate}
         >

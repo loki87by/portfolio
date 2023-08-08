@@ -1,9 +1,0 @@
-.Stack__image-container {
-  position: absolute;
-  height: 4vw;
-  width: auto;
-  max-width: 8%;
-  -o-object-fit: contain;
-  object-fit: contain;
-  cursor: pointer;
-}

@@ -1,329 +1,194 @@
-import React from "react";
-import { WORKS } from "../../consts/works";
-import { STACK } from "../../utils/consts.js";
-import { completeSliderArray } from "../../utils/helpers.js";
+import React, { useState, useEffect, useContext } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
-import Description from "../Description/Description";
-import Slider from "../Slider/Slider";
-import Works from "../Works/Works";
-import Work from "../Work/Work";
-import Certificate from "../Certificate/Certificate";
+import Sprite from "../Sprite/Sprite";
+import bio from "../../images/bio.svg";
+import games from "../../images/games.svg";
+import contacts from "../../images/contacts.svg";
+import servers from "../../images/servers.svg";
+import docs from "../../images/docs.svg";
+import sites from "../../images/sites.svg";
+import gallery from "../../images/gallery.svg";
+import servises from "../../images/servises.svg";
+import stack from "../../images/stack.svg";
+import social from "../../images/social.svg";
+import works from "../../images/works.svg";
+import undo from "../../images/undo.svg";
 import "./Resume.css";
-import "../Works/styles/__slider-container/Works__slider-container.css";
-import "./styles/__openWorks-container/Resume__openWorks-container.css";
-import "./styles/__openWorks-container/_open/Resume__openWorks-container_open.css";
-import "./styles/__slider-icons/Works__slider-icons.css";
-import "./styles/__slider-icon/Works__slider-icon.css";
-import "./styles/__slider-icon/_active/Works__slider-icon_active.css";
-import "./styles/__popup/Resume__popup.css";
-import "./styles/__popup/_opened/Resume__popup_opened.css";
-import "./styles/__certificate/Resume__certificate.css";
-import "./styles/__certificate-close/Resume__certificate-close.css";
 
 function Resume(props) {
-  const [screenWidth, setScreenWidth] = React.useState(window.screen.width);
-  const [isCertificateOpen, setCertificateOpen] = React.useState(false);
-  const [certificateType, setCertificateType] = React.useState(null);
-  const [softStyles, setSoftStyles] = React.useState([]);
-  const [pausedSoftSlider, setPausedSoftSlider] = React.useState(false);
-  const [worksStyles, setWorksStyles] = React.useState([]);
-  const [pausedWorksSlider, setPausedWorksSlider] = React.useState(false);
-  const [selectedStack, setSelectedStack] = React.useState(STACK);
-  const [worksIsOpen, setWorksOpen] = React.useState(false);
-  const [currentWorks, setCurrentWorks] = React.useState([]);
-  const [currentWorkName, setCurrentWorkName] = React.useState("");
-  const [showedWorks, setShowedWorks] = React.useState(
-    completeSliderArray(WORKS)[0]
-  );
-  const [widgetRangeValue, setWidgetRangeValue] = React.useState(0);
-  const [workIconsStyles, setWorkIconsStyles] = React.useState([]);
-  const [targetWorkIcon, setTargetWorkIcon] = React.useState(null);
+  const [avatar, setAvatar] = useState({ src: null });
+  const [animations, setAnimations] = useState([
+    { src: null },
+    { src: null },
+    { src: null },
+    { src: null },
+  ]);
+  const [mouseOver, setMouseOver] = useState(false);
+  const [effectAva, setEffectAva] = useState(null);
 
-  const translation = React.useContext(TranslationContext);
-  const scrollRef = React.useRef(null);
+  const translation = useContext(TranslationContext);
 
-  const softImages = completeSliderArray(props.images.soft.slice(), 5);
-  const worksListArray = completeSliderArray(WORKS.slice(), 1);
-  const temporarySoftArray = [];
-  const temporaryWorksArray = [];
-  const temporaryIconsArray = [];
-
-  let softStylesArray = JSON.parse(JSON.stringify(softStyles));
-  let worksStyleArray = JSON.parse(JSON.stringify(worksStyles));
-  let iconsStyleArray = JSON.parse(JSON.stringify(workIconsStyles));
-  let imagesObject = {};
-
-  function scrollToElement() {
-    setTimeout(() => {
-      scrollRef.current.scrollIntoView({
-        block: "start",
-        behavior: "smooth",
-      });
-      const vmin =
-        Math.min(
-          document.documentElement.clientHeight,
-          document.documentElement.clientWidth
-        ) / 100;
-      const vmax =
-        Math.max(
-          document.documentElement.clientHeight,
-          document.documentElement.clientWidth
-        ) / 100;
-      const vw = document.documentElement.clientWidth / 100;
-      const headerHeight = Math.ceil(3 * vmin + 5 * vw - vmax);
-      window.scrollTo(0, scrollRef.current.offsetTop - headerHeight);
-    }, 10);
-  }
-
-  function stopSoftAutoSlide() {
-    setPausedSoftSlider(true);
-  }
-
-  function restartSoftAutoSlide() {
-    setPausedSoftSlider(false);
-  }
-
-  function stopWorksAutoSlide() {
-    setPausedWorksSlider(true);
-  }
-
-  function restartWorksAutoSlide() {
-    setPausedWorksSlider(false);
-  }
-
-  React.useEffect(() => {
-    if (!pausedWorksSlider) {
-      setWorksOpen(false);
+  useEffect(() => {
+    if (props.images.avatar) {
+      setAvatar(props.images.avatar[0]);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pausedWorksSlider]);
+  }, [props.images.avatar]);
 
-  const worksListSlides = worksListArray.map((item, index) => {
-    if (!worksStyleArray[index]) {
-      temporaryWorksArray.push({ display: "flex" });
-      setWorksStyles(temporaryWorksArray);
+  useEffect(() => {
+    if (props.images.avatarAnimation) {
+      setAnimations(props.images.avatarAnimation);
+      setEffectAva(props.images.avatarAnimation[0].src);
+    }
+  }, [props.images.avatarAnimation]);
+
+  useEffect(() => {
+    let ava = document.querySelector(".Resume__photo");
+
+    function changeEffect() {
+      const rand = Math.random();
+      const chanse = Math.floor(4 * rand);
+      const avatarEffect = animations[chanse].src;
+      setEffectAva(avatarEffect);
     }
 
-    return (
-      <Works
-        key={`worksListSlide-${item.type}-${index}`}
-        selectedStack={selectedStack}
-        worksStyles={worksStyles}
-        worksIsOpen={worksIsOpen}
-        currentWorks={currentWorks}
-        showedWorks={showedWorks}
-        style={worksStyles[index]}
-        item={item}
-        index={index}
-        images={props.images}
-        setSelectedStack={setSelectedStack}
-        setPaused={stopWorksAutoSlide}
-        resetPaused={restartWorksAutoSlide}
-        setWorksOpen={setWorksOpen}
-        setCurrentWorks={setCurrentWorks}
-        setCurrentWorkName={setCurrentWorkName}
-        scrollToElement={scrollToElement}
-      />
-    );
-  });
-
-  function replaceIconActiveClass(numb) {
-    const arr = [];
-    for (let i = 0; i < WORKS.length; i++) {
-      if (i !== numb) {
-        arr.push("Works__slider-icon");
-      } else {
-        arr.push("Works__slider-icon Works__slider-icon_active");
-      }
-    }
-    setWorkIconsStyles(arr);
-  }
-
-  const workSlideIcons = WORKS.map((item, index) => {
-    if (!iconsStyleArray[index]) {
-      temporaryIconsArray.push("Works__slider-icon");
-      setWorkIconsStyles(temporaryIconsArray);
+    function hoverOn() {
+      setMouseOver(true);
     }
 
-    return (
-      <div
-        key={`icon-${index}`}
-        id={`icon-${index}`}
-        title={translation[item.type]}
-        className={workIconsStyles[index]}
-        onClick={getCurrentSlide}
-      ></div>
-    );
-  });
-
-  function getCurrentSlide(e) {
-    let currentIndex = +e.target.id.replace("icon-", "");
-    setTargetWorkIcon(currentIndex);
-  }
-
-  const softImagesSlides = softImages.map((item, index) => {
-    if (!softStylesArray[index]) {
-      temporarySoftArray.push({ display: "flex" });
-      setSoftStyles(temporarySoftArray);
+    function hoverOff() {
+      setMouseOver(false);
+      changeEffect();
     }
-
-    return (
-      <div
-        className="Description__soft"
-        key={`soft-${index}`}
-        style={softStylesArray[index]}
-        onClick={stopSoftAutoSlide}
-      >
-        <img src={item.src} className="Description__soft-image" alt="img" />
-      </div>
-    );
-  });
-
-  function setSoftStyle(style) {
-    let arr = JSON.parse(JSON.stringify(softStyles));
-    arr = arr.map(() => style);
-    setSoftStyles(arr);
-  }
-
-  function setWorkStyle(style) {
-    let arr = JSON.parse(JSON.stringify(worksStyles));
-    arr = arr.map(() => style);
-    setWorksStyles(arr);
-  }
-
-  function closeCertificate() {
-    setCertificateOpen(false);
-  }
-
-  function handleEscClose(e) {
-    if (e.key === "Escape") {
-      closeCertificate();
-    }
-  }
-
-  React.useEffect(() => {
-    window.addEventListener("keydown", handleEscClose);
+    ava.addEventListener("mouseover", hoverOn);
+    ava.addEventListener("mouseout", hoverOff);
 
     return () => {
-      window.removeEventListener("keydown", handleEscClose);
+      ava.removeEventListener("mouseover", hoverOn);
+      ava.removeEventListener("mouseout", hoverOff);
     };
   });
 
-  React.useEffect(() => {
-    function resizer() {
-      setScreenWidth(window.innerWidth);
+  function openSection(arg) {
+    props.setOpenedSection(arg);
+
+    if (arg !== "" && arg !== "works") {
+      props.scrollToElement();
     }
-    window.addEventListener("resize", resizer);
-    resizer();
-
-    return () => window.removeEventListener("resize", resizer);
-  });
-
-  for (let i = 1; i < props.images.length - 4; i++) {
-    const source = props.images[i].src;
-    const imageHash = source.match(/\w*-?\w*\.\w*\.jpg/g);
-    const imageFullName = imageHash[0].split(".")[0];
-    const imageNameTitle = imageFullName.replace(/-\w*/, "");
-    const imageNameIndex = imageFullName.match(/-\d*/)[0];
-    const imageName = imageNameTitle + imageNameIndex;
-
-    if (!imagesObject[imageName]) {
-      imagesObject[imageName] = [];
-    }
-    imagesObject[imageName].push(source);
   }
 
   return (
     <section className="Resume">
-      <Description
-        screenWidth={screenWidth}
-        slides={softImagesSlides}
-        paused={pausedSoftSlider}
-        selectedStack={selectedStack}
-        lang={props.lang}
-        images={props.images}
-        isMobile={props.isMobile}
-        imagesIsLoad={props.imagesIsLoad}
-        scrollbarWidth={props.scrollbarWidth}
-        setCertificateOpen={setCertificateOpen}
-        setCertificateType={setCertificateType}
-        setStyle={setSoftStyle}
-        setPaused={stopSoftAutoSlide}
-        resetPaused={restartSoftAutoSlide}
-        setSelectedStack={setSelectedStack}
-      />
-      <section className="Works__slider-container">
-        <Slider
-          unit="%"
-          limit={1}
-          shift={(100 / 96) * 100}
-          interval={10000}
-          isWorks={true}
-          icons={workSlideIcons}
-          paused={pausedWorksSlider}
-          slides={worksListSlides}
-          targetWorkIcon={targetWorkIcon}
-          setStyle={setWorkStyle}
-          setPaused={stopWorksAutoSlide}
-          resetPaused={restartWorksAutoSlide}
-          changeActiveIconClass={replaceIconActiveClass}
-          setShowedWorks={setShowedWorks}
+      <div
+        className={`Resume__button Resume__button_top_first
+      ${props.openedWorks && "Resume__button_top_first_work"}`}
+      >
+        <Sprite
+          src={!props.openedWorks ? bio : games}
+          click={() => {
+            !props.openedWorks ? openSection("bio") : openSection("games");
+          }}
+          id={!props.openedWorks ? "bio" : "games"}
+          width="5vmin"
+          height="5vmin"
+          title={!props.openedWorks ? translation.bio : translation.games}
         />
-      </section>
-      {worksIsOpen ? (
-        <section
-          className={`Resume__openWorks-container ${
-            worksIsOpen && "Resume__openWorks-container_open"
-          }`}
-        >
-          {currentWorks.map((item, index) => {
-            return (
-              <Work
-                key={`work-${index}`}
-                id={`work-${index}`}
-                width={screenWidth}
-                rangeValue={widgetRangeValue}
-                currentWorkName={currentWorkName}
-                scrollRef={scrollRef}
-                link={item.src}
-                index={index}
-                type={item.type}
-                double={item.double}
-                firstLinkText={item.firstLinkText}
-                secondLinkText={item.secondLinkText}
-                secondLink={item.secondLink}
-                type2={item.type2}
-                name={item.name}
-                images={props.images}
-                animationTime={item.animationTime}
-                animation={item.animation}
-                text={item.text}
-                isMobile={props.isMobile}
-                aspectRatio={item.aspectRatio}
-                additionally={item.additionally}
-                setRangeValue={setWidgetRangeValue}
-              />
-            );
-          })}
-        </section>
-      ) : (
-        <section className="Works__slider-icons">{workSlideIcons}</section>
-      )}
-      <section
-        className={`Resume__popup ${
-          isCertificateOpen && "Resume__popup_opened"
+      </div>
+      <div
+        className={`Resume__button Resume__button_top_second ${
+          props.openedWorks && "Resume__button_top_second_work"
         }`}
       >
-        <Certificate
-          type={certificateType}
-          isCertificateOpen={isCertificateOpen}
-          screenWidth={props.screenWidth}
-          lang={props.lang}
-          setCertificateOpen={setCertificateOpen}
-          setCertificateType={setCertificateType}
-          closeCertificate={closeCertificate}
+        <Sprite
+          src={!props.openedWorks ? contacts : servers}
+          click={() => {
+            !props.openedWorks
+              ? openSection("contacts")
+              : openSection("servers");
+          }}
+          id={!props.openedWorks ? "contacts" : "servers"}
+          width="5vmin"
+          height="5vmin"
+          title={!props.openedWorks ? translation.contacts : translation.server}
         />
-      </section>
+      </div>
+      <div
+        className={`Resume__button Resume__button_top_third ${
+          props.openedWorks && "Resume__button_top_third_work"
+        }`}
+      >
+        <Sprite
+          src={!props.openedWorks ? docs : sites}
+          click={() => {
+            !props.openedWorks ? openSection("docs") : openSection("sites");
+          }}
+          id={!props.openedWorks ? "docs" : "sites"}
+          width="5vmin"
+          height="5vmin"
+          title={!props.openedWorks ? translation.docs : translation.landing}
+        />
+      </div>
+      <img
+        alt="фото"
+        src={mouseOver ? effectAva : avatar.src}
+        className="Resume__photo"
+      />
+      <div
+        className={`Resume__button Resume__button_bottom_first
+      ${props.openedWorks && "Resume__button_bottom_first_work"}`}
+      >
+        <Sprite
+          src={!props.openedWorks ? gallery : servises}
+          click={() => {
+            !props.openedWorks
+              ? openSection("gallery")
+              : openSection("servises");
+          }}
+          id={!props.openedWorks ? "gallery" : "servises"}
+          width="5vmin"
+          height="5vmin"
+          title={
+            !props.openedWorks ? translation.gallery : translation.webService
+          }
+        />
+      </div>
+      <div
+        className={`Resume__button Resume__button_bottom_second
+      ${props.openedWorks && "Resume__button_bottom_second_work"}`}
+      >
+        <Sprite
+          src={!props.openedWorks ? stack : social}
+          click={() => {
+            !props.openedWorks ? openSection("stack") : openSection("social");
+          }}
+          id={!props.openedWorks ? "stack" : "social"}
+          width="5vmin"
+          height="5vmin"
+          title={!props.openedWorks ? translation.stack : translation.social}
+        />
+      </div>
+      <div
+        className={`Resume__button Resume__button_bottom_third
+      ${props.openedWorks && "Resume__button_bottom_third_work"}`}
+      >
+        <Sprite
+          src={!props.openedWorks ? works : undo}
+          click={
+            !props.openedWorks
+              ? () => {
+                  openSection("works");
+                  props.setOpenedWorks(true);
+                }
+              : () => {
+                  openSection("");
+                  props.setOpenedWorks(false);
+                }
+          }
+          id={!props.openedWorks ? "works" : "undo"}
+          width="5vmin"
+          height="5vmin"
+          title={!props.openedWorks ? translation.works : translation.undo}
+        />
+      </div>
     </section>
   );
 }

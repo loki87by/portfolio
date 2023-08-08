@@ -1,8 +1,11 @@
 .Header {
   position: fixed;
   z-index: 5;
-  width: calc(100% - 10vmin);
-  padding: 1vmin 5vmin;
+  width: 100%;
+  padding: 1vmin 5vmin 0;
+  height: 5vmax;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,6 +15,66 @@
   -ms-flex-align: center;
   align-items: center;
   background-color: var(--back-color);
+}
+
+.Header__input {
+  width: 4vw;
+  height: 4vw;
+  padding: 0;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.Header__input::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.Header__input::-webkit-color-swatch {
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+}
+
+.Header__input::-moz-focus-inner {
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+}
+
+.Header__input::-moz-color-swatch {
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+}
+
+.Header__logo {
+  height: 5vw;
+  -webkit-filter: var(--filter);
+  filter: var(--filter);
+}
+
+.Header__button-image {
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  border: 2px solid var(--main-color);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+
+.Header__button-image_RU {
+  background-image: url("../../images/RU.png");
+}
+
+.Header__button-image_UK {
+  background-image: url("../../images/UK.png");
 }
 
 @media (max-width: 768px) {

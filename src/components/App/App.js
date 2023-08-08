@@ -1,31 +1,64 @@
-/* eslint-disable no-loop-func */
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   TranslationContext,
   translations,
 } from "../../contexts/translationContext";
 import { PIC_ARRAY } from "../../consts/pictures";
 import Header from "../Header/Header";
-import Main from "../Main/Main";
+import Resume from "../Resume/Resume";
+import Bio from "../Bio/Bio";
+import Contacts from "../Contacts/Contacts";
+import Docs from "../Docs/Docs";
+import Stack from "../Stack/Stack";
+import Gallery from "../Gallery/Gallery";
+import Works from "../Works/Works";
 import Footer from "../Footer/Footer";
 import "../../vendor/normalize.css";
 import "./App.css";
-import "./styles/App_preload.css";
 
 function App() {
-  const [lang, setLang] = React.useState("ru");
-  const [images, setImages] = React.useState({});
-  const [loadProgress, setLoadProgress] = React.useState(0);
-  const [imagesIsLoad, setImagesIsLoad] = React.useState(false);
-  const [dataIsRecorded, setDataRecorded] = React.useState(false);
-  const [scrollbarWidth, setScrollbarWidth] = React.useState(0);
+  const [lang, setLang] = useState("ru");
+  const [images, setImages] = useState({});
+  const [isInitWidget, setInitWidget] = useState(false);
+  const [avaLoaded, setAvaLoaded] = useState(false);
+  const [openedSection, setOpenedSection] = useState("");
+  const [openedWorks, setOpenedWorks] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.screen.width);
+  const [screenHeight, setScreenHeight] = useState(window.screen.height);
+  const [dataIsRecorded, setDataRecorded] = useState(false);
+  const [scrollbarWidth, setScrollbarWidth] = useState(0);
+  const [widgetRangeValue, setWidgetRangeValue] = useState(0);
   const Mobile =
     /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(
       navigator.userAgent
     );
-  const mobileRef = React.useRef(Mobile);
 
-  React.useEffect(() => {
+  const mobileRef = useRef(Mobile);
+  const scrollRef = useRef(null);
+
+  function scrollToElement() {
+    setTimeout(() => {
+      scrollRef.current.scrollIntoView({
+        block: "start",
+        behavior: "smooth",
+      });
+      const vmin =
+        Math.min(
+          document.documentElement.clientHeight,
+          document.documentElement.clientWidth
+        ) / 100;
+      const vmax =
+        Math.max(
+          document.documentElement.clientHeight,
+          document.documentElement.clientWidth
+        ) / 100;
+      const vw = document.documentElement.clientWidth / 100;
+      const headerHeight = Math.ceil(3 * vmin + 5 * vw - vmax);
+      window.scrollTo(0, scrollRef.current.offsetTop - headerHeight);
+    }, 10);
+  }
+
+  useEffect(() => {
     setInterval(() => {
       const Mobile =
         /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(
@@ -35,44 +68,44 @@ function App() {
     }, 15000);
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     const keys = Object.keys(PIC_ARRAY);
     const values = Object.values(PIC_ARRAY);
-    const allPics = values.flat();
     const entries = Object.entries(PIC_ARRAY);
-    let progressCounter = 0;
-    const loadStep = Math.ceil((100 / allPics.length) * 100) / 100;
-    const imagesArray = images || {};
-    for (let i = 0; i < entries.length; i++) {
-      const arr = [];
-      for (let j = 0; j < values[i].length; j++) {
-        let img = new Image();
-        img.src = values[i][j];
-        img.onload = function () {
-          progressCounter++;
-          const progress = progressCounter * loadStep;
-          setLoadProgress(progress);
-          setDataRecorded(true);
-        };
 
-        if (dataIsRecorded) {
-          setDataRecorded(false);
+    for (let i = 0; i < entries.length; i++) {
+      new Promise(() => {
+        const arr = [];
+
+        for (let j = 0; j < values[i].length; j++) {
+          let img = new Image();
+          img.src = values[i][j];
+          img.onload = function () {
+            setDataRecorded(true);
+          };
+
+          if (dataIsRecorded) {
+            setDataRecorded(false);
+          }
+          arr.push(img);
         }
-        arr.push(img);
-      }
-      imagesArray[keys[i]] = arr;
+        const imagesArray = images || {};
+        imagesArray[keys[i]] = arr;
+        return imagesArray;
+      }).then((res) => {
+        setImages(res);
+      });
     }
-    setImages(imagesArray);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [images]);
 
-  React.useEffect(() => {
-    if (Math.round(loadProgress) === 100) {
-      setImagesIsLoad(true);
+  useEffect(() => {
+    if (images && images.avatar && images.avatar[0]) {
+      setAvaLoaded(true);
     }
-  }, [loadProgress]);
+  }, [images]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!Mobile) {
       const scrollDiv = document.createElement("div");
       scrollDiv.className = "scrollbar-measure";
@@ -82,32 +115,166 @@ function App() {
     }
   }, [Mobile]);
 
+  useEffect(() => {
+    const widget = document.createElement("weather-widget");
+    widget.id = "weatherWidget";
+    document.body.appendChild(widget);
+    const script = document.createElement("script");
+    script.src =
+      "https://myweatherwidget.netlify.app/main.5b97e72ea5ec56747edc.js";
+    script.async = true;
+    script.onload = () => {
+      window.MyApp.init(widget);
+    };
+    widget.appendChild(script);
+    setInitWidget(true);
+  }, []);
+
+  useEffect(() => {
+    const widget = document.getElementById("weatherWidget");
+    widget.classList.add("hide-widget");
+  }, [isInitWidget]);
+
+  useEffect(() => {
+    function resizer() {
+      setScreenWidth(window.innerWidth);
+      setScreenHeight(window.innerHeight);
+    }
+    window.addEventListener("resize", resizer);
+    resizer();
+
+    return () => window.removeEventListener("resize", resizer);
+  });
+
   return (
     <>
       <TranslationContext.Provider value={translations[lang]}>
         <Header setLang={setLang} lang={lang} />
-        {imagesIsLoad ? (
-          <Main
-            isMobile={mobileRef.current}
-            lang={lang}
+        <main>
+          {!avaLoaded ? (
+            <p>{translations[lang].welcome}</p>
+          ) : (
+            <Resume
+              isMobile={mobileRef.current}
+              lang={lang}
+              images={images}
+              scrollbarWidth={scrollbarWidth}
+              openedWorks={openedWorks}
+              setOpenedWorks={setOpenedWorks}
+              setOpenedSection={setOpenedSection}
+              scrollToElement={scrollToElement}
+            />
+          )}
+        </main>
+        {openedSection === "bio" ? (
+          <Bio
+            scrollRef={openedSection === "bio" ? scrollRef : null}
             images={images}
-            imagesIsLoad={imagesIsLoad}
+            screenWidth={screenWidth}
             scrollbarWidth={scrollbarWidth}
           />
         ) : (
-          <h2
-            className="App_preload"
-            style={{
-              background: `linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) ${
-                loadProgress - 1
-              }%, rgba(255,255,255,1) ${loadProgress}%)`,
-            }}
-          >
-            {translations[lang].preload}
-            {Math.round(loadProgress)}%
-          </h2>
+          ""
         )}
-        <div className="scrollbar-measure"></div>
+        {openedSection === "contacts" ? (
+          <Contacts
+            scrollRef={openedSection === "contacts" ? scrollRef : null}
+          />
+        ) : (
+          ""
+        )}
+        {openedSection === "docs" ? (
+          <Docs
+            scrollRef={openedSection === "docs" ? scrollRef : null}
+            screenWidth={screenWidth}
+          />
+        ) : (
+          ""
+        )}
+
+        {openedSection === "gallery" ? (
+          <Gallery
+            width={screenWidth}
+            scrollbarWidth={scrollbarWidth}
+            height={screenHeight}
+            images={images}
+            scrollRef={openedSection === "gallery" ? scrollRef : null}
+            lang={lang}
+            scrollToElement={scrollToElement}
+          />
+        ) : (
+          ""
+        )}
+        {openedSection === "stack" ? (
+          <Stack
+            scrollRef={openedSection === "stack" ? scrollRef : null}
+            images={images}
+          />
+        ) : (
+          ""
+        )}
+        {openedSection === "games" ? (
+          <Works
+            filter="webGame"
+            scrollRef={openedSection === "games" ? scrollRef : null}
+            images={images}
+            isMobile={mobileRef.current}
+          />
+        ) : (
+          ""
+        )}
+        {openedSection === "servers" ? (
+          <Works
+            filter="server"
+            scrollRef={openedSection === "servers" ? scrollRef : null}
+            images={images}
+            isMobile={mobileRef.current}
+          />
+        ) : (
+          ""
+        )}
+        {openedSection === "sites" ? (
+          <Works
+            filter="landingPage"
+            scrollRef={openedSection === "sites" ? scrollRef : null}
+            images={images}
+            isMobile={mobileRef.current}
+          />
+        ) : (
+          ""
+        )}
+        {openedSection === "servises" ? (
+          <Works
+            filter="webService"
+            scrollRef={openedSection === "servises" ? scrollRef : null}
+            images={images}
+            isMobile={mobileRef.current}
+          />
+        ) : (
+          ""
+        )}
+        {openedSection === "social" ? (
+          <Works
+            filter="social"
+            scrollRef={openedSection === "social" ? scrollRef : null}
+            images={images}
+            isMobile={mobileRef.current}
+          />
+        ) : (
+          ""
+        )}
+        {openedSection === "works" ? (
+          <Works
+            filter="other"
+            images={images}
+            isMobile={mobileRef.current}
+            screenWidth={screenWidth}
+            widgetRangeValue={widgetRangeValue}
+            setWidgetRangeValue={setWidgetRangeValue}
+          />
+        ) : (
+          ""
+        )}
         <Footer />
       </TranslationContext.Provider>
     </>

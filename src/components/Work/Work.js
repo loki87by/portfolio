@@ -1,87 +1,103 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
-import { animationCreator, animationCancel } from "../../utils/animations";
+import { STACK } from "../../utils/consts";
 import "./Work.css";
-import "./styles/__title/Work__title.css";
-import "./styles/__link/Work__link.css";
-import "./styles/__container/Work__container.css";
-import "./styles/__clue/Work__clue.css";
-import "./styles/__description/Work__description.css";
-import "./styles/_horizontal/Work_horizontal.css";
-import "./styles/__description-text/Work__description-text.css";
-import "./styles/_animation/Work_animation_standart.css";
-import "./styles/_animation/Work_animation_none.css";
-import "./styles/__additionally-range/Work__additionally-range.css";
-import "./styles/__additionally-range/_mobile/Work__additionally-range_mobile.css";
 
 function Work(props) {
-  const translation = React.useContext(TranslationContext);
-  const images = props.images[`project_${props.name}`].map(
-    (image) => image.src
-  );
+  const [animationCounter, setAnimationCounter] = useState(1);
+  const [stack, setStack] = useState([]);
+  const [isAnimationStarted, setAnimationStarted] = useState(false);
+  const [background, setBackground] = useState("");
 
-  function addAnimation(event) {
-    if (props.animation === "standart") {
-      return;
-    } else {
-      animationCreator(props.animation, images, event.target);
+  const translation = useContext(TranslationContext);
+
+  useEffect(() => {
+    if (props.images && props.images[`project_${props.data.name}`]) {
+      setBackground(props.images[`project_${props.data.name}`][0].src);
     }
-  }
+  }, [props.images, props.data.name]);
 
-  function removeAnimation(event) {
-    animationCancel(images[0], event.target);
+  useEffect(() => {
+    if (props.images && props.images.stack) {
+      const res = [];
+      props.data.stack.forEach((i) => {
+        const index = STACK.findIndex((item) => item === i);
+        const arr = [];
+        arr.push(i);
+        arr.push(props.images.stack[index]);
+        res.push(arr);
+      });
+      setStack(res);
+    }
+  }, [props.data.stack, props.images]);
+
+  useEffect(() => {
+    const counter = Math.min(
+      props.images[`project_${props.data.name}`].length,
+      5
+    );
+
+    if (isAnimationStarted) {
+      const timeout = setTimeout(() => {
+        setBackground(
+          props.images[`project_${props.data.name}`][animationCounter].src
+        );
+
+        if (animationCounter < counter - 1) {
+          setAnimationCounter(animationCounter + 1);
+        } else {
+          setAnimationCounter(0);
+        }
+      }, 750);
+      return () => clearInterval(timeout);
+    }
+  }, [animationCounter, isAnimationStarted, props.data.name, props.images]);
+
+  function removeAnimation() {
+    setAnimationCounter(1);
+    setAnimationStarted(false);
+    setBackground(props.images[`project_${props.data.name}`][0].src);
   }
 
   function widgetSwitcher(evt) {
-    props.setRangeValue(evt.target.value);
+    props.setWidgetRangeValue(evt.target.value);
     const widget = document.getElementById("weatherWidget");
     widget.classList.toggle("hide-widget");
   }
 
   return (
-    <>
-      <h3
-        className="Work__title"
-        ref={props.currentWorkName === props.name ? props.scrollRef : null}
-      >
-        {props.double
-          ? `${translation[props.type]} & ${translation[props.type2]}`
-          : ""}
-        <br />
-        <a className="Work__link" target="blank" href={props.link}>
-          {props.double ? `${translation[props.firstLinkText]} - ` : ""}
-          {props.link}
-        </a>
-        {props.double ? (
-          <>
-            <a className="Work__link" target="blank" href={props.secondLink}>
-              {props.double ? translation[props.secondLinkText] : ""} -{" "}
-              {props.link}
-            </a>
-          </>
-        ) : (
-          ""
-        )}
-      </h3>
+    <section className="Work">
+      <h3 className="Work__title">{props.data.name}</h3>
+      <a className="Work__link" target="blank" href={props.data.src}>
+        {props.data.double
+          ? `${translation[props.data.firstLinkText]} - ${props.data.src}`
+          : props.data.src}
+      </a>
+      {props.data.double ? (
+        <>
+          <a className="Work__link" target="blank" href={props.data.secondLink}>
+            {translation[props.data.secondLinkText]} - {props.data.secondLink}
+          </a>
+        </>
+      ) : (
+        ""
+      )}
       <div className="Work__container">
         <div
           style={{
-            backgroundImage: `url(${images[0]})`,
-            animationDuration: props.animationTime,
+            backgroundImage: `url(${background})`,
           }}
-          onMouseOver={addAnimation}
-          onMouseLeave={removeAnimation}
-          className={`Work ${props.aspectRatio && "Work_horizontal"} ${
-            props.animation === "standart" && "Work_animation_standart"
-          } ${
-            (props.animation === "none" ||
-              props.animation === "mmg" ||
-              props.animation === "gallery" ||
-              props.animation === "galleryNg") &&
-            "Work_animation_none"
+          className={`Work__image ${
+            props.data.aspectRatio && "Work__image_horizontal"
           }`}
+          onMouseOver={() => {
+            if (props.data.animation !== "none") {
+              setAnimationStarted(true);
+            }
+          }}
+          onMouseLeave={removeAnimation}
         >
-          {props.animation === "none" ? (
+          {props.data.animation === "none" ? (
             ""
           ) : (
             <p className="Work__clue">
@@ -93,29 +109,40 @@ function Work(props) {
         </div>
         <div className="Work__description">
           <p className="Work__description-text">
-            {translation[`${props.text}`]}
+            {translation[`${props.data.text}`]}
           </p>
-          {props.additionally ? (
-            <>
+          {props.data.additionally ? (
+            <div className="Work__additionally-container">
               <p className="Work__description-text">{translation.turnOf}</p>
               <input
                 type="range"
                 className={`Work__additionally-range ${
-                  props.width < 758 && "Work__additionally-range_mobile"
+                  props.screenWidth < 758 && "Work__additionally-range_mobile"
                 }`}
-                value={props.rangeValue}
+                value={props.widgetRangeValue}
                 min="0"
                 max="1"
                 onInput={widgetSwitcher}
               />
               <p className="Work__description-text">{translation.turnOn}</p>
-            </>
+            </div>
           ) : (
             ""
           )}
+          <div className="Work__stack">
+            {stack.map((i) => (
+              <img
+                className="Work__stack-icon"
+                key={`${i[0]}-icon`}
+                src={i[1].src}
+                title={i[0]}
+                alt={i[0]}
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </>
+    </section>
   );
 }
 

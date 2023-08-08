@@ -5,3 +5,106 @@
   height: -moz-max-content;
   height: max-content;
 }
+
+.Hand_left {
+  width: 100%;
+  height: auto;
+}
+
+.Hand_right {
+  width: 100%;
+  height: auto;
+}
+
+.finger {
+  position: absolute;
+  height: auto;
+}
+
+.leftCentral {
+  z-index: 3;
+  top: 5%;
+  left: 44%;
+  width: 24%;
+}
+
+.leftPinky {
+  z-index: 1;
+  left: 76.5%;
+  top: 18%;
+  width: 22%;
+}
+
+.leftPointing {
+  z-index: 1;
+  left: 25.5%;
+  top: 8.6%;
+  width: 30.5%;
+}
+
+.leftUnnamed {
+  z-index: 2;
+  left: 64%;
+  top: 8%;
+  width: 17%;
+}
+
+.rightCentral {
+  z-index: 3;
+  top: 5%;
+  right: 44%;
+  width: 24%;
+}
+
+.rightPinky {
+  z-index: 1;
+  right: 76.5%;
+  top: 18%;
+  width: 22%;
+}
+
+.rightPointing {
+  z-index: 1;
+  right: 25.5%;
+  top: 8.6%;
+  width: 30.5%;
+}
+
+.rightUnnamed {
+  z-index: 2;
+  right: 64%;
+  top: 8%;
+  width: 17%;
+}
+
+.finger_bigLeft_open {
+  -webkit-transform: rotate(250deg) translateX(-4%) translateY(-21%);
+  -ms-transform: rotate(250deg) translateX(-4%) translateY(-21%);
+  transform: rotate(250deg) translateX(-4%) translateY(-21%);
+}
+
+.finger_bigLeft {
+  z-index: 4;
+  top: 50%;
+  left: 2.4%;
+  width: 50%;
+}
+
+.finger_bigRight_open {
+  -webkit-transform: rotate(110deg) translateX(4%) translateY(-21%);
+  -ms-transform: rotate(110deg) translateX(4%) translateY(-21%);
+  transform: rotate(110deg) translateX(4%) translateY(-21%);
+}
+
+.finger_bigRight {
+  z-index: 4;
+  top: 50%;
+  right: 2.4%;
+  width: 50%;
+}
+
+.finger_close {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}

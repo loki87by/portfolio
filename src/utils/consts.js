@@ -78,6 +78,18 @@ return job(state);
 Me = evolution(youth);
 export default Me`;
 
+export const SOFT = [
+  "Adobe After Effects",
+  "Adobe Audition",
+  "Charles",
+  "CorelDRAW",
+  "Figma",
+  "Adobe Photoshop",
+  "Postman",
+  "Visual Studio Code",
+  "Git",
+];
+
 export const STACK = [
   "angular",
   "bem",
@@ -98,73 +110,47 @@ export const STACK = [
   "webpack",
 ];
 
-export const STACK_STYLES = {
-  sql: {
-    top: "0.5vw",
-    left: "3%",
-  },
-  django: {
-    top: "5vw",
-    left: "9%",
-  },
-  python: {
-    top: "9.5vw",
-    left: "15%",
-  },
-  vue: {
-    top: "0.5vw",
-    left: "20%",
-  },
-  redux: {
-    top: "5vw",
-    left: "26%",
-  },
-  angular: {
-    top: "9.5vw",
-    left: "32%",
-  },
-  webpack: {
-    top: "0.5vw",
-    left: "37%",
-  },
-  typescript: {
-    top: "5vw",
-    left: "43%",
-  },
-  svg: {
-    top: "9.5vw",
-    left: "49%",
-  },
-  markdown: {
-    top: "0.5vw",
-    left: "54%",
-  },
-  mongo: {
-    top: "5vw",
-    left: "60%",
-  },
-  node: {
-    top: "9.5vw",
-    left: "67%",
-  },
-  react: {
-    top: "0.5vw",
-    left: "72%",
-  },
-  bem: {
-    top: "5vw",
-    left: "78%",
-  },
-  js: {
-    top: "9.5vw",
-    left: "84%",
-  },
-  css: {
-    top: "0.5vw",
-    left: "89%",
-  },
-  html: {
-    top: "5vw",
-    left: "95%",
-  },
+export const GALLERY = {
+  ru: [
+    "Не остаюсь в должниках (даже перед Родиной)",
+    "Открыт к взаимодействию",
+    "Готов к командной работе",
+    "Приемлю творческий подход",
+    "Без мота сяду на велик, без IDE напишу код на бумаге",
+    "Уважаю чужие достижения",
+    "Имею амбициозные цели...",
+    "...Довольствуясь тем, что есть.",
+    "Готов к командировкам",
+    "Не пасую перед сложностями...",
+    "...А рад справляться с ними",
+    "Готов обучать молодежь азам...",
+    "...И всему, что знаю и умею",
+    "...И оказывать поддержку в дальнейшем",
+    "Не боюсь соревноваться с сильнейшими",
+    "Достигаю новые вершины...",
+    "Не боясь упасть...",
+    "...Хотя предпочту плавный спуск",
+    "Не отступаюсь от намеченного пути",
+  ],
+  en: [
+    "Don't remain in debt (even Motherland)",
+    "Open to interaction",
+    "Ready for team work",
+    "I accept creativity",
+    "Without moto, ride bike, without IDE, write on paper",
+    "Respect other people's achievements",
+    "I have ambitious goals...",
+    "...Content with what i have.",
+    "Ready for business trips",
+    "I do not shy away from difficulties...",
+    "...On the contrary, happy to deal with them",
+    "Ready to teach youth the basics...",
+    "...And everything that i know and can",
+    "...And continue to support them",
+    "Not afraid to compete with the strongest",
+    "Reaching new heights...",
+    "Not afraid to fall...",
+    "...Although I prefer a smooth descent",
+    "I don't deviate from the intended path",
+  ],
 };

@@ -182,6 +182,7 @@ class Solver {
     const a = [60, 180, 18000, 600, 1.2, 1.2];
 
     let best = { loss: Infinity };
+
     for (let i = 0; best.loss > 25 && i < 3; i++) {
       const initial = [50, 20, 3750, 50, 100, 100];
       const result = this.spsa(A, a, c, initial, 1000);
@@ -215,6 +216,7 @@ class Solver {
 
     for (let k = 0; k < iters; k++) {
       const ck = c / Math.pow(k + 1, gamma);
+
       for (let i = 0; i < 6; i++) {
         deltas[i] = Math.random() > 0.5 ? 1 : -1;
         highArgs[i] = values[i] + ck * deltas[i];
@@ -222,6 +224,7 @@ class Solver {
       }
 
       const lossDiff = this.loss(highArgs) - this.loss(lowArgs);
+
       for (let i = 0; i < 6; i++) {
         const g = (lossDiff / (2 * ck)) * deltas[i];
         const ak = a[i] / Math.pow(A + k + 1, alpha);

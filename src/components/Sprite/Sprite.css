@@ -1,0 +1,13 @@
+.Sprite {
+  --primary: var(--second-color);
+  --secondary: var(--main-color);
+  cursor: pointer;
+}
+
+.Sprite:hover {
+  --primary: var(--back-color);
+  --secondary: var(--main-color);
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}

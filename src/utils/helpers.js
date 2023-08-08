@@ -3,9 +3,11 @@ import { getFilter } from "./filter.js";
 export const completeSliderArray = (arr, limit) => {
   let start = [];
   let finish = [];
+
   for (let i = 0; i < limit; i++) {
     start.push(arr[i]);
   }
+
   for (let i = arr.length - 1; i >= arr.length - limit; i--) {
     finish.push(arr[i]);
   }
@@ -80,41 +82,4 @@ export function updateColors(rgb) {
   html.style.setProperty("--back-color", stringRgb);
   html.style.setProperty("--main-color", stringReverse);
   html.style.setProperty("--second-color", secondColor);
-}
-
-export function lightAnimation(array, element, timeoutsArray) {
-  let timersArray = [];
-  const style = element.style.cssText;
-  element.setAttribute("style", `${style}`);
-
-  for (let i = 0; i < timeoutsArray.length; i++) {
-    const timer = setTimeout(() => {
-      element.removeAttribute("style");
-      element.setAttribute("style", `background-image: url(${array[i + 1]});`);
-    }, timeoutsArray[i]);
-    timersArray.push(timer);
-  }
-  return timersArray;
-}
-
-export function mediumAnimation(array, element, data) {
-  let timersArray = [];
-  const style = element.style.cssText;
-  element.setAttribute("style", `${style} ${data.basic}`);
-
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < data[i].length; j++) {
-      const timer = setTimeout(() => {
-        element.removeAttribute("style");
-        element.setAttribute(
-          "style",
-          `background-image: url(${array[i]}); ${
-            data[i][j].style ? data[i][j].style : data[i].style
-          }`
-        );
-      }, data[i][j].time);
-      timersArray.push(timer);
-    }
-  }
-  return timersArray;
 }

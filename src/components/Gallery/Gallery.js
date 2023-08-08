@@ -25,6 +25,7 @@ function Gallery(props) {
   let stylesArray = JSON.parse(JSON.stringify(styles));
 
   useEffect(() => {
+
     if (isFullscreenOpen) {
       setWidth(props.width);
     } else {
@@ -51,6 +52,7 @@ function Gallery(props) {
   }
 
   function toggleFullScreen() {
+
     if (!isFullscreenOpen) {
       FS.enter();
     } else {
@@ -61,7 +63,7 @@ function Gallery(props) {
   }
 
   const images = completeSliderArray(props.images.gallery.slice(), 1);
-  const titles = completeSliderArray(GALLERY.slice(), 1);
+  const titles = completeSliderArray(GALLERY[props.lang].slice(), 1);
   const temporaryArray = [];
   const imagesSlides = images.map((item, index) => {
     if (!stylesArray[index]) {

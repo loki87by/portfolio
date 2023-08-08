@@ -104,6 +104,7 @@ import gallery7 from "../images/gallery/08.jpg";
 import gallery8 from "../images/gallery/09.jpg";
 import gallery9 from "../images/gallery/10.jpg";
 import gallery10 from "../images/gallery/11.jpg";
+import gallery11 from "../images/gallery/12.jpg";
 import gallery12 from "../images/gallery/13.jpg";
 import gallery13 from "../images/gallery/14.jpg";
 import gallery14 from "../images/gallery/15.jpg";
@@ -213,6 +214,7 @@ export const PIC_ARRAY = {
     gallery8,
     gallery9,
     gallery10,
+    gallery11,
     gallery12,
     gallery13,
     gallery14,

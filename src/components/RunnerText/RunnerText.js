@@ -1,11 +1,9 @@
-import React, { useState, useEffect /* useContext */ } from "react";
-//import { TranslationContext } from "../../contexts/translationContext";
+import React, { useState, useEffect } from "react";
 import "./RunnerText.css";
 
 function RunnerText(props) {
   const [currentText, setCurrentText] = useState("");
   const [counter, setCounter] = useState(0);
-  //const translation = useContext(TranslationContext);
 
   useEffect(() => {
     if ((props.slidePos !== null ? props.slidePos : 1) === props.num) {

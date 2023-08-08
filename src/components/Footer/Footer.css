@@ -1,6 +1,7 @@
 .Footer {
   height: 5vmax;
   padding: 1vw;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;

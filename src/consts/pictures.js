@@ -93,6 +93,24 @@ import project29b from "../images/projects/b-shop/project-29b.jpg";
 import project29e from "../images/projects/b-shop/project-29e.jpg";
 import project29g from "../images/projects/b-shop/project-29g.jpg";
 import project29j from "../images/projects/b-shop/project-29j.jpg";
+import gallery0 from "../images/gallery/01.jpg";
+import gallery1 from "../images/gallery/02.jpg";
+import gallery2 from "../images/gallery/03.jpg";
+import gallery3 from "../images/gallery/04.jpg";
+import gallery4 from "../images/gallery/05.jpg";
+import gallery5 from "../images/gallery/06.jpg";
+import gallery6 from "../images/gallery/07.jpg";
+import gallery7 from "../images/gallery/08.jpg";
+import gallery8 from "../images/gallery/09.jpg";
+import gallery9 from "../images/gallery/10.jpg";
+import gallery10 from "../images/gallery/11.jpg";
+import gallery12 from "../images/gallery/13.jpg";
+import gallery13 from "../images/gallery/14.jpg";
+import gallery14 from "../images/gallery/15.jpg";
+import gallery15 from "../images/gallery/16.jpg";
+import gallery16 from "../images/gallery/17.jpg";
+import gallery17 from "../images/gallery/18.jpg";
+import gallery18 from "../images/gallery/19.jpg";
 import matrix from "../images/matrix-code-animation-gif-free-animated-background.gif";
 import glitch from "../images/glitch.gif";
 import cinema from "../images/cinema.gif";
@@ -135,7 +153,6 @@ import django from "../images/stack/django.svg";
 import css from "../images/stack/css.svg";
 import bem from "../images/stack/bem.svg";
 import angular from "../images/stack/angular.svg";
-import filter from "../images/stack/filter.svg";
 
 export const PIC_ARRAY = {
   avatar: [avatar],
@@ -184,18 +201,33 @@ export const PIC_ARRAY = {
     vsc,
     git,
   ],
-  filter: [filter],
+  gallery: [
+    gallery0,
+    gallery1,
+    gallery2,
+    gallery3,
+    gallery4,
+    gallery5,
+    gallery6,
+    gallery7,
+    gallery8,
+    gallery9,
+    gallery10,
+    gallery12,
+    gallery13,
+    gallery14,
+    gallery15,
+    gallery16,
+    gallery17,
+    gallery18,
+  ],
   project_howToLearn: [project0],
   project_russianTravel: [project1],
   project_mesto: [project2],
   project_mestoReact: [project3],
   project_reactMestoAuth: [project4],
   project_expressMesto: [project5],
-  project_newsExplorerApi: [
-    project6a,
-    project6j,
-    project6r,
-  ],
+  project_newsExplorerApi: [project6a, project6j, project6r],
   project_wildlife: [project7],
   project_onlineZoo: [project8, project8a, project8b, project8c],
   project_virtualPiano: [project9],
@@ -208,13 +240,7 @@ export const PIC_ARRAY = {
     project11f,
   ],
   project_cleanCode: [project12],
-  project_gallery: [
-    project13c,
-    project13j,
-    project13l,
-    project13o,
-    project13q,
-  ],
+  project_gallery: [project13c, project13j, project13l, project13o, project13q],
   project_galleryAngular: [
     project14,
     project14e,
@@ -223,13 +249,7 @@ export const PIC_ARRAY = {
     project14v,
   ],
   project_myWeatherWidget: [project15],
-  project_2048game: [
-    project16,
-    project16b,
-    project16d,
-    project16e,
-    project16f,
-  ],
+  project_2048game: [project16, project16b, project16d, project16e, project16f],
   project_asyncRace: [
     project17,
     project17i,
@@ -246,12 +266,7 @@ export const PIC_ARRAY = {
     project19i,
     project19j,
   ],
-  project_jsClock: [
-    project20,
-    project20a,
-    project20i,
-    project20k,
-  ],
+  project_jsClock: [project20, project20a, project20i, project20k],
   project_wackAMole: [
     project21b,
     project21d,
@@ -288,13 +303,7 @@ export const PIC_ARRAY = {
     project26f1,
     project26h4,
   ],
-  project_dft: [
-    project27a,
-    project27c,
-    project27h,
-    project27n,
-    project27r,
-  ],
+  project_dft: [project27a, project27c, project27h, project27n, project27r],
   project_currencies: [
     project28a,
     project28e,
@@ -302,11 +311,5 @@ export const PIC_ARRAY = {
     project28i,
     project28j,
   ],
-  project_bShop: [
-    project29,
-    project29b,
-    project29e,
-    project29g,
-    project29j,
-  ],
+  project_bShop: [project29, project29b, project29e, project29g, project29j],
 };

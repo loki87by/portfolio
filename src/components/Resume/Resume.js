@@ -7,7 +7,7 @@ import contacts from "../../images/contacts.svg";
 import servers from "../../images/servers.svg";
 import docs from "../../images/docs.svg";
 import sites from "../../images/sites.svg";
-import info from "../../images/info.svg";
+import gallery from "../../images/gallery.svg";
 import servises from "../../images/servises.svg";
 import stack from "../../images/stack.svg";
 import social from "../../images/social.svg";
@@ -71,15 +71,15 @@ function Resume(props) {
   function openSection(arg) {
     props.setOpenedSection(arg);
 
-    if (arg !== '' && arg !== "works") {
-    props.scrollToElement();
-  }
+    if (arg !== "" && arg !== "works") {
+      props.scrollToElement();
+    }
   }
 
   return (
     <section className="Resume">
       <div
-        className={`Resume__button Resume__button_top Resume__button_top_first
+        className={`Resume__button Resume__button_top_first
       ${props.openedWorks && "Resume__button_top_first_work"}`}
       >
         <Sprite
@@ -87,30 +87,32 @@ function Resume(props) {
           click={() => {
             !props.openedWorks ? openSection("bio") : openSection("games");
           }}
-          id={!props.openedWorks ? 'bio' : 'games'}
+          id={!props.openedWorks ? "bio" : "games"}
           width="5vmin"
           height="5vmin"
           title={!props.openedWorks ? translation.bio : translation.games}
         />
       </div>
       <div
-        className={`Resume__button Resume__button_top Resume__button_top_second ${
+        className={`Resume__button Resume__button_top_second ${
           props.openedWorks && "Resume__button_top_second_work"
         }`}
       >
         <Sprite
           src={!props.openedWorks ? contacts : servers}
           click={() => {
-            !props.openedWorks ? openSection("contacts") : openSection("servers");
+            !props.openedWorks
+              ? openSection("contacts")
+              : openSection("servers");
           }}
-          id={!props.openedWorks ? 'contacts' : 'servers'}
+          id={!props.openedWorks ? "contacts" : "servers"}
           width="5vmin"
           height="5vmin"
           title={!props.openedWorks ? translation.contacts : translation.server}
         />
       </div>
       <div
-        className={`Resume__button Resume__button_top Resume__button_top_third ${
+        className={`Resume__button Resume__button_top_third ${
           props.openedWorks && "Resume__button_top_third_work"
         }`}
       >
@@ -119,7 +121,7 @@ function Resume(props) {
           click={() => {
             !props.openedWorks ? openSection("docs") : openSection("sites");
           }}
-          id={!props.openedWorks ? 'docs' : 'sites'}
+          id={!props.openedWorks ? "docs" : "sites"}
           width="5vmin"
           height="5vmin"
           title={!props.openedWorks ? translation.docs : translation.landing}
@@ -131,22 +133,26 @@ function Resume(props) {
         className="Resume__photo"
       />
       <div
-        className={`Resume__button Resume__button_bottom Resume__button_bottom_first
+        className={`Resume__button Resume__button_bottom_first
       ${props.openedWorks && "Resume__button_bottom_first_work"}`}
       >
         <Sprite
-          src={!props.openedWorks ? info : servises}
+          src={!props.openedWorks ? gallery : servises}
           click={() => {
-            !props.openedWorks ? openSection("info") : openSection("servises");
+            !props.openedWorks
+              ? openSection("gallery")
+              : openSection("servises");
           }}
-          id={!props.openedWorks ? 'info' : 'servises'}
+          id={!props.openedWorks ? "gallery" : "servises"}
           width="5vmin"
           height="5vmin"
-          title={!props.openedWorks ? translation.info : translation.webService}
+          title={
+            !props.openedWorks ? translation.gallery : translation.webService
+          }
         />
       </div>
       <div
-        className={`Resume__button Resume__button_bottom Resume__button_bottom_second
+        className={`Resume__button Resume__button_bottom_second
       ${props.openedWorks && "Resume__button_bottom_second_work"}`}
       >
         <Sprite
@@ -154,25 +160,29 @@ function Resume(props) {
           click={() => {
             !props.openedWorks ? openSection("stack") : openSection("social");
           }}
-          id={!props.openedWorks ? 'stack' : 'social'}
+          id={!props.openedWorks ? "stack" : "social"}
           width="5vmin"
           height="5vmin"
           title={!props.openedWorks ? translation.stack : translation.social}
         />
       </div>
       <div
-        className={`Resume__button Resume__button_bottom Resume__button_bottom_third
+        className={`Resume__button Resume__button_bottom_third
       ${props.openedWorks && "Resume__button_bottom_third_work"}`}
       >
         <Sprite
           src={!props.openedWorks ? works : undo}
-          click={!props.openedWorks ? () => {
-            openSection("works");
-            props.setOpenedWorks(true);
-          } : () => {
-            openSection("");
-            props.setOpenedWorks(false);
-          }}
+          click={
+            !props.openedWorks
+              ? () => {
+                  openSection("works");
+                  props.setOpenedWorks(true);
+                }
+              : () => {
+                  openSection("");
+                  props.setOpenedWorks(false);
+                }
+          }
           id={!props.openedWorks ? "works" : "undo"}
           width="5vmin"
           height="5vmin"

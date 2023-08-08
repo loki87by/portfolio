@@ -128,6 +128,7 @@ function Code(props) {
       arr = keyword.split("((");
       bracket = "((";
     }
+
     for (let i = 0; i < arr.length; i += 2) {
       if (
         !pinkKeywords.includes(arr[i]) &&
@@ -370,6 +371,7 @@ function Code(props) {
 
   function lineChecker(line) {
     let arr = line.split(" ");
+
     for (let i = 0; i < tabCounter; i++) {
       arr.unshift("tab");
     }

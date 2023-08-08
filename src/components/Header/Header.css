@@ -4,6 +4,7 @@
   width: 100%;
   padding: 1vmin 5vmin 0;
   height: 5vmax;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -23,6 +24,8 @@
   border: 2px solid var(--main-color);
   border-radius: 50%;
   cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 }
 

@@ -10,6 +10,7 @@ import Bio from "../Bio/Bio";
 import Contacts from "../Contacts/Contacts";
 import Docs from "../Docs/Docs";
 import Stack from "../Stack/Stack";
+import Gallery from "../Gallery/Gallery";
 import Works from "../Works/Works";
 import Footer from "../Footer/Footer";
 import "../../vendor/normalize.css";
@@ -23,10 +24,10 @@ function App() {
   const [openedSection, setOpenedSection] = useState("");
   const [openedWorks, setOpenedWorks] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.screen.width);
-  // const [screenHeight, setScreenHeight] = useState(window.screen.height);
+  const [screenHeight, setScreenHeight] = useState(window.screen.height);
   const [dataIsRecorded, setDataRecorded] = useState(false);
   const [scrollbarWidth, setScrollbarWidth] = useState(0);
-    const [widgetRangeValue, setWidgetRangeValue] = useState(0);
+  const [widgetRangeValue, setWidgetRangeValue] = useState(0);
   const Mobile =
     /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(
       navigator.userAgent
@@ -137,7 +138,7 @@ function App() {
   useEffect(() => {
     function resizer() {
       setScreenWidth(window.innerWidth);
-      // setScreenHeight(window.innerHeight);
+      setScreenHeight(window.innerHeight);
     }
     window.addEventListener("resize", resizer);
     resizer();
@@ -169,7 +170,6 @@ function App() {
           <Bio
             scrollRef={openedSection === "bio" ? scrollRef : null}
             images={images}
-            openedSection={openedSection}
             screenWidth={screenWidth}
             scrollbarWidth={scrollbarWidth}
           />
@@ -179,7 +179,6 @@ function App() {
         {openedSection === "contacts" ? (
           <Contacts
             scrollRef={openedSection === "contacts" ? scrollRef : null}
-            openedSection={openedSection}
           />
         ) : (
           ""
@@ -188,16 +187,24 @@ function App() {
           <Docs
             scrollRef={openedSection === "docs" ? scrollRef : null}
             screenWidth={screenWidth}
-            openedSection={openedSection}
           />
         ) : (
           ""
         )}
-        {/*
-        {openedSection === 'info' ? <Info
-          ref={openedSection === 'info' ? scrollRef : null}
-          scrollRef={scrollRef}/>
-          lang={lang} : ''} */}
+
+        {openedSection === "gallery" ? (
+          <Gallery
+            width={screenWidth}
+            scrollbarWidth={scrollbarWidth}
+            height={screenHeight}
+            images={images}
+            scrollRef={openedSection === "gallery" ? scrollRef : null}
+            lang={lang}
+            scrollToElement={scrollToElement}
+          />
+        ) : (
+          ""
+        )}
         {openedSection === "stack" ? (
           <Stack
             scrollRef={openedSection === "stack" ? scrollRef : null}
@@ -257,9 +264,14 @@ function App() {
           ""
         )}
         {openedSection === "works" ? (
-          <Works filter="other" images={images} isMobile={mobileRef.current}
-          screenWidth={screenWidth}
-           widgetRangeValue={widgetRangeValue} setWidgetRangeValue={setWidgetRangeValue} />
+          <Works
+            filter="other"
+            images={images}
+            isMobile={mobileRef.current}
+            screenWidth={screenWidth}
+            widgetRangeValue={widgetRangeValue}
+            setWidgetRangeValue={setWidgetRangeValue}
+          />
         ) : (
           ""
         )}

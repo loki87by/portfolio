@@ -3,7 +3,7 @@ import { TranslationContext } from "../../contexts/translationContext";
 import { WORKS } from "../../consts/works";
 import Work from "../Work/Work";
 import Sprite from "../Sprite/Sprite";
-import triangle from '../../images/triangle.svg'
+import triangle from "../../images/triangle.svg";
 import "./Works.css";
 
 function Works(props) {
@@ -26,6 +26,7 @@ function Works(props) {
     );
     const reduced = filtered.reduce((p, i) => {
       const key = i.type[1] ? i.type[1] : i.type[0];
+
       if (!p[key]) {
         p[key] = [i];
       } else {
@@ -46,18 +47,20 @@ function Works(props) {
     <section className="Works" ref={props.scrollRef}>
       {Object.keys(currentWorks).map((i, ind) => (
         <article key={`${i}-${ind}`} id={i} className="Works__section">
-          <div className="Works__section-title"
+          <div
+            className="Works__section-title"
             onClick={() => {
               checkSection(i);
             }}
           >
             <Sprite
-            style={openedSection === i ? {transform: 'rotate(90deg)'} : {}}
-            src={triangle}
-            id='triangle'
-            width="2vmax"
-            height="2vmax"
-            title='triangle'/>
+              style={openedSection === i ? { transform: "rotate(90deg)" } : {}}
+              src={triangle}
+              id="triangle"
+              width="2vmax"
+              height="2vmax"
+              title="triangle"
+            />
             <h3 className="Works__section-text">{translation[i]}:</h3>
           </div>
           {openedSection === i

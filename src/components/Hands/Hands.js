@@ -8,6 +8,7 @@ function Hands(props) {
 
   const arrayConverter = (str) => {
     const array = str.split("");
+
     while (array.length < 5) {
       array.unshift("0");
     }

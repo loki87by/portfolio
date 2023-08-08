@@ -21,13 +21,33 @@ function Slider(props) {
     setDirection(1);
     const newPosition = position - 1;
     setPosition(newPosition);
+
+    if (props.takeData) {
+      props.setSlidePos(newPosition);
+    }
   }
 
   function autoRight() {
     const newPosition = position + 1;
     setDirection(0);
     setPosition(newPosition);
+
+    if (props.takeData) {
+      props.setSlidePos(newPosition);
+    }
   }
+
+  function toStart() {
+    setPosition(props.limit);
+    props.setSlidePos(props.limit);
+    props.resetPaused();
+  }
+
+  useEffect(() => {
+    if (props.restarted) {
+      toStart();
+    }
+  }, [props.restarted]);
 
   useEffect(() => {
     for (let i = 0; i < props.slides.length; i++) {
@@ -36,33 +56,41 @@ function Slider(props) {
       });
     }
 
+    if (props.isFinite && position === props.limit) {
+      props.setRestarted(false);
+    }
+
     if (position >= props.slides.length - props.limit - 1 && direction === 0) {
-      const shiftingPosition =
-        position - (props.slides.length - props.limit * 2);
-      const timer = setTimeout(() => {
-        setPosition(shiftingPosition);
+      if (props.isFinite) {
+        props.setPaused();
+      } else {
+        const shiftingPosition =
+          position - (props.slides.length - props.limit * 2);
+        const timer = setTimeout(() => {
+          setPosition(shiftingPosition);
 
-        for (let i = 0; i < props.slides.length; i++) {
-          props.setStyle({
-            transition: "none",
-            transform: `translateX(-${props.shift * shiftingPosition}${
-              props.unit
-            })`,
-          });
-        }
-      }, 10);
+          for (let i = 0; i < props.slides.length; i++) {
+            props.setStyle({
+              transition: "none",
+              transform: `translateX(-${props.shift * shiftingPosition}${
+                props.unit
+              })`,
+            });
+          }
+        }, 10);
 
-      return () => {
-        clearTimeout(timer);
+        return () => {
+          clearTimeout(timer);
 
-        for (let i = 0; i < props.slides.length; i++) {
-          props.setStyle({
-            transform: `translateX(-${props.shift * shiftingPosition}${
-              props.unit
-            })`,
-          });
-        }
-      };
+          for (let i = 0; i < props.slides.length; i++) {
+            props.setStyle({
+              transform: `translateX(-${props.shift * shiftingPosition}${
+                props.unit
+              })`,
+            });
+          }
+        };
+      }
     }
 
     if (position <= props.limit - 1 && direction === 1) {
@@ -108,17 +136,25 @@ function Slider(props) {
 
   return (
     <>
-      <div className="Slider__button Slider__button_left" onClick={toLeft}>
-        <svg className="Slider__button_image">
-          <use href={`${arrow}#soft`}></use>
-        </svg>
-      </div>
+      {props.disabled ? (
+        ""
+      ) : (
+        <div className="Slider__button Slider__button_left" onClick={toLeft}>
+          <svg className="Slider__button_image">
+            <use href={`${arrow}#soft`}></use>
+          </svg>
+        </div>
+      )}
       {props.slides}
-      <div className="Slider__button Slider__button_right" onClick={toRight}>
-        <svg className="Slider__button_image">
-          <use href={`${arrow}#soft`}></use>
-        </svg>
-      </div>
+      {props.disabled ? (
+        ""
+      ) : (
+        <div className="Slider__button Slider__button_right" onClick={toRight}>
+          <svg className="Slider__button_image">
+            <use href={`${arrow}#soft`}></use>
+          </svg>
+        </div>
+      )}
     </>
   );
 }

@@ -3,9 +3,11 @@ import { getFilter } from "./filter.js";
 export const completeSliderArray = (arr, limit) => {
   let start = [];
   let finish = [];
+
   for (let i = 0; i < limit; i++) {
     start.push(arr[i]);
   }
+
   for (let i = arr.length - 1; i >= arr.length - limit; i--) {
     finish.push(arr[i]);
   }

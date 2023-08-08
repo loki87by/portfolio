@@ -1,0 +1,14 @@
+.RunnerText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  margin: auto;
+  margin-left: 1vmin;
+  padding: 1vmin 1vmax;
+  background-color: var(--second-color);
+  color: var(--main-color);
+  font-size: var(--fs3);
+  text-shadow: -0.5vmin 0.5vmin 0.5vmin var(--back-color);
+  box-shadow: 1px 1px 1px var(--main-color);
+}

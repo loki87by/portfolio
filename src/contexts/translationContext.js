@@ -2,13 +2,13 @@ import React from "react";
 export const TranslationContext = React.createContext();
 export const translations = {
   en: {
-    welcome: 'welcome',
+    welcome: "welcome",
     bio: "Biography",
     docs: "Sertificates",
-    info: 'Information',
-    undo: 'Back to list',
-    games: 'Web-games',
-    social: 'Social network or similar',
+    gallery: "About me in photos",
+    undo: "Back to list",
+    games: "Web-games",
+    social: "Social network or similar",
     age: "Age",
     years: "years",
     mounthes: "mounthes",
@@ -44,6 +44,9 @@ export const translations = {
     experienced: "Experienced",
     soft: "Used soft",
     works: "My works",
+    fullscreen: "Open full screen mode",
+    fullscreenClose: "Close full screen mode",
+    reload: "Restart slideshow",
     firstProjectInfo:
       "The project is written in Html and Css. BEM methodology. It is based on the fundamental principles of languages, but more in-depth ones are also used, such as inserting elements from other resources, css animation, etc.",
     secondProjectInfo:
@@ -107,7 +110,7 @@ export const translations = {
     webService: "Web services",
     landing: "Landing pages",
     cleanWork: "Clean code works",
-    other: 'Other services',
+    other: "Other services",
     corporateWebsite: "Multipage websites",
     server: "Servers",
     widget: "Widgets",
@@ -128,13 +131,13 @@ export const translations = {
     hideWorks: "Hide projects",
   },
   ru: {
-    welcome: 'Добро пожаловать',
+    welcome: "Добро пожаловать",
     bio: "Биография",
     docs: "Сертификаты",
-    info: "Информация",
-    undo: 'Вернуться к списку',
-    games: 'Веб-игры',
-    social: 'Социальные сети или их подобие',
+    gallery: "Обо мне в фото",
+    undo: "Вернуться к списку",
+    games: "Веб-игры",
+    social: "Социальные сети или их подобие",
     age: "Возраст",
     years: "лет",
     mounthes: "месяцев",
@@ -165,11 +168,11 @@ export const translations = {
     biography: "Краткая биография",
     skills: "Мои навыки",
     stack: "Мой стек",
-    /* elementary: "Начальный",
-    advanced: "Продвинутый",
-    experienced: "Опытный", */
     soft: "Используемое ПО",
     works: "Мои работы",
+    fullscreen: "Во весь экран",
+    fullscreenClose: "Выйти из полноэкранного режима",
+    reload: "Перезапустить слайд-шоу",
     firstProjectInfo:
       "Проект написанный на Html и Css. Методология по БЭМ. В основе лежат фундаментальные принципы языков, но используются и более углубленные, как например вставка элементов с других ресурсов, css-анимация и.т.д.",
     secondProjectInfo:
@@ -237,7 +240,7 @@ export const translations = {
     webService: "Интернет-сервисы",
     landing: "Одностраничные сайты",
     cleanWork: "Работы по чистке кода",
-    other: 'Прочие сервисы',
+    other: "Прочие сервисы",
     corporateWebsite: "Многостраничные вебсайты",
     server: "Серверы",
     widget: "Виджеты",
@@ -248,10 +251,6 @@ export const translations = {
     company: "Корпоративный сайт",
     simplest: "Простейшие сайты",
     webStore: "Интернет-магазин",
-    /* worksSubtitle:
-      "По выбранным фильтрам подобрано проектов в данной категории: ",
-    front: "Фронт",
-    back: "Бэк", */
     showCertify:
       "Показать сертификат о прохождении обучения по программе «Веб-разработчик»",
     showWorks: "Показать проекты",

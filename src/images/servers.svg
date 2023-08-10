@@ -1,5 +1,5 @@
 <svg display="none" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve">
-   <symbol id="servers" width="30" height="24" viewBox="0 0 30 24" xmlns="http://www.w3.org/2000/svg" fill="var(--secondary, none)">
+   <symbol id="servers" width="100%" height="100%" viewBox="0 0 30 24" xmlns="http://www.w3.org/2000/svg" fill="var(--secondary, none)">
 <g transform="rotate(180 12 12) translate(-4 -2)">
 	<path fill="#303C42" d="M24,13.5c0-1.9141235-1.2330322-3.5992432-3.0517578-4.2366333C20.5864258,5.1661377,17.1603394,2,13,2
 		C9.7246094,2,6.809021,4.0044556,5.6065674,7.008728C5.5709229,7.0079956,5.5357056,7,5.5,7C2.4677734,7,0,9.4672852,0,12.5

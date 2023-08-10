@@ -2,6 +2,8 @@
   position: absolute;
   top: 0;
   left: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   margin: auto;
   margin-left: 1vmin;
@@ -10,5 +12,11 @@
   color: var(--main-color);
   font-size: var(--fs3);
   text-shadow: -0.5vmin 0.5vmin 0.5vmin var(--back-color);
+  -webkit-box-shadow: 1px 1px 1px var(--main-color);
   box-shadow: 1px 1px 1px var(--main-color);
+}
+
+.RunnerText_mobile {
+  max-width: 70%;
+  word-wrap: break-word;
 }

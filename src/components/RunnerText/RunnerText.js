@@ -23,7 +23,7 @@ function RunnerText(props) {
     }
   }, [counter, props.data, props.index, props.num, props.slidePos]);
 
-  return <p className="RunnerText">{currentText}</p>;
+  return <p className={`RunnerText ${props.isMobile && "RunnerText_mobile"}`}>{currentText}</p>;
 }
 
 export default RunnerText;

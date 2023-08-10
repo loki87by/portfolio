@@ -160,6 +160,7 @@
 .Work__stack {
   position: absolute;
   bottom: 0;
+  width: 100%;
   height: 3vmax;
   display: -webkit-box;
   display: -ms-flexbox;

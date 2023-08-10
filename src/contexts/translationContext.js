@@ -103,6 +103,7 @@ export const translations = {
     currenciesInfo:
       "Currency converter written in 4 variations: ReactJs, VueJs, AngularJs and native JavaScript",
     bShopInfo: "Simple store on Vue.js",
+    currencyExtensionInfo: 'Google Chrome extension that converts numerical data from sites',
     turnOn: "on widget",
     turnOf: "Turn of",
     clueForAnimation: "Hover over the image to animate",
@@ -120,11 +121,12 @@ export const translations = {
     brouserGame: "Игры Css + Js",
     sound: "Work with sound",
     pics: "Work with images",
-    company: "Corporate website",
+    company: "Corporate websites",
     simplest: "The simplest sites",
     webStore: "Web store",
     front: "Front-end",
     back: "Back-end",
+    extension: 'Browser extension',
     showCertify:
       "Show certificate of completion of the Web Development Training Course",
     showWorks: "Show projects",
@@ -232,6 +234,7 @@ export const translations = {
     currenciesInfo:
       "Конвертер валют написанный в 4х вариациях: на ReactJs, на VueJs, на AngularJs и на нативном JavaScript",
     bShopInfo: "Простенький магазин на Vue.js",
+    currencyExtensionInfo: 'Расширение для Google Chrome, конвертирующее числовые данные с сайтов',
     turnOf: "Выкл",
     turnOn: "вкл виджет",
     clueForAnimation: "Для анимации наведите курсор на изображение",
@@ -248,9 +251,12 @@ export const translations = {
     brouserGame: "Css + Js Games",
     sound: "Работа со звуком",
     pics: "Работа с изображениями",
-    company: "Корпоративный сайт",
+    company: "Корпоративные сайты",
     simplest: "Простейшие сайты",
     webStore: "Интернет-магазин",
+    front: "Фронт-энд",
+    back: "Бэк-энд",
+    extension: 'Браузерное расширение',
     showCertify:
       "Показать сертификат о прохождении обучения по программе «Веб-разработчик»",
     showWorks: "Показать проекты",

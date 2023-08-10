@@ -89,6 +89,7 @@ function Gallery(props) {
             slidePos={slidePos}
             num={index}
             shift={width}
+            isMobile={props.isMobile}
           />
           <img
             src={item.src}

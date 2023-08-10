@@ -200,6 +200,7 @@ function App() {
             images={images}
             scrollRef={openedSection === "gallery" ? scrollRef : null}
             lang={lang}
+            isMobile={mobileRef.current}
             scrollToElement={scrollToElement}
           />
         ) : (

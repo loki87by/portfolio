@@ -93,6 +93,10 @@ import project29b from "../images/projects/b-shop/project-29b.jpg";
 import project29e from "../images/projects/b-shop/project-29e.jpg";
 import project29g from "../images/projects/b-shop/project-29g.jpg";
 import project29j from "../images/projects/b-shop/project-29j.jpg";
+import project30 from "../images/projects/currency-extension/0.jpg";
+import project30a from "../images/projects/currency-extension/1.jpg";
+import project30b from "../images/projects/currency-extension/2.jpg";
+import project30c from "../images/projects/currency-extension/3.jpg";
 import gallery0 from "../images/gallery/01.jpg";
 import gallery1 from "../images/gallery/02.jpg";
 import gallery2 from "../images/gallery/03.jpg";
@@ -314,4 +318,5 @@ export const PIC_ARRAY = {
     project28j,
   ],
   project_bShop: [project29, project29b, project29e, project29g, project29j],
+  project_curExt: [project30, project30a, project30b, project30c]
 };

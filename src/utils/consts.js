@@ -93,6 +93,7 @@ export const SOFT = [
 export const STACK = [
   "angular",
   "bem",
+  "canvas",
   "css",
   "django",
   "html",

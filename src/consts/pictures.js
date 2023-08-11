@@ -97,6 +97,20 @@ import project30 from "../images/projects/currency-extension/0.jpg";
 import project30a from "../images/projects/currency-extension/1.jpg";
 import project30b from "../images/projects/currency-extension/2.jpg";
 import project30c from "../images/projects/currency-extension/3.jpg";
+import project31 from "../images/projects/s7airlines/1.jpg";
+import project31a from "../images/projects/s7airlines/2.jpg";
+import project31b from "../images/projects/s7airlines/3.jpg";
+import project31c from "../images/projects/s7airlines/4.jpg";
+import project31d from "../images/projects/s7airlines/5.jpg";
+import project32 from "../images/projects/snake/01.jpg";
+import project32a from "../images/projects/snake/02.jpg";
+import project32b from "../images/projects/snake/03.jpg";
+import project32c from "../images/projects/snake/04.jpg";
+import project33 from "../images/projects/tennis/01.jpg";
+import project33a from "../images/projects/tennis/2.jpg";
+import project33b from "../images/projects/tennis/3.jpg";
+import project33c from "../images/projects/tennis/4.jpg";
+import project33d from "../images/projects/tennis/6.jpg";
 import gallery0 from "../images/gallery/01.jpg";
 import gallery1 from "../images/gallery/02.jpg";
 import gallery2 from "../images/gallery/03.jpg";
@@ -135,6 +149,7 @@ import handLeft from "../images/hands/left/hand.png";
 import afterEffects from "../images/stack/after-effects.svg";
 import audition from "../images/stack/audition.svg";
 import charles from "../images/stack/charles.svg";
+import canvas from "../images/stack/canvas.svg";
 import coreldraw from "../images/stack/coreldraw.svg";
 import figma from "../images/stack/figma.svg";
 import photoshop from "../images/stack/photoshop.svg";
@@ -179,6 +194,7 @@ export const PIC_ARRAY = {
   stack: [
     angular,
     bem,
+    canvas,
     css,
     django,
     html,
@@ -318,5 +334,8 @@ export const PIC_ARRAY = {
     project28j,
   ],
   project_bShop: [project29, project29b, project29e, project29g, project29j],
-  project_curExt: [project30, project30a, project30b, project30c]
+  project_curExt: [project30, project30a, project30b, project30c],
+  project_s7airlines: [project31, project31a, project31b, project31c, project31d],
+  project_snake: [project32, project32a, project32b, project32c],
+  project_tennis: [project33, project33a, project33b, project33c, project33d],
 };

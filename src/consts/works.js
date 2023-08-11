@@ -333,4 +333,28 @@ export const WORKS = [
     type: ["other", "extension"],
     stack: ["css", "html", "js", "markdown"],
   },
+  {
+    src: "https://github.com/loki87by/airlines",
+    text: "airlinesInfo",
+    name: "s7airlines",
+    aspectRatio: true,
+    type: ["webService", "webStore"],
+    stack: ["react", "typescript", "css", "markdown"],
+  },
+  {
+    src: "https://github.com/loki87by/snake",
+    text: "snakeInfo",
+    name: "snake",
+    type: ["webGame", "canvasGame"],
+    aspectRatio: true,
+    stack: ["css", "html", "js", "canvas", "markdown"],
+  },
+  {
+    src: "https://github.com/loki87by/tennis",
+    text: "tennisInfo",
+    name: "tennis",
+    type: ["webGame", "canvasGame"],
+    aspectRatio: true,
+    stack: ["css", "html", "js", "canvas", "markdown"],
+  },
 ];

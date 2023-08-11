@@ -160,8 +160,9 @@
 .Work__stack {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  right: 0;
   height: 3vmax;
+  padding: 1vmin;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -171,6 +172,7 @@
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
+  background: var(--second-color);
 }
 
 .Work__stack-icon {

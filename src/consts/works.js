@@ -373,4 +373,12 @@ export const WORKS = [
     aspectRatio: true,
     stack: ["css", "html", "js", "canvas", "markdown"],
   },
+  {
+    src: "https://github.com/loki87by/skilla",
+    text: "skillaInfo",
+    name: "skilla",
+    aspectRatio: true,
+    type: ["other", "intracorporate"],
+    stack: ["react", "svg", "css", "markdown"],
+  },
 ];

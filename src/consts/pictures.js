@@ -121,6 +121,11 @@ import project35a from "../images/projects/arkanoid/2.jpg";
 import project35b from "../images/projects/arkanoid/3.jpg";
 import project35c from "../images/projects/arkanoid/4.jpg";
 import project35d from "../images/projects/arkanoid/5.jpg";
+import project36 from "../images/projects/skilla/1.jpg";
+import project36a from "../images/projects/skilla/2.jpg";
+import project36b from "../images/projects/skilla/3.jpg";
+import project36c from "../images/projects/skilla/4.jpg";
+import project36d from "../images/projects/skilla/5.jpg";
 import gallery0 from "../images/gallery/01.jpg";
 import gallery1 from "../images/gallery/02.jpg";
 import gallery2 from "../images/gallery/03.jpg";
@@ -350,4 +355,5 @@ export const PIC_ARRAY = {
   project_snake: [project33, project33a, project33b, project33c],
   project_tennis: [project34, project34a, project34b, project34c, project34d],
   project_arkanoid: [project35, project35a, project35b, project35c, project35d],
+  project_skilla: [project36, project36a, project36b, project36c, project36d],
 };

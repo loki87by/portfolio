@@ -12,7 +12,6 @@ function Certificate(props) {
   const [certifyZoom, setCertifyZoom] = useState(props.screenWidth / 27.5);
 
   useEffect(() => {
-    console.log(props.type, props.lang)
     if (props.type === "yandex") {
       if (props.lang === "ru") {
         setSource(certificateRu);
@@ -64,20 +63,24 @@ function Certificate(props) {
         props.isCertificateOpen ? "Certificate__opened" : "Certificate"
       }
     >
-      {props.isCertificateOpen ? (
-        <div
-          className="Certificate__close"
-          id={`${props.type}-button`}
-          onClick={props.closeCertificate}
-        >
-          <img alt="close" src={close} />
-        </div>
+      {source !== null ? (
+        props.isCertificateOpen ? (
+          <div
+            className="Certificate__close"
+            id={`${props.type}-button`}
+            onClick={props.closeCertificate}
+          >
+            <img alt="close" src={close} />
+          </div>
+        ) : (
+          <div
+            className="Certificate__open-button"
+            id={`${props.type}-button`}
+            onClick={openCertificate}
+          ></div>
+        )
       ) : (
-        <div
-          className="Certificate__open-button"
-          id={`${props.type}-button`}
-          onClick={openCertificate}
-        ></div>
+        ""
       )}
       <iframe
         title="certify"

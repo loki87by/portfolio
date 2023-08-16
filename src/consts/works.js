@@ -381,4 +381,12 @@ export const WORKS = [
     type: ["other", "intracorporate"],
     stack: ["react", "svg", "css", "markdown"],
   },
+  {
+    src: "https://github.com/loki87by/portfolio",
+    text: "portfolioInfo",
+    name: "this",
+    aspectRatio: true,
+    type: ["other", "autobiographyPage"],
+    stack: ["react", "svg", "css", "markdown"],
+  },
 ];

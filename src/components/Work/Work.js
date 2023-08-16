@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
 import { STACK } from "../../utils/consts";
+import Certificate from "../Certificate/Certificate";
 import "./Work.css";
 
 function Work(props) {
@@ -32,24 +33,26 @@ function Work(props) {
   }, [props.data.stack, props.images]);
 
   useEffect(() => {
-    const counter = Math.min(
-      props.images[`project_${props.data.name}`].length,
-      5
-    );
+    if (props.data.name !== "this") {
+      const counter = Math.min(
+        props.images[`project_${props.data.name}`].length,
+        5
+      );
 
-    if (isAnimationStarted) {
-      const timeout = setTimeout(() => {
-        setBackground(
-          props.images[`project_${props.data.name}`][animationCounter].src
-        );
+      if (isAnimationStarted) {
+        const timeout = setTimeout(() => {
+          setBackground(
+            props.images[`project_${props.data.name}`][animationCounter].src
+          );
 
-        if (animationCounter < counter - 1) {
-          setAnimationCounter(animationCounter + 1);
-        } else {
-          setAnimationCounter(0);
-        }
-      }, 750);
-      return () => clearInterval(timeout);
+          if (animationCounter < counter - 1) {
+            setAnimationCounter(animationCounter + 1);
+          } else {
+            setAnimationCounter(0);
+          }
+        }, 750);
+        return () => clearInterval(timeout);
+      }
     }
   }, [animationCounter, isAnimationStarted, props.data.name, props.images]);
 
@@ -83,30 +86,41 @@ function Work(props) {
         ""
       )}
       <div className="Work__container">
-        <div
-          style={{
-            backgroundImage: `url(${background})`,
-          }}
-          className={`Work__image ${
-            props.data.aspectRatio && "Work__image_horizontal"
-          }`}
-          onMouseOver={() => {
-            if (props.data.animation !== "none") {
-              setAnimationStarted(true);
-            }
-          }}
-          onMouseLeave={removeAnimation}
-        >
-          {props.data.animation === "none" ? (
-            ""
-          ) : (
-            <p className="Work__clue">
-              {props.isMobile
-                ? translation.clueForAnimationMobile
-                : translation.clueForAnimation}
-            </p>
-          )}
-        </div>
+        {props.data.name !== "this" ? (
+          <div
+            style={{
+              backgroundImage: `url(${background})`,
+            }}
+            className={`Work__image ${
+              props.data.aspectRatio && "Work__image_horizontal"
+            }`}
+            onMouseOver={() => {
+              if (props.data.animation !== "none") {
+                setAnimationStarted(true);
+              }
+            }}
+            onMouseLeave={removeAnimation}
+          >
+            {props.data.animation === "none" ? (
+              ""
+            ) : (
+              <p className="Work__clue">
+                {props.isMobile
+                  ? translation.clueForAnimationMobile
+                  : translation.clueForAnimation}
+              </p>
+            )}
+          </div>
+        ) : (
+          <Certificate
+            /* isCertificateOpen={isCertificateOpen} */
+            screenWidth={props.screenWidth}
+            lang={props.lang}
+            /* setCertificateOpen={setCertificateOpen}
+          setCertificateType={setCertificateType}
+          closeCertificate={closeCertificate} */
+          />
+        )}
         <div className="Work__description">
           <p className="Work__description-text">
             {translation[`${props.data.text}`]}

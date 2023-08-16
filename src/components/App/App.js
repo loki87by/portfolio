@@ -187,6 +187,7 @@ function App() {
           <Docs
             scrollRef={openedSection === "docs" ? scrollRef : null}
             screenWidth={screenWidth}
+            lang={lang}
           />
         ) : (
           ""

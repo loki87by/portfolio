@@ -6,9 +6,9 @@ import { GALLERY } from "../../utils/consts.js";
 import Slider from "../Slider/Slider";
 import Sprite from "../Sprite/Sprite.js";
 import RunnerText from "../RunnerText/RunnerText";
-import reload from "../../images/reload.svg";
-import fullscreen from "../../images/fullscreen.svg";
-import fullscreenClose from "../../images/fullscreen_exit.svg";
+import reload from "../../images/icons/reload.svg";
+import fullscreen from "../../images/icons/fullscreen.svg";
+import fullscreenClose from "../../images/icons/fullscreen_exit.svg";
 import "./Gallery.css";
 
 function Gallery(props) {

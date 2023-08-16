@@ -6,12 +6,13 @@ import close from "../../images/close.png";
 import "./Certificate.css";
 
 function Certificate(props) {
-  const [source, setSource] = useState(epamCertificate);
+  const [source, setSource] = useState(null);
   const [certifyWidth, setCertifyWidth] = useState(props.screenWidth * 0.43);
   const [certifyHeight, setCertifyHeight] = useState(props.screenWidth * 0.43);
   const [certifyZoom, setCertifyZoom] = useState(props.screenWidth / 27.5);
 
   useEffect(() => {
+    console.log(props.type, props.lang)
     if (props.type === "yandex") {
       if (props.lang === "ru") {
         setSource(certificateRu);

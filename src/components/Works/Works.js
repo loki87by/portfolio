@@ -3,7 +3,7 @@ import { TranslationContext } from "../../contexts/translationContext";
 import { WORKS } from "../../consts/works";
 import Work from "../Work/Work";
 import Sprite from "../Sprite/Sprite";
-import triangle from "../../images/triangle.svg";
+import triangle from "../../images/icons/triangle.svg";
 import "./Works.css";
 
 function Works(props) {

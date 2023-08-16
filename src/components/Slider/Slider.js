@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import "./Slider.css";
-import arrow from "../../images/arrow.svg";
+import arrow from "../../images/icons/arrow.svg";
 
 function Slider(props) {
   const [position, setPosition] = useState(props.limit);

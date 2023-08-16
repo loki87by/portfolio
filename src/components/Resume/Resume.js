@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
 import Sprite from "../Sprite/Sprite";
-import bio from "../../images/bio.svg";
-import games from "../../images/games.svg";
-import contacts from "../../images/contacts.svg";
-import servers from "../../images/servers.svg";
-import docs from "../../images/docs.svg";
-import sites from "../../images/sites.svg";
-import gallery from "../../images/gallery.svg";
-import servises from "../../images/servises.svg";
-import stack from "../../images/stack.svg";
-import social from "../../images/social.svg";
-import works from "../../images/works.svg";
-import undo from "../../images/undo.svg";
+import bio from "../../images/icons/bio.svg";
+import games from "../../images/icons/games.svg";
+import contacts from "../../images/icons/contacts.svg";
+import servers from "../../images/icons/servers.svg";
+import docs from "../../images/icons/docs.svg";
+import sites from "../../images/icons/sites.svg";
+import gallery from "../../images/icons/gallery.svg";
+import servises from "../../images/icons/servises.svg";
+import stack from "../../images/icons/stack.svg";
+import social from "../../images/icons/social.svg";
+import works from "../../images/icons/works.svg";
+import undo from "../../images/icons/undo.svg";
 import "./Resume.css";
 
 function Resume(props) {

@@ -1,5 +1,5 @@
-import { getFilter } from "./filter.js";
-import { HSL } from "./types.js";
+import { getFilter } from "./filter";
+import { HSL } from "./types";
 
 export const completeSliderArray = (
   arr: (HTMLImageElement | string)[],

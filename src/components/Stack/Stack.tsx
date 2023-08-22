@@ -1,7 +1,7 @@
 import React, { useContext, useState, ReactElement } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
-import { completeSliderArray } from "../../utils/helpers.js";
-import { STACK, SOFT } from "../../utils/consts.js";
+import { completeSliderArray } from "../../utils/helpers";
+import { STACK, SOFT } from "../../utils/consts";
 import { StackProps, TranslationItem } from "../../utils/types";
 import Slider from "../Slider/Slider";
 import "./Stack.css";

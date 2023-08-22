@@ -1,7 +1,7 @@
 import React, { useContext, ChangeEvent, ReactElement } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
-import { updateColors } from "../../utils/helpers.js";
-import { hexToRgb } from "../../utils/filter.js";
+import { updateColors } from "../../utils/helpers";
+import { hexToRgb } from "../../utils/filter";
 import { HeaderProps, HSL } from "../../utils/types";
 import logo from "../../images/icons/logo.svg";
 import logoEng from "../../images/icons/logoEng.svg";

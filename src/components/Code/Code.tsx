@@ -1,6 +1,6 @@
 import React, { useEffect, ReactElement } from "react";
 import { CodeProps } from "../../utils/types";
-import { CODE } from "../../utils/consts.js";
+import { CODE } from "../../utils/consts";
 import "./Code.css";
 
 function Code(props: CodeProps): ReactElement {

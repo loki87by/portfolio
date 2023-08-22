@@ -96,7 +96,6 @@ function Certificate(props: CertificateProps): ReactElement {
             ? `${props.type}-opened`
             : `${props.type}-mini`
         }
-        allowTransparency={true}
         height={`${certifyHeight}px`}
         width={`${certifyWidth}px`}
         src={`${source}#zoom=${certifyZoom}`}

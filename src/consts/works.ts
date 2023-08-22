@@ -386,7 +386,7 @@ export const WORKS = [
     text: "portfolioInfo",
     name: "this",
     aspectRatio: true,
-    type: ["other", "autobiographyPage"],
+    type: ["other", "zeroAutobiographyPage"],
     stack: ["react", "typescript", "webpack", "svg", "css", "markdown"],
   },
 ];

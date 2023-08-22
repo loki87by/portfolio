@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect, ReactElement } from "react";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { TranslationContext } from "../../contexts/translationContext";
-import { completeSliderArray } from "../../utils/helpers.js";
-import { GALLERY } from "../../utils/consts.js";
+import { completeSliderArray } from "../../utils/helpers";
+import { GALLERY } from "../../utils/consts";
 import {
   GalleryProps,
   GalleryTextItem,

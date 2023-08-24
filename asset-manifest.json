@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.441d2191.chunk.css",
-    "main.js": "/portfolio/static/js/main.69c9a9e5.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.69c9a9e5.chunk.js.map",
+    "main.css": "/portfolio/static/css/main.82c3aa62.chunk.css",
+    "main.js": "/portfolio/static/js/main.063082ff.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.063082ff.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.5ad5002f.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.5ad5002f.js.map",
     "static/js/2.d5ea6e2e.chunk.js": "/portfolio/static/js/2.d5ea6e2e.chunk.js",
     "static/js/2.d5ea6e2e.chunk.js.map": "/portfolio/static/js/2.d5ea6e2e.chunk.js.map",
     "index.html": "/portfolio/index.html",
-    "static/css/main.441d2191.chunk.css.map": "/portfolio/static/css/main.441d2191.chunk.css.map",
+    "static/css/main.82c3aa62.chunk.css.map": "/portfolio/static/css/main.82c3aa62.chunk.css.map",
     "static/js/2.d5ea6e2e.chunk.js.LICENSE.txt": "/portfolio/static/js/2.d5ea6e2e.chunk.js.LICENSE.txt",
     "static/media/0.043c4efd.jpg": "/portfolio/static/media/0.043c4efd.jpg",
     "static/media/01.9d265fd7.jpg": "/portfolio/static/media/01.9d265fd7.jpg",
@@ -206,6 +206,7 @@
     "static/media/reactjs.8a6afc3a.svg": "/portfolio/static/media/reactjs.8a6afc3a.svg",
     "static/media/redux.0093fdee.svg": "/portfolio/static/media/redux.0093fdee.svg",
     "static/media/reload.0bcf4c82.svg": "/portfolio/static/media/reload.0bcf4c82.svg",
+    "static/media/Certificate.css": "/portfolio/static/media/zoom.6eddcd6e.svg",
     "static/media/servers.339940a1.svg": "/portfolio/static/media/servers.339940a1.svg",
     "static/media/servises.ccaba8d3.svg": "/portfolio/static/media/servises.ccaba8d3.svg",
     "static/media/sites.a67fdf18.svg": "/portfolio/static/media/sites.a67fdf18.svg",
@@ -223,13 +224,12 @@
     "static/media/webpack.dd33d6d2.svg": "/portfolio/static/media/webpack.dd33d6d2.svg",
     "static/media/works.a4ddd944.svg": "/portfolio/static/media/works.a4ddd944.svg",
     "static/media/yandex.8f4ed588.jpg": "/portfolio/static/media/yandex.8f4ed588.jpg",
-    "static/media/Certificate.css": "/portfolio/static/media/zoom.6eddcd6e.svg",
     "static/media/Акулич.cea7f0d8.pdf": "/portfolio/static/media/Акулич.cea7f0d8.pdf"
   },
   "entrypoints": [
     "static/js/runtime-main.5ad5002f.js",
     "static/js/2.d5ea6e2e.chunk.js",
-    "static/css/main.441d2191.chunk.css",
-    "static/js/main.69c9a9e5.chunk.js"
+    "static/css/main.82c3aa62.chunk.css",
+    "static/js/main.063082ff.chunk.js"
   ]
 }

@@ -76,7 +76,7 @@ function Resume(props: ResumeProps): ReactElement {
   function openSection(arg: string) {
     props.setOpenedSection(arg);
 
-    if (arg !== "" && arg !== "works") {
+    if (arg !== "") {
       props.scrollToElement();
     }
   }

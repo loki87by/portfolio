@@ -129,12 +129,9 @@ function Work(props: WorkProps): ReactElement {
           </div>
         ) : (
           <Certificate
-            /* isCertificateOpen={isCertificateOpen} */
             screenWidth={props.screenWidth as number}
             lang={props.lang}
-            /* setCertificateOpen={setCertificateOpen}
-          setCertificateType={setCertificateType}
-          closeCertificate={closeCertificate} */
+            isMobile={props.isMobile}
           />
         )}
         <div className="Work__description">

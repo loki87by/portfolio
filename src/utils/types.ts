@@ -115,12 +115,14 @@ export interface DocsProps {
   scrollRef: RefObject<HTMLElement> | null;
   screenWidth: number;
   lang: string;
+  isMobile: boolean;
 }
 
 export interface CertificateProps {
   type?: string | null;
   screenWidth: number;
   lang: string;
+  isMobile: boolean;
   isCertificateOpen?: boolean;
   setCertificateOpen?: Dispatch<SetStateAction<boolean>>;
   setCertificateType?: Dispatch<SetStateAction<string | null>>;

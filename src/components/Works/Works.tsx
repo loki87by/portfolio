@@ -44,8 +44,22 @@ function Works(props: WorksProps): ReactElement {
     }
   }, [setOpenedSection, currentWorks]);
 
+  function scrollToTop() {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <section className="Works" ref={props.scrollRef}>
+      <div className="Works__title">
+        {translation ? <h2>{translation[props.filter]}</h2> : ""}
+        {translation ? (
+          <button className="Works__title-button" onClick={scrollToTop}>
+            &#8593; &nbsp; {translation.categorySelect} &nbsp; &#8593;
+          </button>
+        ) : (
+          ""
+        )}
+      </div>
       {Object.keys(currentWorks).map((i, ind) => (
         <article key={`${i}-${ind}`} id={i} className="Works__section">
           <div

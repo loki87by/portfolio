@@ -76,9 +76,3 @@
 .Header__button-image_UK {
   background-image: url("../../images/UK.png");
 }
-
-@media (max-width: 768px) {
-  .Header {
-    width: 90vw;
-  }
-}

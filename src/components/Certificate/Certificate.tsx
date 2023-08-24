@@ -3,11 +3,14 @@ import { CertificateProps } from "../../utils/types";
 import certificateRu from "../../media/Акулич.pdf";
 import certificateEn from "../../media/20202WD00196.pdf";
 import epamCertificate from "../../media/ds8jpv3n.pdf";
+import epam from "../../images/mobileFramePreview/epam.jpg";
+import yaRu from "../../images/mobileFramePreview/yandex.jpg";
 import close from "../../images/close.png";
 import "./Certificate.css";
 
 function Certificate(props: CertificateProps): ReactElement {
   const [source, setSource] = useState<string | null>(null);
+  const [img, setImg] = useState<string | null>(null);
   const [certifyWidth, setCertifyWidth] = useState(props.screenWidth * 0.43);
   const [certifyHeight, setCertifyHeight] = useState(props.screenWidth * 0.43);
   const [certifyZoom, setCertifyZoom] = useState(props.screenWidth / 27.5);
@@ -21,16 +24,18 @@ function Certificate(props: CertificateProps): ReactElement {
       if (props.lang === "en") {
         setSource(certificateEn);
       }
+      setImg(yaRu);
     }
 
     if (props.type === "epam") {
       setSource(epamCertificate);
+      setImg(epam);
     }
   }, [props.type, props.lang]);
 
   useEffect(() => {
     if (!props.isCertificateOpen) {
-      if (window.innerWidth < 555) {
+      if (source !== null && window.innerWidth < 555) {
         setCertifyZoom(window.innerWidth / 5);
         setCertifyWidth(window.innerWidth * 0.86);
         setCertifyHeight(window.innerWidth * 0.58);
@@ -50,7 +55,7 @@ function Certificate(props: CertificateProps): ReactElement {
       setCertifyWidth(window.innerWidth * 0.9);
       setCertifyHeight(window.innerWidth);
     }
-  }, [props.isCertificateOpen, props.type]);
+  }, [props.isCertificateOpen, props.type, source]);
 
   function openCertificate(e: MouseEvent) {
     const type = (e.target as HTMLElement).id.replace("-button", "");
@@ -62,6 +67,14 @@ function Certificate(props: CertificateProps): ReactElement {
     if (props.setCertificateOpen) {
       props.setCertificateOpen(true);
     }
+  }
+
+  function download() {
+    const link = document.createElement("a");
+    link.download = "download.pdf";
+    link.href = source as string;
+    link.click();
+    link.remove();
   }
 
   return (
@@ -81,25 +94,46 @@ function Certificate(props: CertificateProps): ReactElement {
           </div>
         ) : (
           <div
-            className="Certificate__open-button"
+            className={`Certificate__open-button ${
+              props.isMobile && "Certificate__save-button"
+            }`}
             id={`${props.type}-button`}
-            onClick={openCertificate}
+            onClick={
+              !props.isMobile
+                ? openCertificate
+                : () => {
+                    download();
+                  }
+            }
           ></div>
         )
       ) : (
         ""
       )}
-      <iframe
-        title="certify"
-        id={
-          props.isCertificateOpen
-            ? `${props.type}-opened`
-            : `${props.type}-mini`
-        }
-        height={`${certifyHeight}px`}
-        width={`${certifyWidth}px`}
-        src={`${source}#zoom=${certifyZoom}`}
-      ></iframe>
+      {props.isMobile && source ? (
+        <img
+          src={img as string}
+          alt="certify"
+          style={{
+            maxWidth: window.innerWidth < 555 ? "70vmin" : "40vmin",
+            maxHeight: window.innerWidth < 555 ? "70vmin" : "40vmin",
+          }}
+        />
+      ) : (
+        <iframe
+          title="certify"
+          id={
+            props.isCertificateOpen
+              ? `${props.type}-opened`
+              : `${props.type}-mini`
+          }
+          height={`${certifyHeight}px`}
+          width={`${certifyWidth}px`}
+          src={`${
+            source !== null ? source : "https://loki87by.github.io/portfolio/"
+          }#zoom=${certifyZoom}`}
+        ></iframe>
+      )}
     </div>
   );
 }

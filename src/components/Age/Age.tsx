@@ -43,7 +43,10 @@ function Age(props: AgeProps): ReactElement {
       const birth: Date = new Date(
         `${digitCheker(birthMonth)} ${digitCheker(birthDay)} ${birthYear}`
       );
-      let res = now.getMilliseconds() - birth.getMilliseconds();
+      console.log(birth, now);
+      let res =
+        Date.parse(now as unknown as string) -
+        Date.parse(birth as unknown as string);
       let countdown = res / (365 * 24 * 60 * 60 * 1000);
       const years = Math.floor(countdown);
       setYearsOld(years);
@@ -52,21 +55,27 @@ function Age(props: AgeProps): ReactElement {
           birthYear + years
         }`
       );
-      res = now.getMilliseconds() - lastBirthYear.getMilliseconds();
+      res =
+        Date.parse(now as unknown as string) -
+        Date.parse(lastBirthYear as unknown as string);
       countdown = res / (24 * 60 * 60 * 1000);
       const monthes = Math.floor(countdown / 30.42);
       setMonthesOld(monthes);
       const lastBirthMouth = new Date(
         `${birthMonth + monthes} ${digitCheker(birthDay)} ${birthYear + years}`
       );
-      res = now.getMilliseconds() - lastBirthMouth.getMilliseconds();
+      res =
+        Date.parse(now as unknown as string) -
+        Date.parse(lastBirthMouth as unknown as string);
       countdown = res / (7 * 24 * 60 * 60 * 1000);
       const weeks = Math.floor(countdown);
       setWeeksOld(weeks);
       const lastBirthWeek = new Date(
         `${birthMonth + monthes} ${birthDay + weeks * 7} ${birthYear + years}`
       );
-      res = now.getMilliseconds() - lastBirthWeek.getMilliseconds();
+      res =
+        Date.parse(now as unknown as string) -
+        Date.parse(lastBirthWeek as unknown as string);
       countdown = res / (24 * 60 * 60 * 1000);
       const days = Math.floor(countdown);
       setDaysOld(days);
@@ -75,7 +84,9 @@ function Age(props: AgeProps): ReactElement {
           birthYear + years
         }`
       );
-      res = now.getMilliseconds() - lastBirthDay.getMilliseconds();
+      res =
+        Date.parse(now as unknown as string) -
+        Date.parse(lastBirthDay as unknown as string);
       countdown = res / (60 * 60 * 1000);
       const hours = Math.floor(countdown);
       setHoursOld(hours);
@@ -84,7 +95,9 @@ function Age(props: AgeProps): ReactElement {
           birthYear + years
         } ${digitCheker(hours)}:00:00`
       );
-      res = now.getMilliseconds() - lastBirthHour.getMilliseconds();
+      res =
+        Date.parse(now as unknown as string) -
+        Date.parse(lastBirthHour as unknown as string);
       countdown = res / (60 * 1000);
       const mins = Math.floor(countdown);
       setMinutesOld(mins);
@@ -93,14 +106,15 @@ function Age(props: AgeProps): ReactElement {
           birthYear + years
         } ${digitCheker(hours)}:${digitCheker(mins)}:00`
       );
-      res = now.getMilliseconds() - lastBirthMin.getMilliseconds();
+      res =
+        Date.parse(now as unknown as string) -
+        Date.parse(lastBirthMin as unknown as string);
       countdown = res / 1000;
       const secs = Math.floor(countdown);
       setSecondsOld(secs);
     }
     intervalRef.current = intervalTime;
     const timer = setInterval(getTimeFromBirth, intervalRef.current);
-
     return () => {
       clearInterval(timer);
     };

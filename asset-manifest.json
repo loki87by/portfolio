@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.82c3aa62.chunk.css",
-    "main.js": "/portfolio/static/js/main.e30b5dc0.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.e30b5dc0.chunk.js.map",
+    "main.js": "/portfolio/static/js/main.e5f8ce50.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.e5f8ce50.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.5ad5002f.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.5ad5002f.js.map",
     "static/js/2.d5ea6e2e.chunk.js": "/portfolio/static/js/2.d5ea6e2e.chunk.js",
@@ -223,6 +223,7 @@
     "static/media/vue.f112c597.svg": "/portfolio/static/media/vue.f112c597.svg",
     "static/media/webpack.dd33d6d2.svg": "/portfolio/static/media/webpack.dd33d6d2.svg",
     "static/media/works.a4ddd944.svg": "/portfolio/static/media/works.a4ddd944.svg",
+    "static/media/yaEn.4bfa81b3.jpg": "/portfolio/static/media/yaEn.4bfa81b3.jpg",
     "static/media/yandex.8f4ed588.jpg": "/portfolio/static/media/yandex.8f4ed588.jpg",
     "static/media/Акулич.cea7f0d8.pdf": "/portfolio/static/media/Акулич.cea7f0d8.pdf"
   },
@@ -230,6 +231,6 @@
     "static/js/runtime-main.5ad5002f.js",
     "static/js/2.d5ea6e2e.chunk.js",
     "static/css/main.82c3aa62.chunk.css",
-    "static/js/main.e30b5dc0.chunk.js"
+    "static/js/main.e5f8ce50.chunk.js"
   ]
 }

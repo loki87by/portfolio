@@ -43,7 +43,6 @@ function Age(props: AgeProps): ReactElement {
       const birth: Date = new Date(
         `${digitCheker(birthMonth)} ${digitCheker(birthDay)} ${birthYear}`
       );
-      console.log(birth, now);
       let res =
         Date.parse(now as unknown as string) -
         Date.parse(birth as unknown as string);

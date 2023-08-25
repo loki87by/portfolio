@@ -1,10 +1,9 @@
 import React, { useState, useEffect, ReactElement, MouseEvent } from "react";
 import { CertificateProps } from "../../utils/types";
+import Preloader from "../Preloader/Preloader";
 import certificateRu from "../../media/Акулич.pdf";
 import certificateEn from "../../media/20202WD00196.pdf";
 import epamCertificate from "../../media/ds8jpv3n.pdf";
-import epam from "../../images/mobileFramePreview/epam.jpg";
-import yaRu from "../../images/mobileFramePreview/yandex.jpg";
 import close from "../../images/close.png";
 import "./Certificate.css";
 
@@ -19,19 +18,20 @@ function Certificate(props: CertificateProps): ReactElement {
     if (props.type === "yandex") {
       if (props.lang === "ru") {
         setSource(certificateRu);
+        setImg(props.images.mobileFramePreview[0].src);
       }
 
       if (props.lang === "en") {
         setSource(certificateEn);
+        setImg(props.images.mobileFramePreview[2].src);
       }
-      setImg(yaRu);
     }
 
     if (props.type === "epam") {
       setSource(epamCertificate);
-      setImg(epam);
+      setImg(props.images.mobileFramePreview[1].src);
     }
-  }, [props.type, props.lang]);
+  }, [props.type, props.lang, props.images.mobileFramePreview]);
 
   useEffect(() => {
     if (!props.isCertificateOpen) {
@@ -111,14 +111,18 @@ function Certificate(props: CertificateProps): ReactElement {
         ""
       )}
       {props.isMobile && source ? (
-        <img
-          src={img as string}
-          alt="certify"
-          style={{
-            maxWidth: window.innerWidth < 555 ? "70vmin" : "40vmin",
-            maxHeight: window.innerWidth < 555 ? "70vmin" : "40vmin",
-          }}
-        />
+        props.images.mobileFramePreview ? (
+          <img
+            src={img as string}
+            alt="certify"
+            style={{
+              maxWidth: window.innerWidth < 555 ? "70vmin" : "40vmin",
+              maxHeight: window.innerWidth < 555 ? "70vmin" : "40vmin",
+            }}
+          />
+        ) : (
+          <Preloader />
+        )
       ) : (
         <iframe
           title="certify"

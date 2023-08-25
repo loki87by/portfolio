@@ -132,6 +132,7 @@ function Work(props: WorkProps): ReactElement {
             screenWidth={props.screenWidth as number}
             lang={props.lang}
             isMobile={props.isMobile}
+            images={props.images}
           />
         )}
         <div className="Work__description">

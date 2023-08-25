@@ -111,18 +111,14 @@ export interface ContactsProps {
   scrollRef: RefObject<HTMLElement> | null;
 }
 
-export interface DocsProps {
+export interface DocsProps extends BasicProps {
   scrollRef: RefObject<HTMLElement> | null;
   screenWidth: number;
-  lang: string;
-  isMobile: boolean;
 }
 
-export interface CertificateProps {
+export interface CertificateProps extends BasicProps {
   type?: string | null;
   screenWidth: number;
-  lang: string;
-  isMobile: boolean;
   isCertificateOpen?: boolean;
   setCertificateOpen?: Dispatch<SetStateAction<boolean>>;
   setCertificateType?: Dispatch<SetStateAction<string | null>>;

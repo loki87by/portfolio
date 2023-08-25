@@ -34,6 +34,7 @@ function Docs(props: DocsProps): ReactElement {
       <section className="Docs__certificates">
         <Certificate
           type={"yandex"}
+          images={props.images}
           isMobile={props.isMobile}
           screenWidth={props.screenWidth}
           lang={props.lang}
@@ -43,6 +44,7 @@ function Docs(props: DocsProps): ReactElement {
         />
         <Certificate
           isMobile={props.isMobile}
+          images={props.images}
           type={"epam"}
           screenWidth={props.screenWidth}
           lang={props.lang}
@@ -57,6 +59,7 @@ function Docs(props: DocsProps): ReactElement {
         <Certificate
           type={certificateType}
           isMobile={props.isMobile}
+          images={props.images}
           isCertificateOpen={isCertificateOpen}
           screenWidth={props.screenWidth}
           lang={props.lang}

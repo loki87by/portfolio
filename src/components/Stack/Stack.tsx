@@ -3,6 +3,7 @@ import { TranslationContext } from "../../contexts/translationContext";
 import { completeSliderArray } from "../../utils/helpers";
 import { STACK, SOFT } from "../../utils/consts";
 import { StackProps, TranslationItem } from "../../utils/types";
+import Preloader from "../Preloader/Preloader";
 import Slider from "../Slider/Slider";
 import "./Stack.css";
 
@@ -99,33 +100,41 @@ function Stack(props: StackProps): ReactElement {
     <section className="Stack" ref={props.scrollRef}>
       <h2 className="Stack__title">{translation?.skills}:</h2>
       <h3 className="Stack__subtitle">{translation?.soft}:</h3>
-      <div className="Stack__container">
-        <Slider
-          unit="%"
-          limit={5}
-          shift={125}
-          interval={5000}
-          slides={softImagesSlides}
-          paused={softPaused}
-          setStyle={setSoftStyle}
-          setPaused={stopSoftAutoSlide}
-          resetPaused={restartSoftAutoSlide}
-        />
-      </div>
+      {props.images.stack ? (
+        <div className="Stack__container">
+          <Slider
+            unit="%"
+            limit={5}
+            shift={125}
+            interval={5000}
+            slides={softImagesSlides}
+            paused={softPaused}
+            setStyle={setSoftStyle}
+            setPaused={stopSoftAutoSlide}
+            resetPaused={restartSoftAutoSlide}
+          />
+        </div>
+      ) : (
+        <Preloader />
+      )}
       <h3 className="Stack__subtitle">{translation?.stack}:</h3>
-      <div className="Stack__container">
-        <Slider
-          unit="%"
-          limit={5}
-          shift={125}
-          interval={2500}
-          slides={stackImagesSlides}
-          paused={stackPaused}
-          setStyle={setStackStyle}
-          setPaused={stopStackAutoSlide}
-          resetPaused={restartStackAutoSlide}
-        />
-      </div>
+      {props.images.soft ? (
+        <div className="Stack__container">
+          <Slider
+            unit="%"
+            limit={5}
+            shift={125}
+            interval={2500}
+            slides={stackImagesSlides}
+            paused={stackPaused}
+            setStyle={setStackStyle}
+            setPaused={stopStackAutoSlide}
+            resetPaused={restartStackAutoSlide}
+          />
+        </div>
+      ) : (
+        <Preloader />
+      )}
     </section>
   );
 }

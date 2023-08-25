@@ -11,6 +11,7 @@ import {
 import Slider from "../Slider/Slider";
 import Sprite from "../Sprite/Sprite";
 import RunnerText from "../RunnerText/RunnerText";
+import Preloader from "../Preloader/Preloader";
 import reload from "../../images/icons/reload.svg";
 import fullscreen from "../../images/icons/fullscreen.svg";
 import fullscreenClose from "../../images/icons/fullscreen_exit.svg";
@@ -77,7 +78,7 @@ function Gallery(props: GalleryProps): ReactElement {
       setStyles(temporaryArray);
     }
 
-    return (
+    return props.images.gallery ? (
       <div
         className="Gallery__slider"
         key={`gallery-${index}`}
@@ -107,6 +108,8 @@ function Gallery(props: GalleryProps): ReactElement {
           />
         </div>
       </div>
+    ) : (
+      <Preloader />
     );
   });
 

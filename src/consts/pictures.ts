@@ -1,4 +1,7 @@
 import avatar from "../images/avatar.jpg";
+import mobileFramePreviewRu from "../images/mobileFramePreview/yandex.jpg";
+import mobileFramePreviewEpam from "../images/mobileFramePreview/epam.jpg";
+import mobileFramePreviewEn from "../images/mobileFramePreview/yaEn.jpg";
 import project0 from "../images/projects/project-0.jpg";
 import project1 from "../images/projects/project-1.jpg";
 import project2 from "../images/projects/project-2.jpg";
@@ -192,6 +195,7 @@ import angular from "../images/stack/angular.svg";
 export const PIC_ARRAY = {
   avatar: [avatar],
   avatarAnimation: [matrix, blueNoise, cinema, glitch],
+  mobileFramePreview: [mobileFramePreviewRu, mobileFramePreviewEpam, mobileFramePreviewEn],
   fingers: [
     handRight,
     handLeft,

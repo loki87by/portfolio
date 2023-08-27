@@ -30,12 +30,17 @@
 
 .Contacts__subsubtitle {
   margin: 1vw;
+  display: flex;
+  align-items: baseline;
   font-size: var(--fs3);
   line-height: 1.1;
   color: var(--second-color);
 }
 
 .Contacts__text {
+  height: max-content;
+  display: flex;
+  align-items: center;
   font-size: var(--fs4);
   line-height: 1.1;
   color: var(--main-color);

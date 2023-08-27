@@ -146,6 +146,11 @@ export const translations: Translations = {
       "Show certificate of completion of the Web Development Training Course",
     showWorks: "Show projects",
     hideWorks: "Hide projects",
+    map: 'View on the map',
+    call: 'call me',
+    telegram: 'Write to me on telegram',
+    email: 'Write to email',
+    github: 'My github page'
   },
   ru: {
     welcome: "Добро пожаловать",
@@ -290,5 +295,10 @@ export const translations: Translations = {
       "Показать сертификат о прохождении обучения по программе «Веб-разработчик»",
     showWorks: "Показать проекты",
     hideWorks: "Скрыть проекты",
+    map: 'Посмотреть на карте',
+    call: 'Позвонить мне',
+    telegram: 'Написать мне в telegram',
+    email: 'Написать на email',
+    github: 'Мой github'
   },
 };

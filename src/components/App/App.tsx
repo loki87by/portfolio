@@ -196,6 +196,7 @@ function App(): ReactElement {
             scrollRef={openedSection === "docs" ? scrollRef : null}
             screenWidth={screenWidth}
             lang={lang}
+            images={images}
             isMobile={mobileRef.current}
           />
         ) : (

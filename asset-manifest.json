@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.82c3aa62.chunk.css",
-    "main.js": "/portfolio/static/js/main.e5f8ce50.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.e5f8ce50.chunk.js.map",
+    "main.css": "/portfolio/static/css/main.82a1bcb0.chunk.css",
+    "main.js": "/portfolio/static/js/main.298798c1.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.298798c1.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.5ad5002f.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.5ad5002f.js.map",
     "static/js/2.d5ea6e2e.chunk.js": "/portfolio/static/js/2.d5ea6e2e.chunk.js",
     "static/js/2.d5ea6e2e.chunk.js.map": "/portfolio/static/js/2.d5ea6e2e.chunk.js.map",
     "index.html": "/portfolio/index.html",
-    "static/css/main.82c3aa62.chunk.css.map": "/portfolio/static/css/main.82c3aa62.chunk.css.map",
+    "static/css/main.82a1bcb0.chunk.css.map": "/portfolio/static/css/main.82a1bcb0.chunk.css.map",
     "static/js/2.d5ea6e2e.chunk.js.LICENSE.txt": "/portfolio/static/js/2.d5ea6e2e.chunk.js.LICENSE.txt",
     "static/media/0.043c4efd.jpg": "/portfolio/static/media/0.043c4efd.jpg",
     "static/media/01.9d265fd7.jpg": "/portfolio/static/media/01.9d265fd7.jpg",
@@ -85,6 +85,7 @@
     "static/media/django.fbc67114.svg": "/portfolio/static/media/django.fbc67114.svg",
     "static/media/docs.02bdc1ca.svg": "/portfolio/static/media/docs.02bdc1ca.svg",
     "static/media/ds8jpv3n.17e52830.pdf": "/portfolio/static/media/ds8jpv3n.17e52830.pdf",
+    "static/media/email.88a86cfd.svg": "/portfolio/static/media/email.88a86cfd.svg",
     "static/media/epam.f2502c97.jpg": "/portfolio/static/media/epam.f2502c97.jpg",
     "static/media/figma.ad871afd.svg": "/portfolio/static/media/figma.ad871afd.svg",
     "static/media/fullscreen.cbe322ef.svg": "/portfolio/static/media/fullscreen.cbe322ef.svg",
@@ -92,6 +93,7 @@
     "static/media/gallery.c9682580.svg": "/portfolio/static/media/gallery.c9682580.svg",
     "static/media/games.8399bb0f.svg": "/portfolio/static/media/games.8399bb0f.svg",
     "static/media/git.77ad6280.svg": "/portfolio/static/media/git.77ad6280.svg",
+    "static/media/github.e5119c06.svg": "/portfolio/static/media/github.e5119c06.svg",
     "static/media/glitch.cd6782ec.gif": "/portfolio/static/media/glitch.cd6782ec.gif",
     "static/media/hand.613e28b3.png": "/portfolio/static/media/hand.613e28b3.png",
     "static/media/hand.e786edb9.png": "/portfolio/static/media/hand.e786edb9.png",
@@ -99,10 +101,12 @@
     "static/media/javascript.a2afc433.svg": "/portfolio/static/media/javascript.a2afc433.svg",
     "static/media/logo.376840dd.svg": "/portfolio/static/media/logo.376840dd.svg",
     "static/media/logoEng.e978bfb4.svg": "/portfolio/static/media/logoEng.e978bfb4.svg",
+    "static/media/map.5fce1b33.svg": "/portfolio/static/media/map.5fce1b33.svg",
     "static/media/markdown.a82af906.svg": "/portfolio/static/media/markdown.a82af906.svg",
     "static/media/matrix-code-animation-gif-free-animated-background.bcc52dbe.gif": "/portfolio/static/media/matrix-code-animation-gif-free-animated-background.bcc52dbe.gif",
     "static/media/mongodb.3a7fd898.svg": "/portfolio/static/media/mongodb.3a7fd898.svg",
     "static/media/nodejs.6a06bb8f.svg": "/portfolio/static/media/nodejs.6a06bb8f.svg",
+    "static/media/phone.1c6a128f.svg": "/portfolio/static/media/phone.1c6a128f.svg",
     "static/media/photoshop.f5d73c45.svg": "/portfolio/static/media/photoshop.f5d73c45.svg",
     "static/media/pinky.36b9a8b6.png": "/portfolio/static/media/pinky.36b9a8b6.png",
     "static/media/pinky.50f17b0d.png": "/portfolio/static/media/pinky.50f17b0d.png",
@@ -214,6 +218,7 @@
     "static/media/sql.aa0da36b.svg": "/portfolio/static/media/sql.aa0da36b.svg",
     "static/media/stack.fcb180f6.svg": "/portfolio/static/media/stack.fcb180f6.svg",
     "static/media/svg.ace4d909.svg": "/portfolio/static/media/svg.ace4d909.svg",
+    "static/media/telegram.7c5a8302.svg": "/portfolio/static/media/telegram.7c5a8302.svg",
     "static/media/triangle.23a270a1.svg": "/portfolio/static/media/triangle.23a270a1.svg",
     "static/media/typescript.ad045e86.svg": "/portfolio/static/media/typescript.ad045e86.svg",
     "static/media/undo.5a4898a9.svg": "/portfolio/static/media/undo.5a4898a9.svg",
@@ -230,7 +235,7 @@
   "entrypoints": [
     "static/js/runtime-main.5ad5002f.js",
     "static/js/2.d5ea6e2e.chunk.js",
-    "static/css/main.82c3aa62.chunk.css",
-    "static/js/main.e5f8ce50.chunk.js"
+    "static/css/main.82a1bcb0.chunk.css",
+    "static/js/main.298798c1.chunk.js"
   ]
 }

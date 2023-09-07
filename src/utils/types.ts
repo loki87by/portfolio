@@ -157,11 +157,21 @@ export interface SliderProps {
 }
 
 export interface RunnerTextProps {
+  reverse?: boolean;
+  reversedWorks?: boolean;
+  reseted?: boolean;
+  reversedFull?: boolean;
+  slidePos?: number | null;
+  num?: number;
+  index?: number;
+  shift?: number;
+  right?: boolean;
+  left?: boolean;
+  delay: number;
+  isSlider: boolean;
   data: string;
-  slidePos: number | null;
-  num: number;
-  shift: number;
   isMobile: boolean;
+  reset?: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface WorksProps extends BasicProps {

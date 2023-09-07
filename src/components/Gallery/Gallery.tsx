@@ -92,11 +92,13 @@ function Gallery(props: GalleryProps): ReactElement {
           }
         >
           <RunnerText
+            isSlider={true}
             data={(titles as string[])[index]}
             slidePos={slidePos}
             num={index}
             shift={width}
             isMobile={props.isMobile}
+            delay={650}
           />
           <img
             src={(item as HTMLImageElement).src}

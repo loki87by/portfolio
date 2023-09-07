@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useContext, ReactElement } from "react";
 import { TranslationContext } from "../../contexts/translationContext";
-import { ResumeProps, FakeImageObject } from "../../utils/types";
+import {
+  ResumeProps,
+  FakeImageObject,
+  TranslationItem,
+} from "../../utils/types";
 import Sprite from "../Sprite/Sprite";
 import bio from "../../images/icons/bio.svg";
 import games from "../../images/icons/games.svg";
@@ -15,6 +19,7 @@ import social from "../../images/icons/social.svg";
 import works from "../../images/icons/works.svg";
 import undo from "../../images/icons/undo.svg";
 import "./Resume.css";
+import RunnerText from "../RunnerText/RunnerText";
 
 function Resume(props: ResumeProps): ReactElement {
   const [avatar, setAvatar] = useState<HTMLImageElement | FakeImageObject>({
@@ -29,6 +34,7 @@ function Resume(props: ResumeProps): ReactElement {
     { src: undefined },
   ]);
   const [mouseOver, setMouseOver] = useState(false);
+  const [runnerTextreseted, setRunnerTextreseted] = useState(false);
   const [effectAva, setEffectAva] = useState<string | undefined>(undefined);
 
   const translation = useContext(TranslationContext);
@@ -87,10 +93,28 @@ function Resume(props: ResumeProps): ReactElement {
         className={`Resume__button Resume__button_top_first
       ${props.openedWorks && "Resume__button_top_first_work"}`}
       >
+        <RunnerText
+          isSlider={false}
+          left={true}
+          data={
+            !props.openedWorks
+              ? (translation as unknown as TranslationItem).bio
+              : (translation as unknown as TranslationItem).games
+          }
+          isMobile={props.isMobile}
+          delay={3600}
+          reversedFull={!props.isMobile && props.openedWorks}
+          reverse={props.isMobile}
+          reversedWorks={props.isMobile && props.openedWorks}
+          reseted={runnerTextreseted}
+          reset={setRunnerTextreseted}
+          index={!props.openedWorks ? 0 : 5}
+        />
         <Sprite
           src={!props.openedWorks ? bio : games}
           click={() => {
             !props.openedWorks ? openSection("bio") : openSection("games");
+            setRunnerTextreseted(true);
           }}
           id={!props.openedWorks ? "bio" : "games"}
           width="5vmin"
@@ -103,12 +127,30 @@ function Resume(props: ResumeProps): ReactElement {
           props.openedWorks && "Resume__button_top_second_work"
         }`}
       >
+        <RunnerText
+          isSlider={false}
+          left={true}
+          data={
+            !props.openedWorks
+              ? (translation as unknown as TranslationItem).contacts
+              : (translation as unknown as TranslationItem).server
+          }
+          isMobile={props.isMobile}
+          delay={3600}
+          reversedFull={!props.isMobile && props.openedWorks}
+          reverse={props.isMobile}
+          reversedWorks={props.isMobile && props.openedWorks}
+          reseted={runnerTextreseted}
+          reset={setRunnerTextreseted}
+          index={!props.openedWorks ? 0 : 5}
+        />
         <Sprite
           src={!props.openedWorks ? contacts : servers}
           click={() => {
             !props.openedWorks
               ? openSection("contacts")
               : openSection("servers");
+            setRunnerTextreseted(true);
           }}
           id={!props.openedWorks ? "contacts" : "servers"}
           width="5vmin"
@@ -123,10 +165,28 @@ function Resume(props: ResumeProps): ReactElement {
           props.openedWorks && "Resume__button_top_third_work"
         }`}
       >
+        <RunnerText
+          isSlider={false}
+          right={true}
+          data={
+            !props.openedWorks
+              ? (translation as unknown as TranslationItem).docs
+              : (translation as unknown as TranslationItem).landing
+          }
+          isMobile={props.isMobile}
+          delay={3600}
+          reversedFull={!props.isMobile && props.openedWorks}
+          reverse={props.isMobile}
+          reversedWorks={props.isMobile && props.openedWorks}
+          reseted={runnerTextreseted}
+          reset={setRunnerTextreseted}
+          index={!props.openedWorks ? 1 : props.lang === "ru" ? 6 : 10}
+        />
         <Sprite
           src={!props.openedWorks ? docs : sites}
           click={() => {
             !props.openedWorks ? openSection("docs") : openSection("sites");
+            setRunnerTextreseted(true);
           }}
           id={!props.openedWorks ? "docs" : "sites"}
           width="5vmin"
@@ -143,12 +203,30 @@ function Resume(props: ResumeProps): ReactElement {
         className={`Resume__button Resume__button_bottom_first
       ${props.openedWorks && "Resume__button_bottom_first_work"}`}
       >
+        <RunnerText
+          isSlider={false}
+          right={true}
+          data={
+            !props.openedWorks
+              ? (translation as unknown as TranslationItem).gallery
+              : (translation as unknown as TranslationItem).webService
+          }
+          isMobile={props.isMobile}
+          delay={3600}
+          reversedFull={!props.isMobile && props.openedWorks}
+          reverse={props.isMobile}
+          reversedWorks={props.isMobile && props.openedWorks}
+          reseted={runnerTextreseted}
+          reset={setRunnerTextreseted}
+          index={!props.openedWorks ? 2 : 7}
+        />
         <Sprite
           src={!props.openedWorks ? gallery : servises}
           click={() => {
             !props.openedWorks
               ? openSection("gallery")
               : openSection("servises");
+            setRunnerTextreseted(true);
           }}
           id={!props.openedWorks ? "gallery" : "servises"}
           width="5vmin"
@@ -162,10 +240,28 @@ function Resume(props: ResumeProps): ReactElement {
         className={`Resume__button Resume__button_bottom_second
       ${props.openedWorks && "Resume__button_bottom_second_work"}`}
       >
+        <RunnerText
+          isSlider={false}
+          right={true}
+          data={
+            !props.openedWorks
+              ? (translation as unknown as TranslationItem).stack
+              : (translation as unknown as TranslationItem).social
+          }
+          isMobile={props.isMobile}
+          delay={3600}
+          reversedFull={!props.isMobile && props.openedWorks}
+          reverse={props.isMobile}
+          reversedWorks={props.isMobile && props.openedWorks}
+          reseted={runnerTextreseted}
+          reset={setRunnerTextreseted}
+          index={!props.openedWorks ? 3 : 8}
+        />
         <Sprite
           src={!props.openedWorks ? stack : social}
           click={() => {
             !props.openedWorks ? openSection("stack") : openSection("social");
+            setRunnerTextreseted(true);
           }}
           id={!props.openedWorks ? "stack" : "social"}
           width="5vmin"
@@ -177,6 +273,23 @@ function Resume(props: ResumeProps): ReactElement {
         className={`Resume__button Resume__button_bottom_third
       ${props.openedWorks && "Resume__button_bottom_third_work"}`}
       >
+        <RunnerText
+          isSlider={false}
+          left={true}
+          data={
+            !props.openedWorks
+              ? (translation as unknown as TranslationItem).works
+              : (translation as unknown as TranslationItem).undo
+          }
+          isMobile={props.isMobile}
+          delay={3600}
+          reversedFull={!props.isMobile && props.openedWorks}
+          reverse={props.isMobile}
+          reversedWorks={props.isMobile && props.openedWorks}
+          reseted={runnerTextreseted}
+          reset={setRunnerTextreseted}
+          index={!props.openedWorks ? 4 : 9}
+        />
         <Sprite
           src={!props.openedWorks ? works : undo}
           click={
@@ -184,10 +297,12 @@ function Resume(props: ResumeProps): ReactElement {
               ? () => {
                   openSection("works");
                   props.setOpenedWorks(true);
+                  setRunnerTextreseted(true);
                 }
               : () => {
                   openSection("");
                   props.setOpenedWorks(false);
+                  setRunnerTextreseted(true);
                 }
           }
           id={!props.openedWorks ? "works" : "undo"}

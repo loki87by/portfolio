@@ -16,7 +16,7 @@
 
 .Resume__button {
   position: absolute;
-  z-index: 4;
+  z-index: 5;
   width: 10vmin;
   height: 10vmin;
   border-radius: 50%;

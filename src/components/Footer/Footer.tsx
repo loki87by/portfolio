@@ -8,7 +8,7 @@ function Footer(): ReactElement {
   return (
     <footer className="Footer">
       <a href="https://github.com/loki87by" className="Footer__link">
-        &copy;&nbsp;
+        &copy;{" "}
       </a>
       <p>2020 {translation?.author}</p>
     </footer>

@@ -1,7 +1,6 @@
 .Footer {
   height: 5vmax;
   padding: 1vw;
-  margin: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   display: -webkit-box;
@@ -9,8 +8,6 @@
   display: flex;
   background-color: var(--back-color);
   color: var(--main-color);
-  font-size: var(--fs4);
-  line-height: 1;
 }
 
 .Footer__link {

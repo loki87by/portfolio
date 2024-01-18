@@ -1,4 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+
+
+
+
+//TODO: update slider by sbg configuration -> this updates fix edge slide bugs
+// data setted(checked: "!new"), need update that to typescript
+
+
+
+
 import React, { useState, useEffect, ReactElement } from "react";
 import { SliderProps } from "../../utils/types";
 import arrow from "../../images/icons/arrow.svg";
@@ -7,14 +17,23 @@ import "./Slider.css";
 function Slider(props: SliderProps): ReactElement {
   const [position, setPosition] = useState(props.limit);
   const [direction, setDirection] = useState(0);
+  //!new
+  //const [handShifting, setHandShifting] = useState(false);
+  //!new
 
   function toLeft() {
     props.resetPaused();
+  //!new
+  //setHandShifting(true);
+  //!new
     autoLeft();
   }
 
   function toRight() {
     props.resetPaused();
+  //!new
+  //setHandShifting(true);
+  //!new
     autoRight();
   }
 
@@ -71,6 +90,8 @@ function Slider(props: SliderProps): ReactElement {
         const shiftingPosition =
           position - (props.slides.length - props.limit * 2);
         const timer = setTimeout(() => {
+          
+  //!new replace next:
           setPosition(shiftingPosition);
 
           for (let i = 0; i < props.slides.length; i++) {
@@ -81,47 +102,114 @@ function Slider(props: SliderProps): ReactElement {
               })`,
             });
           }
-        }, 10);
+  //!new
+  //to this:
+   /*     const style = props.style.slice();
+
+        for (let i = 0; i < props.slides.length; i++) {
+          style[i] = {
+            transition: "none",
+            transform: `translateX(-${props.shift * shiftingPosition}${
+              props.unit
+            })`,
+          };
+        }
+        props.setStyle(style);
+        setPosition(shiftingPosition);
+        setHandShifting(false); */
+  //!new
+        }, 10 /* !new replace to: props.interval / (2 * handShifting ? 5 : 1)*/);
 
         return () => {
           clearTimeout(timer);
+  //!new
+  //const style = props.style.slice();
+  //!new
 
           for (let i = 0; i < props.slides.length; i++) {
+            //!new replace next:
             props.setStyle({
               transform: `translateX(-${props.shift * shiftingPosition}${
                 props.unit
               })`,
             });
           }
+  //!new
+            //to this:
+  /*style[i] = {
+            transform: `translateX(-${props.shift * position}${props.unit})`,
+          }; */
+  //!new
         };
+  //!new
+            //to this:
+  //props.setStyle(style);
+  //!new
       }
     }
 
     if (position <= props.limit - 1 && direction === 1) {
       const shiftingPosition = props.slides.length - props.limit * 2 + position;
       const timer = setTimeout(() => {
+        //!new remove next:
         setPosition(shiftingPosition);
+        //!new
+        //!new
+        //const style = props.style.slice();
+        //!new
 
         for (let i = 0; i < props.slides.length; i++) {
+        //!new
+        //replace next:
           props.setStyle({
             transition: "none",
             transform: `translateX(-${props.shift * shiftingPosition}${
               props.unit
             })`,
           });
+        //!new
+        //to this:
+         /* style[i] = {
+            transition: "none",
+            transform: `translateX(-${props.shift * shiftingPosition}${
+              props.unit
+            })`,
+          }; */
+        //!new
         }
-      }, 10);
+        //!new
+        /* props.setStyle(style);
+        setPosition(shiftingPosition);
+        setHandShifting(false); */
+        //!new
+      }, 10/* !new replace to: props.interval / (2 * handShifting ? 5 : 1)*/);
 
       return () => {
         clearTimeout(timer);
+        //!new
+        //const style = props.style.slice();
+        //!new
 
         for (let i = 0; i < props.slides.length; i++) {
+        //!new
+        //replace next:
           props.setStyle({
             transform: `translateX(-${props.shift * shiftingPosition}${
               props.unit
             })`,
           });
+        //!new
+        //to this:
+         /* style[i] = {
+            transform: `translateX(-${props.shift * shiftingPosition}${
+              props.unit
+            })`,
+          }; */
+        //!new
         }
+        //!new
+        // props.setStyle(style); 
+        //!new
       };
     }
 
@@ -132,11 +220,23 @@ function Slider(props: SliderProps): ReactElement {
         } else {
           autoLeft();
         }
-      }, props.interval);
+        
+        //!new
+        // setHandShifting(false);
+        //!new
+      }, /*!new add next: (direction === 0 && position === 0) ||
+          (direction === 1 &&
+            position === props.slides.length - props.limit * 2)
+          ? props.interval / 2
+          : */ props.interval);
 
       return () => clearTimeout(timer);
     }
-  }, [position, direction, props.paused]);
+  }, [position, direction, props.paused /*!new add next: ,
+    props.limit,
+    props.interval,
+    autoRight,
+    autoLeft */]);
 
   return (
     <>
